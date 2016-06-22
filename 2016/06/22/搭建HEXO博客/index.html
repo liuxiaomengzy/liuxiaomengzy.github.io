@@ -29,7 +29,7 @@
 安装Xcode就有git，输入”git –version”当出现git的数字即为已经装好。
 
 第">
-<meta property="og:updated_time" content="2016-06-22T13:22:56.000Z">
+<meta property="og:updated_time" content="2016-06-22T13:33:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建HEXO博客">
 <meta name="twitter:description" content="HEXO博客的搭建本文主要针对Mac电脑。第一步：安装node.JS
@@ -149,10 +149,8 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
 <h2 id="第五步：发布博客"><a href="#第五步：发布博客" class="headerlink" title="第五步：发布博客"></a>第五步：发布博客</h2><ol>
 <li>在本地创建的hexo文件找到”config.yml”在Sublime Text中打开，找到”#Site”,可以在里面更改你认为需要更改的。代码如下<pre># Site<br>title:<br>subtitle:<br>description:<br>author:<br>language: zh-CN<br>timezone:</pre></li>
 <li>下拉至最后，找到”deploy”在”type:”中输入” git”(注意空格)</li>
-<li>在新创建的博客域名仓库找到”Clone or download”点击选择”Use HTTPS”复制<a href="https://地址，在type下回车另起一行输入&quot;repo:&quot;，然后空格+域名仓库的https地址，保存即可" target="_blank" rel="external">https://地址，在type下回车另起一行输入&quot;repo:&quot;，然后空格+域名仓库的https地址，保存即可</a><pre>     deploy:<br>   type: git<br>   repo: <a href="https://github.com/liuxiaomengzy/liuxiaomengzy.github.io.gitio.git" target="_blank" rel="external">https://github.com/liuxiaomengzy/liuxiaomengzy.github.io.gitio.git</a>       </pre><ol>
+<li>在新创建的博客域名仓库找到”Clone or download”点击选择”Use HTTPS”复制<a href="https://地址，在type下回车另起一行输入&quot;repo:&quot;，然后空格+域名仓库的https地址，保存即可" target="_blank" rel="external">https://地址，在type下回车另起一行输入&quot;repo:&quot;，然后空格+域名仓库的https地址，保存即可</a><pre>deploy:<br>type: git<br>repo: <a href="https://github.com/liuxiaomengzy/liuxiaomengzy.github.io.git" target="_blank" rel="external">https://github.com/liuxiaomengzy/liuxiaomengzy.github.io.git</a></pre></li>
 <li>然后在终端中输入”npm install hexo-deployer-git –save”等待其流程运行完成出现如下代码即可<pre>[fsevents] Success: “/Users/lanou/Desktop/blog/node_modules/hexo-deployer-git/node_modules/hexo-fs/node_modules/chokidar/node_modules/fsevents/lib/binding/Release/node-v46-darwin-x64/fse.node” is installed via remote<br>hexo-deployer-git@0.2.0 node_modules/hexo-deployer-git<br>├── moment@2.13.0<br>├── chalk@1.1.3 (escape-string-regexp@1.0.5, supports-color@2.0.0, ansi-styles@2.2.1, strip-ansi@3.0.1, has-ansi@2.0.0)<br>├── hexo-util@0.6.0 (striptags@2.1.1, html-entities@1.2.0, bluebird@3.4.1, highlight.js@9.4.0, cross-spawn@4.0.0, camel-case@3.0.0)<br>├── hexo-fs@0.1.6 (escape-string-regexp@1.0.5, graceful-fs@4.1.4, bluebird@3.4.1, chokidar@1.5.2)<br>└── swig@1.4.2 (optimist@0.6.1, uglify-js@2.4.24)</pre></li>
-</ol>
-</li>
 <li>输入”hexo g”是md文件转换为html文件，完成后即可输入”hexo d”发布上传到github。</li>
 <li>新文件创建方法：输入”hexo new XXX(新的文本文件)”，编辑完成后输入”hexo server”本地运行ok后，输入”hexo g”是md文件转换为html文件，完成后即可输入”hexo d”发布上传到github了。</li>
 </ol>
@@ -160,7 +158,7 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/22/搭建HEXO博客/" data-id="cipqwyb2a0001g7r3bgld0mfx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/22/搭建HEXO博客/" data-id="cipqx7vp60001gtr3ps2i7m0o" class="article-share-link">Share</a>
       
       
     </footer>
