@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>CSS单位 | 紫--小梦</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本文主要介绍几种长度单位pxpx指像素，是相对于显示器的屏幕分辨率而言，较为固定，即
+
+    p{font-size=20px}
+
+
+
+emem也称倍数，是相对单位，是相对于父级的字号来设置的，浏览器默认1em=16px；或者当父级有设置font-size时，继承父级的font-size再对em的单位相乘。
+
+    div style=&quot;font-size:15px;&quot;&quot;
+        sp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS单位">
+<meta property="og:url" content="http://yoursite.com/2016/06/23/CSS单位/index.html">
+<meta property="og:site_name" content="紫--小梦">
+<meta property="og:description" content="本文主要介绍几种长度单位pxpx指像素，是相对于显示器的屏幕分辨率而言，较为固定，即
+
+    p{font-size=20px}
+
+
+
+emem也称倍数，是相对单位，是相对于父级的字号来设置的，浏览器默认1em=16px；或者当父级有设置font-size时，继承父级的font-size再对em的单位相乘。
+
+    div style=&quot;font-size:15px;&quot;&quot;
+        sp">
+<meta property="og:updated_time" content="2016-06-23T11:08:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS单位">
+<meta name="twitter:description" content="本文主要介绍几种长度单位pxpx指像素，是相对于显示器的屏幕分辨率而言，较为固定，即
+
+    p{font-size=20px}
+
+
+
+emem也称倍数，是相对单位，是相对于父级的字号来设置的，浏览器默认1em=16px；或者当父级有设置font-size时，继承父级的font-size再对em的单位相乘。
+
+    div style=&quot;font-size:15px;&quot;&quot;
+        sp">
+  
+    <link rel="alternate" href="/atom.xml" title="紫--小梦" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">紫--小梦</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">心怀梦想，志在远方。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-CSS单位" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/23/CSS单位/" class="article-date">
+  <time datetime="2016-06-23T06:08:36.000Z" itemprop="datePublished">2016-06-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CSS单位
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="本文主要介绍几种长度单位"><a href="#本文主要介绍几种长度单位" class="headerlink" title="本文主要介绍几种长度单位"></a>本文主要介绍几种长度单位</h2><h3 id="px"><a href="#px" class="headerlink" title="px"></a>px</h3><p>px指像素，是相对于显示器的屏幕分辨率而言，较为固定，即</p>
+<pre>
+    p{font-size=20px}
+</pre>
+
+
+<h3 id="em"><a href="#em" class="headerlink" title="em"></a>em</h3><p>em也称倍数，是相对单位，是相对于父级的字号来设置的，浏览器默认<strong>1em=16px</strong>；或者当父级有设置font-size时，继承父级的font-size再对em的单位相乘。</p>
+<pre>
+    div style="font-size:15px;""
+        span style="font-size:2em" /span
+    /div
+</pre>
+
+<p>如上，即span的font-size为2em=30px。</p>
+<h3 id="rem"><a href="#rem" class="headerlink" title="rem"></a>rem</h3><p><strong>rem=root em</strong>即根元素的font-size，也就是对整个html文档来说相对于<code>&lt;html&gt;</code>为元素设定字体大小，仍然是相对单位，只不过<code>仅相对于&lt;html&gt;</code>元素，而不会受到父级的影响。</p>
+<p><code>&lt;html&gt;默认设置最小字体为12px，当&lt;12px时，浏览器默认为12px</code></p>
+<h3 id="max-width"><a href="#max-width" class="headerlink" title="max-width"></a>max-width</h3><p>max-width设置元素的最大宽度</p>
+<h3 id="max-height"><a href="#max-height" class="headerlink" title="max-height"></a>max-height</h3><p>max-height设置元素的最大高度</p>
+<h3 id="min-width"><a href="#min-width" class="headerlink" title="min-width"></a>min-width</h3><p>min-width设置元素的最小宽度</p>
+<h3 id="min-height"><a href="#min-height" class="headerlink" title="min-height"></a>min-height</h3><p>min-height设置元素的最小宽度</p>
+<h3 id="vw"><a href="#vw" class="headerlink" title="vw"></a>vw</h3><p>vw主要是指视窗宽度，1vw=1/100视窗宽度</p>
+<h3 id="vh"><a href="#vh" class="headerlink" title="vh"></a>vh</h3><p>vh主要是指视窗高度，1vh=1/100视窗高度</p>
+<h3 id=""><a href="#" class="headerlink" title="%"></a>%</h3><p>%即指百分比，以百分比为单位的长度值是继承其父级元素的长度值。</p>
+<pre>
+ body{
+     width:1000px;
+ }
+ 其子元素
+ p{
+     width:50%;
+ }
+ 即子元素p的font-size=1000*50%=500px
+</pre>
+
+<p><strong><em><code>max-width，max-height，min-width，min-height,%，vh，vw主要用来做html文件对浏览器窗口的自适应</code></em></strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/06/23/CSS单位/" data-id="cips7i7yx000071r3bqtlgnza" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/06/22/HTML-CSS/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">HTML+CSS</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/06/23/CSS单位/">CSS单位</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/22/HTML-CSS/">HTML+CSS</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/22/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/22/搭建HEXO博客/">搭建HEXO博客</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 刘晓萌<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

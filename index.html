@@ -68,6 +68,130 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-CSS单位" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/23/CSS单位/" class="article-date">
+  <time datetime="2016-06-23T06:08:36.000Z" itemprop="datePublished">2016-06-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/23/CSS单位/">CSS单位</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="本文主要介绍几种长度单位"><a href="#本文主要介绍几种长度单位" class="headerlink" title="本文主要介绍几种长度单位"></a>本文主要介绍几种长度单位</h2><h3 id="px"><a href="#px" class="headerlink" title="px"></a>px</h3><p>px指像素，是相对于显示器的屏幕分辨率而言，较为固定，即</p>
+<pre>
+    p{font-size=20px}
+</pre>
+
+
+<h3 id="em"><a href="#em" class="headerlink" title="em"></a>em</h3><p>em也称倍数，是相对单位，是相对于父级的字号来设置的，浏览器默认<strong>1em=16px</strong>；或者当父级有设置font-size时，继承父级的font-size再对em的单位相乘。</p>
+<pre>
+    div style="font-size:15px;""
+        span style="font-size:2em" /span
+    /div
+</pre>
+
+<p>如上，即span的font-size为2em=30px。</p>
+<h3 id="rem"><a href="#rem" class="headerlink" title="rem"></a>rem</h3><p><strong>rem=root em</strong>即根元素的font-size，也就是对整个html文档来说相对于<code>&lt;html&gt;</code>为元素设定字体大小，仍然是相对单位，只不过<code>仅相对于&lt;html&gt;</code>元素，而不会受到父级的影响。</p>
+<p><code>&lt;html&gt;默认设置最小字体为12px，当&lt;12px时，浏览器默认为12px</code></p>
+<h3 id="max-width"><a href="#max-width" class="headerlink" title="max-width"></a>max-width</h3><p>max-width设置元素的最大宽度</p>
+<h3 id="max-height"><a href="#max-height" class="headerlink" title="max-height"></a>max-height</h3><p>max-height设置元素的最大高度</p>
+<h3 id="min-width"><a href="#min-width" class="headerlink" title="min-width"></a>min-width</h3><p>min-width设置元素的最小宽度</p>
+<h3 id="min-height"><a href="#min-height" class="headerlink" title="min-height"></a>min-height</h3><p>min-height设置元素的最小宽度</p>
+<h3 id="vw"><a href="#vw" class="headerlink" title="vw"></a>vw</h3><p>vw主要是指视窗宽度，1vw=1/100视窗宽度</p>
+<h3 id="vh"><a href="#vh" class="headerlink" title="vh"></a>vh</h3><p>vh主要是指视窗高度，1vh=1/100视窗高度</p>
+<h3 id=""><a href="#" class="headerlink" title="%"></a>%</h3><p>%即指百分比，以百分比为单位的长度值是继承其父级元素的长度值。</p>
+<pre>
+ body{
+     width:1000px;
+ }
+ 其子元素
+ p{
+     width:50%;
+ }
+ 即子元素p的font-size=1000*50%=500px
+</pre>
+
+<p><strong><em><code>max-width，max-height，min-width，min-height,%，vh，vw主要用来做html文件对浏览器窗口的自适应</code></em></strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/06/23/CSS单位/" data-id="cips7i7yx000071r3bqtlgnza" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-HTML-CSS" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/22/HTML-CSS/" class="article-date">
+  <time datetime="2016-06-22T13:54:40.000Z" itemprop="datePublished">2016-06-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/22/HTML-CSS/">HTML+CSS</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="HTML-超文本标记语言"><a href="#HTML-超文本标记语言" class="headerlink" title="HTML(超文本标记语言)"></a>HTML(超文本标记语言)</h2><h3 id="html规范"><a href="#html规范" class="headerlink" title="html规范"></a>html规范</h3><ol>
+<li>所有的标签都要正确的闭合</li>
+<li>大小写要同一，所有的属性都要小写（建议小写，html不区分大小写）</li>
+<li>注意缩进（关系结构要清晰）</li>
+<li>所有的文本内容都要用标签包裹起来</li>
+<li>同级标签，最好display相同</li>
+<li>养成注释的习惯</li>
+<li>命名要规范：不要数字开头；不要纯汉字；建议用字母开头，数字下划线中划线组合使用；命名要贴近语义</li>
+<li>组合标签要正确的嵌套<pre>ul li;ol li;dl dt dd;select option;table tbody tr th td</pre></li>
+</ol>
+<h3 id="创建html文件"><a href="#创建html文件" class="headerlink" title="创建html文件"></a>创建html文件</h3><ol>
+<li>版本声明doctype</li>
+<li>创建html标记</li>
+<li>html必须有head头部和body身体</li>
+<li>head有个必备标记叫title，文档标题</li>
+<li>支持中文要有meta charset=”utf-8” 使文档支持中文</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/06/22/HTML-CSS/" data-id="cips7i7z3000171r3tzo1cwuc" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/06/22/hello-world/" class="article-date">
@@ -103,7 +227,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/22/hello-world/" data-id="cipqx7vp00000gtr3esrp2i1p" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/22/hello-world/" data-id="cips7i7z6000271r33s7s3ib7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -177,7 +301,7 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/22/搭建HEXO博客/" data-id="cipqx7vp60001gtr3ps2i7m0o" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/22/搭建HEXO博客/" data-id="cips7i7z8000371r37073kwn0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -215,6 +339,14 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/06/23/CSS单位/">CSS单位</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/22/HTML-CSS/">HTML+CSS</a>
+          </li>
         
           <li>
             <a href="/2016/06/22/hello-world/">Hello World</a>
