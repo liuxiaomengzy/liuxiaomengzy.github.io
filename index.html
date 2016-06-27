@@ -68,6 +68,89 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-HTML5短语句" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/27/HTML5短语句/" class="article-date">
+  <time datetime="2016-06-27T13:47:19.000Z" itemprop="datePublished">2016-06-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/27/HTML5短语句/">HTML5短语句</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="HTML5短语句主要包含以下标签"><a href="#HTML5短语句主要包含以下标签" class="headerlink" title="HTML5短语句主要包含以下标签"></a>HTML5短语句主要包含以下标签</h2><h3 id="mark标签"><a href="#mark标签" class="headerlink" title="mark标签"></a>mark标签</h3><p><code>&lt;mark&gt;&lt;/mark&gt;</code>标签定义带有记号的文本，高亮文本。常用于搜索中。</p>
+<pre>
+    <p>我是一段文字<mark>我是一段文字</mark>我是一段文字</p>
+</pre>
+
+<h3 id="meter标签"><a href="#meter标签" class="headerlink" title="meter标签"></a>meter标签</h3><p><code>&lt;meter&gt;&lt;/meter&gt;</code>标签定义度量衡，表示在一定范围内的值，例如投票占比、使用量等。其属性有：<code>min</code>最小值；<code>max</code>最大值；<code>value</code>实际度量的值。默认我0可以为整数或者浮点数。</p>
+<pre>
+    <meter min="0" max="100" value="50"></meter>
+</pre>
+
+<h3 id="progress标签"><a href="#progress标签" class="headerlink" title="progress标签"></a>progress标签</h3><p><code>&lt;progress&gt;&lt;/progress&gt;</code>标签定义进度。其属性有：<code>min</code>最小值；<code>max</code>最大值；<code>value</code>实际值。</p>
+<pre>
+    <progress min="0" max="100" value="50"></progress>
+</pre>
+
+<h3 id="time标签"><a href="#time标签" class="headerlink" title="time标签"></a>time标签</h3><p><code>&lt;time&gt;&lt;/time&gt;</code>标签定义时间和日期。<code>datetime=&quot;YYYY-MM-DDThh:mm:ssTZD&quot;</code></p>
+<pre>
+    &ltp&gt我每天都是&lttime&gt8:00&lt/time&gt起床。&lt/p&gt
+    &ltp&gt今天是&lttime datetime="2016-06-27T17:30Z"&gt2016-06-27&lt/time&gt。&lt/p&gt
+</pre>
+<pre>
+    <p>我每天都是<time>8:00</time>起床。</p>
+    <p>今天是<time datetime="2016-06-27T17:30Z">2016-06-27</time>。</p>
+</pre>
+
+<h3 id="wbr标签"><a href="#wbr标签" class="headerlink" title="wbr标签"></a>wbr标签</h3><p><code>&lt;wbr&gt;</code>标签规定在文本中的何处适合添加换行符。</p>
+<h3 id="abbr标签"><a href="#abbr标签" class="headerlink" title="abbr标签"></a>abbr标签</h3><p><code>&lt;abbr&gt;&lt;/abbr&gt;</code>标签指示简称或者缩写。</p>
+<pre>
+    &ltp&gtThe &ltabbr title="World Health Organization"&gtWHO&lt/abbr&gt was founded in 1948.&lt/p&gt
+</pre>
+<pre>
+    <p>The <abbr title="World Health Organization">WHO</abbr> was founded in 1948.</p>
+</pre>
+
+<h3 id="cite标签、blockquote标签与q标签"><a href="#cite标签、blockquote标签与q标签" class="headerlink" title="cite标签、blockquote标签与q标签"></a>cite标签、blockquote标签与q标签</h3><p><code>&lt;cite&gt;&lt;/cite&gt;</code> 标签通常表示它所包含的文本对某个参考文献的引用，比如书籍或者杂志的标题。引用的文本以斜体显示。</p>
+<p><code>&lt;blockquote&gt;&lt;/blockquote&gt;</code>标签定义块引用。其包含的所有文本都会从常规文本中分离出来，经常会在左、右两边进行缩进，拥有自己的空间。</p>
+<p><code>&lt;q&gt;&lt;/q&gt;</code>标签定义短的引用。其用于简短的行内引用。</p>
+<pre>
+    &ltcite&gt日照香炉生紫烟，遥看瀑布挂前川。飞流直下三千尺，疑是银河落九天。&lt/cite&gt
+    &ltblockquote&gt日照香炉生紫烟，遥看瀑布挂前川。飞流直下三千尺，疑是银河落九天。&lt/blockquote&gt
+    &ltq&gt日照香炉生紫烟，遥看瀑布挂前川。飞流直下三千尺，疑是银河落九天。&lt/q&gt
+</pre>
+
+<pre>
+    <cite>日照香炉生紫烟，遥看瀑布挂前川。飞流直下三千尺，疑是银河落九天。</cite>
+    <blockquote>日照香炉生紫烟，遥看瀑布挂前川。飞流直下三千尺，疑是银河落九天。</blockquote>
+    <q>日照香炉生紫烟，遥看瀑布挂前川。飞流直下三千尺，疑是银河落九天。</q>
+</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/06/27/HTML5短语句/" data-id="cipy4u0kf0003vmr3276hibpl" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-HTML5新增标签" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/06/27/HTML5新增标签/" class="article-date">
@@ -101,21 +184,37 @@
 <h3 id="summary标签"><a href="#summary标签" class="headerlink" title="summary标签"></a>summary标签</h3><p><code>&lt;summary&gt;&lt;/summary&gt;</code>标签定义细节标题，与<code>details</code>标签一同使用。</p>
 <p><strong><code>summary</code>元素应该是<code>details</code>的<code>第一个子元素</code></strong></p>
 <p><img src="https://raw.githubusercontent.com/liuxiaomengzy/liuxiaomengzy.github.io/master/images/details%E6%A0%87%E7%AD%BE%E8%AF%B4%E6%98%8E.png" alt="details标签说明"></p>
+<pre>
+    <details open="open">
+        <summary>标签1</summary>
+        <details>
+            <summary>标签2</summary>
+        </details>
+    </details>
+</pre>
+
 <h3 id="dialog标签"><a href="#dialog标签" class="headerlink" title="dialog标签"></a>dialog标签</h3><p><code>&lt;dialog&gt;&lt;/dialog&gt;</code>标签定义对话框，其默认属性为display:none，想让其出现应定义<code>open=&quot;open&quot;</code>属性。</p>
 <h3 id="figure和figcaption标签"><a href="#figure和figcaption标签" class="headerlink" title="figure和figcaption标签"></a>figure和figcaption标签</h3><p><code>&lt;figure&gt;&lt;/figure&gt;</code>标签定义图表内容。</p>
 <p><code>&lt;figcaption&gt;&lt;/figcaption&gt;</code>标签定义图表标题。</p>
 <p><strong><code>figcaption</code>元素应该是<code>figure</code>元素的第一个或最后一个子元素的位置</strong></p>
-<p><img src="https://raw.githubusercontent.com/liuxiaomengzy/liuxiaomengzy.github.io/master/images/figure%E5%9B%BE%E8%A7%A3.png" alt="figure图解"></p>
+<p><img src="https://raw.githubusercontent.com/liuxiaomengzy/liuxiaomengzy.github.io/master/images/figure%E6%A0%87%E7%AD%BE%E5%9B%BE%E8%A7%A3.png" alt="figure标签图解"></p>
+<pre>
+    <figure>
+            <img src="http://www.photophoto.cn/m73/018/072/0180720343.jpg" style="width:100%;" alt="">
+            <figcapition>可爱的小狗</figcapition>
+        </figure>
+</pre>
+
 <h3 id="menu标签"><a href="#menu标签" class="headerlink" title="menu标签"></a>menu标签</h3><p><code>&lt;menu&gt;&lt;/menu&gt;</code>标签定义菜单列表。</p>
 <h3 id="main标签"><a href="#main标签" class="headerlink" title="main标签"></a>main标签</h3><p><code>&lt;main&gt;&lt;/main&gt;</code>标签规定文档的主要内容。<code>&lt;main&gt;</code> 元素中的内容对于文档来说应当是唯一的。它不应包含在文档中重复出现的内容，比如侧栏、导航栏、版权信息、站点标志或搜索表单。</p>
 <h3 id="map标签"><a href="#map标签" class="headerlink" title="map标签"></a>map标签</h3><p><code>&lt;map&gt;&lt;/map&gt;</code>标签定义客户端图像映射。图像映射指带有可点击区域的一幅图像。主要结合JavaScript使用。</p>
 <h3 id="address标签"><a href="#address标签" class="headerlink" title="address标签"></a>address标签</h3><p><code>&lt;address&gt;&lt;/address&gt;</code>标签定义文档作者/所有者的联系信息。</p>
-<p><img src="" alt="address说明"></p>
+<p><img src="https://raw.githubusercontent.com/liuxiaomengzy/liuxiaomengzy.github.io/master/images/address%E6%A0%87%E7%AD%BE%E8%AF%B4%E6%98%8E.png" alt="address标签说明"></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/27/HTML5新增标签/" data-id="cipy2kmho0003gzr36qtxa7vr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/27/HTML5新增标签/" data-id="cipy4u0kj0006vmr3961eking" class="article-share-link">Share</a>
       
       
     </footer>
@@ -314,7 +413,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/25/CSS总结/" data-id="cipy2kmhi0001gzr3y0k58ghq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/25/CSS总结/" data-id="cipy4u0k90001vmr31mg905lg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -441,7 +540,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/24/meta标签/" data-id="cipy2kmhr0005gzr3t50d14qz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/24/meta标签/" data-id="cipy4u0ko0007vmr379cltbck" class="article-share-link">Share</a>
       
       
     </footer>
@@ -512,7 +611,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/23/CSS单位/" data-id="cipy2kmhd0000gzr3susrtyh9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/23/CSS单位/" data-id="cipy4u0k40000vmr3ra8x4si4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -682,7 +781,7 @@ action=""
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/22/HTML简述/" data-id="cipy2kmhs0006gzr3ym7o9lkl" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/22/HTML简述/" data-id="cipy4u0kh0005vmr3zikckvqd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -756,7 +855,7 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/22/HEXO博客的搭建/" data-id="cipy2kmhm0002gzr37xrohni3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/22/HEXO博客的搭建/" data-id="cipy4u0kc0002vmr3lf9ksrij" class="article-share-link">Share</a>
       
       
     </footer>
@@ -801,7 +900,7 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/22/hello-world/" data-id="cipy2kmhq0004gzr317wlu2vh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/22/hello-world/" data-id="cipy4u0kg0004vmr3vvjwuefj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -841,6 +940,10 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
       <ul>
         
           <li>
+            <a href="/2016/06/27/HTML5短语句/">HTML5短语句</a>
+          </li>
+        
+          <li>
             <a href="/2016/06/27/HTML5新增标签/">HTML5新增标签</a>
           </li>
         
@@ -854,10 +957,6 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
         
           <li>
             <a href="/2016/06/23/CSS单位/">CSS单位</a>
-          </li>
-        
-          <li>
-            <a href="/2016/06/22/HTML简述/">HTML简述</a>
           </li>
         
       </ul>
