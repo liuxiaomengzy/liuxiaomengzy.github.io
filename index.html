@@ -131,9 +131,10 @@
         &ltinput type="week" /&gt
         &ltinput type="time" /&gt
         &ltinput type="datetime-local" /&gt
-        &ltinput type="number" required autocomplete="" /&gt
+        &ltinput type="number" /&gt
         &ltinput type="range" /&gt
         &ltinput type="color" /&gt
+        &ltinput type="submit" required /&gt
     &lt/form>
 </pre>
 
@@ -149,9 +150,10 @@
         <input type="week">
         <input type="time">
         <input type="datetime-local">
-        <input type="number" required autocomplete="">
+        <input type="number">
         <input type="range">
         <input type="color">
+        <input type="submit" required autocomplete="on">
     </form>
 </pre>
 
@@ -159,13 +161,13 @@
 <p><code>&lt;label&gt;</code>标签的<code>for</code>属性应当与相关元素的<code>id</code>属性相同。</p>
 <pre>
     &ltlabel for="textinput"&gt账号：&lt/label&gt
-    &ltinput type="text" autofocus placeholder="请输入您的账号" id="textinput"/&gt
+    &ltinput type="text" placeholder="请输入您的账号" id="textinput"/&gt
     &ltbr/&gt
     &ltlabel for="pas"&gt密码：&lt/label&gt
     &ltinput type="password" placeholder="请输入您的密码" id="pas"/&gt
 </pre>
 <pre>
-    <label for="textinput">账号：</label><input type="text" autofocus placeholder="请输入您的账号" id="textinput"><br>
+    <label for="textinput">账号：</label><input type="text" placeholder="请输入您的账号" id="textinput"><br>
     <label for="pas">密码：</label><input type="password" placeholder="请输入您的密码" id="pas">
 </pre>
 
@@ -223,7 +225,7 @@
         &ltfieldset&gt
             &ltlegend&gt账号信息&lt/legend&gt
             &ltlabel for="textinput"&gt账号：&lt/label&gt
-            &ltinput type="text" autofucus placeholder="请输入您的账号" id="textinput"/&gt
+            &ltinput type="text" placeholder="请输入您的账号" id="textinput"/&gt
             &ltbr/&gt
             &ltlabel for="pas"&gt密码：&lt/label&gt
             &ltinput type="password" placeholder="请输入您的密码" id="pas"/&gt            
@@ -235,12 +237,12 @@
     <form>
         <fieldset>
             <legend>账号信息</legend>
-            <label for="textinput">账号：</label><input type="text" autofocus placeholder="请输入您的账号" id="textinput"><br>
-            <label for="pas">密码：</label><input type="password" placeholder="请输入您的密码" id="pas">            </fieldset>
+            <label for="text">账号：</label><input type="text" placeholder="请输入您的账号" id="text"><br>
+            <label for="pass">密码：</label><input type="password" placeholder="请输入您的密码" id="pass">            </fieldset>
     </form>
 </pre>
 
-<h2 id="HTML5新增form表单属性"><a href="#HTML5新增form表单属性" class="headerlink" title="HTML5新增form表单属性"></a>HTML5新增form表单属性</h2><h3 id="autofocus属性"><a href="#autofocus属性" class="headerlink" title="autofocus属性"></a>autofocus属性</h3><p>用于在网页加载后对焦到相关元素上的输入。在上面已经用到。</p>
+<h2 id="HTML5新增form表单属性"><a href="#HTML5新增form表单属性" class="headerlink" title="HTML5新增form表单属性"></a>HTML5新增form表单属性</h2><h3 id="autofocus属性"><a href="#autofocus属性" class="headerlink" title="autofocus属性"></a>autofocus属性</h3><p>用于在网页加载后对焦到相关元素上的输入。(因怕影响阅读就不加入此属性)</p>
 <p><code>autofocus</code>的目标可以是输入、选择、文本区域和按钮。</p>
 <h3 id="placeholder属性"><a href="#placeholder属性" class="headerlink" title="placeholder属性"></a>placeholder属性</h3><p>用于提示用户应输入的数据类型。在上面已经用到。</p>
 <p>在对焦到相关元素以及用户输入数据之前，系统会以浅色文字显示占位符值。您可以在输入和文本区域中指定该值。</p>
@@ -251,7 +253,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/28/HTML5新增表单元素/" data-id="cipyx3kp30002pur307e1ozm1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/28/HTML5新增表单元素/" data-id="cipz779q0000426r3ged44flz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -360,7 +362,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/27/HTML5短语句/" data-id="cipyx3kp90005pur3pl1fm25p" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/27/HTML5短语句/" data-id="cipz779q1000526r3l3u2tbtg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -433,7 +435,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/27/HTML5新增标签/" data-id="cipyx3kp10001pur318nl9xh5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/27/HTML5新增标签/" data-id="cipz779py000326r3tcg6ba2o" class="article-share-link">Share</a>
       
       
     </footer>
@@ -632,7 +634,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/25/CSS总结/" data-id="cipyx3kp50003pur3aveiaaw2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/25/CSS总结/" data-id="cipz779pr000126r3dkbngzzr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -759,7 +761,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/24/meta标签/" data-id="cipyx3kpa0006pur3aw1ucc1c" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/24/meta标签/" data-id="cipz779qa000826r32f5rl4ew" class="article-share-link">Share</a>
       
       
     </footer>
@@ -830,7 +832,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/23/CSS单位/" data-id="cipyx3kom0000pur3c3ll8dbg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/23/CSS单位/" data-id="cipz779pl000026r366bf4ej8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1000,7 +1002,7 @@ action=""
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/22/HTML简述/" data-id="cipyx3kp70004pur3vsfsbc1g" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/22/HTML简述/" data-id="cipz779q2000626r3lp6hus59" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1074,7 +1076,7 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/22/HEXO博客的搭建/" data-id="cipyx3kpf0007pur3jc4tq5ky" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/22/HEXO博客的搭建/" data-id="cipz779pu000226r348938x31" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1119,7 +1121,7 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/22/hello-world/" data-id="cipyx3kph0008pur38sm4t189" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/22/hello-world/" data-id="cipz779q8000726r3kb4sjpr9" class="article-share-link">Share</a>
       
       
     </footer>

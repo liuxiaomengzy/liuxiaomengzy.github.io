@@ -27,7 +27,7 @@ type=&amp;quot;search&amp;quot;用于提示用户输入要搜索的文字。sear
 type=&amp;quot;url&amp;quot;用于输入单个网址
 
 type=&amp;quot;email&amp;quot;用于输入单个电子邮件地址；如果指定m">
-<meta property="og:updated_time" content="2016-06-28T08:29:43.000Z">
+<meta property="og:updated_time" content="2016-06-28T08:39:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTML5新增表单元素">
 <meta name="twitter:description" content="HTML5新增表单元素主要有input标签其type类型主要有有以下几种：
@@ -154,9 +154,10 @@ type=&amp;quot;email&amp;quot;用于输入单个电子邮件地址；如果指�
         &ltinput type="week" /&gt
         &ltinput type="time" /&gt
         &ltinput type="datetime-local" /&gt
-        &ltinput type="number" required autocomplete="" /&gt
+        &ltinput type="number" /&gt
         &ltinput type="range" /&gt
         &ltinput type="color" /&gt
+        &ltinput type="submit" required /&gt
     &lt/form>
 </pre>
 
@@ -172,9 +173,10 @@ type=&amp;quot;email&amp;quot;用于输入单个电子邮件地址；如果指�
         <input type="week">
         <input type="time">
         <input type="datetime-local">
-        <input type="number" required autocomplete="">
+        <input type="number">
         <input type="range">
         <input type="color">
+        <input type="submit" required autocomplete="on">
     </form>
 </pre>
 
@@ -182,13 +184,13 @@ type=&amp;quot;email&amp;quot;用于输入单个电子邮件地址；如果指�
 <p><code>&lt;label&gt;</code>标签的<code>for</code>属性应当与相关元素的<code>id</code>属性相同。</p>
 <pre>
     &ltlabel for="textinput"&gt账号：&lt/label&gt
-    &ltinput type="text" autofocus placeholder="请输入您的账号" id="textinput"/&gt
+    &ltinput type="text" placeholder="请输入您的账号" id="textinput"/&gt
     &ltbr/&gt
     &ltlabel for="pas"&gt密码：&lt/label&gt
     &ltinput type="password" placeholder="请输入您的密码" id="pas"/&gt
 </pre>
 <pre>
-    <label for="textinput">账号：</label><input type="text" autofocus placeholder="请输入您的账号" id="textinput"><br>
+    <label for="textinput">账号：</label><input type="text" placeholder="请输入您的账号" id="textinput"><br>
     <label for="pas">密码：</label><input type="password" placeholder="请输入您的密码" id="pas">
 </pre>
 
@@ -246,7 +248,7 @@ type=&amp;quot;email&amp;quot;用于输入单个电子邮件地址；如果指�
         &ltfieldset&gt
             &ltlegend&gt账号信息&lt/legend&gt
             &ltlabel for="textinput"&gt账号：&lt/label&gt
-            &ltinput type="text" autofucus placeholder="请输入您的账号" id="textinput"/&gt
+            &ltinput type="text" placeholder="请输入您的账号" id="textinput"/&gt
             &ltbr/&gt
             &ltlabel for="pas"&gt密码：&lt/label&gt
             &ltinput type="password" placeholder="请输入您的密码" id="pas"/&gt            
@@ -258,12 +260,12 @@ type=&amp;quot;email&amp;quot;用于输入单个电子邮件地址；如果指�
     <form>
         <fieldset>
             <legend>账号信息</legend>
-            <label for="textinput">账号：</label><input type="text" autofocus placeholder="请输入您的账号" id="textinput"><br>
-            <label for="pas">密码：</label><input type="password" placeholder="请输入您的密码" id="pas">            </fieldset>
+            <label for="text">账号：</label><input type="text" placeholder="请输入您的账号" id="text"><br>
+            <label for="pass">密码：</label><input type="password" placeholder="请输入您的密码" id="pass">            </fieldset>
     </form>
 </pre>
 
-<h2 id="HTML5新增form表单属性"><a href="#HTML5新增form表单属性" class="headerlink" title="HTML5新增form表单属性"></a>HTML5新增form表单属性</h2><h3 id="autofocus属性"><a href="#autofocus属性" class="headerlink" title="autofocus属性"></a>autofocus属性</h3><p>用于在网页加载后对焦到相关元素上的输入。在上面已经用到。</p>
+<h2 id="HTML5新增form表单属性"><a href="#HTML5新增form表单属性" class="headerlink" title="HTML5新增form表单属性"></a>HTML5新增form表单属性</h2><h3 id="autofocus属性"><a href="#autofocus属性" class="headerlink" title="autofocus属性"></a>autofocus属性</h3><p>用于在网页加载后对焦到相关元素上的输入。(因怕影响阅读就不加入此属性)</p>
 <p><code>autofocus</code>的目标可以是输入、选择、文本区域和按钮。</p>
 <h3 id="placeholder属性"><a href="#placeholder属性" class="headerlink" title="placeholder属性"></a>placeholder属性</h3><p>用于提示用户应输入的数据类型。在上面已经用到。</p>
 <p>在对焦到相关元素以及用户输入数据之前，系统会以浅色文字显示占位符值。您可以在输入和文本区域中指定该值。</p>
@@ -274,7 +276,7 @@ type=&amp;quot;email&amp;quot;用于输入单个电子邮件地址；如果指�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/28/HTML5新增表单元素/" data-id="cipyx3kp30002pur307e1ozm1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/28/HTML5新增表单元素/" data-id="cipz779q0000426r3ged44flz" class="article-share-link">Share</a>
       
       
     </footer>
