@@ -68,6 +68,96 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-HTML5新增音视频" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/28/HTML5新增音视频/" class="article-date">
+  <time datetime="2016-06-28T08:44:44.000Z" itemprop="datePublished">2016-06-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/28/HTML5新增音视频/">HTML5新增音视频</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="HTML5音视频主要包含以下内容"><a href="#HTML5音视频主要包含以下内容" class="headerlink" title="HTML5音视频主要包含以下内容"></a>HTML5音视频主要包含以下内容</h2><h3 id="audio音频"><a href="#audio音频" class="headerlink" title="audio音频"></a>audio音频</h3><p><code>&lt;audio&gt;&lt;/audio&gt;</code>标签定义声音，比如音乐或其他音频流。</p>
+<p>其属性有：</p>
+<ol>
+<li>autoplay属性，自动播放</li>
+<li>controls属性，出现控制面板</li>
+<li>loop属性，设置单曲循环</li>
+<li>preload属性，提前加载</li>
+<li>src属性，要播放的音频的URL</li>
+</ol>
+<p>当有多种资源时，就可以用到<code>&lt;source/&gt;</code>属性，一个<code>audio</code>里可以有多个<code>source</code>。</p>
+<pre>
+    &ltaudio preload autoplay controls&gt
+        &ltsource src="" type="audio/mp3" /&gt
+        &ltsource src="" type="audio/ogg" /&gt
+        &ltsource src="" type="audio/mpeg" /&gt
+    &lt/audio&gt
+</pre>
+<pre>
+    <audio preload="" autoplay controls>
+        <source src="" type="audio/mp3">
+        <source src="" type="audio/ogg">
+        <source src="" type="audio/mpeg">
+    </audio>
+</pre>
+
+<h3 id="video视频"><a href="#video视频" class="headerlink" title="video视频"></a>video视频</h3><p><code>&lt;video&gt;&lt;/video&gt;</code>标签定义视频，比如电影片段或其他视频流。</p>
+<p>其属性有：</p>
+<ol>
+<li>autoplay属性，自动播放</li>
+<li>controls属性，出现控制面板</li>
+<li>loop属性，设置单曲循环</li>
+<li>preload属性，提前加载</li>
+<li>src属性，要播放的音频的URL</li>
+<li>width属性，可以设置宽度让其高度自适应</li>
+</ol>
+<p>当有多种资源时，就可以用到<code>&lt;source/&gt;</code>属性，一个<code>video</code>里可以有多个<code>source</code>。</p>
+<pre>
+    &ltvideo width="100%" controls&gt
+        &ltsource src="http://www.zhangxinxu.com/study/media/cat.mp4" type="video/mp4"&gt
+        &ltsource src="" type="video/mkv" /&gt
+        &ltsource src="" type="video/rmvb" /&gt
+    &lt/video&gt
+</pre>
+<pre>
+    <video width="100%" controls>
+        <source src="http://www.zhangxinxu.com/study/media/cat.mp4" type="video/mp4">
+        <source src="" type="video/mkv">
+        <source src="" type="video/rmvb">
+    </video>
+</pre>
+
+<h3 id="source标签"><a href="#source标签" class="headerlink" title="source标签"></a>source标签</h3><p><code>&lt;source/&gt;</code>标签为媒介元素（比如<code>&lt;video&gt;</code>和<code>&lt;audio&gt;</code>）定义媒介资源。</p>
+<p><code>&lt;source/&gt;</code>标签允许您规定可替换的视频/音频文件供浏览器根据它对媒体类型或者编解码器的支持进行选择。</p>
+<h3 id="track标签"><a href="#track标签" class="headerlink" title="track标签"></a>track标签</h3><p>用在媒体播放器中的文本轨道，如歌词文件/字幕文件。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/06/28/HTML5新增音视频/" data-id="cipz92t9600044tr3jfvpufsc" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-HTML5新增表单元素" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/06/28/HTML5新增表单元素/" class="article-date">
@@ -116,7 +206,7 @@
 </li>
 <li><p><code>type=&quot;range&quot;</code>用于输入数字，但与<code>number</code>的区别在于无需输入具体数字。在大部分支持该类型的浏览器中，范围控件的实施形式为滑块。</p>
 </li>
-<li><p><code>type=&quot;color&quot;</code>用于通过颜色池控件选择颜色。</p>
+<li><p><code>type=&quot;color&quot;</code>用于通过颜色池控件选择颜色（现在浏览器还不兼容）。</p>
 </li>
 </ol>
 <pre>
@@ -253,7 +343,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/28/HTML5新增表单元素/" data-id="cipz779q0000426r3ged44flz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/28/HTML5新增表单元素/" data-id="cipz92t9a00054tr3lktnc62l" class="article-share-link">Share</a>
       
       
     </footer>
@@ -362,7 +452,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/27/HTML5短语句/" data-id="cipz779q1000526r3l3u2tbtg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/27/HTML5短语句/" data-id="cipz92t9b00064tr3j7t3h3ey" class="article-share-link">Share</a>
       
       
     </footer>
@@ -435,7 +525,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/27/HTML5新增标签/" data-id="cipz779py000326r3tcg6ba2o" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/27/HTML5新增标签/" data-id="cipz92t9400034tr3yjsqsb2y" class="article-share-link">Share</a>
       
       
     </footer>
@@ -634,7 +724,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/25/CSS总结/" data-id="cipz779pr000126r3dkbngzzr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/25/CSS总结/" data-id="cipz92t8s00004tr37xjlkhx0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -761,7 +851,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/24/meta标签/" data-id="cipz779qa000826r32f5rl4ew" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/24/meta标签/" data-id="cipz92t9i00094tr3dnoz8v9l" class="article-share-link">Share</a>
       
       
     </footer>
@@ -832,7 +922,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/23/CSS单位/" data-id="cipz779pl000026r366bf4ej8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/23/CSS单位/" data-id="cipz92t8x00014tr3qk6xkary" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1002,7 +1092,7 @@ action=""
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/22/HTML简述/" data-id="cipz779q2000626r3lp6hus59" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/22/HTML简述/" data-id="cipz92t9c00074tr3r7gb2o7i" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1076,7 +1166,7 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/22/HEXO博客的搭建/" data-id="cipz779pu000226r348938x31" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/22/HEXO博客的搭建/" data-id="cipz92t9100024tr3ka19c3nh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1121,7 +1211,7 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/22/hello-world/" data-id="cipz779q8000726r3kb4sjpr9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/22/hello-world/" data-id="cipz92t9d00084tr3namy4zar" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1161,6 +1251,10 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
       <ul>
         
           <li>
+            <a href="/2016/06/28/HTML5新增音视频/">HTML5新增音视频</a>
+          </li>
+        
+          <li>
             <a href="/2016/06/28/HTML5新增表单元素/">HTML5新增表单元素</a>
           </li>
         
@@ -1174,10 +1268,6 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
         
           <li>
             <a href="/2016/06/25/CSS总结/">CSS总结</a>
-          </li>
-        
-          <li>
-            <a href="/2016/06/24/meta标签/">meta标签</a>
           </li>
         
       </ul>
