@@ -68,6 +68,134 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-CSS3选择器" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/28/CSS3选择器/" class="article-date">
+  <time datetime="2016-06-28T13:57:24.000Z" itemprop="datePublished">2016-06-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/28/CSS3选择器/">CSS3选择器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="CSS3选择器主要包含以下几种"><a href="#CSS3选择器主要包含以下几种" class="headerlink" title="CSS3选择器主要包含以下几种"></a>CSS3选择器主要包含以下几种</h2><h3 id="子元素选择器"><a href="#子元素选择器" class="headerlink" title="子元素选择器"></a>子元素选择器</h3><p><code>E &gt; F</code>类型，子元素选择器选中的是子元素F，子子孙孙不会被选</p>
+<p>而后代选择器<code>E F</code>类型是选中所有的F，包含F的后代也选中</p>
+<h3 id="兄弟选择器"><a href="#兄弟选择器" class="headerlink" title="兄弟选择器"></a>兄弟选择器</h3><h4 id="相邻兄弟选择器"><a href="#相邻兄弟选择器" class="headerlink" title="相邻兄弟选择器"></a>相邻兄弟选择器</h4><p><code>E + F</code>类型，必备属性：1.必须同级；2.必须相邻；3.必须在其下方；4.有且只有一个符合。</p>
+<h4 id="通用兄弟选择器"><a href="#通用兄弟选择器" class="headerlink" title="通用兄弟选择器"></a>通用兄弟选择器</h4><p><code>E ~ F</code>类型，必备属性：1.必须同级；2.必须在其下方；3.可以有多个符合。</p>
+<h3 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h3><p><code>[ ]</code>类型，例如<code>[class]</code>指具有class属性的值</p>
+<p><code>[abc =&quot;value&quot;]</code>类型，属性和值选择器</p>
+<p><code>[abc ~=&quot;value&quot;] ~</code>表示几个以空格隔开的属性值中包含了”value”</p>
+<p><code>[abc ^=&quot;value&quot;] ^</code>以value开头的值</p>
+<p><code>[abc $=&quot;value&quot;] $</code>以value结尾的值</p>
+<p><code>[abc *=&quot;value&quot;] *</code>包含value的值</p>
+<p><code>[abc |=&quot;value&quot;] |</code>以value或value-开头的值</p>
+<p><code>[abc =value]</code>和<code>[abc *=&quot;value&quot;]</code>较实用。</p>
+<h3 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h3><h4 id="锚点伪类（a的伪类）"><a href="#锚点伪类（a的伪类）" class="headerlink" title="锚点伪类（a的伪类）"></a>锚点伪类（a的伪类）</h4><p>简称爱恨法则  love &amp; hate</p>
+<ol>
+<li><p>l = link        没有访问过的状态</p>
+</li>
+<li><p>v = visited    访问过后的状态</p>
+</li>
+<li><p>h = hover    鼠标悬浮在标签上的状态</p>
+</li>
+<li><p>a = active    鼠标悬浮在标签上按下没有松开的状态</p>
+</li>
+</ol>
+<p>使用时候顺序不能变，必须从前到后。</p>
+<h4 id="UI元素伪类-表单元素"><a href="#UI元素伪类-表单元素" class="headerlink" title="UI元素伪类 表单元素"></a>UI元素伪类 表单元素</h4><p><code>disabled</code>    废弃属性，元素不可用</p>
+<p><code>focus</code>        聚焦属性</p>
+<p><code>checked</code>    选中(并不能完美支持)</p>
+<p><code>enabled</code>    可用状态</p>
+<pre>
+    &ltstyle&gt
+        input:disabled{
+            border:2px solid blue;
+            background-color:gold;
+        }
+        input:focus{
+            border:2px solid red;
+        }
+        input:checked{
+            display:block;
+            width:50px;
+            height:50px;
+        }
+        input:enabled{
+            background-color:pink;
+        }
+    &lt/style&gt
+    &ltform&gt
+        &ltinput type="text" disabled /&gt
+        &ltinput type="text"/&gt
+        &ltinput type="text"/&gt
+        &ltinput type="checkbox"/&gt
+        &ltinput type="checkbox"/&gt
+    &lt/form&gt
+</pre>
+<pre>
+    <style>
+        input:disabled{
+            border:2px solid blue;
+            background-color:gold;
+        }
+        input:focus{
+            border:2px solid red;
+        }
+        input:checked{
+            display:block;
+            width:50px;
+            height:50px;
+        }
+        input:enabled{        
+            background-color:pink;
+        }
+    </style>
+    <form>
+        <input type="text" disabled>
+        <input type="text">
+        <input type="text">
+        <input type="checkbox">
+        <input type="checkbox">
+    </form>
+</pre>
+
+<h3 id="否定选择器"><a href="#否定选择器" class="headerlink" title="否定选择器"></a>否定选择器</h3><p><code>:not</code>类型</p>
+<pre>
+    &ltstyle&gt
+        input:not([type="submit"]){
+            border:2px solid gold;
+        }
+    &lt/style&gt
+    &ltform&gt
+    &ltinput type="text"/&gt
+    &ltinput type="submit"/&gt
+    &lt/form&gt
+</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/06/28/CSS3选择器/" data-id="ciq0tuso80000fir33xanrvb2" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-HTML5新增音视频" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/06/28/HTML5新增音视频/" class="article-date">
@@ -148,7 +276,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/28/HTML5新增音视频/" data-id="cipz9qlb0000565r3dwl69e3w" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/28/HTML5新增音视频/" data-id="ciq0tusol0004fir35tabmlfd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -343,7 +471,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/28/HTML5新增表单元素/" data-id="cipz9qlay000465r3m29jwrnp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/28/HTML5新增表单元素/" data-id="ciq0tusoi0003fir30ld49v1e" class="article-share-link">Share</a>
       
       
     </footer>
@@ -452,7 +580,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/27/HTML5短语句/" data-id="cipz9qlb1000665r3ri2t0zz8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/27/HTML5短语句/" data-id="ciq0tusop0006fir3bdbahn02" class="article-share-link">Share</a>
       
       
     </footer>
@@ -525,7 +653,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/27/HTML5新增标签/" data-id="cipz9qlaw000365r3zvpijyje" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/27/HTML5新增标签/" data-id="ciq0tuson0005fir3e0saia0b" class="article-share-link">Share</a>
       
       
     </footer>
@@ -724,7 +852,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/25/CSS总结/" data-id="cipz9qlar000165r3a6hpnwr2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/25/CSS总结/" data-id="ciq0tusov0008fir3oubuxtiu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -851,7 +979,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/24/meta标签/" data-id="cipz9qlbc000965r3tavurntk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/24/meta标签/" data-id="ciq0tuspb000afir3woiyr5ku" class="article-share-link">Share</a>
       
       
     </footer>
@@ -922,7 +1050,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/23/CSS单位/" data-id="cipz9qlal000065r3c0h8s53l" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/23/CSS单位/" data-id="ciq0tusoe0001fir31dz2fim8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1092,7 +1220,7 @@ action=""
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/22/HTML简述/" data-id="cipz9qlb6000765r3n9dwinhw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/22/HTML简述/" data-id="ciq0tusou0007fir326incfd7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1166,52 +1294,7 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/22/HEXO博客的搭建/" data-id="cipz9qlau000265r3rwvuxbe2" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/06/22/hello-world/" class="article-date">
-  <time datetime="2016-06-22T04:04:58.000Z" itemprop="datePublished">2016-06-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/22/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/22/hello-world/" data-id="cipz9qlb7000865r30k4mxoeb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/22/HEXO博客的搭建/" data-id="ciq0tusog0002fir3hif6jgh3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1222,6 +1305,10 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
 
   
 
+
+  <nav id="page-nav">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">__('next') &raquo;</a>
+  </nav>
 </section>
         
           <aside id="sidebar">
@@ -1251,6 +1338,10 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
       <ul>
         
           <li>
+            <a href="/2016/06/28/CSS3选择器/">CSS3选择器</a>
+          </li>
+        
+          <li>
             <a href="/2016/06/28/HTML5新增音视频/">HTML5新增音视频</a>
           </li>
         
@@ -1264,10 +1355,6 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
         
           <li>
             <a href="/2016/06/27/HTML5新增标签/">HTML5新增标签</a>
-          </li>
-        
-          <li>
-            <a href="/2016/06/25/CSS总结/">CSS总结</a>
           </li>
         
       </ul>
