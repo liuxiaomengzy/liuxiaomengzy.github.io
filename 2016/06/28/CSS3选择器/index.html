@@ -19,7 +19,8 @@
 兄弟选择器相邻兄弟选择器E + F类型，必备属性：1.必须同级；2.必须相邻；3.必须在其下方；4.有且只有一个符合。
 通用兄弟选择器E ~ F类型，必备属性：1.必须同级；2.必须在其下方；3.可以有多个符合。
 属性选择器[ ]">
-<meta property="og:updated_time" content="2016-06-29T11:47:38.000Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/liuxiaomengzy/liuxiaomengzy.github.io/master/images/not%E5%90%A6%E5%AE%9A%E9%80%89%E6%8B%A9%E5%99%A8.png">
+<meta property="og:updated_time" content="2016-06-29T13:14:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS3选择器">
 <meta name="twitter:description" content="CSS3选择器主要包含以下几种子元素选择器E &amp;gt; F类型，子元素选择器选中的是子元素F，子子孙孙不会被选
@@ -27,6 +28,7 @@
 兄弟选择器相邻兄弟选择器E + F类型，必备属性：1.必须同级；2.必须相邻；3.必须在其下方；4.有且只有一个符合。
 通用兄弟选择器E ~ F类型，必备属性：1.必须同级；2.必须在其下方；3.可以有多个符合。
 属性选择器[ ]">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/liuxiaomengzy/liuxiaomengzy.github.io/master/images/not%E5%90%A6%E5%AE%9A%E9%80%89%E6%8B%A9%E5%99%A8.png">
   
     <link rel="alternate" href="/atom.xml" title="紫--小梦" type="application/atom+xml">
   
@@ -182,7 +184,7 @@
     </form>
 </pre>
 
-<h3 id="否定选择器"><a href="#否定选择器" class="headerlink" title="否定选择器"></a>否定选择器</h3><p><code>:not</code>类型</p>
+<h3 id="否定选择器"><a href="#否定选择器" class="headerlink" title="否定选择器"></a>否定选择器</h3><p><code>:not</code>类型，通常和属性选择器结合使用。</p>
 <pre>
     &ltstyle&gt
         input:not([type="submit"]){
@@ -194,10 +196,126 @@
     &ltinput type="submit"/&gt
     &lt/form&gt
 </pre>
+
+<p>效果如下：</p>
+<p><img src="https://raw.githubusercontent.com/liuxiaomengzy/liuxiaomengzy.github.io/master/images/not%E5%90%A6%E5%AE%9A%E9%80%89%E6%8B%A9%E5%99%A8.png" alt="not否定选择器"></p>
+<h3 id="nth选择器"><a href="#nth选择器" class="headerlink" title="nth选择器"></a>nth选择器</h3><p><code>:first-child</code>选择某个元素的第一个子元素</p>
+<p><code>last-child</code>选择某个元素的最后一个子元素</p>
+<p><code>nth-last-child()</code>选择某个元素的一个或多个特定的子元素，从这个元素的最后一个子元素开始算</p>
+<p><code>:nth-of-type()</code>选择指定的元素</p>
+<p><code>:nth-last-of-type()</code>选择指定的元素，从元素的最后一个开始计算</p>
+<p><code>:first-of-type</code>选择一个上级元素下的第一个同类子元素</p>
+<p><code>:last-of-type</code>选择一个上级元素的最后一个同类子元素</p>
+<p><code>:only-child</code>选择的元素是它的父元素的唯一一个子元素</p>
+<p><code>:only-of-type</code>选择一个元素是它的上级元素的唯一一个相同类型的子元素</p>
+<p><code>:empty</code>选择的元素里面没有任何内容</p>
+<p>因属性较多，后面属性设置会覆盖前面，就不在一一展现，仅列举几个</p>
+<pre>
+    &ltstyle&gt
+        ul li:first-child{
+            background-color:black;
+        }
+        ul li:last-child{
+            background-color:pink;
+        }
+        ul li:nth-of-type(3){
+            background-color:blue;
+        }
+    &lt/style&gt
+    &ltul&gt
+        &ltli&gt&lt/li&gt
+        &ltli&gt&lt/li&gt
+        &ltli&gt&lt/li&gt
+        &ltli&gt&lt/li&gt
+        &ltli&gt&lt/li&gt
+    &lt/ul&gt
+</pre>
+<pre>
+    <style>
+        ul li:first-child{
+            background-color:black;
+        }
+        ul li:last-child{
+            background-color:pink;
+        }
+        ul li:nth-of-type(3){
+            background-color:blue;
+        }
+    </style>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</pre>
+
+<p><code>:nth-child()</code>选择某个元素的一个或多个特定的子元素</p>
+<p><code>:nth-child(length)</code>参数是具体数字</p>
+<p><code>:nth-child(n)</code>参数是n,n从1开始计算</p>
+<p><code>:nth-child(2n)</code>n的倍数选择，n从1开始算(偶数行也可用<code>even</code>)</p>
+<p><code>:nth-child(2n+1)</code>表示隔几选一(奇数行也可用<code>odd</code>)</p>
+<p><code>:nth-child(n+length)</code>选择大于等于length后面的元素</p>
+<p><code>:nth-child(-n+length)</code>选择小于等于length前面的元素</p>
+<h3 id="伪元素"><a href="#伪元素" class="headerlink" title="伪元素"></a>伪元素</h3><p><code>::first-letter</code>选择文本块的第一个字母，除非在同一行里面包含一些其它元素，不过这个主要运用于段落排版上多</p>
+<p><code>::first-line</code>选择元素的第一行</p>
+<p><code>::before</code>,<code>::after</code>这两个主要用来给元素的前面或后面插入内容，这两个常用”content”配合使用，见过最多的就是清除浮动还有图片icon</p>
+<p><code>::selection</code>用来改变浏览网页选中文本的默认效果，<code>::selection</code>只能设置两个属性background,color属性，设置其他属性是没有任何效果的</p>
+<pre>
+    &ltstyle&gt
+        div{
+            width:500px;
+            height:500px;
+            background-color:green;
+            margin:0 auto;
+            font-size:30px;
+            position:relative;
+            font-size:30px;
+            }
+        div::before{
+            content:"";
+            width:200px;
+            height:200px;
+            background-color:orange;
+            display:block;
+            position:absolute;
+            top:60px;
+            left:0;
+        }
+        div::after{
+            content:"";
+            width:200px;
+            height:200px;
+            background-color:gold;
+            display:block;
+            position:absolute;
+            right:0;
+            top:0;
+        }
+        div::first-letter{
+            color:red;
+            font-size:60px;
+        }
+        div::first-line{
+            color:purple;
+        }
+        div::selection{
+            color:white;
+            background:black;
+        }
+    &lt/style&gt
+    &ltdiv&gt我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div
+    &lt/div&gt    
+</pre>
+
+<p>效果如下：</p>
+<p><img src="" alt="伪元素"></p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/28/CSS3选择器/" data-id="ciq0tuso80000fir33xanrvb2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/28/CSS3选择器/" data-id="ciq0wcdri0000k6r3ziv4kdn9" class="article-share-link">Share</a>
       
       
     </footer>
