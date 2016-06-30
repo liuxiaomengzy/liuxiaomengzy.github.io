@@ -9,9 +9,9 @@
 
 background-origin:content-box背景图像相对于内容框来定位。
 
-background-origin:padding-box背景图像相对于内边距框来定位。
+background-origin:padding-box背景图像相对于内边距框来定位(默认属性)。
 
-background-origin:border-box背">
+background-origin:borde">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS3背景">
 <meta property="og:url" content="http://yoursite.com/2016/06/30/CSS3背景/index.html">
@@ -20,19 +20,23 @@ background-origin:border-box背">
 
 background-origin:content-box背景图像相对于内容框来定位。
 
-background-origin:padding-box背景图像相对于内边距框来定位。
+background-origin:padding-box背景图像相对于内边距框来定位(默认属性)。
 
-background-origin:border-box背">
-<meta property="og:updated_time" content="2016-06-30T11:10:03.000Z">
+background-origin:borde">
+<meta property="og:image" content="https://raw.githubusercontent.com/liuxiaomengzy/liuxiaomengzy.github.io/master/images/b-origin-clip-content-box.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/liuxiaomengzy/liuxiaomengzy.github.io/master/images/b-origin-padding-box.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/liuxiaomengzy/liuxiaomengzy.github.io/master/images/b-origin-border-box.png">
+<meta property="og:updated_time" content="2016-06-30T11:57:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS3背景">
 <meta name="twitter:description" content="CSS3背景主要指CSS3 background属性background-origin属性background-origin指背景图出现方式,主要有以下值：
 
 background-origin:content-box背景图像相对于内容框来定位。
 
-background-origin:padding-box背景图像相对于内边距框来定位。
+background-origin:padding-box背景图像相对于内边距框来定位(默认属性)。
 
-background-origin:border-box背">
+background-origin:borde">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/liuxiaomengzy/liuxiaomengzy.github.io/master/images/b-origin-clip-content-box.png">
   
     <link rel="alternate" href="/atom.xml" title="紫--小梦" type="application/atom+xml">
   
@@ -111,16 +115,69 @@ background-origin:border-box背">
 <ol>
 <li><p><code>background-origin:content-box</code>背景图像相对于内容框来定位。</p>
 </li>
-<li><p><code>background-origin:padding-box</code>背景图像相对于内边距框来定位。</p>
+<li><p><code>background-origin:padding-box</code>背景图像相对于内边距框来定位(默认属性)。</p>
 </li>
 <li><p><code>background-origin:border-box</code>背景图像相对于边框盒来定位。</p>
 </li>
 </ol>
+<pre>
+    &ltstyle&gt
+        .div1{
+            width:200px;
+            height:300px;
+            padding-left:100px;
+            margin:100px auto 0;
+            background:url("http://b.hiphotos.baidu.com/zhidao/pic/item/14ce36d3d539b6000b671ee4ef50352ac65cb733.jpg") no-repeat;
+            background-size:contain;
+            border:10px dashed gold;
+            background-origin:;
+        }
+    &lt/style&gt
+    &ltdiv class="div1"&gt
+        我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字
+    &lt/div&gt
+</pre>
+
+<p>当设置<code>background-origin:content-box</code>，效果如下：</p>
+<p><img src="https://raw.githubusercontent.com/liuxiaomengzy/liuxiaomengzy.github.io/master/images/b-origin-clip-content-box.png" alt="b-origin-content-box"></p>
+<p>当设置<code>background-origin:padding-box</code>，效果如下：</p>
+<p><img src="https://raw.githubusercontent.com/liuxiaomengzy/liuxiaomengzy.github.io/master/images/b-origin-padding-box.png" alt="b-origin-padding-box"></p>
+<p>当设置<code>background-origin:border-box</code>，效果如下：</p>
+<p><img src="https://raw.githubusercontent.com/liuxiaomengzy/liuxiaomengzy.github.io/master/images/b-origin-border-box.png" alt="b-origin-border-box"></p>
+<h3 id="background-cilp属性"><a href="#background-cilp属性" class="headerlink" title="background-cilp属性"></a>background-cilp属性</h3><p><code>background-cilp</code>指背景图裁减方式,主要有以下值：</p>
+<ol>
+<li><p><code>background-cilp:content-box</code>背景被裁剪到内容框。</p>
+</li>
+<li><p><code>background-cilp:padding-box</code>背景被裁剪到内边距框。</p>
+</li>
+<li><p><code>background-cilp:border-box</code>背景被裁剪到边框盒（不支持）。</p>
+</li>
+</ol>
+<pre>
+    &ltstyle&gt
+        .div1{
+            width:200px;
+            height:300px;
+            padding-left:100px;
+            margin:100px auto 0;
+            background:url("http://b.hiphotos.baidu.com/zhidao/pic/item/14ce36d3d539b6000b671ee4ef50352ac65cb733.jpg") no-repeat;
+            background-size:contain;
+            border:10px dashed gold;
+            background-clip:;
+        }
+    &lt/style&gt
+    &ltdiv class="div1"&gt
+        我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字
+    &lt/div&gt
+</pre>
+
+<p>当设置<code>background-clip:content-box</code>，效果如下：</p>
+<p><img src="" alt="b-clip-content-box"></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/30/CSS3背景/" data-id="ciq28l5bg000433r34iip17l0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/30/CSS3背景/" data-id="ciq29ej0q00024qr3yrjyrbzh" class="article-share-link">Share</a>
       
       
     </footer>

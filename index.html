@@ -94,16 +94,69 @@
 <ol>
 <li><p><code>background-origin:content-box</code>背景图像相对于内容框来定位。</p>
 </li>
-<li><p><code>background-origin:padding-box</code>背景图像相对于内边距框来定位。</p>
+<li><p><code>background-origin:padding-box</code>背景图像相对于内边距框来定位(默认属性)。</p>
 </li>
 <li><p><code>background-origin:border-box</code>背景图像相对于边框盒来定位。</p>
 </li>
 </ol>
+<pre>
+    &ltstyle&gt
+        .div1{
+            width:200px;
+            height:300px;
+            padding-left:100px;
+            margin:100px auto 0;
+            background:url("http://b.hiphotos.baidu.com/zhidao/pic/item/14ce36d3d539b6000b671ee4ef50352ac65cb733.jpg") no-repeat;
+            background-size:contain;
+            border:10px dashed gold;
+            background-origin:;
+        }
+    &lt/style&gt
+    &ltdiv class="div1"&gt
+        我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字
+    &lt/div&gt
+</pre>
+
+<p>当设置<code>background-origin:content-box</code>，效果如下：</p>
+<p><img src="https://raw.githubusercontent.com/liuxiaomengzy/liuxiaomengzy.github.io/master/images/b-origin-clip-content-box.png" alt="b-origin-content-box"></p>
+<p>当设置<code>background-origin:padding-box</code>，效果如下：</p>
+<p><img src="https://raw.githubusercontent.com/liuxiaomengzy/liuxiaomengzy.github.io/master/images/b-origin-padding-box.png" alt="b-origin-padding-box"></p>
+<p>当设置<code>background-origin:border-box</code>，效果如下：</p>
+<p><img src="https://raw.githubusercontent.com/liuxiaomengzy/liuxiaomengzy.github.io/master/images/b-origin-border-box.png" alt="b-origin-border-box"></p>
+<h3 id="background-cilp属性"><a href="#background-cilp属性" class="headerlink" title="background-cilp属性"></a>background-cilp属性</h3><p><code>background-cilp</code>指背景图裁减方式,主要有以下值：</p>
+<ol>
+<li><p><code>background-cilp:content-box</code>背景被裁剪到内容框。</p>
+</li>
+<li><p><code>background-cilp:padding-box</code>背景被裁剪到内边距框。</p>
+</li>
+<li><p><code>background-cilp:border-box</code>背景被裁剪到边框盒（不支持）。</p>
+</li>
+</ol>
+<pre>
+    &ltstyle&gt
+        .div1{
+            width:200px;
+            height:300px;
+            padding-left:100px;
+            margin:100px auto 0;
+            background:url("http://b.hiphotos.baidu.com/zhidao/pic/item/14ce36d3d539b6000b671ee4ef50352ac65cb733.jpg") no-repeat;
+            background-size:contain;
+            border:10px dashed gold;
+            background-clip:;
+        }
+    &lt/style&gt
+    &ltdiv class="div1"&gt
+        我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字
+    &lt/div&gt
+</pre>
+
+<p>当设置<code>background-clip:content-box</code>，效果如下：</p>
+<p><img src="" alt="b-clip-content-box"></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/30/CSS3背景/" data-id="ciq28l5bg000433r34iip17l0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/30/CSS3背景/" data-id="ciq29ej0q00024qr3yrjyrbzh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -224,7 +277,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/29/CSS3圆角/" data-id="ciq28l5b9000133r3mmtlqs0p" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/29/CSS3圆角/" data-id="ciq29ej0n00014qr3ymm3ss57" class="article-share-link">Share</a>
       
       
     </footer>
@@ -349,7 +402,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/29/CSS3盒模型/" data-id="ciq28l5bf000333r3z0y0h37w" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/29/CSS3盒模型/" data-id="ciq29ej0h00004qr33uqp54lg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -575,7 +628,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/28/CSS3选择器/" data-id="ciq28l5bc000233r3ixu6xers" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/28/CSS3选择器/" data-id="ciq29ej0t00034qr3hhshtrvw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -665,7 +718,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/28/HTML5新增音视频/" data-id="ciq28l5bs000933r3s37eurst" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/28/HTML5新增音视频/" data-id="ciq29ej1200084qr32uam5zpm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -860,7 +913,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/28/HTML5新增表单元素/" data-id="ciq28l5bn000833r3hnfn9t1x" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/28/HTML5新增表单元素/" data-id="ciq29ej1700094qr3ziqkvaxp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -969,7 +1022,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/27/HTML5短语句/" data-id="ciq28l5bt000a33r3xp204gaq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/27/HTML5短语句/" data-id="ciq29ej19000a4qr312sdqp65" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1042,7 +1095,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/27/HTML5新增标签/" data-id="ciq28l5bm000733r3iahqw7oc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/27/HTML5新增标签/" data-id="ciq29ej1100074qr3l9g7yw6l" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1241,7 +1294,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/25/CSS总结/" data-id="ciq28l5bh000533r3450r0ag6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/25/CSS总结/" data-id="ciq29ej0v00054qr36am7n0fg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1368,7 +1421,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/24/meta标签/" data-id="ciq28l5c0000d33r32alte4t9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/24/meta标签/" data-id="ciq29ej1f000d4qr3xzy1iuc4" class="article-share-link">Share</a>
       
       
     </footer>
