@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>CSS3圆角 | 紫--小梦</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="border-radius属性border-radius属性是一个简写属性，用于设置border-top-left-radius border-top-right-radius border-bottom-right-radius border-bottom-left-radius，其顺序也是如此。
+也可以设置border-radius: 1-4 length|% / 1-4 length|%;或">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS3圆角">
+<meta property="og:url" content="http://yoursite.com/2016/06/29/CSS3圆角/index.html">
+<meta property="og:site_name" content="紫--小梦">
+<meta property="og:description" content="border-radius属性border-radius属性是一个简写属性，用于设置border-top-left-radius border-top-right-radius border-bottom-right-radius border-bottom-left-radius，其顺序也是如此。
+也可以设置border-radius: 1-4 length|% / 1-4 length|%;或">
+<meta property="og:updated_time" content="2016-06-30T06:20:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS3圆角">
+<meta name="twitter:description" content="border-radius属性border-radius属性是一个简写属性，用于设置border-top-left-radius border-top-right-radius border-bottom-right-radius border-bottom-left-radius，其顺序也是如此。
+也可以设置border-radius: 1-4 length|% / 1-4 length|%;或">
+  
+    <link rel="alternate" href="/atom.xml" title="紫--小梦" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">紫--小梦</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">心怀梦想，志在远方。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-CSS3圆角" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/29/CSS3圆角/" class="article-date">
+  <time datetime="2016-06-29T14:35:09.000Z" itemprop="datePublished">2016-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CSS3圆角
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="border-radius属性"><a href="#border-radius属性" class="headerlink" title="border-radius属性"></a>border-radius属性</h3><p><code>border-radius</code>属性是一个简写属性，用于设置<code>border-top-left-radius</code> <code>border-top-right-radius</code> <code>border-bottom-right-radius</code> <code>border-bottom-left-radius</code>，其顺序也是如此。</p>
+<p>也可以设置<code>border-radius: 1-4 length|% / 1-4 length|%;</code>或<code>border-radius:length|%</code>。</p>
+<pre>
+    &ltstyle&gt
+        .div1{
+            width:300px;
+            height:300px;
+            background-color:red;
+            margin:0 auto;
+            border-radius:50% 50% 50% 50% / 65% 65% 35% 35%;
+        }
+        .div2{
+            width:300px;
+            height:300px;
+            background-color:red;
+            margin:0 auto;
+            border-radius:50% / 35%;
+        }
+    &lt/style&gt
+    &ltdiv class="div1"&gt&lt/div&gt
+    &ltdiv class="div2"&gt&lt/div&gt
+</pre>
+<pre>
+    <style>
+        .div1{
+            width:300px;
+            height:300px;
+            background-color:red;
+            margin:0 auto;
+            border-radius:50% 50% 50% 50% / 65% 65% 35% 35%;
+        }
+        .div2{
+            width:300px;
+            height:300px;
+            background-color:blue;
+            margin:0 auto;
+            border-radius:50% / 35%;
+        }
+    </style>
+    <div class="div1"></div>
+    <div class="div2"></div>
+</pre>
+
+<h3 id="box-shadow属性"><a href="#box-shadow属性" class="headerlink" title="box-shadow属性"></a>box-shadow属性</h3><p><code>box-shadow: h-shadow v-shadow blur color inset;</code></p>
+<ol>
+<li><p>第一个参数 x-offset偏移（允许负值）</p>
+</li>
+<li><p>第二个参数 y-offset偏移（允许负值）</p>
+</li>
+<li><p>第三个参数 模糊度</p>
+</li>
+<li><p>第四个参数 颜色</p>
+</li>
+<li><p>第五个参数 内阴影 inset（不设置时默认为outset外阴影）</p>
+</li>
+</ol>
+<h3 id="text-shadow属性"><a href="#text-shadow属性" class="headerlink" title="text-shadow属性"></a>text-shadow属性</h3><p><code>text-shadow: h-shadow v-shadow blur color;</code></p>
+<ol>
+<li><p>第一个参数 x-offset偏移（允许负值）</p>
+</li>
+<li><p>第二个参数 y-offset偏移（允许负值）</p>
+</li>
+<li><p>第三个参数 模糊度</p>
+</li>
+<li><p>第四个参数 颜色</p>
+</li>
+</ol>
+<pre>
+    <style>
+        div{
+            width:300px;
+            height:300px;
+            background-color:green;
+            margin:0 auto;
+            box-shadow:3px 3px 4px black;
+            font-size:50px;
+            color:white;
+            text-shadow:3px 3px 0px gold;
+        }
+    </style>
+    <div>我是div，我是文字</div>
+</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/06/29/CSS3圆角/" data-id="ciq1x8o9m0000fvr3x4ni02a1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/06/29/CSS3盒模型/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">CSS3盒模型</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/06/29/CSS3圆角/">CSS3圆角</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/29/CSS3盒模型/">CSS3盒模型</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/28/CSS3选择器/">CSS3选择器</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/28/HTML5新增音视频/">HTML5新增音视频</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/28/HTML5新增表单元素/">HTML5新增表单元素</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 刘晓萌<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

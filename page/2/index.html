@@ -68,6 +68,176 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-HTML简述" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/22/HTML简述/" class="article-date">
+  <time datetime="2016-06-22T13:54:40.000Z" itemprop="datePublished">2016-06-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/22/HTML简述/">HTML简述</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="HTML-超文本标记语言"><a href="#HTML-超文本标记语言" class="headerlink" title="HTML(超文本标记语言)"></a>HTML(超文本标记语言)</h2><h3 id="html规范"><a href="#html规范" class="headerlink" title="html规范"></a>html规范</h3><ol>
+<li>所有的标签都要正确的闭合</li>
+<li>大小写要同一，所有的属性都要小写（建议小写，html不区分大小写）</li>
+<li>注意缩进（关系结构要清晰）</li>
+<li>所有的文本内容都要用标签包裹起来</li>
+<li>同级标签，最好display相同</li>
+<li>养成注释的习惯</li>
+<li>命名要规范：不要数字开头；不要纯汉字；建议用字母开头，数字下划线中划线组合使用；命名要贴近语义</li>
+<li>组合标签要正确的嵌套<pre>ul li;ol li;dl dt dd;select option;table tbody tr th td</pre></li>
+</ol>
+<h3 id="html基础模板"><a href="#html基础模板" class="headerlink" title="html基础模板"></a>html基础模板</h3><ol>
+<li>创建html文档<br>（1）command+N新建文档输入文件名和后缀，然后保存<br>（2）通过slideBar插件，右键创建<br>（3） 通过终端，touch+space+文件名和后缀创建</li>
+<li>版本声明doctype</li>
+<li>创建html标记</li>
+<li>html必须有head头部和body身体</li>
+<li>head有个必备标记叫title，文档标题</li>
+<li>支持中文要有meta charset=”utf-8” 使文档支持中文</li>
+</ol>
+<pre>
+    &lt!docype html&gt
+    &lthtml&gt
+        &lthead&gt
+            &ltmeta charset="utf-8" /&gt
+            &lttitle&gt&lt/title&gt
+        &lt/head&gt
+        &ltbody&gt
+
+        &lt/body&gt
+    &lt/html&gt
+</pre>
+
+<h3 id="html常用标签的特性"><a href="#html常用标签的特性" class="headerlink" title="html常用标签的特性"></a>html常用标签的特性</h3><p><strong>1.html分为单标签和双标签</strong></p>
+<p>单标签大致如下：</p>
+<pre>
+    &ltmeta /&gt
+    &ltbr /&gt
+    &lthr /&gt
+    &ltimg /&gt
+    &ltinput /&gt
+    &ltlink /&gt
+</pre>
+余下的都为双标签，在此就不一一熬述。
+
+**2.标签的默认样式**
+
+<pre>
+间距：        margin，padding
+
+字体：        font-size
+
+修饰：         font-weight，font-style，color，text-decoration
+
+边框：        border
+
+display：    none，block，inline，inline-block，list-item，table，table-row，table-cell，flex
+</pre>
+
+<p><strong>3.标签的默认属性</strong></p>
+<pre>
+charset=""
+
+href=""
+
+title=""
+
+alt=""
+
+src=""
+
+target=""  主要针对a form
+
+width=""
+
+height=""
+
+border=""
+
+value=""
+
+type=""
+
+name=""
+
+action=""
+</pre>
+
+<p><strong>4.块级标签</strong></p>
+<p>也就是指属性为display:block;的标签，大致列举如下：</p>
+<pre>
+    标签名        默认属性
+    div            display
+    h1~h6        margin display
+    p            margin display
+    hr            border margin display
+    ol            margin padding list-style-type display
+    ul            margin padding list-style-type display
+    dl            margin display
+    dt            display
+    dd            margin display
+    form        margin display
+    body        margin:8px display
+    html        display
+    option        padding font-weight display white-space min-height
+</pre>
+其特点有：（1）默认独占一行（2）没有设置width，height的情况下，继承父级容器宽度，高度由内容撑开（3）可以设置margin:0 auto居中（4）支持所有样式属性（5）一般作用于容器
+
+**5.行级标签**
+
+也就是指属性为display:inline;的标签，大致列举如下：
+<pre>
+    标签名        默认属性
+    a                color text-decoration cursor
+    span
+    strong            font-weight
+    em(强调)            font-style
+    var(变量声明)    font-style
+    sub(上标字)        vertical-align font-size
+    sup(下标字)        vertical-align font-size
+    small(小字)
+    del(删除)        text-decoration
+    img                可以支持尺寸设置的行级标签
+    br
+</pre>
+
+<p>其特点有：（1）不会独占一行（2）不可以设置尺寸，内容撑开宽度个高度<code>img除外</code> width:auto;height:auto;（3）支持border,background,margin-left,margin-right,padding-left,padding-right</p>
+<p><strong>6.行块级标签</strong></p>
+<p>也就是指属性为display:inline-block;的标签，大致列举如下：</p>
+<pre>
+    input
+    select
+    textarea
+</pre>
+
+<p>其特点有：（1）不会独占一行，可以和行级标签、行块级标签并列一行（空间足够的情况下）（2）尺寸由内容撑开，没有默认的宽高度，可以设置尺寸</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/06/22/HTML简述/" data-id="ciq1x8oac0007fvr3qtup296k" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-HEXO博客的搭建" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/06/22/HEXO博客的搭建/" class="article-date">
@@ -132,7 +302,7 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/22/HEXO博客的搭建/" data-id="ciq0ycvwv0004ojr3dg7defl8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/22/HEXO博客的搭建/" data-id="ciq1x8oaa0006fvr3a63pg6s4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -177,7 +347,7 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/22/hello-world/" data-id="ciq0ycvxh000aojr3wmyl2c0a" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/22/hello-world/" data-id="ciq1x8obc000cfvr31s4scf8b" class="article-share-link">Share</a>
       
       
     </footer>
@@ -221,6 +391,10 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
       <ul>
         
           <li>
+            <a href="/2016/06/29/CSS3圆角/">CSS3圆角</a>
+          </li>
+        
+          <li>
             <a href="/2016/06/29/CSS3盒模型/">CSS3盒模型</a>
           </li>
         
@@ -234,10 +408,6 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
         
           <li>
             <a href="/2016/06/28/HTML5新增表单元素/">HTML5新增表单元素</a>
-          </li>
-        
-          <li>
-            <a href="/2016/06/27/HTML5短语句/">HTML5短语句</a>
           </li>
         
       </ul>
