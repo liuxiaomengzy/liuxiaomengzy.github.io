@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/07/01/CSS3过渡/index.html">
 <meta property="og:site_name" content="紫--小梦">
 <meta property="og:description" content="CSS3过渡主要指transition属性，具体如下：transition:all 2s ease-in-out 3s;transition:property duration transition-timing-function delay;transition-propertytransition-property属性指执行过渡变换的属性，这些属性必须有直接的改变，如all || width">
-<meta property="og:updated_time" content="2016-07-02T01:39:47.000Z">
+<meta property="og:updated_time" content="2016-07-02T06:26:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS3过渡">
 <meta name="twitter:description" content="CSS3过渡主要指transition属性，具体如下：transition:all 2s ease-in-out 3s;transition:property duration transition-timing-function delay;transition-propertytransition-property属性指执行过渡变换的属性，这些属性必须有直接的改变，如all || width">
@@ -103,6 +103,27 @@
 <h3 id="transition-delay"><a href="#transition-delay" class="headerlink" title="transition-delay"></a>transition-delay</h3><p><code>transition-delay</code>执行过渡开始的时间（延时）</p>
 <h5 id="设置过渡记得设置初始值！伪元素不能hover。"><a href="#设置过渡记得设置初始值！伪元素不能hover。" class="headerlink" title="设置过渡记得设置初始值！伪元素不能hover。"></a>设置过渡记得设置初始值！伪元素不能hover。</h5><p>示例如下：</p>
 <pre>
+    &ltstyle&gt
+        a.transition{
+            display:block;
+            width:300px;
+            height:300px;
+            background-color:pink;
+            margin:0 auto;            
+        }
+        a.transition:hover{
+            transition:all 2s ease-in 1s;    
+            width:500px;
+            height:500px;
+            background-color:fuchsia;
+            border:20px solid gold;
+            border-radius:50% / 50%;
+        }
+    &lt/style&gt
+    &lta class="transition" href="https://liuxiaomengzy.github.io/"&gt&lt/a&gt
+</pre>
+
+<pre>
     <style>
         a.transition{
             display:block;
@@ -125,7 +146,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/01/CSS3过渡/" data-id="ciq4i2l7o0000gmr38zveqayr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/01/CSS3过渡/" data-id="ciq4spo2600023qr356hxhhw6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -133,6 +154,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2016/07/02/CSS3变形/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          CSS3变形
+        
+      </div>
+    </a>
   
   
     <a href="/2016/06/30/CSS3背景/" id="article-nav-older" class="article-nav-link-wrap">
@@ -174,6 +204,10 @@
       <ul>
         
           <li>
+            <a href="/2016/07/02/CSS3变形/">CSS3变形</a>
+          </li>
+        
+          <li>
             <a href="/2016/07/01/CSS3过渡/">CSS3过渡</a>
           </li>
         
@@ -187,10 +221,6 @@
         
           <li>
             <a href="/2016/06/29/CSS3盒模型/">CSS3盒模型</a>
-          </li>
-        
-          <li>
-            <a href="/2016/06/28/CSS3选择器/">CSS3选择器</a>
           </li>
         
       </ul>
