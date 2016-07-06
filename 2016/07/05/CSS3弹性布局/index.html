@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>CSS3弹性布局 | 紫--小梦</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="resize属性resize属性规定是否可由用户调整元素的尺寸。
+若希望此属性生效，需设置元素的overflow:auto/hidden/scroll。
+resize:none | both | horizontal | verticalnone用户无法调整元素的尺寸；both用户可以调整元素的高度和宽度；horizontal用户可调整元素的高度；vertical用户可调整元素的高度。
+示例如下：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS3弹性布局">
+<meta property="og:url" content="http://yoursite.com/2016/07/05/CSS3弹性布局/index.html">
+<meta property="og:site_name" content="紫--小梦">
+<meta property="og:description" content="resize属性resize属性规定是否可由用户调整元素的尺寸。
+若希望此属性生效，需设置元素的overflow:auto/hidden/scroll。
+resize:none | both | horizontal | verticalnone用户无法调整元素的尺寸；both用户可以调整元素的高度和宽度；horizontal用户可调整元素的高度；vertical用户可调整元素的高度。
+示例如下：">
+<meta property="og:updated_time" content="2016-07-06T07:17:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS3弹性布局">
+<meta name="twitter:description" content="resize属性resize属性规定是否可由用户调整元素的尺寸。
+若希望此属性生效，需设置元素的overflow:auto/hidden/scroll。
+resize:none | both | horizontal | verticalnone用户无法调整元素的尺寸；both用户可以调整元素的高度和宽度；horizontal用户可调整元素的高度；vertical用户可调整元素的高度。
+示例如下：">
+  
+    <link rel="alternate" href="/atom.xml" title="紫--小梦" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">紫--小梦</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">心怀梦想，志在远方。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-CSS3弹性布局" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/05/CSS3弹性布局/" class="article-date">
+  <time datetime="2016-07-05T12:25:50.000Z" itemprop="datePublished">2016-07-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CSS3弹性布局
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="resize属性"><a href="#resize属性" class="headerlink" title="resize属性"></a>resize属性</h3><p><code>resize</code>属性规定是否可由用户调整元素的尺寸。</p>
+<p><em>若希望此属性生效，需设置元素的overflow:auto/hidden/scroll。</em></p>
+<p><code>resize:none | both | horizontal | vertical</code>none用户无法调整元素的尺寸；both用户可以调整元素的高度和宽度；horizontal用户可调整元素的高度；vertical用户可调整元素的高度。</p>
+<p>示例如下：</p>
+<pre>
+    <style>
+        .resize1{
+            width:200px;
+            height:200px;
+            resize:both;
+            overflow:auto;
+            background-color:fuchsia;
+        }
+    </style>
+    <div class="resize1"></div>
+</pre>
+
+<h3 id="box-flex属性"><a href="#box-flex属性" class="headerlink" title="box-flex属性"></a>box-flex属性</h3><p>通过box-flex属性可以让子容器针对父容器的宽度按一定比例进行划分。</p>
+<p><strong>使用时父级必须设置display:box;</strong></p>
+<p>Chrome必须添加-webkit-前缀才会生效</p>
+<h3 id="box-orient定义子容器的排列方式"><a href="#box-orient定义子容器的排列方式" class="headerlink" title="box-orient定义子容器的排列方式"></a>box-orient定义子容器的排列方式</h3><p><code>box-orient:horizontal | vertical</code>horizontal子容器水平排列；vertical子容器垂直排列。</p>
+<h3 id="box-derection定义子容器的排列顺序"><a href="#box-derection定义子容器的排列顺序" class="headerlink" title="box-derection定义子容器的排列顺序"></a>box-derection定义子容器的排列顺序</h3><p><code>box-direction:normal | reverse</code>normal正常的，按照从左到右或从上到下；reverse反转，从右到左或从下到上。</p>
+<h3 id="box-align子容器的垂直对齐方式"><a href="#box-align子容器的垂直对齐方式" class="headerlink" title="box-align子容器的垂直对齐方式"></a>box-align子容器的垂直对齐方式</h3><p><code>box-align:start | center | end</code>start(默认)居顶对齐；center居中对齐；end居底对齐。</p>
+<h3 id="box-pack子容器的水平对齐方式"><a href="#box-pack子容器的水平对齐方式" class="headerlink" title="box-pack子容器的水平对齐方式"></a>box-pack子容器的水平对齐方式</h3><p><code>box-pack:start | center | end | justify</code>start(默认)居左对齐；center居中对齐；end居右对齐；justify水平等分父容器的宽度。</p>
+<pre>
+    <style>
+        div.tanxingbuju{
+            height:500px;
+            color:black;
+            font-size:20px;
+            display:-webkit-box;
+            -webkit-box-orient:vertical;
+            -webkit-box-direction:reverse;
+        }
+        .tanxingbuju div{
+            margin:0;
+            padding:0;
+        }
+        .tanxingbuju > div:nth-child(1){
+            -webkit-box-flex:1;
+            background-color:pink;
+        }
+        .tanxingbuju > div:nth-child(2){
+            -webkit-box-flex:4;
+            display:-webkit-box;
+            -webkit-box-orient:horizontal;
+            -webkit-box-align:center;
+            -webkit-box-direction:normal;
+            background-color:aqua;
+        }
+        .tanxingbuju > div:nth-child(3){
+            -webkit-box-flex:1;
+            background-color:lime;
+        }
+        .tanxingbuju > div > div:nth-child(1){
+            -webkit-box-flex:2;
+            background-color:red;
+            height:150px;
+        }
+        .tanxingbuju > div > div:nth-child(2){
+            -webkit-box-flex:3;
+            background-color:olive;
+            height:80px
+        }
+    </style>
+    <div class="tanxingbuju">
+        <div>第一</div>
+        <div>
+            <div>左</div>
+            <div>右</div>
+        </div>
+        <div>第三</div>
+    </div>
+</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/07/05/CSS3弹性布局/" data-id="ciqajy7160001uue8ux2g4gin" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/07/04/CSS3 @font-face规则和多列/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">CSS3 @font-face规则和多列</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/07/05/CSS3弹性布局/">CSS3弹性布局</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/04/CSS3 @font-face规则和多列/">CSS3 @font-face规则和多列</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/04/CSS3动画/">CSS3动画</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/02/CSS3变形/">CSS3变形</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/01/CSS3过渡/">CSS3过渡</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 刘晓萌<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
