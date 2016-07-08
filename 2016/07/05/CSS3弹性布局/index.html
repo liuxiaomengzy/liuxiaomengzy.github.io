@@ -17,7 +17,7 @@ resize:none | both | horizontal | verticalnone用户无法调整元素的尺寸�
 若希望此属性生效，需设置元素的overflow:auto/hidden/scroll。
 resize:none | both | horizontal | verticalnone用户无法调整元素的尺寸；both用户可以调整元素的高度和宽度；horizontal用户可调整元素的高度；vertical用户可调整元素的高度。
 示例如下：">
-<meta property="og:updated_time" content="2016-07-06T07:17:13.000Z">
+<meta property="og:updated_time" content="2016-07-08T13:58:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS3弹性布局">
 <meta name="twitter:description" content="resize属性resize属性规定是否可由用户调整元素的尺寸。
@@ -123,6 +123,56 @@ resize:none | both | horizontal | verticalnone用户无法调整元素的尺寸�
 <h3 id="box-align子容器的垂直对齐方式"><a href="#box-align子容器的垂直对齐方式" class="headerlink" title="box-align子容器的垂直对齐方式"></a>box-align子容器的垂直对齐方式</h3><p><code>box-align:start | center | end</code>start(默认)居顶对齐；center居中对齐；end居底对齐。</p>
 <h3 id="box-pack子容器的水平对齐方式"><a href="#box-pack子容器的水平对齐方式" class="headerlink" title="box-pack子容器的水平对齐方式"></a>box-pack子容器的水平对齐方式</h3><p><code>box-pack:start | center | end | justify</code>start(默认)居左对齐；center居中对齐；end居右对齐；justify水平等分父容器的宽度。</p>
 <pre>
+    &lt;style&gt;
+        div.tanxingbuju{
+            height:500px;
+            color:black;
+            font-size:20px;
+            display:-webkit-box;
+            -webkit-box-orient:vertical;
+            -webkit-box-direction:reverse;
+        }
+        .tanxingbuju div{
+            margin:0;
+            padding:0;
+        }
+        .tanxingbuju > div:nth-child(1){
+            -webkit-box-flex:1;
+            background-color:pink;
+        }
+        .tanxingbuju > div:nth-child(2){
+            -webkit-box-flex:4;
+            display:-webkit-box;
+            -webkit-box-orient:horizontal;
+            -webkit-box-align:center;
+            -webkit-box-direction:normal;
+            background-color:aqua;
+        }
+        .tanxingbuju > div:nth-child(3){
+            -webkit-box-flex:1;
+            background-color:lime;
+        }
+        .tanxingbuju > div > div:nth-child(1){
+            -webkit-box-flex:2;
+            background-color:red;
+            height:150px;
+        }
+        .tanxingbuju > div > div:nth-child(2){
+            -webkit-box-flex:3;
+            background-color:olive;
+            height:80px
+        }
+    &lt;/style&gt;
+    &lt;div class="tanxingbuju"&gt;
+        &lt;div&gt;第一&lt;/div&gt;
+        &lt;div&gt;
+            &lt;div&gt;左&lt;/div&gt;
+            &lt;div&gt;右&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div&gt;第三&lt;/div&gt;
+    &lt;/div&gt;
+</pre>
+<pre>
     <style>
         div.tanxingbuju{
             height:500px;
@@ -175,7 +225,7 @@ resize:none | both | horizontal | verticalnone用户无法调整元素的尺寸�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/05/CSS3弹性布局/" data-id="ciqajy7160001uue8ux2g4gin" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/05/CSS3弹性布局/" data-id="ciqas5tvy000367e8wdx8b3x1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -183,6 +233,15 @@ resize:none | both | horizontal | verticalnone用户无法调整元素的尺寸�
   
     
 <nav id="article-nav">
+  
+    <a href="/2016/07/06/LESSCSS初使用/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          LESSCSS初使用
+        
+      </div>
+    </a>
   
   
     <a href="/2016/07/04/CSS3 @font-face规则和多列/" id="article-nav-older" class="article-nav-link-wrap">
@@ -224,6 +283,10 @@ resize:none | both | horizontal | verticalnone用户无法调整元素的尺寸�
       <ul>
         
           <li>
+            <a href="/2016/07/06/LESSCSS初使用/">LESSCSS初使用</a>
+          </li>
+        
+          <li>
             <a href="/2016/07/05/CSS3弹性布局/">CSS3弹性布局</a>
           </li>
         
@@ -237,10 +300,6 @@ resize:none | both | horizontal | verticalnone用户无法调整元素的尺寸�
         
           <li>
             <a href="/2016/07/02/CSS3变形/">CSS3变形</a>
-          </li>
-        
-          <li>
-            <a href="/2016/07/01/CSS3过渡/">CSS3过渡</a>
           </li>
         
       </ul>

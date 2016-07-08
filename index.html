@@ -68,6 +68,168 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-LESSCSS初使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/06/LESSCSS初使用/" class="article-date">
+  <time datetime="2016-07-06T09:27:41.000Z" itemprop="datePublished">2016-07-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/06/LESSCSS初使用/">LESSCSS初使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="首先，用到less你的电脑必须有HBuilder并安装插件。"><a href="#首先，用到less你的电脑必须有HBuilder并安装插件。" class="headerlink" title="首先，用到less你的电脑必须有HBuilder并安装插件。"></a>首先，用到less你的电脑必须有HBuilder并安装插件。</h4><h3 id="LESS介绍"><a href="#LESS介绍" class="headerlink" title="LESS介绍"></a>LESS介绍</h3><p>LESSCSS是一种动态样式语言，属于CSS预处理语言的一种，使用类似CSS的语法，为CSS赋予动态语言的特性，如变量、继承、运算、函数等，更方便CSS的编写和维护。</p>
+<p>LESSCSS可以在多种语言、环境中使用，包括浏览器端、桌面客户端。</p>
+<p>想要了解更多，请<a href="http://www.1024i.com/demo/less/index.html" target="_blank" rel="external">点击这里</a>。</p>
+<h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><p>变量可以让我们单独定义一系列通过的样式，当你需要的时候调用。这样对全局模式时候只要修改几行代码就可以了。</p>
+<p>LESS源码：</p>
+<pre>
+    @color:pink;
+
+    #header{
+        color:@color;
+    }
+    h3{
+        color:@color;
+    }
+</pre>
+
+<p>编译后的CSS：</p>
+<pre>
+    #header{
+        color:pink;
+    }
+    h3{
+        color:pink;
+    }
+</pre>
+
+<h4 id="混合（Mixins）"><a href="#混合（Mixins）" class="headerlink" title="混合（Mixins）"></a>混合（Mixins）</h4><p>混合可以将一个定义好的class A轻松引入到另一个class B中，从而简单实现class B继承class A中的所有属性。还可以带参数地调用。</p>
+<p>LESS源码：</p>
+<pre>
+    .wrap(@radius:5px){
+        -webkit-border-radius:@radius;
+        -moz-border-radius:@radius;
+        -ms-border-radius:@radius;
+        -o-border-radius:@radius;
+        border-radius:@radius;
+    }
+    #header{
+        .wrap;
+    }
+    #footer{
+        .wrap(10px);
+    }
+</pre>
+
+<p>编译后的CSS：</p>
+<pre>
+    #header{
+        -webkit-border-radius:5px;
+        -moz-border-radius:5px;
+        -ms-border-radius:5px;
+        -o-border-radius:5px;
+        border-radius:5px;
+    }
+    #footer{
+        -webkit-border-radius:10px;
+        -moz-border-radius:10px;
+        -ms-border-radius:10px;
+        -o-border-radius:10px;
+        border-radius:10px;
+    }
+</pre>
+
+<h4 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h4><p>我们可以在一个选择器中嵌套另一个选择器来实现继承，这样大大减少代码量，并且代码更加清晰。</p>
+<p>LESS源码：</p>
+<pre>
+    #header{
+        h2{
+            font-size:20px;
+        }
+        div{
+            font-size:12px;
+            a{
+                text-decoration:none;
+                &:hover{
+                    border-width:1px;
+                }
+            }
+        }
+    }
+</pre>
+
+<p>编译后的CSS：</p>
+<pre>
+    #header h2{
+        font-size:20px;
+    }
+    #header div{
+        font-size:12px;
+    }
+    #header div a{
+        text-decoration:none;
+    }
+    #header div a:hover{
+        border-width:1px;
+    }
+</pre>
+
+<h4 id="函数和运算"><a href="#函数和运算" class="headerlink" title="函数和运算"></a>函数和运算</h4><p>运算提供了加减乘除操作；我们既可以做属性值和颜色的运算，这样就可以实现属性值之间的复杂关系。</p>
+<p>LESS源码：</p>
+<pre>
+    @the-border:1px;
+    @base-color:#111;
+    @red:#842210;
+
+    #header{
+        color:(@base-color * 3);
+        border-left:@the-border;
+        border-right:(@the-border * 2);
+    }
+    #footer{
+        color:(@base-color + #003300);
+        border-color:desaturate(@red,10%);
+    }
+</pre>
+
+<p>编译后的CSS：</p>
+<pre>
+    #header{
+        color:#333;
+        border-left:1px;
+        border-right:2px;
+    }
+    #footer{
+        color:#114411;
+        border-color:#7d2717;
+    }
+</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/07/06/LESSCSS初使用/" data-id="ciqas5tx6000h67e859zbs454" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-CSS3弹性布局" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/07/05/CSS3弹性布局/" class="article-date">
@@ -114,6 +276,56 @@
 <h3 id="box-derection定义子容器的排列顺序"><a href="#box-derection定义子容器的排列顺序" class="headerlink" title="box-derection定义子容器的排列顺序"></a>box-derection定义子容器的排列顺序</h3><p><code>box-direction:normal | reverse</code>normal正常的，按照从左到右或从上到下；reverse反转，从右到左或从下到上。</p>
 <h3 id="box-align子容器的垂直对齐方式"><a href="#box-align子容器的垂直对齐方式" class="headerlink" title="box-align子容器的垂直对齐方式"></a>box-align子容器的垂直对齐方式</h3><p><code>box-align:start | center | end</code>start(默认)居顶对齐；center居中对齐；end居底对齐。</p>
 <h3 id="box-pack子容器的水平对齐方式"><a href="#box-pack子容器的水平对齐方式" class="headerlink" title="box-pack子容器的水平对齐方式"></a>box-pack子容器的水平对齐方式</h3><p><code>box-pack:start | center | end | justify</code>start(默认)居左对齐；center居中对齐；end居右对齐；justify水平等分父容器的宽度。</p>
+<pre>
+    &lt;style&gt;
+        div.tanxingbuju{
+            height:500px;
+            color:black;
+            font-size:20px;
+            display:-webkit-box;
+            -webkit-box-orient:vertical;
+            -webkit-box-direction:reverse;
+        }
+        .tanxingbuju div{
+            margin:0;
+            padding:0;
+        }
+        .tanxingbuju > div:nth-child(1){
+            -webkit-box-flex:1;
+            background-color:pink;
+        }
+        .tanxingbuju > div:nth-child(2){
+            -webkit-box-flex:4;
+            display:-webkit-box;
+            -webkit-box-orient:horizontal;
+            -webkit-box-align:center;
+            -webkit-box-direction:normal;
+            background-color:aqua;
+        }
+        .tanxingbuju > div:nth-child(3){
+            -webkit-box-flex:1;
+            background-color:lime;
+        }
+        .tanxingbuju > div > div:nth-child(1){
+            -webkit-box-flex:2;
+            background-color:red;
+            height:150px;
+        }
+        .tanxingbuju > div > div:nth-child(2){
+            -webkit-box-flex:3;
+            background-color:olive;
+            height:80px
+        }
+    &lt;/style&gt;
+    &lt;div class="tanxingbuju"&gt;
+        &lt;div&gt;第一&lt;/div&gt;
+        &lt;div&gt;
+            &lt;div&gt;左&lt;/div&gt;
+            &lt;div&gt;右&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div&gt;第三&lt;/div&gt;
+    &lt;/div&gt;
+</pre>
 <pre>
     <style>
         div.tanxingbuju{
@@ -167,7 +379,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/05/CSS3弹性布局/" data-id="ciqajy7160001uue8ux2g4gin" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/05/CSS3弹性布局/" data-id="ciqas5tvy000367e8wdx8b3x1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -249,7 +461,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/04/CSS3 @font-face规则和多列/" data-id="ciqajy70z0000uue8b4xzt09r" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/04/CSS3 @font-face规则和多列/" data-id="ciqas5tvj000067e83b0rnozb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -470,7 +682,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/04/CSS3动画/" data-id="ciqajy7180002uue8coyi4zsi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/04/CSS3动画/" data-id="ciqas5tvr000167e8loj4qe6m" class="article-share-link">Share</a>
       
       
     </footer>
@@ -726,7 +938,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/02/CSS3变形/" data-id="ciqajy71c0004uue8mtmehovu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/02/CSS3变形/" data-id="ciqas5txq000j67e8h31vkv7g" class="article-share-link">Share</a>
       
       
     </footer>
@@ -815,7 +1027,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/01/CSS3过渡/" data-id="ciqajy71l0008uue8nqjedd3d" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/01/CSS3过渡/" data-id="ciqas5tw5000667e8sdfg2gvn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -991,7 +1203,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/30/CSS3背景/" data-id="ciqajy71k0007uue8gf0n7uwl" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/30/CSS3背景/" data-id="ciqas5tw3000567e80b5r71dn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1112,7 +1324,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/29/CSS3圆角/" data-id="ciqajy71b0003uue86cfywhw7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/29/CSS3圆角/" data-id="ciqas5tvv000267e8xr7g2swe" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1237,7 +1449,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/29/CSS3盒模型/" data-id="ciqajy71e0005uue8a87zslol" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/29/CSS3盒模型/" data-id="ciqas5tw1000467e8x1cg3xqi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1463,97 +1675,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/28/CSS3选择器/" data-id="ciqajy71g0006uue8tdyideuh" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-HTML5新增音视频" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/06/28/HTML5新增音视频/" class="article-date">
-  <time datetime="2016-06-28T08:44:44.000Z" itemprop="datePublished">2016-06-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/28/HTML5新增音视频/">HTML5新增音视频</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="HTML5音视频主要包含以下内容"><a href="#HTML5音视频主要包含以下内容" class="headerlink" title="HTML5音视频主要包含以下内容"></a>HTML5音视频主要包含以下内容</h2><h3 id="audio音频"><a href="#audio音频" class="headerlink" title="audio音频"></a>audio音频</h3><p><code>&lt;audio&gt;&lt;/audio&gt;</code>标签定义声音，比如音乐或其他音频流。</p>
-<p>其属性有：</p>
-<ol>
-<li>autoplay属性，自动播放</li>
-<li>controls属性，出现控制面板</li>
-<li>loop属性，设置单曲循环</li>
-<li>preload属性，提前加载</li>
-<li>src属性，要播放的音频的URL</li>
-</ol>
-<p>当有多种资源时，就可以用到<code>&lt;source/&gt;</code>属性，一个<code>audio</code>里可以有多个<code>source</code>。</p>
-<pre>
-    &ltaudio preload autoplay controls&gt
-        &ltsource src="" type="audio/mp3" /&gt
-        &ltsource src="" type="audio/ogg" /&gt
-        &ltsource src="" type="audio/mpeg" /&gt
-    &lt/audio&gt
-</pre>
-<pre>
-    <audio preload="" autoplay controls>
-        <source src="" type="audio/mp3">
-        <source src="" type="audio/ogg">
-        <source src="" type="audio/mpeg">
-    </audio>
-</pre>
-
-<h3 id="video视频"><a href="#video视频" class="headerlink" title="video视频"></a>video视频</h3><p><code>&lt;video&gt;&lt;/video&gt;</code>标签定义视频，比如电影片段或其他视频流。</p>
-<p>其属性有：</p>
-<ol>
-<li>autoplay属性，自动播放</li>
-<li>controls属性，出现控制面板</li>
-<li>loop属性，设置单曲循环</li>
-<li>preload属性，提前加载</li>
-<li>src属性，要播放的音频的URL</li>
-<li>width属性，可以设置宽度让其高度自适应</li>
-</ol>
-<p>当有多种资源时，就可以用到<code>&lt;source/&gt;</code>属性，一个<code>video</code>里可以有多个<code>source</code>。</p>
-<pre>
-    &ltvideo width="100%" controls&gt
-        &ltsource src="http://www.zhangxinxu.com/study/media/cat.mp4" type="video/mp4"&gt
-        &ltsource src="" type="video/mkv" /&gt
-        &ltsource src="" type="video/rmvb" /&gt
-    &lt/video&gt
-</pre>
-<pre>
-    <video width="100%" controls>
-        <source src="http://www.zhangxinxu.com/study/media/cat.mp4" type="video/mp4">
-        <source src="" type="video/mkv">
-        <source src="" type="video/rmvb">
-    </video>
-</pre>
-
-<h3 id="source标签"><a href="#source标签" class="headerlink" title="source标签"></a>source标签</h3><p><code>&lt;source/&gt;</code>标签为媒介元素（比如<code>&lt;video&gt;</code>和<code>&lt;audio&gt;</code>）定义媒介资源。</p>
-<p><code>&lt;source/&gt;</code>标签允许您规定可替换的视频/音频文件供浏览器根据它对媒体类型或者编解码器的支持进行选择。</p>
-<h3 id="track标签"><a href="#track标签" class="headerlink" title="track标签"></a>track标签</h3><p>用在媒体播放器中的文本轨道，如歌词文件/字幕文件。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/28/HTML5新增音视频/" data-id="ciqajy72i000huue83zsrgxug" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/28/CSS3选择器/" data-id="ciqas5twa000767e8l61ec5fm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1597,6 +1719,10 @@
       <ul>
         
           <li>
+            <a href="/2016/07/06/LESSCSS初使用/">LESSCSS初使用</a>
+          </li>
+        
+          <li>
             <a href="/2016/07/05/CSS3弹性布局/">CSS3弹性布局</a>
           </li>
         
@@ -1610,10 +1736,6 @@
         
           <li>
             <a href="/2016/07/02/CSS3变形/">CSS3变形</a>
-          </li>
-        
-          <li>
-            <a href="/2016/07/01/CSS3过渡/">CSS3过渡</a>
           </li>
         
       </ul>
