@@ -68,6 +68,110 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-CSS3媒体查询" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/09/CSS3媒体查询/" class="article-date">
+  <time datetime="2016-07-09T01:50:36.000Z" itemprop="datePublished">2016-07-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/09/CSS3媒体查询/">CSS3媒体查询</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="CSS3媒体查询也就是指-media-查询"><a href="#CSS3媒体查询也就是指-media-查询" class="headerlink" title="CSS3媒体查询也就是指@media 查询"></a>CSS3媒体查询也就是指@media 查询</h3><p><code>媒体查询不需要像CSS3其他属性一样添加前缀。</code></p>
+<h3 id="media-查询"><a href="#media-查询" class="headerlink" title="@media 查询"></a>@media 查询</h3><p>使用 @media 查询，就可以针对不同的媒体类型定义不同的样式。</p>
+<p>@media 可以针对不同屏幕尺寸设置不同样式，特别是针对响应式页面。</p>
+<p>当改变浏览器大小过程中，页面会根据浏览器的宽度和高度重新渲染页面。</p>
+<h4 id="CSS语法"><a href="#CSS语法" class="headerlink" title="CSS语法"></a>CSS语法</h4><pre>
+    @media mediatype and|not|only (media feature){
+        CSS-Code;
+    }
+</pre>
+
+<p>也可以针对不同的媒体使用不同stylesheets：</p>
+<pre>
+    &lt;link rel="stylesheet" media="mediatype and|not|only (media feature)" href="mystylesheet.css" /&gt;
+</pre>
+
+<h4 id="mediatype媒体类型"><a href="#mediatype媒体类型" class="headerlink" title="mediatype媒体类型"></a>mediatype媒体类型</h4><p>all        用于所有设备</p>
+<p>print    用于打印机和打印预览</p>
+<p>screen    用于电脑屏幕，平板电脑，智能手机等</p>
+<p>speech    用于屏幕阅读器等发声设备</p>
+<h4 id="媒体特性"><a href="#媒体特性" class="headerlink" title="媒体特性"></a>媒体特性</h4><p>媒体特性书写方式为：</p>
+<p>媒体特性:媒体特性指定值</p>
+<h6 id="1-最大宽度max-width"><a href="#1-最大宽度max-width" class="headerlink" title="1.最大宽度max-width"></a>1.最大宽度max-width</h6><p><code>max-width</code>指媒体类型小于或等于指定的宽度时，样式生效。</p>
+<pre>
+    @media screen and (max-width:480px){
+        .aside{
+            display:none;
+        }
+    }
+</pre>
+
+<p>上面表示当屏幕小于或等于480px时，侧边栏（.aside）将被隐藏。</p>
+<h6 id="2-最小宽度min-width"><a href="#2-最小宽度min-width" class="headerlink" title="2.最小宽度min-width"></a>2.最小宽度min-width</h6><p><code>min-width</code>指媒体类型大于或等于指定宽度时，样式生效。</p>
+<pre>
+    @media screen and (min-width:1200px){
+        .nav{
+            width:1000px;
+        }
+    }
+</pre>
+
+<p>上面表示当屏幕大于或等于1200px时，导航栏（.nav）宽度为1000px。</p>
+<h6 id="3-多个媒体特征使用"><a href="#3-多个媒体特征使用" class="headerlink" title="3.多个媒体特征使用"></a>3.多个媒体特征使用</h6><p>媒体查询可以使用关键词<code>and</code>将多个媒体特性结合在一起。一个媒体查询可以包含0到多个表达式，表达式又可以包含0到多个关键字，以及一种媒体类型。</p>
+<p>当屏幕在500px~900px之间时，body的背景色为金色，如下所示：</p>
+<pre>
+    @media screen and (min-width:500px) and (max-width:900px){
+        body{
+            background-color:gold;
+        }
+    }
+</pre>
+
+<h6 id="4-设备屏幕的输出宽度Device-Width"><a href="#4-设备屏幕的输出宽度Device-Width" class="headerlink" title="4.设备屏幕的输出宽度Device Width"></a>4.设备屏幕的输出宽度Device Width</h6><p>在只能设备上，可以<strong>根据屏幕设备的尺寸来设置相应的样式</strong>（或者调用相应的样式文件）。同样对于屏幕设备可以使用<code>min/max</code>对应参数。</p>
+<pre>
+    &lt;link rel="stylesheet" media="screen and (max-device-width:480px)" href="iphone.css" /&gt;
+</pre>
+
+<p>上述代码指“iphone.css”样式适用于最大设备宽度为480px。</p>
+<h6 id="5-not关键词"><a href="#5-not关键词" class="headerlink" title="5.not关键词"></a>5.not关键词</h6><p><strong>使用关键词“not”是用来排除某种制定的媒体类型</strong>，也就是用来排除符合表达式的设备。 也就是说not关键词表示对后面的表达式执行反操作。</p>
+<pre>
+    @media not print and (max-width:1200px){样式代码}
+</pre>
+
+<p>上述代码表示：样式代码将被使用在除打印设备和设备宽度小于1200px下的所有设备中。</p>
+<h6 id="6-only关键词"><a href="#6-only关键词" class="headerlink" title="6.only关键词"></a>6.only关键词</h6><p><strong>only用来指定某种特定的媒体类型</strong>，可以用来排除不支持媒体查询的浏览器。</p>
+<p>only很多时候用来对不支持Media Query但却支持Media Type的设备隐藏样式表的。其主要有：</p>
+<p>支持媒体特性的设备，正常调用样式，此时可以认为only不存在；</p>
+<p>不支持媒体特性但又支持媒体类型的设备，这样就会不读样式，因其首先读取only而非screen；</p>
+<p>另外不支持Media Query的浏览器，不论是否支持only，样式都不会被采用。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/07/09/CSS3媒体查询/" data-id="ciqetwhpl00000he8zz28zksm" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-LESSCSS初使用" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/07/06/LESSCSS初使用/" class="article-date">
@@ -220,7 +324,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/06/LESSCSS初使用/" data-id="ciqas5tx6000h67e859zbs454" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/06/LESSCSS初使用/" data-id="ciqetwhsk000j0he86n339qeb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -379,7 +483,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/05/CSS3弹性布局/" data-id="ciqas5tvy000367e8wdx8b3x1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/05/CSS3弹性布局/" data-id="ciqetwhru00090he8tzrhoe8w" class="article-share-link">Share</a>
       
       
     </footer>
@@ -461,7 +565,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/04/CSS3 @font-face规则和多列/" data-id="ciqas5tvj000067e83b0rnozb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/04/CSS3 @font-face规则和多列/" data-id="ciqetwhpy00040he8skbbzp1p" class="article-share-link">Share</a>
       
       
     </footer>
@@ -682,7 +786,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/04/CSS3动画/" data-id="ciqas5tvr000167e8loj4qe6m" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/04/CSS3动画/" data-id="ciqetwhpr00010he8pl3zmfx4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -938,7 +1042,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/02/CSS3变形/" data-id="ciqas5txq000j67e8h31vkv7g" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/02/CSS3变形/" data-id="ciqetwhpt00020he8s72lvgt4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1027,7 +1131,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/01/CSS3过渡/" data-id="ciqas5tw5000667e8sdfg2gvn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/01/CSS3过渡/" data-id="ciqetwhqo00060he8j34ofy79" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1203,7 +1307,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/30/CSS3背景/" data-id="ciqas5tw3000567e80b5r71dn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/30/CSS3背景/" data-id="ciqetwhql00050he8sy15yi4d" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1324,7 +1428,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/29/CSS3圆角/" data-id="ciqas5tvv000267e8xr7g2swe" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/29/CSS3圆角/" data-id="ciqetwhpw00030he8olovuxmj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1449,233 +1553,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/29/CSS3盒模型/" data-id="ciqas5tw1000467e8x1cg3xqi" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-CSS3选择器" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/06/28/CSS3选择器/" class="article-date">
-  <time datetime="2016-06-28T13:57:24.000Z" itemprop="datePublished">2016-06-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/28/CSS3选择器/">CSS3选择器</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="CSS3选择器主要包含以下几种"><a href="#CSS3选择器主要包含以下几种" class="headerlink" title="CSS3选择器主要包含以下几种"></a>CSS3选择器主要包含以下几种</h2><h3 id="子元素选择器"><a href="#子元素选择器" class="headerlink" title="子元素选择器"></a>子元素选择器</h3><p><code>E &gt; F</code>类型，子元素选择器选中的是子元素F，子子孙孙不会被选</p>
-<p>而后代选择器<code>E F</code>类型是选中所有的F，包含F的后代也选中</p>
-<h3 id="兄弟选择器"><a href="#兄弟选择器" class="headerlink" title="兄弟选择器"></a>兄弟选择器</h3><h4 id="相邻兄弟选择器"><a href="#相邻兄弟选择器" class="headerlink" title="相邻兄弟选择器"></a>相邻兄弟选择器</h4><p><code>E + F</code>类型，必备属性：1.必须同级；2.必须相邻；3.必须在其下方；4.有且只有一个符合。</p>
-<h4 id="通用兄弟选择器"><a href="#通用兄弟选择器" class="headerlink" title="通用兄弟选择器"></a>通用兄弟选择器</h4><p><code>E ~ F</code>类型，必备属性：1.必须同级；2.必须在其下方；3.可以有多个符合。</p>
-<h3 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h3><p><code>[ ]</code>类型，例如<code>[class]</code>指具有class属性的值</p>
-<p><code>[abc =&quot;value&quot;]</code>类型，属性和值选择器</p>
-<p><code>[abc ~=&quot;value&quot;] ~</code>表示几个以空格隔开的属性值中包含了”value”</p>
-<p><code>[abc ^=&quot;value&quot;] ^</code>以value开头的值</p>
-<p><code>[abc $=&quot;value&quot;] $</code>以value结尾的值</p>
-<p><code>[abc *=&quot;value&quot;] *</code>包含value的值</p>
-<p><code>[abc |=&quot;value&quot;] |</code>以value或value-开头的值</p>
-<p><code>[abc =value]</code>和<code>[abc *=&quot;value&quot;]</code>较实用。</p>
-<h3 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h3><h4 id="锚点伪类（a的伪类）"><a href="#锚点伪类（a的伪类）" class="headerlink" title="锚点伪类（a的伪类）"></a>锚点伪类（a的伪类）</h4><p>简称爱恨法则  love &amp; hate</p>
-<ol>
-<li><p>l = link        没有访问过的状态</p>
-</li>
-<li><p>v = visited    访问过后的状态</p>
-</li>
-<li><p>h = hover    鼠标悬浮在标签上的状态</p>
-</li>
-<li><p>a = active    鼠标悬浮在标签上按下没有松开的状态</p>
-</li>
-</ol>
-<p>使用时候顺序不能变，必须从前到后。</p>
-<h4 id="UI元素伪类-表单元素"><a href="#UI元素伪类-表单元素" class="headerlink" title="UI元素伪类 表单元素"></a>UI元素伪类 表单元素</h4><p><code>disabled</code>    废弃属性，元素不可用</p>
-<p><code>focus</code>        聚焦属性</p>
-<p><code>checked</code>    选中(并不能完美支持)</p>
-<p><code>enabled</code>    可用状态</p>
-<pre>
-    &ltstyle&gt
-        input:disabled{
-            border:2px solid blue;
-            background-color:gold;
-        }
-        input:focus{
-            border:2px solid red;
-        }
-        input:checked{
-            display:block;
-            width:50px;
-            height:50px;
-        }
-        input:enabled{
-            background-color:pink;
-        }
-    &lt/style&gt
-    &ltform&gt
-        &ltinput type="text" disabled /&gt
-        &ltinput type="text"/&gt
-        &ltinput type="text"/&gt
-        &ltinput type="checkbox"/&gt
-        &ltinput type="checkbox"/&gt
-    &lt/form&gt
-</pre>
-<pre>
-    <style>
-        input:disabled{
-            border:2px solid blue;
-            background-color:gold;
-        }
-        input:focus{
-            border:2px solid red;
-        }
-        input:checked{
-            display:block;
-            width:50px;
-            height:50px;
-        }
-        input:enabled{        
-            background-color:pink;
-        }
-    </style>
-    <form>
-        <input type="text" disabled>
-        <input type="text">
-        <input type="text">
-        <input type="checkbox">
-        <input type="checkbox">
-    </form>
-</pre>
-
-<h3 id="否定选择器"><a href="#否定选择器" class="headerlink" title="否定选择器"></a>否定选择器</h3><p><code>:not</code>类型，通常和属性选择器结合使用。</p>
-<pre>
-    &ltstyle&gt
-        input:not([type="submit"]){
-            border:2px solid gold;
-        }
-    &lt/style&gt
-    &ltform&gt
-    &ltinput type="text"/&gt
-    &ltinput type="submit"/&gt
-    &lt/form&gt
-</pre>
-
-<p>效果如下：</p>
-<p><img src="https://raw.githubusercontent.com/liuxiaomengzy/liuxiaomengzy.github.io/master/images/not%E5%90%A6%E5%AE%9A%E9%80%89%E6%8B%A9%E5%99%A8.png" alt="not否定选择器"></p>
-<h3 id="nth选择器"><a href="#nth选择器" class="headerlink" title="nth选择器"></a>nth选择器</h3><p><code>:first-child</code>选择某个元素的第一个子元素</p>
-<p><code>last-child</code>选择某个元素的最后一个子元素</p>
-<p><code>nth-last-child()</code>选择某个元素的一个或多个特定的子元素，从这个元素的最后一个子元素开始算</p>
-<p><code>:nth-of-type()</code>选择指定的元素</p>
-<p><code>:nth-last-of-type()</code>选择指定的元素，从元素的最后一个开始计算</p>
-<p><code>:first-of-type</code>选择一个上级元素下的第一个同类子元素</p>
-<p><code>:last-of-type</code>选择一个上级元素的最后一个同类子元素</p>
-<p><code>:only-child</code>选择的元素是它的父元素的唯一一个子元素</p>
-<p><code>:only-of-type</code>选择一个元素是它的上级元素的唯一一个相同类型的子元素</p>
-<p><code>:empty</code>选择的元素里面没有任何内容</p>
-<p>因属性较多，后面属性设置会覆盖前面，就不在一一展现，仅列举几个</p>
-<pre>
-    &ltstyle&gt
-        ul li:first-child{
-            background-color:black;
-        }
-        ul li:last-child{
-            background-color:pink;
-        }
-        ul li:nth-of-type(3){
-            background-color:blue;
-        }
-    &lt/style&gt
-    &ltul&gt
-        &ltli&gt&lt/li&gt
-        &ltli&gt&lt/li&gt
-        &ltli&gt&lt/li&gt
-        &ltli&gt&lt/li&gt
-        &ltli&gt&lt/li&gt
-    &lt/ul&gt
-</pre>
-
-<p>效果如下：</p>
-<p><img src="https://raw.githubusercontent.com/liuxiaomengzy/liuxiaomengzy.github.io/master/images/nth%E9%80%89%E6%8B%A9%E5%99%A8.png" alt="nth选择器"></p>
-<p><code>:nth-child()</code>选择某个元素的一个或多个特定的子元素</p>
-<p><code>:nth-child(length)</code>参数是具体数字</p>
-<p><code>:nth-child(n)</code>参数是n,n从1开始计算</p>
-<p><code>:nth-child(2n)</code>n的倍数选择，n从1开始算(偶数行也可用<code>even</code>)</p>
-<p><code>:nth-child(2n+1)</code>表示隔几选一(奇数行也可用<code>odd</code>)</p>
-<p><code>:nth-child(n+length)</code>选择大于等于length后面的元素</p>
-<p><code>:nth-child(-n+length)</code>选择小于等于length前面的元素</p>
-<h3 id="伪元素"><a href="#伪元素" class="headerlink" title="伪元素"></a>伪元素</h3><p><code>::first-letter</code>选择文本块的第一个字母，除非在同一行里面包含一些其它元素，不过这个主要运用于段落排版上多</p>
-<p><code>::first-line</code>选择元素的第一行</p>
-<p><code>::before</code>,<code>::after</code>这两个主要用来给元素的前面或后面插入内容，这两个常用”content”配合使用，见过最多的就是清除浮动还有图片icon</p>
-<p><code>::selection</code>用来改变浏览网页选中文本的默认效果，<code>::selection</code>只能设置两个属性background,color属性，设置其他属性是没有任何效果的</p>
-<pre>
-    &ltstyle&gt
-        div{
-            width:500px;
-            height:500px;
-            background-color:green;
-            margin:0 auto;
-            font-size:30px;
-            position:relative;
-            font-size:30px;
-            }
-        div::before{
-            content:"";
-            width:200px;
-            height:200px;
-            background-color:orange;
-            display:block;
-            position:absolute;
-            top:60px;
-            left:0;
-        }
-        div::after{
-            content:"";
-            width:200px;
-            height:200px;
-            background-color:gold;
-            display:block;
-            position:absolute;
-            right:0;
-            top:0;
-        }
-        div::first-letter{
-            color:red;
-            font-size:60px;
-        }
-        div::first-line{
-            color:purple;
-        }
-        div::selection{
-            color:white;
-            background:black;
-        }
-    &lt/style&gt
-    &ltdiv&gt我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div
-    &lt/div&gt    
-</pre>
-
-<p>效果如下：</p>
-<p><img src="https://raw.githubusercontent.com/liuxiaomengzy/liuxiaomengzy.github.io/master/images/%E4%BC%AA%E5%85%83%E7%B4%A0.png" alt="伪元素"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/28/CSS3选择器/" data-id="ciqas5twa000767e8l61ec5fm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/29/CSS3盒模型/" data-id="ciqetwhqu00080he8qlok99d4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1688,7 +1566,7 @@
 
 
   <nav id="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">__('next') &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">__('next') &raquo;</a>
   </nav>
 </section>
         
@@ -1719,6 +1597,10 @@
       <ul>
         
           <li>
+            <a href="/2016/07/09/CSS3媒体查询/">CSS3媒体查询</a>
+          </li>
+        
+          <li>
             <a href="/2016/07/06/LESSCSS初使用/">LESSCSS初使用</a>
           </li>
         
@@ -1732,10 +1614,6 @@
         
           <li>
             <a href="/2016/07/04/CSS3动画/">CSS3动画</a>
-          </li>
-        
-          <li>
-            <a href="/2016/07/02/CSS3变形/">CSS3变形</a>
           </li>
         
       </ul>
