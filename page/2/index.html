@@ -68,6 +68,131 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-CSS3盒模型" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/29/CSS3盒模型/" class="article-date">
+  <time datetime="2016-06-29T13:27:18.000Z" itemprop="datePublished">2016-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/29/CSS3盒模型/">CSS3盒模型</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="CSS3盒模型也就是指-box-sizing-属性"><a href="#CSS3盒模型也就是指-box-sizing-属性" class="headerlink" title="CSS3盒模型也就是指 box-sizing 属性"></a>CSS3盒模型也就是指 box-sizing 属性</h3><p><code>box-sizing</code>主要有三个值，分别为content-box（默认值）|| border-box || padding-box。</p>
+<p><code>box-sizing:content-box</code>,border和padding不计算在width内</p>
+<p><code>box-sizing:padding-box</code>,padding计算在width内，border不计算在width内（暂时只有火狐支持，前缀加入<code>-moz-</code>）</p>
+<p><code>box-sizing:border-box</code>,border和padding都计算在width内</p>
+<h4 id="outline外轮廓"><a href="#outline外轮廓" class="headerlink" title="outline外轮廓"></a>outline外轮廓</h4><p>在此顺便提一下<code>outline</code>属性，<code>outline</code>是绘制于元素周围的一条线，位于边框边缘的外围，可起到突出元素的作用。</p>
+<p>轮廓线不会占据空间，也不一定是矩形</p>
+<p><code>outline</code>简写属性在一个声明中设置所有的轮廓属性,包括<code>outline-color</code> <code>outline-style</code> <code>outline-width</code>,与border一样，顺序可以任性调换。</p>
+<p><code>outline</code>不包含在<code>box-sizing</code>内。</p>
+<pre>
+    &ltstyle&gt
+        .div1{
+            width:200px;
+            height:200px;
+            background-color:pink;
+            box-sizing:content-box;
+            padding:50px;
+            border:20px solid gold;
+            color:white;
+            margin:0 auto;
+            outline:5px solid black;
+        }
+        .div2{
+            width:200px;
+            height:200px;
+            background-color:red;
+            -moz-box-sizing:padding-box;
+            box-sizing:padding-box;
+            padding:50px;
+            border:20px solid gold;
+            color:white;
+            margin:0 auto;
+            outline:5px solid black;
+        }
+        .div3{
+            width:200px;
+            height:200px;
+            background-color:blue;
+            box-sizing:border-box;
+            padding:50px;
+            border:20px solid gold;
+            color:white;
+            margin:0 auto;
+            outline:5px solid black;
+        }
+    &lt/style&gt
+    &ltdiv class="div1"&gt我是div我是div&lt/div&gt
+    &ltdiv class="div2"&gt我是div我是div&lt/div&gt
+    &ltdiv class="div3"&gt我是div我是div&lt/div&gt
+</pre>
+<pre>
+    <style>
+        .he1{
+            width:200px;
+            height:200px;
+            background-color:pink;
+            box-sizing:content-box;
+            padding:50px;
+            border:20px solid gold;
+            color:white;
+            margin:0 auto;
+            outline:5px solid black;
+        }
+        .he2{
+            width:200px;
+            height:200px;
+            background-color:red;
+            -moz-box-sizing:padding-box;
+            box-sizing:padding-box;
+            padding:50px;
+            border:20px solid gold;
+            color:white;
+            margin:0 auto;
+            outline:5px solid black;
+        }
+        .he3{
+            width:200px;
+            height:200px;
+            background-color:blue;
+            box-sizing:border-box;
+            padding:50px;
+            border:20px solid gold;
+            color:white;
+            margin:0 auto;
+            outline:5px solid black;
+        }
+    </style>
+    <div class="he1">我是div我是div</div>
+    <div class="he2">我是div我是div</div>
+    <div class="he3">我是div我是div</div>
+</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/06/29/CSS3盒模型/" data-id="ciqhywsvs0005dse8tfsesx64" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-CSS3选择器" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/06/28/CSS3选择器/" class="article-date">
@@ -284,7 +409,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/28/CSS3选择器/" data-id="ciqetwhqr00070he8evcisayd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/28/CSS3选择器/" data-id="ciqhywsvv0007dse8sblmshuy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -374,7 +499,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/28/HTML5新增音视频/" data-id="ciqetwhs3000c0he8ceds3x3n" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/28/HTML5新增音视频/" data-id="ciqhywswc000ddse80z2fv1ye" class="article-share-link">Share</a>
       
       
     </footer>
@@ -569,7 +694,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/28/HTML5新增表单元素/" data-id="ciqetwhs0000b0he8uu0up118" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/28/HTML5新增表单元素/" data-id="ciqhywswg000gdse8mishz2rc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -678,7 +803,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/27/HTML5短语句/" data-id="ciqetwhs6000e0he82jokmko3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/27/HTML5短语句/" data-id="ciqhywswh000hdse8pa08a289" class="article-share-link">Share</a>
       
       
     </footer>
@@ -751,7 +876,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/27/HTML5新增标签/" data-id="ciqetwhs5000d0he81p5rosbs" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/27/HTML5新增标签/" data-id="ciqhywswx000kdse8g54pnpjn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -950,7 +1075,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/25/CSS总结/" data-id="ciqetwhsa000g0he84yucwobm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/25/CSS总结/" data-id="ciqhywsw3000adse81lwpk3qa" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1077,7 +1202,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/24/meta标签/" data-id="ciqetwht0000k0he8jzv7ug5o" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/24/meta标签/" data-id="ciqhywswj000idse8hq2uyvet" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1148,7 +1273,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/23/CSS单位/" data-id="ciqetwhrw000a0he8ek3vl215" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/23/CSS单位/" data-id="ciqhywsw6000bdse8fj01uu8s" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1182,7 +1307,7 @@
       
         <h2 id="HTML-超文本标记语言"><a href="#HTML-超文本标记语言" class="headerlink" title="HTML(超文本标记语言)"></a>HTML(超文本标记语言)</h2><h3 id="html规范"><a href="#html规范" class="headerlink" title="html规范"></a>html规范</h3><ol>
 <li>所有的标签都要正确的闭合</li>
-<li>大小写要同一，所有的属性都要小写（建议小写，html不区分大小写）</li>
+<li>大小写要统一，所有的属性都要小写（建议小写，html不区分大小写）</li>
 <li>注意缩进（关系结构要清晰）</li>
 <li>所有的文本内容都要用标签包裹起来</li>
 <li>同级标签，最好display相同</li>
@@ -1199,7 +1324,7 @@
 <li>支持中文要有meta charset=”utf-8” 使文档支持中文</li>
 </ol>
 <pre>
-    &lt!docype html&gt
+    &lt!doctype html&gt
     &lthtml&gt
         &lthead&gt
             &ltmeta charset="utf-8" /&gt
@@ -1221,16 +1346,15 @@
     &ltinput /&gt
     &ltlink /&gt
 </pre>
-余下的都为双标签，在此就不一一熬述。
 
-**2.标签的默认样式**
-
+<p>余下的都为双标签，在此就不一一熬述。</p>
+<p><strong>2.标签的默认样式</strong></p>
 <pre>
 间距：        margin，padding
 
 字体：        font-size
 
-修饰：         font-weight，font-style，color，text-decoration
+修饰：        font-weight，font-style，color，text-decoration
 
 边框：        border
 
@@ -1318,81 +1442,7 @@ action=""
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/22/HTML简述/" data-id="ciqetwhs8000f0he8muyb4g07" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-HEXO博客的搭建" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/06/22/HEXO博客的搭建/" class="article-date">
-  <time datetime="2016-06-22T09:04:58.000Z" itemprop="datePublished">2016-06-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/22/HEXO博客的搭建/">搭建HEXO博客</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="本文主要针对Mac电脑。"><a href="#本文主要针对Mac电脑。" class="headerlink" title="本文主要针对Mac电脑。"></a>本文主要针对Mac电脑。</h2><h2 id="第一步：安装node-JS"><a href="#第一步：安装node-JS" class="headerlink" title="第一步：安装node.JS"></a>第一步：安装node.JS</h2><ol>
-<li>首先<a href="https://nodejs.org/en/" target="_blank" rel="external">下载node.JS</a></li>
-<li>解压后运行，根据提示安装。</li>
-<li>打开终端，输入”node -v”，当出现”v4.4.5”这类的说明你的Mac已经安装了node；否则重新步骤1。</li>
-</ol>
-<h2 id="第二步：安装git"><a href="#第二步：安装git" class="headerlink" title="第二步：安装git"></a>第二步：安装git</h2><ol>
-<li>作用是把本地的hexo内容上传到github</li>
-<li>安装Xcode就有git，输入”git –version”当出现git的数字即为已经装好。</li>
-</ol>
-<h2 id="第三步：安装hexo"><a href="#第三步：安装hexo" class="headerlink" title="第三步：安装hexo"></a>第三步：安装hexo</h2><ol>
-<li>在命令行输入”npm install hexo -g”来开始安装hexo</li>
-<li>当出现error或者其他报错时候，可以添加”sudo”来增加权限，即”sudo npm install hero -g”</li>
-<li>之后会让你输入电脑密码(假如你设置的话)，之后等待你下载并安装完成</li>
-<li>输入”hexo”检查你的电脑是否已经装好hexo</li>
-<li>创建一个存储的hexo目录并”cd”其进入，输入”hexo init”初始化hexo目录</li>
-<li>输入”hexo server”启动本地服务,当出现如下即可复制网址在浏览器中查看。<pre>
-INFO  Start processing
-INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
-</pre>
-
-</li>
-</ol>
-<h2 id="第四步：配置github"><a href="#第四步：配置github" class="headerlink" title="第四步：配置github"></a>第四步：配置github</h2><ol>
-<li>必要条件：github账号，没有可以<a href="https://github.com/" target="_blank" rel="external">点击这里注册</a></li>
-<li>在创建的hexo目录下输入”git”回车启动git，再输入”ssh-keygen”之后连续按回车三次，当出现如下时候，可以进行下一步<pre><br>+—[RSA 2048]—-+<br>|             o.++|<br>|           . .<em>+o|<br>|          = +++ B|<br>|         B =.o+B.|<br>|        S </em> +.o=+|<br>|         = E ooo=|<br>|          = +  oo|<br>|           o +. .|<br>|            +.o+.|<br>+—-[SHA256]—–+<br></pre></li>
-<li>输入”vim ~/.ssh/id_rsa.pub”完整复制如下代码，注意不要多带也不要少<pre>ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCt4KbeDTOxGyFWUcVo77axVpRLNY1ArBKpcSYGBsy1pRUIzkRQRJHFw4NSsiMYLrw6B/sngvtERSS4MoQVSueiy978kwNw5tU+RQ4hCCAd9XBvTJh7cyXm4VI3lPq1nGjrNcLgN1mFphg7npru2HSr0za2mGc0DfdJgurh1zbLYkIpXM70AKcfWtCBe9ghOQ3GSgA+TM675L6TjGxPsejvbP8qVvM8kbe8ucdL0ykkcCz1HcdRrqfu5T815JaCiEOabkkIMQ6qQOnQnXwD/B5lUMazb3e9UYqcNsZn2S3ujJ06HHe9lsyKlCSaIVAauBIsApKrHvNzwdBpkZ0YHnQD lanou@YF06-4.local</pre></li>
-<li>然后在github-&gt;setting-&gt;SSH and GPG keys-&gt;SSH keys下title随意命名，在key中粘贴，点击”ADD SSH key”即可</li>
-<li>配置github与本地机器验证，输入“git config –global user.name”””的引号中输入你的github用户名，回车，输入“git config –global user.emall”””的引号中输入你的github注册邮箱，回车即可</li>
-<li>在github右上角+号下拉框选择”New repository”,在”Repository name”中输入”your name+.github.io” 勾选 “Initialize this repository with a README”，再点击”Creat repository”即可创建博客域名仓库。</li>
-</ol>
-<h2 id="第五步：发布博客"><a href="#第五步：发布博客" class="headerlink" title="第五步：发布博客"></a>第五步：发布博客</h2><ol>
-<li>在本地创建的hexo文件找到”config.yml”在Sublime Text中打开，找到”#Site”,可以在里面更改你认为需要更改的。代码如下<pre># Site<br>title:<br>subtitle:<br>description:<br>author:<br>language: zh-CN<br>timezone:</pre></li>
-<li>下拉至最后，找到”deploy”在”type:”中输入” git”(注意空格)</li>
-<li>在新创建的博客域名仓库找到”Clone or download”点击选择”Use HTTPS”复制<a href="https://地址，在type下回车另起一行输入&quot;repo:&quot;，然后空格+域名仓库的https地址，保存即可" target="_blank" rel="external">https://地址，在type下回车另起一行输入&quot;repo:&quot;，然后空格+域名仓库的https地址，保存即可</a><pre>deploy:<br>type: git<br>repo: <a href="https://github.com/liuxiaomengzy/liuxiaomengzy.github.io.git" target="_blank" rel="external">https://github.com/liuxiaomengzy/liuxiaomengzy.github.io.git</a></pre></li>
-<li>然后在终端中输入”npm install hexo-deployer-git –save”等待其流程运行完成出现如下代码即可<pre>[fsevents] Success: “/Users/lanou/Desktop/blog/node_modules/hexo-deployer-git/node_modules/hexo-fs/node_modules/chokidar/node_modules/fsevents/lib/binding/Release/node-v46-darwin-x64/fse.node” is installed via remote<br>hexo-deployer-git@0.2.0 node_modules/hexo-deployer-git<br>├── moment@2.13.0<br>├── chalk@1.1.3 (escape-string-regexp@1.0.5, supports-color@2.0.0, ansi-styles@2.2.1, strip-ansi@3.0.1, has-ansi@2.0.0)<br>├── hexo-util@0.6.0 (striptags@2.1.1, html-entities@1.2.0, bluebird@3.4.1, highlight.js@9.4.0, cross-spawn@4.0.0, camel-case@3.0.0)<br>├── hexo-fs@0.1.6 (escape-string-regexp@1.0.5, graceful-fs@4.1.4, bluebird@3.4.1, chokidar@1.5.2)<br>└── swig@1.4.2 (optimist@0.6.1, uglify-js@2.4.24)</pre></li>
-<li>输入”hexo g”是md文件转换为html文件，完成后即可输入”hexo d”发布上传到github。</li>
-<li>新文件创建方法：输入”hexo new XXX(新的文本文件)”，编辑完成后输入”hexo server”本地运行ok后，输入”hexo g”是md文件转换为html文件，完成后即可输入”hexo d”发布上传到github了。</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/22/HEXO博客的搭建/" data-id="ciqetwhsd000h0he81atag66l" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/22/HTML简述/" data-id="ciqhywswd000edse8v2stx8dy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1436,6 +1486,10 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
       <ul>
         
           <li>
+            <a href="/2016/07/11/JavaScript基础/">JavaScript基础</a>
+          </li>
+        
+          <li>
             <a href="/2016/07/09/CSS3媒体查询/">CSS3媒体查询</a>
           </li>
         
@@ -1449,10 +1503,6 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
         
           <li>
             <a href="/2016/07/04/CSS3 @font-face规则和多列/">CSS3 @font-face规则和多列</a>
-          </li>
-        
-          <li>
-            <a href="/2016/07/04/CSS3动画/">CSS3动画</a>
           </li>
         
       </ul>

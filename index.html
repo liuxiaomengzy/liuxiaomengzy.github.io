@@ -68,6 +68,246 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-JavaScript基础" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/11/JavaScript基础/" class="article-date">
+  <time datetime="2016-07-11T09:37:58.000Z" itemprop="datePublished">2016-07-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/11/JavaScript基础/">JavaScript基础</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="JavaScript简介"><a href="#JavaScript简介" class="headerlink" title="JavaScript简介"></a>JavaScript简介</h3><p>JavaScript是一种基于对象（object）和事件驱动（even driven）并具有相对安全性的客户端脚本语言。同时也是一种广泛用于客户端Web开发的脚本语言，常用来给HTML网页添加动态功能，是一种动态、弱类型、基于原型的语言，内置支持类。</p>
+<ol>
+<li>JavaScript是一种轻量级的编程语言。</li>
+<li>JavaScript是可插入HTML页面的编程代码。</li>
+<li>JavaScript插入HTML页面后，可由所有现代浏览器执行。</li>
+<li>JavaScript可以让网页呈现各种动态效果。</li>
+</ol>
+<h5 id="JavaScript组成"><a href="#JavaScript组成" class="headerlink" title="JavaScript组成"></a>JavaScript组成</h5><p><strong>核心</strong><code>ECMAscript</code>——提供核心语言的功能（基础语言）</p>
+<p>ECMAscript描述了语法、类型、语句、关键字、保留字、运算符、对象这些内容。ECMAscript定义了脚本语言的所有属性、方法和对象。</p>
+<p>JavaScript/ActionScript/ScriptEase等其他语言通过实现ECMAScript作为其功能的基准。</p>
+<p><strong>文档对象模型</strong><code>DOM</code>(document object model)——提供访问和操作网页内容的方法和接口</p>
+<p><strong>浏览器对象模型</strong><code>BOM</code>(browser object model)——提供与浏览器交互的方法和接口</p>
+<h5 id="JavaScript特点"><a href="#JavaScript特点" class="headerlink" title="JavaScript特点"></a>JavaScript特点</h5><ol>
+<li><p>一种解释性执行的脚本语言。</p>
+</li>
+<li><p>一种基于对象的脚本语言。</p>
+</li>
+<li><p>一种简单弱类型脚本语言。</p>
+</li>
+<li><p>一种相对安全脚本语言。</p>
+</li>
+<li><p>一种事件驱动脚本语言。</p>
+</li>
+<li><p>一种跨平台性脚本语言。</p>
+</li>
+</ol>
+<h5 id="JavaScript语法"><a href="#JavaScript语法" class="headerlink" title="JavaScript语法"></a>JavaScript语法</h5><ol>
+<li>区分大小写</li>
+<li>弱类型变量</li>
+<li>行尾的分号可有可无（建议都写）</li>
+<li>括号{}用于代码块</li>
+<li>注释方式同于C和Java</li>
+</ol>
+<h3 id="JavaScript引入"><a href="#JavaScript引入" class="headerlink" title="JavaScript引入"></a>JavaScript引入</h3><h5 id="第一种：直接写在script标签内"><a href="#第一种：直接写在script标签内" class="headerlink" title="第一种：直接写在script标签内"></a>第一种：直接写在script标签内</h5><p>script最好放在body之后，处理交互事件，等到内容显示之后载入；否则放在head标签内可能会造成加载延迟，或者覆盖代码(因html加载方式是从上到下加载的)。</p>
+<pre>
+    &lt;html&gt;
+        &lt;head&gt;
+            &lt;meta charset="utf-8" /&gt;
+            &lt;title&gt;&lt;/title&gt;
+        &lt;/head&gt;
+        &lt;body&gt;&lt;/body&gt;
+        &lt;script&gt;
+            alert("hello");
+        &lt;/script&gt;
+    &lt;/html&gt;
+</pre>
+
+<h5 id="第二种：引入js文件"><a href="#第二种：引入js文件" class="headerlink" title="第二种：引入js文件"></a>第二种：引入js文件</h5><pre>
+    &lt;html&gt;
+        &lt;head&gt;
+            &lt;meta charset="utf-8" /&gt;
+            &lt;title&gt;&lt;/title&gt;
+        &lt;/head&gt;
+        &lt;body&gt;&lt;/body&gt;
+        &lt;script src="js/index.js" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;/html&gt;
+</pre>
+
+<h5 id="第三种：在标签内引入（不推荐）"><a href="#第三种：在标签内引入（不推荐）" class="headerlink" title="第三种：在标签内引入（不推荐）"></a>第三种：在标签内引入（不推荐）</h5><pre>
+    &lt;html&gt;
+        &lt;head&gt;
+            &lt;meta charset="utf-8" /&gt;
+            &lt;title&gt;&lt;/title&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+            &lt;input type="button" name="btn" id="btn" value="按钮" onclick="alert('点击我！')" /&gt;
+        &lt;/body&gt;
+    &lt;/html&gt;
+</pre>
+
+<h3 id="JavaScript基础语法"><a href="#JavaScript基础语法" class="headerlink" title="JavaScript基础语法"></a>JavaScript基础语法</h3><h5 id="alert"><a href="#alert" class="headerlink" title="alert()"></a>alert()</h5><p>让浏览器弹出一个窗口，窗口里的内容就是alert（）中的内容</p>
+<pre>
+    &lt;script type="text/javascript"&gt;
+        alert("Hello World!");
+    &lt;/script&gt;
+</pre>
+
+<p><strong>单行注释</strong></p>
+<p>用“//”注释内容，不可换行</p>
+<p><strong>多行注释</strong></p>
+<p>用“/**/”注释内容，可以换行</p>
+<pre>
+    &lt;script type="text/javascript"&gt;
+        /*var a=0;
+        var b=1;
+        var c=2;*/
+        alert("Hello World!");//注释语句
+    &lt;/script&gt;
+</pre>
+
+<h5 id="元素的获取"><a href="#元素的获取" class="headerlink" title="元素的获取"></a>元素的获取</h5><p>为了把事件写在script标签中，可以先获取到标签，主要有以下几种方法：</p>
+<ol>
+<li><p><code>document.getElementById();</code>//通过标签id值来获取标签</p>
+</li>
+<li><p><code>document.getElementsByClassName();</code>//通过标签的class值来获取标签（返回的是一个数组，将所有相同class名的标签都返回）</p>
+</li>
+<li><p><code>document.getElementsByName();</code>//通过标签的名字来获取标签（返回的是一个数组，将所有相同的标签名的标签都返回）</p>
+</li>
+<li><p><code>document.getElementsByTagName();</code>//通过标签的name值来获取标签，常用于选择表单元素（返回的是一个数组，将所有相同的name值的标签返回）</p>
+</li>
+</ol>
+<h5 id="onclick事件绑定"><a href="#onclick事件绑定" class="headerlink" title="onclick事件绑定"></a>onclick事件绑定</h5><p>onclick事件会在对象被点击时发生。单击事件是在同一元素上发生了鼠标按下事件之后又发生了鼠标放开事件时才发生的。</p>
+<pre>
+    &lt;input type="button" name="btn" id="btnclick" value="按钮" /&gt;
+    &lt;div id="divclick" style="width:100px;height:100px;background-color:pink;"&gt;&lt;/div&gt;
+    &lt;script&gt;
+        document.getElementById("btnclick").onclick=function(){
+            document.getElementById("divclick").style.display="none";
+        }
+    &lt;/script&gt;
+</pre>
+
+<pre>
+    <input type="button" name="btn" id="btnclick" value="按钮">
+    <div id="divclick" style="width:100px;height:100px;background-color:pink;"></div>
+    <script>
+        document.getElementById("btnclick").onclick=function(){
+            document.getElementById("divclick").style.display="none";
+        }
+    </script>
+</pre>
+
+<h5 id="onmouseover事件和onmouseout事件"><a href="#onmouseover事件和onmouseout事件" class="headerlink" title="onmouseover事件和onmouseout事件"></a>onmouseover事件和onmouseout事件</h5><p><code>onmouseover</code>属性在鼠标移动到元素上时触发。</p>
+<p><code>onmouseout</code>属性在鼠标指针移动到元素外时触发。</p>
+<pre>
+    &lt;input type="button" name="btn" id="btnmouse" value="按钮" /&gt;
+    &lt;div id="divmouse" style="width:100px;height:100px;background-color:purple;"&gt;&lt;/div&gt;
+    &lt;script&gt;
+        var btn=document.getElementById("btnmouse");
+        var odiv=document.getElementById("divmouse");
+        btn.onmouseover=function(){
+            odiv.style.display="none";
+        }
+        btn.onmouseout=function(){
+            odiv.style.display="block";
+        }
+    &lt;/script&gt;
+</pre>
+
+<pre>
+    <input type="button" name="btn" id="btnmouse" value="按钮">
+    <div id="divmouse" style="width:100px;height:100px;background-color:purple;"></div>
+    <script>
+        var btn=document.getElementById("btnmouse");
+        var odiv=document.getElementById("divmouse");
+        btn.onmouseover=function(){
+            odiv.style.display="none";
+        }
+        btn.onmouseout=function(){
+            odiv.style.display="block";
+        }
+    </script>
+</pre>
+
+<h5 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h5><p>变量首先是一个容器，可以用来存放数据，而且存放在这个容器中的数据可以发生变化。变量不仅可以是数字，可以是任意数据类型。</p>
+<p>“var”+”变量名”+”=”+”值”+”;”如var a=12;</p>
+<p>变量命名规范：</p>
+<ol>
+<li>区分大小写</li>
+<li>第一个字符必须是字母、下划线<code>_</code>或美元符号<code>$</code></li>
+<li>其他字符可以是字母、下划线、美元符号或数字</li>
+<li>不能含空格</li>
+<li>不能以关键字或保留字命名<a href="http://www.runoob.com/js/js-reserved.html" target="_blank" rel="external">关键字保留字点这里</a></li>
+</ol>
+<h5 id="JavaScript数据类型"><a href="#JavaScript数据类型" class="headerlink" title="JavaScript数据类型"></a>JavaScript数据类型</h5><p>用<code>typeof</code>函数查看数据类型</p>
+<p>1.null内容为空，表示一个空的值，可以创建数组、创建时间、创建字符串</p>
+<p>2.undefined没有赋值或不存在的变量类型，仅仅在判断函数参数是否传递时有用</p>
+<p>3.number数字类型：</p>
+<p>包含整数、浮点数、科学计数法(1.2e5)、负数、NaN(Not a Number)和Infinity。number类型的数可以进行加、减、乘、除、求余、自增、自减运算</p>
+<p>4.string字符串类型：</p>
+<p>字符串是以单引号<code>&#39;&#39;</code>或双引号<code>&quot;&quot;</code>括起来的任意文本。</p>
+<p><strong><code>&#39;&#39;</code>或<code>&quot;&quot;</code>本身只是一种表示方式，不是字符串的一部分。</strong></p>
+<p>因此”abc”只有a、b、c三个字符；当字符串既包含单引号又包含双引号时，用转义字符<code>\</code>来标识，如”I\’m \”OK\”!”，表示字符串内容是I’m “OK”!</p>
+<p>5.boolean布尔类型，布尔只有<code>true和false</code>，布尔常用在条件测试中</p>
+<p>6.function函数类型<code>function(){}</code></p>
+<p>7.object对象类型<code>数组</code>属于object类型</p>
+<h5 id="JavaScript运算符"><a href="#JavaScript运算符" class="headerlink" title="JavaScript运算符"></a>JavaScript运算符</h5><p>1.赋值运算符<code>=</code>赋值仅仅是把给变量赋值，如a=5</p>
+<p><code>+=</code> a+=5相当于a=a+5</p>
+<p><code>-=</code> a-=5相当于a=a-5</p>
+<p><code>*=</code> a <em> =5相当于a=a </em> 5</p>
+<p><code>/=</code> a/=5相当于a=a/5</p>
+<p><code>%=</code> a%=5相当于a=a%5</p>
+<p>2.算数操作符</p>
+<p>加 <code>+</code> 减 <code>-</code> 乘 <code>*</code> 除 <code>/</code> 求模/取余 <code>%</code></p>
+<p>3.关系操作符</p>
+<p>大于 <code>&gt;</code> 小于 <code>&lt;</code> 小于等于 <code>&lt;=</code> 大于等于 <code>&gt;=</code> 不等于 <code>!=</code></p>
+<p>等于 <code>==</code> 此情况下，只要值相同就返回True</p>
+<p>全等于<code>===</code> 此情况需要值和类型都要匹配才能返回True</p>
+<p><strong>关系操作符返回的都是布尔值</strong></p>
+<p>4.条件操作符</p>
+<p>5.逻辑操作符</p>
+<p>与 <code>&amp;&amp;</code> 或 <code>||</code> 非 <code>!</code></p>
+<p>6.递增递减操作符</p>
+<p><code>++</code>和<code>--</code></p>
+<p>j=i++等同于j=i;i=i+1 <code>先赋值 后运算</code></p>
+<p>j=++i等同于i=i+1;j=i <code>先运算 后赋值</code></p>
+<p><strong>操作符优先级</strong></p>
+<p>逻辑非&gt;算术操作符&gt;关系操作符&gt;逻辑与 逻辑或&gt;条件操作符&gt;赋值操作符</p>
+<p><strong>操作符书写</strong></p>
+<p>JavaScript书写：y=(x+2)*(((x+1)/3-2)/4+5)</p>
+<p>相当于数学中的：y=(x+2)*{[(x+1)/3-2]/4+5}</p>
+<p>小括号    提升优先级</p>
+<p>中括号    数组        [1,2,3,4,5]</p>
+<p>大括号    对象        function(){}</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/07/11/JavaScript基础/" data-id="ciqhywswe000fdse87bf1sr20" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-CSS3媒体查询" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/07/09/CSS3媒体查询/" class="article-date">
@@ -162,7 +402,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/09/CSS3媒体查询/" data-id="ciqetwhpl00000he8zz28zksm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/09/CSS3媒体查询/" data-id="ciqhywsw10009dse8g4sg2gxg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -324,7 +564,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/06/LESSCSS初使用/" data-id="ciqetwhsk000j0he86n339qeb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/06/LESSCSS初使用/" data-id="ciqhywsxd000ldse8ofm5c7uk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -483,7 +723,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/05/CSS3弹性布局/" data-id="ciqetwhru00090he8tzrhoe8w" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/05/CSS3弹性布局/" data-id="ciqhywsvo0004dse8b8wj8bl1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -565,7 +805,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/04/CSS3 @font-face规则和多列/" data-id="ciqetwhpy00040he8skbbzp1p" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/04/CSS3 @font-face规则和多列/" data-id="ciqhywsvb0002dse8fxlrwmwd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -655,7 +895,7 @@
                 left:200px;
                 top:0;
                 background-color:red;
-                transfddddddddorm:scale(1,1);
+                transform:scale(1,1);
             }
             25%{
                 left:400px;
@@ -786,7 +1026,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/04/CSS3动画/" data-id="ciqetwhpr00010he8pl3zmfx4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/04/CSS3动画/" data-id="ciqhywsv00000dse8y854jzow" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1042,7 +1282,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/02/CSS3变形/" data-id="ciqetwhpt00020he8s72lvgt4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/02/CSS3变形/" data-id="ciqhywsv60001dse8k1sslz5a" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1131,7 +1371,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/01/CSS3过渡/" data-id="ciqetwhqo00060he8j34ofy79" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/01/CSS3过渡/" data-id="ciqhywsvu0006dse8szxbbful" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1307,7 +1547,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/30/CSS3背景/" data-id="ciqetwhql00050he8sy15yi4d" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/30/CSS3背景/" data-id="ciqhywsvx0008dse8uuxyoklc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1428,132 +1668,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/29/CSS3圆角/" data-id="ciqetwhpw00030he8olovuxmj" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-CSS3盒模型" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/06/29/CSS3盒模型/" class="article-date">
-  <time datetime="2016-06-29T13:27:18.000Z" itemprop="datePublished">2016-06-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/29/CSS3盒模型/">CSS3盒模型</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="CSS3盒模型也就是指-box-sizing-属性"><a href="#CSS3盒模型也就是指-box-sizing-属性" class="headerlink" title="CSS3盒模型也就是指 box-sizing 属性"></a>CSS3盒模型也就是指 box-sizing 属性</h3><p><code>box-sizing</code>主要有三个值，分别为content-box（默认值）|| border-box || padding-box。</p>
-<p><code>box-sizing:content-box</code>,border和padding不计算在width内</p>
-<p><code>box-sizing:padding-box</code>,padding计算在width内，border不计算在width内（暂时只有火狐支持，前缀加入<code>-moz-</code>）</p>
-<p><code>box-sizing:border-box</code>,border和padding都计算在width内</p>
-<h4 id="outline外轮廓"><a href="#outline外轮廓" class="headerlink" title="outline外轮廓"></a>outline外轮廓</h4><p>在此顺便提一下<code>outline</code>属性，<code>outline</code>是绘制于元素周围的一条线，位于边框边缘的外围，可起到突出元素的作用。</p>
-<p>轮廓线不会占据空间，也不一定是矩形</p>
-<p><code>outline</code>简写属性在一个声明中设置所有的轮廓属性,包括<code>outline-color</code> <code>outline-style</code> <code>outline-width</code>,与border一样，顺序可以任性调换。</p>
-<p><code>outline</code>不包含在<code>box-sizing</code>内。</p>
-<pre>
-    &ltstyle&gt
-        .div1{
-            width:200px;
-            height:200px;
-            background-color:pink;
-            box-sizing:content-box;
-            padding:50px;
-            border:20px solid gold;
-            color:white;
-            margin:0 auto;
-            outline:5px solid black;
-        }
-        .div2{
-            width:200px;
-            height:200px;
-            background-color:red;
-            -moz-box-sizing:padding-box;
-            box-sizing:padding-box;
-            padding:50px;
-            border:20px solid gold;
-            color:white;
-            margin:0 auto;
-            outline:5px solid black;
-        }
-        .div3{
-            width:200px;
-            height:200px;
-            background-color:blue;
-            box-sizing:border-box;
-            padding:50px;
-            border:20px solid gold;
-            color:white;
-            margin:0 auto;
-            outline:5px solid black;
-        }
-    &lt/style&gt
-    &ltdiv class="div1"&gt我是div我是div&lt/div&gt
-    &ltdiv class="div2"&gt我是div我是div&lt/div&gt
-    &ltdiv class="div3"&gt我是div我是div&lt/div&gt
-</pre>
-<pre>
-    <style>
-        .he1{
-            width:200px;
-            height:200px;
-            background-color:pink;
-            box-sizing:content-box;
-            padding:50px;
-            border:20px solid gold;
-            color:white;
-            margin:0 auto;
-            outline:5px solid black;
-        }
-        .he2{
-            width:200px;
-            height:200px;
-            background-color:red;
-            -moz-box-sizing:padding-box;
-            box-sizing:padding-box;
-            padding:50px;
-            border:20px solid gold;
-            color:white;
-            margin:0 auto;
-            outline:5px solid black;
-        }
-        .he3{
-            width:200px;
-            height:200px;
-            background-color:blue;
-            box-sizing:border-box;
-            padding:50px;
-            border:20px solid gold;
-            color:white;
-            margin:0 auto;
-            outline:5px solid black;
-        }
-    </style>
-    <div class="he1">我是div我是div</div>
-    <div class="he2">我是div我是div</div>
-    <div class="he3">我是div我是div</div>
-</pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/29/CSS3盒模型/" data-id="ciqetwhqu00080he8qlok99d4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/29/CSS3圆角/" data-id="ciqhywsvd0003dse8b7swuboe" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1597,6 +1712,10 @@
       <ul>
         
           <li>
+            <a href="/2016/07/11/JavaScript基础/">JavaScript基础</a>
+          </li>
+        
+          <li>
             <a href="/2016/07/09/CSS3媒体查询/">CSS3媒体查询</a>
           </li>
         
@@ -1610,10 +1729,6 @@
         
           <li>
             <a href="/2016/07/04/CSS3 @font-face规则和多列/">CSS3 @font-face规则和多列</a>
-          </li>
-        
-          <li>
-            <a href="/2016/07/04/CSS3动画/">CSS3动画</a>
           </li>
         
       </ul>
