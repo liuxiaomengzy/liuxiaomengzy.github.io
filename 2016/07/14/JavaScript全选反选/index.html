@@ -3,17 +3,33 @@
 <head>
   <meta charset="utf-8">
   
-  <title>归档: 2016 | 紫--小梦</title>
+  <title>JavaScript全选反选 | 紫--小梦</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="紫--小梦">
-<meta property="og:url" content="http://yoursite.com/archives/2016/page/3/index.html">
+  <meta name="description" content="input的checked属性通过点击切换按钮，实现选框的选中/取消选中效果。主要用于购物车等。
+
+    
+        ul.inputul{
+            list-style-type:none;
+        }">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript全选反选">
+<meta property="og:url" content="http://yoursite.com/2016/07/14/JavaScript全选反选/index.html">
 <meta property="og:site_name" content="紫--小梦">
-<meta property="og:description">
+<meta property="og:description" content="input的checked属性通过点击切换按钮，实现选框的选中/取消选中效果。主要用于购物车等。
+
+    
+        ul.inputul{
+            list-style-type:none;
+        }">
+<meta property="og:updated_time" content="2016-07-14T12:40:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="紫--小梦">
-<meta name="twitter:description">
+<meta name="twitter:title" content="JavaScript全选反选">
+<meta name="twitter:description" content="input的checked属性通过点击切换按钮，实现选框的选中/取消选中效果。主要用于购物车等。
+
+    
+        ul.inputul{
+            list-style-type:none;
+        }">
   
     <link rel="alternate" href="/atom.xml" title="紫--小梦" type="application/atom+xml">
   
@@ -66,139 +82,95 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/06/25/CSS总结/" class="archive-article-date">
-  <time datetime="2016-06-25T06:09:24.000Z" itemprop="datePublished">6月 25</time>
+        <section id="main"><article id="post-JavaScript全选反选" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/14/JavaScript全选反选/" class="article-date">
+  <time datetime="2016-07-14T11:49:03.000Z" itemprop="datePublished">2016-07-14</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/25/CSS总结/">CSS总结</a>
+    <h1 class="article-title" itemprop="name">
+      JavaScript全选反选
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/06/24/meta标签/" class="archive-article-date">
-  <time datetime="2016-06-24T11:20:56.000Z" itemprop="datePublished">6月 24</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/24/meta标签/">meta标签</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/06/23/CSS单位/" class="archive-article-date">
-  <time datetime="2016-06-23T06:08:36.000Z" itemprop="datePublished">6月 23</time>
-</a>
+        <h3 id="input的checked属性"><a href="#input的checked属性" class="headerlink" title="input的checked属性"></a>input的checked属性</h3><p>通过点击切换按钮，实现选框的选中/取消选中效果。主要用于购物车等。</p>
+<pre>
+    <style>
+        ul.inputul{
+            list-style-type:none;
+        }
+    </style>
+    <input type="button" id="inputall" value="全选">
+    <input type="button" id="inputnotall" value="反选">
+    <input type="checkbox" id="inputspecial">
+    <ul class="inputul">
+        <li><span></span><input type="checkbox"></li>
+        <li><span></span><input type="checkbox"></li>
+        <li><span></span><input type="checkbox"></li>
+        <li><span></span><input type="checkbox"></li>
+        <li><span></span><input type="checkbox"></li>
+        <li><span></span><input type="checkbox"></li>
+    </ul>
+    <script>
+        var spans=document.querySelectorAll(".inputul span");
+        var all=document.querySelector("#inputall");
+        var notall=document.querySelector("#inputnotall");
+        var inputcheck=document.querySelectorAll(".inputul input");
+        var special=document.querySelector("#inputspecial");
+        for(var i=0;i<spans.length;i++){
+            spans[i].innerHTML=i+1+".";
+        }
+        all.onclick=function(){
+            for(var i=0;i<inputcheck.length;i++){
+                inputcheck[i].checked=true;
+            }            
+            special.checked="ture";
+        }
+        notall.onclick=function(){
+            for(var i=0;i<inputcheck.length;i++){
+                if(inputcheck[i].checked==true){
+                    inputcheck[i].checked=false;
+                }else{
+                    inputcheck[i].checked=true;
+                }
+            }
+        }
+    </script>
+</pre>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/23/CSS单位/">CSS单位</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/06/22/HTML简述/" class="archive-article-date">
-  <time datetime="2016-06-22T13:54:40.000Z" itemprop="datePublished">6月 22</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/07/14/JavaScript全选反选/" data-id="ciqm9m8re000fsme8fqv37vyz" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/22/HTML简述/">HTML简述</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/06/22/HEXO博客的搭建/" class="archive-article-date">
-  <time datetime="2016-06-22T09:04:58.000Z" itemprop="datePublished">6月 22</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/22/HEXO博客的搭建/">搭建HEXO博客</a>
-    </h1>
-  
-
-    </header>
+    </footer>
   </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/06/22/hello-world/" class="archive-article-date">
-  <time datetime="2016-06-22T04:04:58.000Z" itemprop="datePublished">6月 22</time>
-</a>
-      
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/22/hello-world/">Hello World</a>
-    </h1>
   
+    <a href="/2016/07/14/JavaScript显示隐藏及Tab切换/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JavaScript显示隐藏及Tab切换</div>
+    </a>
+  
+</nav>
 
-    </header>
-  </div>
+  
 </article>
-  
-  
-    </div></section>
-  
 
-
-  <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/archives/2016/page/2/">&laquo; __('prev')</a><a class="page-number" href="/archives/2016/">1</a><a class="page-number" href="/archives/2016/page/2/">2</a><span class="page-number current">3</span>
-  </nav>
 </section>
         
           <aside id="sidebar">
