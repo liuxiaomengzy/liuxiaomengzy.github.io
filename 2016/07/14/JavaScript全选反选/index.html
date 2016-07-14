@@ -25,7 +25,7 @@
         }
     &amp;lt;/style&amp;gt;
     &amp;lt;input type=&quot;button&quot; id=&quot;inputall&quot; value=&quot;">
-<meta property="og:updated_time" content="2016-07-14T13:32:52.000Z">
+<meta property="og:updated_time" content="2016-07-14T13:35:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript全选反选">
 <meta name="twitter:description" content="input的checked属性通过点击切换按钮，实现选框的选中/取消选中效果。主要用于购物车等。
@@ -132,7 +132,35 @@
         var notall=document.querySelector("#inputnotall");
         var inputcheck=document.querySelectorAll(".inputul input");
         var special=document.querySelector("#inputspecial");
-        for(var i=0;i<spans.length;i++){ spans[i].innerhtml="i+1+".";" }="" all.onclick="function(){" for(var="" i="0;i<inputcheck.length;i++){" inputcheck[i].checked="true;" special.checked="true;" notall.onclick="function(){" var="" sum="0;" if(inputcheck[i].checked="=false){" break;="" sum++;="" if(sum="=inputcheck.length){" }else{="" &lt;="" script&gt;="" <="" pre="">
+
+        for(var i=0;i&lt;spans.length;i++){
+            spans[i].innerHTML=i+1+".";
+        }
+        all.onclick=function(){
+            for(var i=0;i&lt;inputcheck.length;i++){
+                inputcheck[i].checked=true;
+            }            
+            special.checked=true;
+        }
+        notall.onclick=function(){
+            var sum=0;
+            for(var i=0;i&lt;inputcheck.length;i++){
+                inputcheck[i].checked=!inputcheck[i].checked;
+            }
+            for(var i=0;i&lt;inputcheck.length;i++){
+                if(inputcheck[i].checked==false){
+                    break;
+                }
+                sum++;
+            }
+            if(sum==inputcheck.length){
+                special.checked=true;
+            }else{
+                special.checked=false;
+            }
+        }
+    &lt;/script&gt;
+</pre>
 
 <pre>
     <style>
@@ -182,11 +210,11 @@
             }
         }
     </script>
-</pre></spans.length;i++){></pre>
+</pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/14/JavaScript全选反选/" data-id="ciqmcvt7w000jx8e881wr8lkx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/14/JavaScript全选反选/" data-id="ciqmczlex000jxwe8wxspvz0s" class="article-share-link">Share</a>
       
       
     </footer>
