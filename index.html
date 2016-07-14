@@ -92,14 +92,35 @@
       
         <h3 id="input的checked属性"><a href="#input的checked属性" class="headerlink" title="input的checked属性"></a>input的checked属性</h3><p>通过点击切换按钮，实现选框的选中/取消选中效果。主要用于购物车等。</p>
 <pre>
+    &lt;style&gt;
+        ul.inputul{
+            list-style-type:none;
+        }
+    &lt;/style&gt;
+    &lt;input type="button" id="inputall" value="全选" />&lt;input type="button" id="inputnotall" value="反选" />&lt;input type="checkbox" id="inputspecial" /&gt;
+    &lt;ul class="inputul"&gt;
+        &lt;li&gt;&lt;span&gt;&lt;/span&gt;&lt;input type="checkbox"&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;span&gt;&lt;/span&gt;&lt;input type="checkbox"&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;span&gt;&lt;/span&gt;&lt;input type="checkbox"&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;span&gt;&lt;/span&gt;&lt;input type="checkbox"&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;span&gt;&lt;/span&gt;&lt;input type="checkbox"&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;span&gt;&lt;/span&gt;&lt;input type="checkbox"&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;script&gt;
+        var spans=document.querySelectorAll(".inputul span");
+        var all=document.querySelector("#inputall");
+        var notall=document.querySelector("#inputnotall");
+        var inputcheck=document.querySelectorAll(".inputul input");
+        var special=document.querySelector("#inputspecial");
+        for(var i=0;i<spans.length;i++){ spans[i].innerhtml="i+1+".";" }="" all.onclick="function(){" for(var="" i="0;i<inputcheck.length;i++){" inputcheck[i].checked="true;" special.checked="true;" notall.onclick="function(){" var="" sum="0;" if(inputcheck[i].checked="=true){" }else{="" break;="" sum++;="" if(sum="=inputcheck.length){" &lt;="" script&gt;="" <="" pre="">
+
+<pre>
     <style>
         ul.inputul{
             list-style-type:none;
         }
     </style>
-    <input type="button" id="inputall" value="全选">
-    <input type="button" id="inputnotall" value="反选">
-    <input type="checkbox" id="inputspecial">
+    <input type="button" id="inputall" value="全选"><input type="button" id="inputnotall" value="反选"><input type="checkbox" id="inputspecial">
     <ul class="inputul">
         <li><span></span><input type="checkbox"></li>
         <li><span></span><input type="checkbox"></li>
@@ -121,9 +142,10 @@
             for(var i=0;i<inputcheck.length;i++){
                 inputcheck[i].checked=true;
             }            
-            special.checked="ture";
+            special.checked=true;
         }
         notall.onclick=function(){
+            var sum=0;
             for(var i=0;i<inputcheck.length;i++){
                 if(inputcheck[i].checked==true){
                     inputcheck[i].checked=false;
@@ -131,13 +153,24 @@
                     inputcheck[i].checked=true;
                 }
             }
+            for(var i=0;i<inputcheck.length;i++){
+                if(inputcheck[i].checked==false){
+                    break;
+                }
+                sum++;
+            }
+            if(sum==inputcheck.length){
+                special.checked=true;
+            }else{
+                special.checked=false;
+            }
         }
     </script>
-</pre>
+</pre></spans.length;i++){></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/14/JavaScript全选反选/" data-id="ciqm9m8re000fsme8fqv37vyz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/14/JavaScript全选反选/" data-id="ciqmcagcs000fwhe8kii0y1yy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -320,7 +353,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/14/JavaScript显示隐藏及Tab切换/" data-id="ciqm9m8rj000isme8m198rkqs" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/14/JavaScript显示隐藏及Tab切换/" data-id="ciqmcagd6000jwhe8ci9d1e04" class="article-share-link">Share</a>
       
       
     </footer>
@@ -408,7 +441,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/14/JavaScript数据类型转换和输出/" data-id="ciqm9m8rn000jsme89jhep763" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/14/JavaScript数据类型转换和输出/" data-id="ciqmcagd0000iwhe8zgnapxvx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -562,7 +595,7 @@ onmouseup            某个鼠标按键被松开
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/13/If...Else、Switch、For循环、While循环/" data-id="ciqm9m8rw000nsme8rd7ogdao" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/13/If...Else、Switch、For循环、While循环/" data-id="ciqmcagct000gwhe8p20n4hsd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -802,7 +835,7 @@ onmouseup            某个鼠标按键被松开
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/11/JavaScript基础/" data-id="ciqm9m8rr000lsme8f93zeljr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/11/JavaScript基础/" data-id="ciqmcagcv000hwhe8wy407qja" class="article-share-link">Share</a>
       
       
     </footer>
@@ -906,7 +939,7 @@ onmouseup            某个鼠标按键被松开
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/09/CSS3媒体查询/" data-id="ciqm9m8qx0009sme8594b22zn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/09/CSS3媒体查询/" data-id="ciqmcagc30003whe8gzetrwqo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1068,7 +1101,7 @@ onmouseup            某个鼠标按键被松开
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/06/LESSCSS初使用/" data-id="ciqm9m8ro000ksme8gu31y2yk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/06/LESSCSS初使用/" data-id="ciqmcagda000nwhe82n2gnohz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1227,7 +1260,7 @@ onmouseup            某个鼠标按键被松开
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/05/CSS3弹性布局/" data-id="ciqm9m8qh0003sme8tdydbisq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/05/CSS3弹性布局/" data-id="ciqmcagc50004whe8y2xb8e8n" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1309,7 +1342,7 @@ onmouseup            某个鼠标按键被松开
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/04/CSS3 @font-face规则和多列/" data-id="ciqm9m8qf0002sme8tx8slqbo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/04/CSS3 @font-face规则和多列/" data-id="ciqmcagbi0000whe8yygnns3u" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1530,7 +1563,7 @@ onmouseup            某个鼠标按键被松开
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/04/CSS3动画/" data-id="ciqm9m8ql0005sme84dkewulr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/04/CSS3动画/" data-id="ciqmcagce0008whe8wjsz01ak" class="article-share-link">Share</a>
       
       
     </footer>
