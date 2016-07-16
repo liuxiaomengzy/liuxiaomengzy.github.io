@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>CSS3动画 | 紫--小梦</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Animation动画简写方式为animation:liu 5s infinite linear 2s normal;animation:animation-name animation-duration animation-timing-function animation-iteration-count animation-delay animation-direction;animation">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS3动画">
+<meta property="og:url" content="http://yoursite.com/2016/07/04/CSS3动画/index.html">
+<meta property="og:site_name" content="紫--小梦">
+<meta property="og:description" content="Animation动画简写方式为animation:liu 5s infinite linear 2s normal;animation:animation-name animation-duration animation-timing-function animation-iteration-count animation-delay animation-direction;animation">
+<meta property="og:updated_time" content="2016-07-11T03:52:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS3动画">
+<meta name="twitter:description" content="Animation动画简写方式为animation:liu 5s infinite linear 2s normal;animation:animation-name animation-duration animation-timing-function animation-iteration-count animation-delay animation-direction;animation">
+  
+    <link rel="alternate" href="/atom.xml" title="紫--小梦" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">紫--小梦</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">心怀梦想，志在远方。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-CSS3动画" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/04/CSS3动画/" class="article-date">
+  <time datetime="2016-07-04T01:19:14.000Z" itemprop="datePublished">2016-07-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CSS3动画
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Animation动画"><a href="#Animation动画" class="headerlink" title="Animation动画"></a>Animation动画</h2><h4 id="简写方式为animation-liu-5s-infinite-linear-2s-normal"><a href="#简写方式为animation-liu-5s-infinite-linear-2s-normal" class="headerlink" title="简写方式为animation:liu 5s infinite linear 2s normal;"></a>简写方式为animation:liu 5s infinite linear 2s normal;</h4><h6 id="animation-animation-name-animation-duration-animation-timing-function-animation-iteration-count-animation-delay-animation-direction"><a href="#animation-animation-name-animation-duration-animation-timing-function-animation-iteration-count-animation-delay-animation-direction" class="headerlink" title="animation:animation-name animation-duration animation-timing-function animation-iteration-count animation-delay animation-direction;"></a>animation:animation-name animation-duration animation-timing-function animation-iteration-count animation-delay animation-direction;</h6><h3 id="animation-name动画属性名"><a href="#animation-name动画属性名" class="headerlink" title="animation-name动画属性名"></a>animation-name动画属性名</h3><p><code>animation-name</code>属性为<code>@keyframes</code>动画规定名称。</p>
+<h3 id="keframes动画关键帧"><a href="#keframes动画关键帧" class="headerlink" title="@keframes动画关键帧"></a>@keframes动画关键帧</h3><p>通过<code>@keyframes</code>规则，能够创建动画。创建动画的原理是将一套CSS样式逐渐变化为另一套样式。在动画过程中，能够多次改变这套样式。</p>
+<p>以<strong>百分比</strong>来规定改变发生的时间，或者通过关键词<strong>from和to</strong>，等价于<strong>0%和100%</strong>。</p>
+<p>示例如下：</p>
+<pre>
+    @keyframes name{
+            from{
+
+            }
+            to{
+
+            }
+    }
+</pre>
+
+<h3 id="animation-duration动画持续时间"><a href="#animation-duration动画持续时间" class="headerlink" title="animation-duration动画持续时间"></a>animation-duration动画持续时间</h3><p><code>animation-duration</code>属性定义动画完成一个周期所需要的时间，以秒计。默认为0，没有动画效果。</p>
+<h3 id="animation-timing-function动画效果"><a href="#animation-timing-function动画效果" class="headerlink" title="animation-timing-function动画效果"></a>animation-timing-function动画效果</h3><p><code>animation-timing-function</code>规定动画的速度曲线。主要有：</p>
+<ol>
+<li>linear        匀速</li>
+<li>ease            先快后慢（默认属性）</li>
+<li>ease-in        由慢到快</li>
+<li>ease-out        由快到慢</li>
+<li>ease-in-out    先慢后快再慢</li>
+<li>cubic-bezier(n,n,n,n)自定义函数，可能的值为0~1。</li>
+</ol>
+<h3 id="animation-iteration-count动画循环次数"><a href="#animation-iteration-count动画循环次数" class="headerlink" title="animation-iteration-count动画循环次数"></a>animation-iteration-count动画循环次数</h3><p><code>animation-iteration-count</code>指定元素播放动画循环次数。默认值1，播放一次。</p>
+<p><code>animation-iteration-count:n | infinite;</code>n指动画播放次数的数值；infinite指动画无限次播放。</p>
+<h3 id="animation-delay延迟"><a href="#animation-delay延迟" class="headerlink" title="animation-delay延迟"></a>animation-delay延迟</h3><p><code>animation-delay</code>指定元素动画开始时间，单位为s秒。默认值0。</p>
+<h3 id="animation-direction播放方向"><a href="#animation-direction播放方向" class="headerlink" title="animation-direction播放方向"></a>animation-direction播放方向</h3><p><code>animation-direction</code>指定元素动画播放的方向。</p>
+<p><code>animation-direction:normal | alternate;</code>normal默认值，动画的每次循环都是向前播放；alternate动画播放第奇数次正常播放，第偶数次反方向播放。</p>
+<h3 id="animation-fill-mode"><a href="#animation-fill-mode" class="headerlink" title="animation-fill-mode"></a>animation-fill-mode</h3><p><code>animation-fill-mode</code>属性规定动画在播放之前或之后，其动画效果是否可见。</p>
+<p><code>animation-fill-mode:none | forwards</code>none不改变默认行为；forwards当动画完成后，保持最后一个属性值。</p>
+<p>示例如下：</p>
+<pre>
+    &ltstyle&gt
+        div.animationdiv{
+            width:600px;
+            height:600px;
+            position:relative;
+            left:150px;
+        }
+        div.animationdemo{
+            width:100px;
+            height:100px;
+            position:absolute;
+            background-color:fuchsia;
+            animation:animationmove infinite 8s linear 2s normal;
+        }
+        @keyframes animationmove{
+            0%{
+                left:0;
+                top:0;
+                transform:scale(1,1);
+            }
+            12.5%{
+                left:200px;
+                top:0;
+                background-color:red;
+                transform:scale(1,1);
+            }
+            25%{
+                left:400px;
+                top:0;
+                background-color:teal;
+                transform:scale(2,2);
+            }
+            37.5%{
+                left:400px;
+                top:200px;
+                background-color:aqua;
+                transform:scale(2,2);
+                border-radius:25%;
+            }
+            50%{
+                left:400px;
+                top:400px;
+                border-radius:50%;
+            }
+            62.5%{
+                left:200px;
+                top:400px;
+                background-color:olive;
+                transform:scale(2,2);
+            }
+            75%{
+                left:0;
+                top:400px;
+                background-color:lime;
+                transform:scale(1,1);
+            }
+            87.5%{
+                left:0;
+                top:200px;
+                background-color:green;
+                transform:scale(2,2);
+                border-radius:50%;
+            }
+            100%{
+                left:0;
+                top:0;
+                background-color:fuchsia;
+                transform:scale(1,1);
+            }
+        }
+    &lt/style&gt
+    &ltdiv class="animationdiv"&gt
+        &ltdiv class="animationdemo"&gt&lt/div&gt
+    &lt/div&gt
+</pre>
+
+<pre>
+    <style>
+        div.animationdiv{
+            width:600px;
+            height:600px;
+            position:relative;
+            left:150px;
+        }
+        div.animationdemo{
+            width:100px;
+            height:100px;
+            position:absolute;
+            background-color:fuchsia;
+            animation:animationmove infinite 8s linear 2s normal;
+        }
+        @keyframes animationmove{
+            0%{
+                left:0;
+                top:0;
+                transform:scale(1,1);
+            }
+            12.5%{
+                left:200px;
+                top:0;
+                background-color:red;
+                transfddddddddorm:scale(1,1);
+            }
+            25%{
+                left:400px;
+                top:0;
+                background-color:teal;
+                transform:scale(2,2);
+            }
+            37.5%{
+                left:400px;
+                top:200px;
+                background-color:aqua;
+                transform:scale(2,2);
+                border-radius:25%;
+            }
+            50%{
+                left:400px;
+                top:400px;
+                border-radius:50%;
+            }
+            62.5%{
+                left:200px;
+                top:400px;
+                background-color:olive;
+                transform:scale(2,2);
+            }
+            75%{
+                left:0;
+                top:400px;
+                background-color:lime;
+                transform:scale(1,1);
+            }
+            87.5%{
+                left:0;
+                top:200px;
+                background-color:green;
+                transform:scale(2,2);
+                border-radius:50%;
+            }
+            100%{
+                left:0;
+                top:0;
+                background-color:fuchsia;
+                transform:scale(1,1);
+            }
+        }
+    </style>
+    <div class="animationdiv">
+        <div class="animationdemo"></div>
+    </div>
+</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/07/04/CSS3动画/" data-id="ciqom1ka40001ofe8icr56n5f" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/07/04/CSS3 @font-face规则和多列/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          CSS3 @font-face规则和多列
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/07/02/CSS3变形/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">CSS3变形</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/07/16/JavaScript函数、Math对象、数组/">JavaScript函数、Math对象、数组</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/14/JavaScript全选反选/">JavaScript全选反选</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/14/JavaScript显示隐藏及Tab切换/">JavaScript显示隐藏及Tab切换</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/14/JavaScript数据类型转换和输出/">JavaScript数据类型转换、输出</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/13/If...Else、Switch、For循环、While循环/">If...Else、Switch、For循环、While循环</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 刘晓萌<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JavaScript函数、Math对象、数组 | 紫--小梦</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="函数函数是由事件驱动的或者当它被调用时执行的可重复使用的代码块。
+
+function functionname(参数列表){
+    执行代码块;
+    return 返回值;
+}
+
+
+function：关键词
+functionname：函数名，用来标识函数的名字
+参数列表：由外部向函数传入的内容
+return：从函数内部向外传递内容（函数会停止执行）
+
+    //无参无返回函数
+    fu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript函数、Math对象、数组">
+<meta property="og:url" content="http://yoursite.com/2016/07/16/JavaScript函数、Math对象、数组/index.html">
+<meta property="og:site_name" content="紫--小梦">
+<meta property="og:description" content="函数函数是由事件驱动的或者当它被调用时执行的可重复使用的代码块。
+
+function functionname(参数列表){
+    执行代码块;
+    return 返回值;
+}
+
+
+function：关键词
+functionname：函数名，用来标识函数的名字
+参数列表：由外部向函数传入的内容
+return：从函数内部向外传递内容（函数会停止执行）
+
+    //无参无返回函数
+    fu">
+<meta property="og:updated_time" content="2016-07-16T03:17:27.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript函数、Math对象、数组">
+<meta name="twitter:description" content="函数函数是由事件驱动的或者当它被调用时执行的可重复使用的代码块。
+
+function functionname(参数列表){
+    执行代码块;
+    return 返回值;
+}
+
+
+function：关键词
+functionname：函数名，用来标识函数的名字
+参数列表：由外部向函数传入的内容
+return：从函数内部向外传递内容（函数会停止执行）
+
+    //无参无返回函数
+    fu">
+  
+    <link rel="alternate" href="/atom.xml" title="紫--小梦" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">紫--小梦</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">心怀梦想，志在远方。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-JavaScript函数、Math对象、数组" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/16/JavaScript函数、Math对象、数组/" class="article-date">
+  <time datetime="2016-07-16T01:06:47.000Z" itemprop="datePublished">2016-07-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript函数、Math对象、数组
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p>函数是由事件驱动的或者当它被调用时执行的可重复使用的代码块。</p>
+<pre>
+function functionname(参数列表){
+    执行代码块;
+    return 返回值;
+}
+</pre>
+
+<p>function：关键词</p>
+<p>functionname：函数名，用来标识函数的名字</p>
+<p>参数列表：由外部向函数传入的内容</p>
+<p>return：从函数内部向外传递内容（函数会停止执行）</p>
+<pre>
+    //无参无返回函数
+    function name1(){
+        代码块;
+    }
+    //有参无返回函数
+    function name2(a){
+        代码块;
+    }
+    //无参有返回函数
+    function name3(){
+        代码块;
+        return 123;
+    }
+    //有参有返回函数
+    function name4(a){
+        代码块;
+        return 123;
+    }
+</pre>
+
+<h5 id="函数调用"><a href="#函数调用" class="headerlink" title="函数调用"></a>函数调用</h5><p>在调用函数时，可以向其传递值，这些值称为参数。这些参数可以在函数中使用。可以使用任意多的参数，由”,”分隔。</p>
+<p>如果没有返回值/参数，则不写；变量和参数必须以一致的顺序出现。</p>
+<pre>
+    function sum(num1,num2){
+        return num1 + num2;
+    }
+    //函数调用
+    var r=sum(3,5)
+</pre>
+
+<h5 id="局部变量和全局变量"><a href="#局部变量和全局变量" class="headerlink" title="局部变量和全局变量"></a>局部变量和全局变量</h5><p>在函数内部声明的变量是局部变量，只能在函数内部访问它。（作用域是局部的）局部变量在函数运行以后被删除。</p>
+<p>在函数外部声明的变量是全局变量，网页上的所有脚本和函数都能访问它。全局变量在页面关闭后被删除。</p>
+<h5 id="匿名变量"><a href="#匿名变量" class="headerlink" title="匿名变量"></a>匿名变量</h5><p>匿名变量也叫尚未声明的变量，该变量将被自动作为全局变量声明。</p>
+<h3 id="Math对象"><a href="#Math对象" class="headerlink" title="Math对象"></a>Math对象</h3><p>Math对象用于执行数学任务。</p>
+<pre>
+    Math.min(1,2,3);//1 获取若干个数中的最小值
+
+    Math.max(1,2,3);//3 获取若干个数中的最大值
+
+    Math.ceil(1.2);//2 对数进行上舍入
+
+    Math.floor(1.8);//1 对数进行下舍入
+
+    Math.round(1.5);//2 把数四舍五入为最接近的整数
+
+    Math.random();// 0~1之间的随机数（不包含0和1）
+
+    //给一个min、max，就能产生一个在最大值最小值之间的随机数，并且包括min、max
+
+    console.log(Math.floor(Math.random()*(max-min+1)+min));
+
+    console.log(Math.round(Math.random()*(max-min)+min));
+
+    console.log(paseInt())
+</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/07/16/JavaScript函数、Math对象、数组/" data-id="ciqom1kb8000kofe8t69ccre3" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/07/14/JavaScript全选反选/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JavaScript全选反选</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/07/16/JavaScript函数、Math对象、数组/">JavaScript函数、Math对象、数组</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/14/JavaScript全选反选/">JavaScript全选反选</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/14/JavaScript显示隐藏及Tab切换/">JavaScript显示隐藏及Tab切换</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/14/JavaScript数据类型转换和输出/">JavaScript数据类型转换、输出</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/13/If...Else、Switch、For循环、While循环/">If...Else、Switch、For循环、While循环</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 刘晓萌<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

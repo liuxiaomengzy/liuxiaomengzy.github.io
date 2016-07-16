@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>CSS3选择器 | 紫--小梦</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="CSS3选择器主要包含以下几种子元素选择器E &amp;gt; F类型，子元素选择器选中的是子元素F，子子孙孙不会被选
+而后代选择器E F类型是选中所有的F，包含F的后代也选中
+兄弟选择器相邻兄弟选择器E + F类型，必备属性：1.必须同级；2.必须相邻；3.必须在其下方；4.有且只有一个符合。
+通用兄弟选择器E ~ F类型，必备属性：1.必须同级；2.必须在其下方；3.可以有多个符合。
+属性选择器[ ]">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS3选择器">
+<meta property="og:url" content="http://yoursite.com/2016/06/28/CSS3选择器/index.html">
+<meta property="og:site_name" content="紫--小梦">
+<meta property="og:description" content="CSS3选择器主要包含以下几种子元素选择器E &amp;gt; F类型，子元素选择器选中的是子元素F，子子孙孙不会被选
+而后代选择器E F类型是选中所有的F，包含F的后代也选中
+兄弟选择器相邻兄弟选择器E + F类型，必备属性：1.必须同级；2.必须相邻；3.必须在其下方；4.有且只有一个符合。
+通用兄弟选择器E ~ F类型，必备属性：1.必须同级；2.必须在其下方；3.可以有多个符合。
+属性选择器[ ]">
+<meta property="og:image" content="https://raw.githubusercontent.com/liuxiaomengzy/liuxiaomengzy.github.io/master/images/not%E5%90%A6%E5%AE%9A%E9%80%89%E6%8B%A9%E5%99%A8.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/liuxiaomengzy/liuxiaomengzy.github.io/master/images/nth%E9%80%89%E6%8B%A9%E5%99%A8.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/liuxiaomengzy/liuxiaomengzy.github.io/master/images/%E4%BC%AA%E5%85%83%E7%B4%A0.png">
+<meta property="og:updated_time" content="2016-06-29T13:22:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS3选择器">
+<meta name="twitter:description" content="CSS3选择器主要包含以下几种子元素选择器E &amp;gt; F类型，子元素选择器选中的是子元素F，子子孙孙不会被选
+而后代选择器E F类型是选中所有的F，包含F的后代也选中
+兄弟选择器相邻兄弟选择器E + F类型，必备属性：1.必须同级；2.必须相邻；3.必须在其下方；4.有且只有一个符合。
+通用兄弟选择器E ~ F类型，必备属性：1.必须同级；2.必须在其下方；3.可以有多个符合。
+属性选择器[ ]">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/liuxiaomengzy/liuxiaomengzy.github.io/master/images/not%E5%90%A6%E5%AE%9A%E9%80%89%E6%8B%A9%E5%99%A8.png">
+  
+    <link rel="alternate" href="/atom.xml" title="紫--小梦" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">紫--小梦</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">心怀梦想，志在远方。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-CSS3选择器" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/28/CSS3选择器/" class="article-date">
+  <time datetime="2016-06-28T13:57:24.000Z" itemprop="datePublished">2016-06-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CSS3选择器
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="CSS3选择器主要包含以下几种"><a href="#CSS3选择器主要包含以下几种" class="headerlink" title="CSS3选择器主要包含以下几种"></a>CSS3选择器主要包含以下几种</h2><h3 id="子元素选择器"><a href="#子元素选择器" class="headerlink" title="子元素选择器"></a>子元素选择器</h3><p><code>E &gt; F</code>类型，子元素选择器选中的是子元素F，子子孙孙不会被选</p>
+<p>而后代选择器<code>E F</code>类型是选中所有的F，包含F的后代也选中</p>
+<h3 id="兄弟选择器"><a href="#兄弟选择器" class="headerlink" title="兄弟选择器"></a>兄弟选择器</h3><h4 id="相邻兄弟选择器"><a href="#相邻兄弟选择器" class="headerlink" title="相邻兄弟选择器"></a>相邻兄弟选择器</h4><p><code>E + F</code>类型，必备属性：1.必须同级；2.必须相邻；3.必须在其下方；4.有且只有一个符合。</p>
+<h4 id="通用兄弟选择器"><a href="#通用兄弟选择器" class="headerlink" title="通用兄弟选择器"></a>通用兄弟选择器</h4><p><code>E ~ F</code>类型，必备属性：1.必须同级；2.必须在其下方；3.可以有多个符合。</p>
+<h3 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h3><p><code>[ ]</code>类型，例如<code>[class]</code>指具有class属性的值</p>
+<p><code>[abc =&quot;value&quot;]</code>类型，属性和值选择器</p>
+<p><code>[abc ~=&quot;value&quot;] ~</code>表示几个以空格隔开的属性值中包含了”value”</p>
+<p><code>[abc ^=&quot;value&quot;] ^</code>以value开头的值</p>
+<p><code>[abc $=&quot;value&quot;] $</code>以value结尾的值</p>
+<p><code>[abc *=&quot;value&quot;] *</code>包含value的值</p>
+<p><code>[abc |=&quot;value&quot;] |</code>以value或value-开头的值</p>
+<p><code>[abc =value]</code>和<code>[abc *=&quot;value&quot;]</code>较实用。</p>
+<h3 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h3><h4 id="锚点伪类（a的伪类）"><a href="#锚点伪类（a的伪类）" class="headerlink" title="锚点伪类（a的伪类）"></a>锚点伪类（a的伪类）</h4><p>简称爱恨法则  love &amp; hate</p>
+<ol>
+<li><p>l = link        没有访问过的状态</p>
+</li>
+<li><p>v = visited    访问过后的状态</p>
+</li>
+<li><p>h = hover    鼠标悬浮在标签上的状态</p>
+</li>
+<li><p>a = active    鼠标悬浮在标签上按下没有松开的状态</p>
+</li>
+</ol>
+<p>使用时候顺序不能变，必须从前到后。</p>
+<h4 id="UI元素伪类-表单元素"><a href="#UI元素伪类-表单元素" class="headerlink" title="UI元素伪类 表单元素"></a>UI元素伪类 表单元素</h4><p><code>disabled</code>    废弃属性，元素不可用</p>
+<p><code>focus</code>        聚焦属性</p>
+<p><code>checked</code>    选中(并不能完美支持)</p>
+<p><code>enabled</code>    可用状态</p>
+<pre>
+    &ltstyle&gt
+        input:disabled{
+            border:2px solid blue;
+            background-color:gold;
+        }
+        input:focus{
+            border:2px solid red;
+        }
+        input:checked{
+            display:block;
+            width:50px;
+            height:50px;
+        }
+        input:enabled{
+            background-color:pink;
+        }
+    &lt/style&gt
+    &ltform&gt
+        &ltinput type="text" disabled /&gt
+        &ltinput type="text"/&gt
+        &ltinput type="text"/&gt
+        &ltinput type="checkbox"/&gt
+        &ltinput type="checkbox"/&gt
+    &lt/form&gt
+</pre>
+<pre>
+    <style>
+        input:disabled{
+            border:2px solid blue;
+            background-color:gold;
+        }
+        input:focus{
+            border:2px solid red;
+        }
+        input:checked{
+            display:block;
+            width:50px;
+            height:50px;
+        }
+        input:enabled{        
+            background-color:pink;
+        }
+    </style>
+    <form>
+        <input type="text" disabled>
+        <input type="text">
+        <input type="text">
+        <input type="checkbox">
+        <input type="checkbox">
+    </form>
+</pre>
+
+<h3 id="否定选择器"><a href="#否定选择器" class="headerlink" title="否定选择器"></a>否定选择器</h3><p><code>:not</code>类型，通常和属性选择器结合使用。</p>
+<pre>
+    &ltstyle&gt
+        input:not([type="submit"]){
+            border:2px solid gold;
+        }
+    &lt/style&gt
+    &ltform&gt
+    &ltinput type="text"/&gt
+    &ltinput type="submit"/&gt
+    &lt/form&gt
+</pre>
+
+<p>效果如下：</p>
+<p><img src="https://raw.githubusercontent.com/liuxiaomengzy/liuxiaomengzy.github.io/master/images/not%E5%90%A6%E5%AE%9A%E9%80%89%E6%8B%A9%E5%99%A8.png" alt="not否定选择器"></p>
+<h3 id="nth选择器"><a href="#nth选择器" class="headerlink" title="nth选择器"></a>nth选择器</h3><p><code>:first-child</code>选择某个元素的第一个子元素</p>
+<p><code>last-child</code>选择某个元素的最后一个子元素</p>
+<p><code>nth-last-child()</code>选择某个元素的一个或多个特定的子元素，从这个元素的最后一个子元素开始算</p>
+<p><code>:nth-of-type()</code>选择指定的元素</p>
+<p><code>:nth-last-of-type()</code>选择指定的元素，从元素的最后一个开始计算</p>
+<p><code>:first-of-type</code>选择一个上级元素下的第一个同类子元素</p>
+<p><code>:last-of-type</code>选择一个上级元素的最后一个同类子元素</p>
+<p><code>:only-child</code>选择的元素是它的父元素的唯一一个子元素</p>
+<p><code>:only-of-type</code>选择一个元素是它的上级元素的唯一一个相同类型的子元素</p>
+<p><code>:empty</code>选择的元素里面没有任何内容</p>
+<p>因属性较多，后面属性设置会覆盖前面，就不在一一展现，仅列举几个</p>
+<pre>
+    &ltstyle&gt
+        ul li:first-child{
+            background-color:black;
+        }
+        ul li:last-child{
+            background-color:pink;
+        }
+        ul li:nth-of-type(3){
+            background-color:blue;
+        }
+    &lt/style&gt
+    &ltul&gt
+        &ltli&gt&lt/li&gt
+        &ltli&gt&lt/li&gt
+        &ltli&gt&lt/li&gt
+        &ltli&gt&lt/li&gt
+        &ltli&gt&lt/li&gt
+    &lt/ul&gt
+</pre>
+
+<p>效果如下：</p>
+<p><img src="https://raw.githubusercontent.com/liuxiaomengzy/liuxiaomengzy.github.io/master/images/nth%E9%80%89%E6%8B%A9%E5%99%A8.png" alt="nth选择器"></p>
+<p><code>:nth-child()</code>选择某个元素的一个或多个特定的子元素</p>
+<p><code>:nth-child(length)</code>参数是具体数字</p>
+<p><code>:nth-child(n)</code>参数是n,n从1开始计算</p>
+<p><code>:nth-child(2n)</code>n的倍数选择，n从1开始算(偶数行也可用<code>even</code>)</p>
+<p><code>:nth-child(2n+1)</code>表示隔几选一(奇数行也可用<code>odd</code>)</p>
+<p><code>:nth-child(n+length)</code>选择大于等于length后面的元素</p>
+<p><code>:nth-child(-n+length)</code>选择小于等于length前面的元素</p>
+<h3 id="伪元素"><a href="#伪元素" class="headerlink" title="伪元素"></a>伪元素</h3><p><code>::first-letter</code>选择文本块的第一个字母，除非在同一行里面包含一些其它元素，不过这个主要运用于段落排版上多</p>
+<p><code>::first-line</code>选择元素的第一行</p>
+<p><code>::before</code>,<code>::after</code>这两个主要用来给元素的前面或后面插入内容，这两个常用”content”配合使用，见过最多的就是清除浮动还有图片icon</p>
+<p><code>::selection</code>用来改变浏览网页选中文本的默认效果，<code>::selection</code>只能设置两个属性background,color属性，设置其他属性是没有任何效果的</p>
+<pre>
+    &ltstyle&gt
+        div{
+            width:500px;
+            height:500px;
+            background-color:green;
+            margin:0 auto;
+            font-size:30px;
+            position:relative;
+            font-size:30px;
+            }
+        div::before{
+            content:"";
+            width:200px;
+            height:200px;
+            background-color:orange;
+            display:block;
+            position:absolute;
+            top:60px;
+            left:0;
+        }
+        div::after{
+            content:"";
+            width:200px;
+            height:200px;
+            background-color:gold;
+            display:block;
+            position:absolute;
+            right:0;
+            top:0;
+        }
+        div::first-letter{
+            color:red;
+            font-size:60px;
+        }
+        div::first-line{
+            color:purple;
+        }
+        div::selection{
+            color:white;
+            background:black;
+        }
+    &lt/style&gt
+    &ltdiv&gt我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div
+    &lt/div&gt    
+</pre>
+
+<p>效果如下：</p>
+<p><img src="https://raw.githubusercontent.com/liuxiaomengzy/liuxiaomengzy.github.io/master/images/%E4%BC%AA%E5%85%83%E7%B4%A0.png" alt="伪元素"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/06/28/CSS3选择器/" data-id="ciqom1kao0009ofe8z3s2r0du" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/06/29/CSS3盒模型/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          CSS3盒模型
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/06/28/HTML5新增音视频/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">HTML5新增音视频</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/07/16/JavaScript函数、Math对象、数组/">JavaScript函数、Math对象、数组</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/14/JavaScript全选反选/">JavaScript全选反选</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/14/JavaScript显示隐藏及Tab切换/">JavaScript显示隐藏及Tab切换</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/14/JavaScript数据类型转换和输出/">JavaScript数据类型转换、输出</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/13/If...Else、Switch、For循环、While循环/">If...Else、Switch、For循环、While循环</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 刘晓萌<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
