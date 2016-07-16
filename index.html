@@ -68,6 +68,169 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-JavaScript字符串对象、日期对象、定时器" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/16/JavaScript字符串对象、日期对象、定时器/" class="article-date">
+  <time datetime="2016-07-16T07:52:39.000Z" itemprop="datePublished">2016-07-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/16/JavaScript字符串对象、日期对象、定时器/">JavaScript字符串对象、日期对象、定时器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="String字符串对象"><a href="#String字符串对象" class="headerlink" title="String字符串对象"></a>String字符串对象</h3><p>String对象用于处理文本（字符串）。</p>
+<p><code>toString</code>||<code>String()</code>转换为字符串,<em>不能转换null和undefined</em></p>
+<pre>
+    var a=10;
+    console.log(a.toString());
+    var b=20;
+    console.log(String(b));
+</pre>
+
+<h5 id="创建字符串"><a href="#创建字符串" class="headerlink" title="创建字符串"></a>创建字符串</h5><p><strong>new String()</strong>;    String类型有默认length属性，表示字符串包含多少个字符（空格也是字符）。</p>
+<h5 id="字符串方法"><a href="#字符串方法" class="headerlink" title="字符串方法"></a>字符串方法</h5><p><strong>charAt()</strong>：返回字符串指定位置的字符；字符串第一个字符下标为0，如果参数不在0与string.length之间，则返回一个空字符串。</p>
+<p><strong>search()</strong>：查找字符串指定字符的位置，只能查找到<strong>第一个</strong>匹配的位置，如果找不到则返回-1。</p>
+<p><strong>substring(start,stop)</strong>：star、stop为<strong>非负的整数</strong>，如果省略stop则返回的子串会一直到字符串结尾。</p>
+<p>该方法返回一个新的字符串从start(包括start)到stop-1(不包括stop)的所有字符，长度为stop减start。</p>
+<p>如果start=stop，返回一个长度为0的字符串；如果start&gt;stop，则提取子串之前会先交换这两个参数。</p>
+<p><strong>slice(start,end)</strong>：start、stop<strong>可以为负数</strong></p>
+<p>该方法提取字符串的某个部分，并以新的字符串返回被提取的部分。包括字符串从start(包括start)开始到end(不包括end)结束为止的所有字符。</p>
+<p>start、stop如果为负数，则参数规定的是从字符串的尾部开始算起的位置，如-1指的是最后一个字符，以此类推。</p>
+<p><strong>substr(start,length)</strong>：start<strong>可以为负数</strong>、length可选</p>
+<p>该方法返回一个新的字符串，包含从star(包括start)处开始的length个字符；如果没有指定length则为从start到结尾的字符。</p>
+<p><strong><em>因ECMAscript未对此方法进行标准化，因此反对使用。</em></strong></p>
+<p><em>String 对象的方法 slice()、substring() 和 substr() （不建议使用）都可返回字符串的指定部分。slice() 比 substring() 要灵活一些，因为它允许使用负数作为参数。slice() 与 substr() 有所不同，因为它用两个字符的位置来指定子串，而 substr() 则用字符位置和长度来指定子串。</em></p>
+<p><strong>replace(ragexp/substr,replacement)</strong>用于在字符串中用一些字符替换另一些字符。</p>
+<p>返回一个新的字符串，用replacement替换regexp第一次匹配或所有匹配之后得到的。</p>
+<p>如果regexp具有全局标志 g，那么replace()将替换所有匹配的子串；否则<strong>默认只替换第一个匹配的子串</strong></p>
+<pre>
+    var str="hello world";
+    console.log(str.replace("l","*"));
+    console.log(str.replace(/l/g,"*"));
+</pre>
+
+<p><strong>split(separator,howmany)</strong>：用于把一个字符串分割字符串数组。</p>
+<p>separator为字符串或者表达式，从该参数地方分割字符串。howmany可选规定返回的数组最大长度，如果设置返回的字符串不会超过这个参数；如果没有设置整个字符串都会分割不考虑长度。</p>
+<p>返回的数组不包含separator自身。如果把空字符串(“ “)作为separator，则字符串每个字符之间都会被分割。</p>
+<p><strong>concat(stringX…)</strong>用于将一个或多个字符串拼接起来，获得一个新的字符串。</p>
+<p><strong>indexOf()</strong>返回某个指定的字符在字符串中<strong>首次</strong>出现的位置，在字符串中从前向后搜索，如果没有则返回-1。</p>
+<p><strong>lastIndexOf()</strong>返回某个指定的字符在字符串中<strong>最后</strong>出现的位置，在字符串中从后向前搜索，如果没有则返回-1。</p>
+<h3 id="Date日期对象"><a href="#Date日期对象" class="headerlink" title="Date日期对象"></a>Date日期对象</h3><p>Date对象用于处理日期和时间。</p>
+<p>创建Date对象语法：</p>
+<p><code>var myDate=new Date()</code></p>
+<p>Date对象属性constructor（返回对创建次对象的Date函数的引用）和prototype（使有能力向对象添加属性和方法）。</p>
+<h5 id="Date对象方法"><a href="#Date对象方法" class="headerlink" title="Date对象方法"></a>Date对象方法</h5><p><strong>getFullYear()</strong>：可返回一个表示年份的4位数字</p>
+<p><strong>getMonth()</strong>：可返回表示月份的数字，返回0(一月)~11(十二月)的一个整数</p>
+<p><strong>getDate()</strong>：可返回月份的某一天，返回1~31之间的一个整数</p>
+<p><strong>getDay()</strong>：可返回表示星期的某一天的数字，返回0(周日)~6(周六)之间的一个整数</p>
+<p><strong>getMilliseconds()</strong>：可返回当前时间的毫秒数，返回0~999之间的一个整数</p>
+<p><strong>getTime()</strong>：可返回距1970年1月1日到现在的毫秒数</p>
+<h3 id="JavaScript计时事件"><a href="#JavaScript计时事件" class="headerlink" title="JavaScript计时事件"></a>JavaScript计时事件</h3><h5 id="一次性定时器setTimeout"><a href="#一次性定时器setTimeout" class="headerlink" title="一次性定时器setTimeout()"></a>一次性定时器setTimeout()</h5><p><code>setTimeout(code,millisec)</code></p>
+<p>setTimeout()第一个参数是含有JavaScript语句的代码串，第二个参数指在执行代码前需要等待的毫秒数。只会执行一次。</p>
+<p><code>clearTimeout(id_of_settimeout)</code></p>
+<p>clearTimeout()可取消由setTimeout()方法设置的timeout。其参数必须是由setTimeout()返回的ID值。</p>
+<h5 id="循环定时器setInterval"><a href="#循环定时器setInterval" class="headerlink" title="循环定时器setInterval()"></a>循环定时器setInterval()</h5><p><code>setInterval(code,millisec)</code></p>
+<p>setInterval()方法可按照指定的周期(以毫秒计)来调用函数或计算表达式。setInterval()方法会不停地调用函数，直到clearInterval()被调用或窗口关闭。</p>
+<p><code>clearInterval(id_of_setinterval)</code></p>
+<p>clearInterval()可取消由setInterval()设置的timeout。其参数必须是由setInterval()返回的ID值。</p>
+<p>用一次性定时器模拟循环定时：</p>
+<pre>
+    &lt;input type="button" value="开始/暂停" id="timebtn" /&gt;
+    &lt;input type="button" value="重置" id="timeclear"/&gt;
+    &lt;input type="text" id="timetext" value="0" /&gt;
+    &lt;script&gt;
+        var i=0;
+        var j=0;
+        var t=null;
+        var btn=document.getElementById("timebtn");
+        var clear=document.getElementById("timeclear");
+        var text=document.getElementById("timetext");
+        function time(){        
+            text.value=i;        
+            i+=1;
+            t=setTimeout("time()",0);
+        }
+        function stop(){
+            i=0;
+            j=0;
+            setTimeout(text.value=0,0)
+            clearTimeout(t);
+        }
+        btn.onclick=function(){
+            if(j==0){
+                time();
+                j=1;
+            }else if(j==1){
+                clearTimeout(t);
+                j=0;
+            }
+        }
+        clear.onclick=function(){
+            stop();
+        }
+    &lt;/script&gt;
+</pre>
+
+<pre>
+    <input type="button" value="开始/暂停" id="timebtn"><input type="button" value="重置" id="timeclear">
+    <input type="text" id="timetext" value="0">
+    <script>
+        var i=0;
+        var j=0;
+        var t=null;
+        var btn=document.getElementById("timebtn");
+        var clear=document.getElementById("timeclear");
+        var text=document.getElementById("timetext");
+        function time(){        
+            text.value=i;        
+            i+=1;
+            t=setTimeout("time()",0);
+        }
+        function stop(){
+            i=0;
+            j=0;
+            setTimeout(text.value=0,0)
+            clearTimeout(t);
+        }
+        btn.onclick=function(){
+            if(j==0){
+                time();
+                j=1;
+            }else if(j==1){
+                clearTimeout(t);
+                j=0;
+            }
+        }
+        clear.onclick=function(){
+            stop();
+        }
+    </script>
+</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/07/16/JavaScript字符串对象、日期对象、定时器/" data-id="ciqoxmmm0000l89e8lkd1wqnf" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-JavaScript函数、Math对象、数组" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/07/16/JavaScript函数、Math对象、数组/" class="article-date">
@@ -134,7 +297,7 @@ function functionname(参数列表){
 </pre>
 
 <h5 id="局部变量和全局变量"><a href="#局部变量和全局变量" class="headerlink" title="局部变量和全局变量"></a>局部变量和全局变量</h5><p>在函数内部声明的变量是局部变量，只能在函数内部访问它。（作用域是局部的）局部变量在函数运行以后被删除。</p>
-<p>在函数外部声明的变量是全局变量，网页上的所有脚本和函数都能访问它。全局变量在页面关闭后被删除。</p>
+<p>在函数外部声明的变量是全局变量，网页上的所有脚本和函数都能访问它。全局变量在页面关闭后被删除。<strong>全局变量声明方式，不使用var关键字或在函数外部声明</strong></p>
 <h5 id="匿名变量"><a href="#匿名变量" class="headerlink" title="匿名变量"></a>匿名变量</h5><p>匿名变量也叫尚未声明的变量，该变量将被自动作为全局变量声明。</p>
 <h3 id="Math对象"><a href="#Math对象" class="headerlink" title="Math对象"></a>Math对象</h3><p>Math对象用于执行数学任务。</p>
 <pre>
@@ -156,12 +319,74 @@ function functionname(参数列表){
 
     console.log(Math.round(Math.random()*(max-min)+min));
 
-    console.log(paseInt())
+    console.log(parseInt(Math.random()*(max-min+1)+min));
+</pre>
+
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><h5 id="1-数组概念"><a href="#1-数组概念" class="headerlink" title="1.数组概念"></a>1.数组概念</h5><p>数组是一种保存数据的有序列表。数组可以用一个变量名存储所有的值，并且可以用变量名访问任何一个值。数组中的每个元素都有自己的ID，以便它可以很容易地被找到。数组的大小可以动态调整，可以随着数据的添加自动增长以容纳新增数据。</p>
+<h5 id="2-数组定义"><a href="#2-数组定义" class="headerlink" title="2.数组定义"></a>2.数组定义</h5><p>(1). 常规方式</p>
+<pre>
+    var arr1=new Array();
+    arr1[0]=1;
+    arr1[1]=2;
+    arr1[2]=3;
+</pre>
+
+<p>(2). 简洁方式</p>
+<pre>
+    var arr2=new Array(1,2,3);
+    var arr3=new Array();//空数组
+</pre>
+
+<p>(3). 字面</p>
+<pre>
+    var arr4=[1,2,3];
+    var arr5=[];//空数组
+</pre>
+
+<h5 id="3-数组取值-赋值"><a href="#3-数组取值-赋值" class="headerlink" title="3.数组取值/赋值"></a>3.数组取值/赋值</h5><p>数组是有序数据列表，取值和赋值都是通过下标得到。</p>
+<p>下标：用来表示每个数据的位置信息，从0开始计数。</p>
+<pre>
+    var arr=[1,2,3];
+    var a=arr[0];//取值
+    arr[1]=10;//赋值
+    arr[3]=20;//错误写法，数组越界
+</pre>
+
+<h3 id="Array数组对象"><a href="#Array数组对象" class="headerlink" title="Array数组对象"></a>Array数组对象</h3><p><strong>数组元素的插入删除</strong></p>
+<p><strong>push(元素)</strong>：向数组的末尾添加一个或多个元素，并返回新的长度</p>
+<p><strong>unshift(元素)</strong>：向数组的开头添加一个或更多元素，并返回新的长度</p>
+<p><strong>pop()</strong>：删除数组的最后一个元素，把数组长度减1，并返回删除元素的值；如果这个数组已经为空，则不改变数组，并返回undefined值</p>
+<p><strong>shift()</strong>：删除数组的第一个元素，并返回删除元素的值；如果数组为空，则比进行任何操作，返回undefined值</p>
+<p><strong>splice()</strong>：该方法向/从数组中添加/删除项目，然后返回被删除的项目</p>
+<p><strong>splice(起始位置,长度,添加内容(可选))</strong>：该方法从起始位置开始，删除长度个元素</p>
+<p><strong>splice(起始位置,0,插入元素1,插入元素2,插入元素3…)</strong>：从起始位置删除0个元素，然后把要插入的元素从起始位置插入进数组</p>
+<p><strong>数组元素的替换</strong></p>
+<p><strong>splice(要替换元素的起始位置,替换长度,新替换元素1,新替换元素2…)</strong></p>
+<p><strong>数组的拼接</strong></p>
+<p><strong>contact()</strong>:用于连接两个或多个数组；不会改变现有数组，仅仅会返回被连接数组的一个副本</p>
+<p><strong>数组元素之间添加分隔符</strong></p>
+<p><strong>join()</strong>：该方法把数组中的所有元素放入一个字符串，元素通过括号中的参数作为分隔符进行分隔的</p>
+<p><strong>数组元素的排序</strong></p>
+<p><strong>sort()</strong>：用于对数组的元素进行排序(<code>按照ASCII表的顺序排序，而非数值大小</code>)</p>
+<pre>
+    //按数值大小排序
+    function sortNumber(a,b){
+        return a-b;//a,b表示数组中的任意两个元素，若return&gt;0 b前a后；若return&lt;0 a前b后
+        //a-b输出从小到大排序，b-a输出从大到小排序
+    }
+    console.log(arr.sort(sortNumber));
+</pre>
+
+<h3 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h3><p>二维数组指的是数组中的每个元素都是一个数组。多用来进行矩阵相关操作。</p>
+<pre>
+    var arr=[[1,2,3],[4,5,6],[7,8,9]];//二维数组
+
+    arr[i][j];//二维数组获取方式
 </pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/16/JavaScript函数、Math对象、数组/" data-id="ciqom1kb8000kofe8t69ccre3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/16/JavaScript函数、Math对象、数组/" data-id="ciqoxmmln000g89e84tuno1l1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -297,7 +522,7 @@ function functionname(参数列表){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/14/JavaScript全选反选/" data-id="ciqom1kb7000jofe8261nsv5q" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/14/JavaScript全选反选/" data-id="ciqoxmmlz000k89e8ehith8fv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -480,7 +705,7 @@ function functionname(参数列表){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/14/JavaScript显示隐藏及Tab切换/" data-id="ciqom1kbb000nofe885318a8l" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/14/JavaScript显示隐藏及Tab切换/" data-id="ciqoxmmm7000o89e87uxb0axu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -568,7 +793,7 @@ function functionname(参数列表){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/14/JavaScript数据类型转换和输出/" data-id="ciqom1kb9000lofe8608vhnug" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/14/JavaScript数据类型转换和输出/" data-id="ciqoxmmm4000n89e8ebfkq3fa" class="article-share-link">Share</a>
       
       
     </footer>
@@ -661,14 +886,14 @@ function functionname(参数列表){
 <p>表达式 1 在循环开始前执行；判断表达式 2 定义运行循环的条件；表达式 3 在循环已被执行后执行 </p>
 <p>(1)表达式1用来初始化所用的变量，可以初始化一个（或多个）值，它是<code>可选的</code></p>
 <pre>
-    for(var i=0,len=cars.length;i&lt;len;i{
+    for(var i=0,len=cars.length;i&lt;len;i++){
         alert(i);
     }
 </pre>
 
 <p>(2)表达式2用于评估初始变量的条件，它也是<code>可选的</code>；如果表达式2返回true，则循环再次开始，如果返回false，则循环将结束</p>
 <p><strong>如果省略表达式2，必须在循环内提供break，否则循环无法停止，可能造成浏览器崩溃</strong></p>
-<p>(3)表达式3会增加初始变量的值。增量可以是负数（i–）或者更大（i=i+8）它也是<code>可选的</code></p>
+<p>(3)表达式3会增加初始变量的值。增量可以是负数（i- -）或者更大（i=i+8）它也是<code>可选的</code></p>
 <h3 id="JavaScript-While循环"><a href="#JavaScript-While循环" class="headerlink" title="JavaScript While循环"></a>JavaScript While循环</h3><p><strong>只要指定条件为true，循环就可以一直执行代码，可能导致浏览器崩溃</strong></p>
 <h5 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h5><p>语法：</p>
 <pre>
@@ -722,7 +947,7 @@ onmouseup            某个鼠标按键被松开
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/13/If...Else、Switch、For循环、While循环/" data-id="ciqom1kb3000iofe8cg5opew8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/13/If...Else、Switch、For循环、While循环/" data-id="ciqoxmmlk000f89e8zz8vg5dg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -962,7 +1187,7 @@ onmouseup            某个鼠标按键被松开
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/11/JavaScript基础/" data-id="ciqom1kba000mofe8ul2a1i4n" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/11/JavaScript基础/" data-id="ciqoxmmm1000m89e8cnleddwt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1066,7 +1291,7 @@ onmouseup            某个鼠标按键被松开
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/09/CSS3媒体查询/" data-id="ciqom1kaa0004ofe8y3fb5xj0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/09/CSS3媒体查询/" data-id="ciqoxmmkb000289e8m9slq9f0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1228,7 +1453,7 @@ onmouseup            某个鼠标按键被松开
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/06/LESSCSS初使用/" data-id="ciqom1kbc000oofe833m1jjco" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/06/LESSCSS初使用/" data-id="ciqoxmmmm000r89e8qrdbi3t7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1387,89 +1612,7 @@ onmouseup            某个鼠标按键被松开
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/05/CSS3弹性布局/" data-id="ciqom1kab0005ofe8or7df68o" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-CSS3 @font-face规则和多列" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/07/04/CSS3 @font-face规则和多列/" class="article-date">
-  <time datetime="2016-07-04T11:30:20.000Z" itemprop="datePublished">2016-07-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/04/CSS3 @font-face规则和多列/">CSS3 @font-face规则和多列</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="CSS3-font-face规则"><a href="#CSS3-font-face规则" class="headerlink" title="CSS3 @font-face规则"></a>CSS3 @font-face规则</h3><p><strong>使用CSS3 <code>@font-face</code>规则，网页设计师再也不必使用计算机安装的字体；网页设计师可以使用任何喜欢的字体。</strong></p>
-<p>当你发现需要使用的字体文件时，只需简单的将字体文件包含在网站中，它会自动下载给需要的用户。</p>
-<p>你想要的字体就是在CCS3 @font-face规则中定义的。</p>
-<p>示例如下：</p>
-<pre>
-    &ltstyle&gt
-        @font-face{
-            font-family:你的自定义字体名称;
-            src:url("字体路径");
-        }
-        /*引用*/
-        p{
-            font-family:你的自定义字体名称;
-        }
-    &lt/style&gt
-    &ltp&gt我是文字&lt/p&gt
-</pre>
-
-<h3 id="CSS3多列"><a href="#CSS3多列" class="headerlink" title="CSS3多列"></a>CSS3多列</h3><p>通过CSS3，可以创建多个列来对文本进行布局（例如报纸），主要属性如下：</p>
-<ol>
-<li><p>column-count定义分栏的数目；</p>
-</li>
-<li><p>column-gap定义列与列之间的间隔；</p>
-</li>
-<li><p>column-rule定义列与列的宽度、样式和颜色规则。</p>
-</li>
-</ol>
-<pre>
-    &ltstyle&gt
-        div.column{
-            column-count:3;
-            column-gap: 50px;
-            column-rule: 10px dotted gold;
-        }
-    &lt/style&gt
-    &ltdiv class="column">
-        人生就是从烦恼中走过，去寻找人生的智慧，去寻找人生的真谛。假如人身没有烦恼，非常完美，那么那是一场童话；假如人生没有失落，没有失落也就没有希望，人生总是在失落中遥望，遥望有一天能走出苦恼。生活是从误解中收获宽恕，从伤害中收获饶恕，从烦恼中收获智慧，从痛苦中收获善良。
-    &lt/div&gt
-    &ltdiv class="column"&gt
-        人生就是从烦恼中走过，去寻找人生的智慧，去寻找人生的真谛。假如人身没有烦恼，非常完美，那么那是一场童话；假如人生没有失落，没有失落也就没有希望，人生总是在失落中遥望，遥望有一天能走出苦恼。生活是从误解中收获宽恕，从伤害中收获饶恕，从烦恼中收获智慧，从痛苦中收获善良。
-    &lt/div&gt
-</pre>
-
-
-<p>图片如下：</p>
-<p><img src="https://raw.githubusercontent.com/liuxiaomengzy/liuxiaomengzy.github.io/master/images/column%E5%A4%9A%E5%88%97.png" alt="column多列"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/04/CSS3 @font-face规则和多列/" data-id="ciqom1k9y0000ofe8bhgj1aed" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/05/CSS3弹性布局/" data-id="ciqoxmmkn000889e8xxwi97hw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1513,6 +1656,10 @@ onmouseup            某个鼠标按键被松开
       <ul>
         
           <li>
+            <a href="/2016/07/16/JavaScript字符串对象、日期对象、定时器/">JavaScript字符串对象、日期对象、定时器</a>
+          </li>
+        
+          <li>
             <a href="/2016/07/16/JavaScript函数、Math对象、数组/">JavaScript函数、Math对象、数组</a>
           </li>
         
@@ -1526,10 +1673,6 @@ onmouseup            某个鼠标按键被松开
         
           <li>
             <a href="/2016/07/14/JavaScript数据类型转换和输出/">JavaScript数据类型转换、输出</a>
-          </li>
-        
-          <li>
-            <a href="/2016/07/13/If...Else、Switch、For循环、While循环/">If...Else、Switch、For循环、While循环</a>
           </li>
         
       </ul>

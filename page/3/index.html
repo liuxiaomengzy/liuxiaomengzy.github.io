@@ -68,6 +68,115 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-HTML5短语句" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/27/HTML5短语句/" class="article-date">
+  <time datetime="2016-06-27T13:47:19.000Z" itemprop="datePublished">2016-06-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/27/HTML5短语句/">HTML5短语句</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="HTML5短语句主要包含以下标签"><a href="#HTML5短语句主要包含以下标签" class="headerlink" title="HTML5短语句主要包含以下标签"></a>HTML5短语句主要包含以下标签</h2><h3 id="mark标签"><a href="#mark标签" class="headerlink" title="mark标签"></a>mark标签</h3><p><code>&lt;mark&gt;&lt;/mark&gt;</code>标签定义带有记号的文本，高亮文本。常用于搜索中。</p>
+<pre>
+    <p>我是一段文字<mark>我是一段文字</mark>我是一段文字</p>
+</pre>
+
+<h3 id="meter标签"><a href="#meter标签" class="headerlink" title="meter标签"></a>meter标签</h3><p><code>&lt;meter&gt;&lt;/meter&gt;</code>标签定义度量衡，表示在一定范围内的值，例如投票占比、使用量等。其属性有：<code>min</code>最小值；<code>max</code>最大值；<code>value</code>实际度量的值。默认我0可以为整数或者浮点数。</p>
+<pre>
+    <meter min="0" max="100" value="50"></meter>
+</pre>
+
+<h3 id="progress标签"><a href="#progress标签" class="headerlink" title="progress标签"></a>progress标签</h3><p><code>&lt;progress&gt;&lt;/progress&gt;</code>标签定义进度。其属性有：<code>min</code>最小值；<code>max</code>最大值；<code>value</code>实际值。</p>
+<pre>
+    <progress min="0" max="100" value="50"></progress>
+</pre>
+
+<h3 id="time标签"><a href="#time标签" class="headerlink" title="time标签"></a>time标签</h3><p><code>&lt;time&gt;&lt;/time&gt;</code>标签定义时间和日期。<code>datetime=&quot;YYYY-MM-DDThh:mm:ssTZD&quot;</code></p>
+<pre>
+    &ltp&gt我每天都是&lttime&gt8:00&lt/time&gt起床。&lt/p&gt
+    &ltp&gt今天是&lttime datetime="2016-06-27T17:30Z"&gt2016-06-27&lt/time&gt。&lt/p&gt
+</pre>
+<pre>
+    <p>我每天都是<time>8:00</time>起床。</p>
+    <p>今天是<time datetime="2016-06-27T17:30Z">2016-06-27</time>。</p>
+</pre>
+
+<h3 id="wbr标签"><a href="#wbr标签" class="headerlink" title="wbr标签"></a>wbr标签</h3><p><code>&lt;wbr&gt;</code>标签规定在文本中的何处适合添加换行符。</p>
+<h3 id="abbr标签"><a href="#abbr标签" class="headerlink" title="abbr标签"></a>abbr标签</h3><p><code>&lt;abbr&gt;&lt;/abbr&gt;</code>标签指示简称或者缩写。</p>
+<pre>
+    &ltp&gtThe &ltabbr title="World Health Organization"&gtWHO&lt/abbr&gt was founded in 1948.&lt/p&gt
+</pre>
+<pre>
+    <p>The <abbr title="World Health Organization">WHO</abbr> was founded in 1948.</p>
+</pre>
+
+<h3 id="cite标签、blockquote标签与q标签"><a href="#cite标签、blockquote标签与q标签" class="headerlink" title="cite标签、blockquote标签与q标签"></a>cite标签、blockquote标签与q标签</h3><p><code>&lt;cite&gt;&lt;/cite&gt;</code> 标签通常表示它所包含的文本对某个参考文献的引用，比如书籍或者杂志的标题。引用的文本以斜体显示。</p>
+<p><code>&lt;blockquote&gt;&lt;/blockquote&gt;</code>标签定义块引用。其包含的所有文本都会从常规文本中分离出来，经常会在左、右两边进行缩进，拥有自己的空间。</p>
+<p><code>&lt;q&gt;&lt;/q&gt;</code>标签定义短的引用。其用于简短的行内引用。</p>
+<pre>
+    &ltcite&gt日照香炉生紫烟，遥看瀑布挂前川。飞流直下三千尺，疑是银河落九天。&lt/cite&gt
+    &ltblockquote&gt日照香炉生紫烟，遥看瀑布挂前川。飞流直下三千尺，疑是银河落九天。&lt/blockquote&gt
+    &ltq&gt日照香炉生紫烟，遥看瀑布挂前川。飞流直下三千尺，疑是银河落九天。&lt/q&gt
+</pre>
+
+<pre>
+    <cite>日照香炉生紫烟，遥看瀑布挂前川。飞流直下三千尺，疑是银河落九天。</cite>
+    <blockquote>日照香炉生紫烟，遥看瀑布挂前川。飞流直下三千尺，疑是银河落九天。</blockquote>
+    <q>日照香炉生紫烟，遥看瀑布挂前川。飞流直下三千尺，疑是银河落九天。</q>
+</pre>
+
+<h3 id="code标签"><a href="#code标签" class="headerlink" title="code标签"></a>code标签</h3><p><code>&lt;code&gt;&lt;/code&gt;</code>标签用于表示计算机源代码或者其他机器可以阅读的文本内容。</p>
+<h3 id="pre标签"><a href="#pre标签" class="headerlink" title="pre标签"></a>pre标签</h3><p><code>&lt;pre&gt;&lt;/pre&gt;</code>标签可定义预格式化的文本。被包围在<code>pre</code>元素中的文本通常会保留空格和换行符。而文本也会呈现为等宽字体。</p>
+<pre>
+    &ltpre&gt
+        body{
+                margin:0
+            }
+        div{
+            width:100px;
+            height:100px;
+        }
+    &lt/pre&gt
+</pre>
+
+<pre>
+    <pre>
+        body{
+                margin:0
+            }
+        div{
+            width:100px;
+            height:100px;
+        }
+    </pre>
+</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/06/27/HTML5短语句/" data-id="ciqoxmml0000e89e8dm7knb1u" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-HTML5新增标签" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/06/27/HTML5新增标签/" class="article-date">
@@ -131,7 +240,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/27/HTML5新增标签/" data-id="ciqom1kav000dofe8euvj950e" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/27/HTML5新增标签/" data-id="ciqoxmmlq000h89e8v253sgsq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -330,7 +439,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/25/CSS总结/" data-id="ciqom1kas000bofe8ixfr2z7a" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/25/CSS总结/" data-id="ciqoxmmlt000i89e80sc7giii" class="article-share-link">Share</a>
       
       
     </footer>
@@ -457,7 +566,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/24/meta标签/" data-id="ciqom1kbf000qofe8xx04k02v" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/24/meta标签/" data-id="ciqoxmmmh000p89e8765md6jf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -528,7 +637,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/23/CSS单位/" data-id="ciqom1kar000aofe8zu4shw2i" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/23/CSS单位/" data-id="ciqoxmmku000a89e8uxn557qe" class="article-share-link">Share</a>
       
       
     </footer>
@@ -697,7 +806,7 @@ action=""
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/22/HTML简述/" data-id="ciqom1kb1000hofe8q72h3nf7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/22/HTML简述/" data-id="ciqoxmmlx000j89e8tf98frfu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -771,7 +880,7 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/22/HEXO博客的搭建/" data-id="ciqom1kau000cofe89u2bp5xi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/22/HEXO博客的搭建/" data-id="ciqoxmmkv000b89e8wublec0l" class="article-share-link">Share</a>
       
       
     </footer>
@@ -816,7 +925,7 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/22/hello-world/" data-id="ciqom1kbd000pofe82myv980g" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/22/hello-world/" data-id="ciqoxmmmk000q89e8qjv2twyn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -860,6 +969,10 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
       <ul>
         
           <li>
+            <a href="/2016/07/16/JavaScript字符串对象、日期对象、定时器/">JavaScript字符串对象、日期对象、定时器</a>
+          </li>
+        
+          <li>
             <a href="/2016/07/16/JavaScript函数、Math对象、数组/">JavaScript函数、Math对象、数组</a>
           </li>
         
@@ -873,10 +986,6 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
         
           <li>
             <a href="/2016/07/14/JavaScript数据类型转换和输出/">JavaScript数据类型转换、输出</a>
-          </li>
-        
-          <li>
-            <a href="/2016/07/13/If...Else、Switch、For循环、While循环/">If...Else、Switch、For循环、While循环</a>
           </li>
         
       </ul>

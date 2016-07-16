@@ -39,7 +39,7 @@ return：从函数内部向外传递内容（函数会停止执行）
 
     //无参无返回函数
     fu">
-<meta property="og:updated_time" content="2016-07-16T03:17:27.000Z">
+<meta property="og:updated_time" content="2016-07-16T08:33:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript函数、Math对象、数组">
 <meta name="twitter:description" content="函数函数是由事件驱动的或者当它被调用时执行的可重复使用的代码块。
@@ -175,7 +175,7 @@ function functionname(参数列表){
 </pre>
 
 <h5 id="局部变量和全局变量"><a href="#局部变量和全局变量" class="headerlink" title="局部变量和全局变量"></a>局部变量和全局变量</h5><p>在函数内部声明的变量是局部变量，只能在函数内部访问它。（作用域是局部的）局部变量在函数运行以后被删除。</p>
-<p>在函数外部声明的变量是全局变量，网页上的所有脚本和函数都能访问它。全局变量在页面关闭后被删除。</p>
+<p>在函数外部声明的变量是全局变量，网页上的所有脚本和函数都能访问它。全局变量在页面关闭后被删除。<strong>全局变量声明方式，不使用var关键字或在函数外部声明</strong></p>
 <h5 id="匿名变量"><a href="#匿名变量" class="headerlink" title="匿名变量"></a>匿名变量</h5><p>匿名变量也叫尚未声明的变量，该变量将被自动作为全局变量声明。</p>
 <h3 id="Math对象"><a href="#Math对象" class="headerlink" title="Math对象"></a>Math对象</h3><p>Math对象用于执行数学任务。</p>
 <pre>
@@ -197,12 +197,74 @@ function functionname(参数列表){
 
     console.log(Math.round(Math.random()*(max-min)+min));
 
-    console.log(paseInt())
+    console.log(parseInt(Math.random()*(max-min+1)+min));
+</pre>
+
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><h5 id="1-数组概念"><a href="#1-数组概念" class="headerlink" title="1.数组概念"></a>1.数组概念</h5><p>数组是一种保存数据的有序列表。数组可以用一个变量名存储所有的值，并且可以用变量名访问任何一个值。数组中的每个元素都有自己的ID，以便它可以很容易地被找到。数组的大小可以动态调整，可以随着数据的添加自动增长以容纳新增数据。</p>
+<h5 id="2-数组定义"><a href="#2-数组定义" class="headerlink" title="2.数组定义"></a>2.数组定义</h5><p>(1). 常规方式</p>
+<pre>
+    var arr1=new Array();
+    arr1[0]=1;
+    arr1[1]=2;
+    arr1[2]=3;
+</pre>
+
+<p>(2). 简洁方式</p>
+<pre>
+    var arr2=new Array(1,2,3);
+    var arr3=new Array();//空数组
+</pre>
+
+<p>(3). 字面</p>
+<pre>
+    var arr4=[1,2,3];
+    var arr5=[];//空数组
+</pre>
+
+<h5 id="3-数组取值-赋值"><a href="#3-数组取值-赋值" class="headerlink" title="3.数组取值/赋值"></a>3.数组取值/赋值</h5><p>数组是有序数据列表，取值和赋值都是通过下标得到。</p>
+<p>下标：用来表示每个数据的位置信息，从0开始计数。</p>
+<pre>
+    var arr=[1,2,3];
+    var a=arr[0];//取值
+    arr[1]=10;//赋值
+    arr[3]=20;//错误写法，数组越界
+</pre>
+
+<h3 id="Array数组对象"><a href="#Array数组对象" class="headerlink" title="Array数组对象"></a>Array数组对象</h3><p><strong>数组元素的插入删除</strong></p>
+<p><strong>push(元素)</strong>：向数组的末尾添加一个或多个元素，并返回新的长度</p>
+<p><strong>unshift(元素)</strong>：向数组的开头添加一个或更多元素，并返回新的长度</p>
+<p><strong>pop()</strong>：删除数组的最后一个元素，把数组长度减1，并返回删除元素的值；如果这个数组已经为空，则不改变数组，并返回undefined值</p>
+<p><strong>shift()</strong>：删除数组的第一个元素，并返回删除元素的值；如果数组为空，则比进行任何操作，返回undefined值</p>
+<p><strong>splice()</strong>：该方法向/从数组中添加/删除项目，然后返回被删除的项目</p>
+<p><strong>splice(起始位置,长度,添加内容(可选))</strong>：该方法从起始位置开始，删除长度个元素</p>
+<p><strong>splice(起始位置,0,插入元素1,插入元素2,插入元素3…)</strong>：从起始位置删除0个元素，然后把要插入的元素从起始位置插入进数组</p>
+<p><strong>数组元素的替换</strong></p>
+<p><strong>splice(要替换元素的起始位置,替换长度,新替换元素1,新替换元素2…)</strong></p>
+<p><strong>数组的拼接</strong></p>
+<p><strong>contact()</strong>:用于连接两个或多个数组；不会改变现有数组，仅仅会返回被连接数组的一个副本</p>
+<p><strong>数组元素之间添加分隔符</strong></p>
+<p><strong>join()</strong>：该方法把数组中的所有元素放入一个字符串，元素通过括号中的参数作为分隔符进行分隔的</p>
+<p><strong>数组元素的排序</strong></p>
+<p><strong>sort()</strong>：用于对数组的元素进行排序(<code>按照ASCII表的顺序排序，而非数值大小</code>)</p>
+<pre>
+    //按数值大小排序
+    function sortNumber(a,b){
+        return a-b;//a,b表示数组中的任意两个元素，若return&gt;0 b前a后；若return&lt;0 a前b后
+        //a-b输出从小到大排序，b-a输出从大到小排序
+    }
+    console.log(arr.sort(sortNumber));
+</pre>
+
+<h3 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h3><p>二维数组指的是数组中的每个元素都是一个数组。多用来进行矩阵相关操作。</p>
+<pre>
+    var arr=[[1,2,3],[4,5,6],[7,8,9]];//二维数组
+
+    arr[i][j];//二维数组获取方式
 </pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/16/JavaScript函数、Math对象、数组/" data-id="ciqom1kb8000kofe8t69ccre3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/16/JavaScript函数、Math对象、数组/" data-id="ciqoxmmln000g89e84tuno1l1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -210,6 +272,15 @@ function functionname(参数列表){
   
     
 <nav id="article-nav">
+  
+    <a href="/2016/07/16/JavaScript字符串对象、日期对象、定时器/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JavaScript字符串对象、日期对象、定时器
+        
+      </div>
+    </a>
   
   
     <a href="/2016/07/14/JavaScript全选反选/" id="article-nav-older" class="article-nav-link-wrap">
@@ -251,6 +322,10 @@ function functionname(参数列表){
       <ul>
         
           <li>
+            <a href="/2016/07/16/JavaScript字符串对象、日期对象、定时器/">JavaScript字符串对象、日期对象、定时器</a>
+          </li>
+        
+          <li>
             <a href="/2016/07/16/JavaScript函数、Math对象、数组/">JavaScript函数、Math对象、数组</a>
           </li>
         
@@ -264,10 +339,6 @@ function functionname(参数列表){
         
           <li>
             <a href="/2016/07/14/JavaScript数据类型转换和输出/">JavaScript数据类型转换、输出</a>
-          </li>
-        
-          <li>
-            <a href="/2016/07/13/If...Else、Switch、For循环、While循环/">If...Else、Switch、For循环、While循环</a>
           </li>
         
       </ul>
