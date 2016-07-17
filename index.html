@@ -154,8 +154,8 @@
         var i=0;
         var j=0;
         var t=null;
-        var btn=document.getElementById("timebtn");
-        var clear=document.getElementById("timeclear");
+        var btn1=document.getElementById("timebtn1");
+        var clear=document.getElementById("timeclear1");
         var text=document.getElementById("timetext");
         function time(){        
             text.value=i;        
@@ -168,7 +168,7 @@
             setTimeout(text.value=0,0)
             clearTimeout(t);
         }
-        btn.onclick=function(){
+        btn1.onclick=function(){
             if(j==0){
                 time();
                 j=1;
@@ -184,14 +184,14 @@
 </pre>
 
 <pre>
-    <input type="button" value="开始/暂停" id="timebtn"><input type="button" value="重置" id="timeclear">
+    <input type="button" value="开始/暂停" id="timebtn1"><input type="button" value="重置" id="timeclear1">
     <input type="text" id="timetext" value="0">
     <script>
         var i=0;
         var j=0;
         var t=null;
-        var btn=document.getElementById("timebtn");
-        var clear=document.getElementById("timeclear");
+        var btn1=document.getElementById("timebtn1");
+        var clear=document.getElementById("timeclear1");
         var text=document.getElementById("timetext");
         function time(){        
             text.value=i;        
@@ -204,7 +204,7 @@
             setTimeout(text.value=0,0)
             clearTimeout(t);
         }
-        btn.onclick=function(){
+        btn1.onclick=function(){
             if(j==0){
                 time();
                 j=1;
@@ -218,10 +218,80 @@
         }
     </script>
 </pre>
+
+<p>再来一个倒计时吧：</p>
+<pre>
+    &lt;input type="date" id="inputdate" /&gt;
+    &lt;input type="button" id="timebtn2" value="设置日期" /&gt;
+    &lt;input type="button" id="timeclear2" value="暂停" /&gt;
+    &lt;div id="timelast"&gt;&lt;/div&gt;
+    &lt;script&gt;
+        var date1 = document.getElementById("inputdate");
+        var btn11 = document.getElementById("timebtn2");
+        var btn22 = document.getElementById("timeclear2");
+        btn11.onclick = function() {
+            var str = date1.value;
+            year2 = parseInt(str.slice(0, 4));
+            month2 = parseInt(str.slice(5, 7));
+            day2 = parseInt(str.slice(-2));
+            t = setInterval('daojishi(year2,month2,day2,"timelast")', 30)
+        }
+        btn22.onclick = function() {
+            clearInterval(t)
+        }
+
+        function daojishi(year, month, day, divid) {
+            var today = new Date();
+            var setday = new Date(year, month - 1, day);
+            var lefttime = setday.getTime() - today.getTime();
+            var seconds = parseInt(lefttime / 1000);
+            var days = parseInt(seconds / (24 * 60 * 60));
+            var hours = parseInt((seconds - days * 24 * 60 * 60) / (60 * 60));
+            var minutes = parseInt((seconds - days * 24 * 60 * 60 - hours * 60 * 60) / 60);
+            var second = parseInt(seconds - days * 24 * 60 * 60 - hours * 60 * 60 - minutes * 60);
+            var milliseconds = lefttime - (seconds * 1000);
+            var div1 = document.getElementById(divid);
+            div1.innerHTML = "距离" + year + "年" + month + "月" + day + "日还有" + days + "天" + hours + "小时" + minutes + "分" + second + "秒" + milliseconds + "毫秒";
+        }
+    &lt;/script&gt;
+</pre>
+
+<pre>
+    <input type="date" id="inputdate"><input type="button" id="timebtn2" value="设置日期"><input type="button" id="timeclear2" value="暂停">
+    <div id="timelast"></div>
+    <script type="text/javascript">
+        var date1 = document.getElementById("inputdate");
+        var btn11 = document.getElementById("timebtn2");
+        var btn22 = document.getElementById("timeclear2");
+        btn11.onclick = function() {
+            var str = date1.value;
+            year2 = parseInt(str.slice(0, 4));
+            month2 = parseInt(str.slice(5, 7));
+            day2 = parseInt(str.slice(-2));
+            t = setInterval('daojishi(year2,month2,day2,"timelast")', 30)
+        }
+        btn22.onclick = function() {
+            clearInterval(t)
+        }
+        function daojishi(year, month, day, divid) {
+            var today = new Date();
+            var setday = new Date(year, month - 1, day);
+            var lefttime = setday.getTime() - today.getTime();
+            var seconds = parseInt(lefttime / 1000);
+            var days = parseInt(seconds / (24 * 60 * 60));
+            var hours = parseInt((seconds - days * 24 * 60 * 60) / (60 * 60));
+            var minutes = parseInt((seconds - days * 24 * 60 * 60 - hours * 60 * 60) / 60);
+            var second = parseInt(seconds - days * 24 * 60 * 60 - hours * 60 * 60 - minutes * 60);
+            var milliseconds = lefttime - (seconds * 1000);
+            var div1 = document.getElementById(divid);
+            div1.innerHTML = "距离" + year + "年" + month + "月" + day + "日还有" + days + "天" + hours + "小时" + minutes + "分" + second + "秒" + milliseconds + "毫秒";
+        }
+    </script>
+</pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/16/JavaScript字符串对象、日期对象、定时器/" data-id="ciqp4ongl000mhbe8jw93gict" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/16/JavaScript字符串对象、日期对象、定时器/" data-id="ciqp9jbqp000jx1e8kmmaf15u" class="article-share-link">Share</a>
       
       
     </footer>
@@ -386,7 +456,7 @@ function functionname(参数列表){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/16/JavaScript函数、Math对象、数组/" data-id="ciqp4ongj000khbe855upniim" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/16/JavaScript函数、Math对象、数组/" data-id="ciqp9jbqt000kx1e8pf2kk0l7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -522,7 +592,7 @@ function functionname(参数列表){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/14/JavaScript全选反选/" data-id="ciqp4ongh000jhbe8rwh4ets8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/14/JavaScript全选反选/" data-id="ciqp9jbqj000ix1e8i619ydvx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -624,7 +694,7 @@ function functionname(参数列表){
 <h3 id="this变量"><a href="#this变量" class="headerlink" title="this变量"></a>this变量</h3><p><strong>永远指向其所在函数的所有者，如果没有所有者时指向window（窗口）</strong></p>
 <h3 id="Tab切换"><a href="#Tab切换" class="headerlink" title="Tab切换"></a>Tab切换</h3><p>tab切换（选项卡切换），实现效果点击按钮，分别切换按钮对应的div</p>
 <pre>
-    &lt;style>
+    &lt;style&gt;
         .divtab0{
             position:relative;
             width:200px;
@@ -644,7 +714,7 @@ function functionname(参数列表){
         .tabbtncolor{
             background-color:aqua;
         }
-    &lt;/style>
+    &lt;/style&gt;
     &lt;input type="button" class="tabbtn tabbtncolor" value="按钮一" 
     /&gt;&lt;input type="button" class="tabbtn tabbtncolor" value="按钮二" 
     /&gt;&lt;input type="button" class="tabbtn tabbtncolor" value="按钮三" /&gt;
@@ -656,7 +726,19 @@ function functionname(参数列表){
     &lt;script&gt;
         var inputs=document.querySelectorAll(".tabbtn");
         var divs=document.querySelectorAll(".divtab");
-        for(var i=0;i<inputs.length;i++){ inputs[i].index="i;" inputs[i].onclick="function(){" for(var="" j="0;j<inputs.length;j++){" inputs[j].style.backgroundcolor="" ;="" divs[j].style.display="none" }="" this.style.backgroundcolor="lime" divs[this.index].style.display="block" &lt;="" script&gt;="" <="" pre="">
+        for(var i=0;i&lt;inputs.length;i++){
+            inputs[i].index=i;
+            inputs[i].onclick=function(){
+                for(var j=0;j&lt;inputs.length;j++){
+                    inputs[j].style.backgroundColor="";
+                    divs[j].style.display="none";
+                }
+                this.style.backgroundColor="lime";
+                divs[this.index].style.display="block";
+            }
+        }
+    &lt;/script&gt;
+</pre>
 
 <pre>
     <style>
@@ -701,11 +783,11 @@ function functionname(参数列表){
             }
         }
     </script>
-</pre></inputs.length;i++){></pre>
+</pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/14/JavaScript显示隐藏及Tab切换/" data-id="ciqp4ongn000ohbe8cge34wsb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/14/JavaScript显示隐藏及Tab切换/" data-id="ciqp9jbra000qx1e83bm96bzh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -770,7 +852,7 @@ function functionname(参数列表){
     console.log(false-"2");//-2  - 号前后都转换为数字， * 、 / 、 > 、 < 、也是一样
 </pre>
 
-<h3 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h3><p>ECMAScript使用C语言风格的注释，包括单行注释和块级注释（多好注释）。</p>
+<h3 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h3><p>ECMAScript使用C语言风格的注释，包括单行注释和块级注释（多行注释）。</p>
 <ol>
 <li><p>alert()警告窗</p>
 </li>
@@ -793,7 +875,7 @@ function functionname(参数列表){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/14/JavaScript数据类型转换和输出/" data-id="ciqp4ongm000nhbe8rg3pkjg9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/14/JavaScript数据类型转换和输出/" data-id="ciqp9jbqy000nx1e8ux5tay9k" class="article-share-link">Share</a>
       
       
     </footer>
@@ -850,7 +932,7 @@ function functionname(参数列表){
 <p>语法：</p>
 <pre>
     if(条件 1){
-        当条件 1为true时执行的代码
+        当条件 1 为true时执行的代码
     }else if(条件 2){
         当条件 2 为true时执行的代码
     }else{
@@ -947,7 +1029,7 @@ onmouseup            某个鼠标按键被松开
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/13/If...Else、Switch、For循环、While循环/" data-id="ciqp4onge000ihbe8ryctmfpe" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/13/If...Else、Switch、For循环、While循环/" data-id="ciqp9jbqg000hx1e829g05v0g" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1134,7 +1216,7 @@ onmouseup            某个鼠标按键被松开
 </pre>
 
 <h5 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h5><p>变量首先是一个容器，可以用来存放数据，而且存放在这个容器中的数据可以发生变化。变量不仅可以是数字，可以是任意数据类型。</p>
-<p>“var”+”变量名”+”=”+”值”+”;”如var a=12;</p>
+<p>“var” + “变量名” + “=” + “值” + “;” 如var a=12;</p>
 <p>变量命名规范：</p>
 <ol>
 <li>区分大小写</li>
@@ -1187,7 +1269,7 @@ onmouseup            某个鼠标按键被松开
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/11/JavaScript基础/" data-id="ciqp4ongk000lhbe8niz54de3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/11/JavaScript基础/" data-id="ciqp9jbqv000lx1e8vbbiew8o" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1291,7 +1373,7 @@ onmouseup            某个鼠标按键被松开
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/09/CSS3媒体查询/" data-id="ciqp4onfk0004hbe88nohucyk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/09/CSS3媒体查询/" data-id="ciqp9jbpb0003x1e8vlwujy59" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1453,7 +1535,7 @@ onmouseup            某个鼠标按键被松开
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/06/LESSCSS初使用/" data-id="ciqp4ongr000qhbe8rzze15ik" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/06/LESSCSS初使用/" data-id="ciqp9jbr1000ox1e881fooikf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1487,8 +1569,21 @@ onmouseup            某个鼠标按键被松开
       
         <h3 id="resize属性"><a href="#resize属性" class="headerlink" title="resize属性"></a>resize属性</h3><p><code>resize</code>属性规定是否可由用户调整元素的尺寸。</p>
 <p><em>若希望此属性生效，需设置元素的overflow:auto/hidden/scroll。</em></p>
-<p><code>resize:none | both | horizontal | vertical</code>none用户无法调整元素的尺寸；both用户可以调整元素的高度和宽度；horizontal用户可调整元素的高度；vertical用户可调整元素的高度。</p>
+<p><code>resize:none | both | horizontal | vertical</code>none用户无法调整元素的尺寸；both用户可以调整元素的高度和宽度；horizontal用户可调整元素的宽度；vertical用户可调整元素的高度。</p>
 <p>示例如下：</p>
+<pre>
+    &lt;style&gt;
+        .resize1{
+            width:200px;
+            height:200px;
+            resize:both;
+            overflow:auto;
+            background-color:fuchsia;
+        }
+    &lt;/style&gt;
+    &lt;div class="resize1"&gt;&lt;/div&gt;
+</pre>
+
 <pre>
     <style>
         .resize1{
@@ -1596,7 +1691,7 @@ onmouseup            某个鼠标按键被松开
         }
         .tanxingbuju > div > div:nth-child(2){
             -webkit-box-flex:3;
-            background-color:olive;
+            background-color:blue;
             height:80px
         }
     </style>
@@ -1612,7 +1707,7 @@ onmouseup            某个鼠标按键被松开
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/05/CSS3弹性布局/" data-id="ciqp4onfn0006hbe8m8ffs7p1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/05/CSS3弹性布局/" data-id="ciqp9jbpc0004x1e82sxoceaa" class="article-share-link">Share</a>
       
       
     </footer>

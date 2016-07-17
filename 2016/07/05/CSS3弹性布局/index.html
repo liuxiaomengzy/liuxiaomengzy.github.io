@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="resize属性resize属性规定是否可由用户调整元素的尺寸。
 若希望此属性生效，需设置元素的overflow:auto/hidden/scroll。
-resize:none | both | horizontal | verticalnone用户无法调整元素的尺寸；both用户可以调整元素的高度和宽度；horizontal用户可调整元素的高度；vertical用户可调整元素的高度。
+resize:none | both | horizontal | verticalnone用户无法调整元素的尺寸；both用户可以调整元素的高度和宽度；horizontal用户可调整元素的宽度；vertical用户可调整元素的高度。
 示例如下：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS3弹性布局">
@@ -15,14 +15,14 @@ resize:none | both | horizontal | verticalnone用户无法调整元素的尺寸�
 <meta property="og:site_name" content="紫--小梦">
 <meta property="og:description" content="resize属性resize属性规定是否可由用户调整元素的尺寸。
 若希望此属性生效，需设置元素的overflow:auto/hidden/scroll。
-resize:none | both | horizontal | verticalnone用户无法调整元素的尺寸；both用户可以调整元素的高度和宽度；horizontal用户可调整元素的高度；vertical用户可调整元素的高度。
+resize:none | both | horizontal | verticalnone用户无法调整元素的尺寸；both用户可以调整元素的高度和宽度；horizontal用户可调整元素的宽度；vertical用户可调整元素的高度。
 示例如下：">
-<meta property="og:updated_time" content="2016-07-08T13:58:01.000Z">
+<meta property="og:updated_time" content="2016-07-17T09:55:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS3弹性布局">
 <meta name="twitter:description" content="resize属性resize属性规定是否可由用户调整元素的尺寸。
 若希望此属性生效，需设置元素的overflow:auto/hidden/scroll。
-resize:none | both | horizontal | verticalnone用户无法调整元素的尺寸；both用户可以调整元素的高度和宽度；horizontal用户可调整元素的高度；vertical用户可调整元素的高度。
+resize:none | both | horizontal | verticalnone用户无法调整元素的尺寸；both用户可以调整元素的高度和宽度；horizontal用户可调整元素的宽度；vertical用户可调整元素的高度。
 示例如下：">
   
     <link rel="alternate" href="/atom.xml" title="紫--小梦" type="application/atom+xml">
@@ -100,8 +100,21 @@ resize:none | both | horizontal | verticalnone用户无法调整元素的尺寸�
       
         <h3 id="resize属性"><a href="#resize属性" class="headerlink" title="resize属性"></a>resize属性</h3><p><code>resize</code>属性规定是否可由用户调整元素的尺寸。</p>
 <p><em>若希望此属性生效，需设置元素的overflow:auto/hidden/scroll。</em></p>
-<p><code>resize:none | both | horizontal | vertical</code>none用户无法调整元素的尺寸；both用户可以调整元素的高度和宽度；horizontal用户可调整元素的高度；vertical用户可调整元素的高度。</p>
+<p><code>resize:none | both | horizontal | vertical</code>none用户无法调整元素的尺寸；both用户可以调整元素的高度和宽度；horizontal用户可调整元素的宽度；vertical用户可调整元素的高度。</p>
 <p>示例如下：</p>
+<pre>
+    &lt;style&gt;
+        .resize1{
+            width:200px;
+            height:200px;
+            resize:both;
+            overflow:auto;
+            background-color:fuchsia;
+        }
+    &lt;/style&gt;
+    &lt;div class="resize1"&gt;&lt;/div&gt;
+</pre>
+
 <pre>
     <style>
         .resize1{
@@ -209,7 +222,7 @@ resize:none | both | horizontal | verticalnone用户无法调整元素的尺寸�
         }
         .tanxingbuju > div > div:nth-child(2){
             -webkit-box-flex:3;
-            background-color:olive;
+            background-color:blue;
             height:80px
         }
     </style>
@@ -225,7 +238,7 @@ resize:none | both | horizontal | verticalnone用户无法调整元素的尺寸�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/05/CSS3弹性布局/" data-id="ciqp4onfn0006hbe8m8ffs7p1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/05/CSS3弹性布局/" data-id="ciqp9jbpc0004x1e82sxoceaa" class="article-share-link">Share</a>
       
       
     </footer>

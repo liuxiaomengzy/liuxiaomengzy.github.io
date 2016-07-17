@@ -15,7 +15,7 @@ CSS选择器：类型String，指定一个或多个匹配元素的CSS元素，�
 <meta property="og:description" content="获取元素querySelector()方法语法：document.querySelector(CSS selectors)
 CSS选择器：类型String，指定一个或多个匹配元素的CSS元素，可以使用它们的id，类，类型，属性，属性值等来选取元素。对于多个选择器，使用逗号隔开，返回一个匹配的元素。
 接受一个参数，通过元素的css选择器查找元素。如果找到相应的元素则返回该元素的HTMLDivElem">
-<meta property="og:updated_time" content="2016-07-14T12:53:50.000Z">
+<meta property="og:updated_time" content="2016-07-17T09:43:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript显示隐藏及Tab切换">
 <meta name="twitter:description" content="获取元素querySelector()方法语法：document.querySelector(CSS selectors)
@@ -165,7 +165,7 @@ CSS选择器：类型String，指定一个或多个匹配元素的CSS元素，�
 <h3 id="this变量"><a href="#this变量" class="headerlink" title="this变量"></a>this变量</h3><p><strong>永远指向其所在函数的所有者，如果没有所有者时指向window（窗口）</strong></p>
 <h3 id="Tab切换"><a href="#Tab切换" class="headerlink" title="Tab切换"></a>Tab切换</h3><p>tab切换（选项卡切换），实现效果点击按钮，分别切换按钮对应的div</p>
 <pre>
-    &lt;style>
+    &lt;style&gt;
         .divtab0{
             position:relative;
             width:200px;
@@ -185,7 +185,7 @@ CSS选择器：类型String，指定一个或多个匹配元素的CSS元素，�
         .tabbtncolor{
             background-color:aqua;
         }
-    &lt;/style>
+    &lt;/style&gt;
     &lt;input type="button" class="tabbtn tabbtncolor" value="按钮一" 
     /&gt;&lt;input type="button" class="tabbtn tabbtncolor" value="按钮二" 
     /&gt;&lt;input type="button" class="tabbtn tabbtncolor" value="按钮三" /&gt;
@@ -197,7 +197,19 @@ CSS选择器：类型String，指定一个或多个匹配元素的CSS元素，�
     &lt;script&gt;
         var inputs=document.querySelectorAll(".tabbtn");
         var divs=document.querySelectorAll(".divtab");
-        for(var i=0;i<inputs.length;i++){ inputs[i].index="i;" inputs[i].onclick="function(){" for(var="" j="0;j<inputs.length;j++){" inputs[j].style.backgroundcolor="" ;="" divs[j].style.display="none" }="" this.style.backgroundcolor="lime" divs[this.index].style.display="block" &lt;="" script&gt;="" <="" pre="">
+        for(var i=0;i&lt;inputs.length;i++){
+            inputs[i].index=i;
+            inputs[i].onclick=function(){
+                for(var j=0;j&lt;inputs.length;j++){
+                    inputs[j].style.backgroundColor="";
+                    divs[j].style.display="none";
+                }
+                this.style.backgroundColor="lime";
+                divs[this.index].style.display="block";
+            }
+        }
+    &lt;/script&gt;
+</pre>
 
 <pre>
     <style>
@@ -242,11 +254,11 @@ CSS选择器：类型String，指定一个或多个匹配元素的CSS元素，�
             }
         }
     </script>
-</pre></inputs.length;i++){></pre>
+</pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/14/JavaScript显示隐藏及Tab切换/" data-id="ciqp4ongn000ohbe8cge34wsb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/14/JavaScript显示隐藏及Tab切换/" data-id="ciqp9jbra000qx1e83bm96bzh" class="article-share-link">Share</a>
       
       
     </footer>
