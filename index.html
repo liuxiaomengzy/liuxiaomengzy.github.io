@@ -239,19 +239,18 @@
         btn22.onclick = function() {
             clearInterval(t)
         }
-
         function daojishi(year, month, day, divid) {
             var today = new Date();
             var setday = new Date(year, month - 1, day);
             var lefttime = setday.getTime() - today.getTime();
             var seconds = parseInt(lefttime / 1000);
-            var days = parseInt(seconds / (24 * 60 * 60));
-            var hours = parseInt((seconds - days * 24 * 60 * 60) / (60 * 60));
-            var minutes = parseInt((seconds - days * 24 * 60 * 60 - hours * 60 * 60) / 60);
-            var second = parseInt(seconds - days * 24 * 60 * 60 - hours * 60 * 60 - minutes * 60);
-            var milliseconds = lefttime - (seconds * 1000);
-            var div1 = document.getElementById(divid);
-            div1.innerHTML = "距离" + year + "年" + month + "月" + day + "日还有" + days + "天" + hours + "小时" + minutes + "分" + second + "秒" + milliseconds + "毫秒";
+            var milliseconds=lefttime%1000;
+            var second=seconds%60;
+            var minutes=(seconds-second)/60%60;
+            var hours=(seconds-second-minutes*60)/(60*60)%24
+            var days=(seconds-second-minutes*60-hours*60*60)/(60*60*24);
+            var div = document.getElementById(divid);
+            div.innerHTML = "距离" + year + "年" + month + "月" + day + "日还有" + days + "天" + hours + "小时" + minutes + "分" + second + "秒" + milliseconds + "毫秒";
         }
     &lt;/script&gt;
 </pre>
@@ -278,20 +277,20 @@
             var setday = new Date(year, month - 1, day);
             var lefttime = setday.getTime() - today.getTime();
             var seconds = parseInt(lefttime / 1000);
-            var days = parseInt(seconds / (24 * 60 * 60));
-            var hours = parseInt((seconds - days * 24 * 60 * 60) / (60 * 60));
-            var minutes = parseInt((seconds - days * 24 * 60 * 60 - hours * 60 * 60) / 60);
-            var second = parseInt(seconds - days * 24 * 60 * 60 - hours * 60 * 60 - minutes * 60);
-            var milliseconds = lefttime - (seconds * 1000);
-            var div1 = document.getElementById(divid);
-            div1.innerHTML = "距离" + year + "年" + month + "月" + day + "日还有" + days + "天" + hours + "小时" + minutes + "分" + second + "秒" + milliseconds + "毫秒";
-        }
+            var milliseconds=lefttime%1000;
+            var second=seconds%60;
+            var minutes=(seconds-second)/60%60;
+            var hours=(seconds-second-minutes*60)/(60*60)%24
+            var days=(seconds-second-minutes*60-hours*60*60)/(60*60*24);
+            var div = document.getElementById(divid);
+            div.innerHTML = "距离" + year + "年" + month + "月" + day + "日还有" + days + "天" + hours + "小时" + minutes + "分" + second + "秒" + milliseconds + "毫秒";
+        }        
     </script>
 </pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/16/JavaScript字符串对象、日期对象、定时器/" data-id="ciqp9jbqp000jx1e8kmmaf15u" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/16/JavaScript字符串对象、日期对象、定时器/" data-id="ciqrp60cg000lwbe8s0mhaa0j" class="article-share-link">Share</a>
       
       
     </footer>
@@ -456,7 +455,7 @@ function functionname(参数列表){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/16/JavaScript函数、Math对象、数组/" data-id="ciqp9jbqt000kx1e8pf2kk0l7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/16/JavaScript函数、Math对象、数组/" data-id="ciqrp60c8000iwbe8k45kaba8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -592,7 +591,7 @@ function functionname(参数列表){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/14/JavaScript全选反选/" data-id="ciqp9jbqj000ix1e8i619ydvx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/14/JavaScript全选反选/" data-id="ciqrp60cc000jwbe8gezan73t" class="article-share-link">Share</a>
       
       
     </footer>
@@ -787,7 +786,7 @@ function functionname(参数列表){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/14/JavaScript显示隐藏及Tab切换/" data-id="ciqp9jbra000qx1e83bm96bzh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/14/JavaScript显示隐藏及Tab切换/" data-id="ciqrp60cj000nwbe8eo289723" class="article-share-link">Share</a>
       
       
     </footer>
@@ -875,7 +874,7 @@ function functionname(参数列表){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/14/JavaScript数据类型转换和输出/" data-id="ciqp9jbqy000nx1e8ux5tay9k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/14/JavaScript数据类型转换和输出/" data-id="ciqrp60cx000qwbe8djwbni7q" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1029,7 +1028,7 @@ onmouseup            某个鼠标按键被松开
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/13/If...Else、Switch、For循环、While循环/" data-id="ciqp9jbqg000hx1e829g05v0g" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/13/If...Else、Switch、For循环、While循环/" data-id="ciqrp60c6000hwbe8wbwlbs1s" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1269,7 +1268,7 @@ onmouseup            某个鼠标按键被松开
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/11/JavaScript基础/" data-id="ciqp9jbqv000lx1e8vbbiew8o" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/11/JavaScript基础/" data-id="ciqrp60cl000owbe8jx6xfc00" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1373,7 +1372,7 @@ onmouseup            某个鼠标按键被松开
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/09/CSS3媒体查询/" data-id="ciqp9jbpb0003x1e8vlwujy59" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/09/CSS3媒体查询/" data-id="ciqrp60bh0003wbe8rl1pb7ha" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1535,7 +1534,7 @@ onmouseup            某个鼠标按键被松开
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/06/LESSCSS初使用/" data-id="ciqp9jbr1000ox1e881fooikf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/06/LESSCSS初使用/" data-id="ciqrp60ci000mwbe8mth0e8yg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1707,7 +1706,7 @@ onmouseup            某个鼠标按键被松开
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/05/CSS3弹性布局/" data-id="ciqp9jbpc0004x1e82sxoceaa" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/05/CSS3弹性布局/" data-id="ciqrp60bk0006wbe8a6f2rnwx" class="article-share-link">Share</a>
       
       
     </footer>

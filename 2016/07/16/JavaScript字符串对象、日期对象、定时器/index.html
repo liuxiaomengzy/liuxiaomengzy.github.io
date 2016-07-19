@@ -29,7 +29,7 @@ toString||String()转换为字符串,不能转换null和undefined
 
 
 创建字符串new String();    String类型有默认l">
-<meta property="og:updated_time" content="2016-07-17T12:00:20.000Z">
+<meta property="og:updated_time" content="2016-07-19T11:32:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript字符串对象、日期对象、定时器">
 <meta name="twitter:description" content="String字符串对象String对象用于处理文本（字符串）。
@@ -265,19 +265,18 @@ toString||String()转换为字符串,不能转换null和undefined
         btn22.onclick = function() {
             clearInterval(t)
         }
-
         function daojishi(year, month, day, divid) {
             var today = new Date();
             var setday = new Date(year, month - 1, day);
             var lefttime = setday.getTime() - today.getTime();
             var seconds = parseInt(lefttime / 1000);
-            var days = parseInt(seconds / (24 * 60 * 60));
-            var hours = parseInt((seconds - days * 24 * 60 * 60) / (60 * 60));
-            var minutes = parseInt((seconds - days * 24 * 60 * 60 - hours * 60 * 60) / 60);
-            var second = parseInt(seconds - days * 24 * 60 * 60 - hours * 60 * 60 - minutes * 60);
-            var milliseconds = lefttime - (seconds * 1000);
-            var div1 = document.getElementById(divid);
-            div1.innerHTML = "距离" + year + "年" + month + "月" + day + "日还有" + days + "天" + hours + "小时" + minutes + "分" + second + "秒" + milliseconds + "毫秒";
+            var milliseconds=lefttime%1000;
+            var second=seconds%60;
+            var minutes=(seconds-second)/60%60;
+            var hours=(seconds-second-minutes*60)/(60*60)%24
+            var days=(seconds-second-minutes*60-hours*60*60)/(60*60*24);
+            var div = document.getElementById(divid);
+            div.innerHTML = "距离" + year + "年" + month + "月" + day + "日还有" + days + "天" + hours + "小时" + minutes + "分" + second + "秒" + milliseconds + "毫秒";
         }
     &lt;/script&gt;
 </pre>
@@ -304,20 +303,20 @@ toString||String()转换为字符串,不能转换null和undefined
             var setday = new Date(year, month - 1, day);
             var lefttime = setday.getTime() - today.getTime();
             var seconds = parseInt(lefttime / 1000);
-            var days = parseInt(seconds / (24 * 60 * 60));
-            var hours = parseInt((seconds - days * 24 * 60 * 60) / (60 * 60));
-            var minutes = parseInt((seconds - days * 24 * 60 * 60 - hours * 60 * 60) / 60);
-            var second = parseInt(seconds - days * 24 * 60 * 60 - hours * 60 * 60 - minutes * 60);
-            var milliseconds = lefttime - (seconds * 1000);
-            var div1 = document.getElementById(divid);
-            div1.innerHTML = "距离" + year + "年" + month + "月" + day + "日还有" + days + "天" + hours + "小时" + minutes + "分" + second + "秒" + milliseconds + "毫秒";
-        }
+            var milliseconds=lefttime%1000;
+            var second=seconds%60;
+            var minutes=(seconds-second)/60%60;
+            var hours=(seconds-second-minutes*60)/(60*60)%24
+            var days=(seconds-second-minutes*60-hours*60*60)/(60*60*24);
+            var div = document.getElementById(divid);
+            div.innerHTML = "距离" + year + "年" + month + "月" + day + "日还有" + days + "天" + hours + "小时" + minutes + "分" + second + "秒" + milliseconds + "毫秒";
+        }        
     </script>
 </pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/16/JavaScript字符串对象、日期对象、定时器/" data-id="ciqp9jbqp000jx1e8kmmaf15u" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/16/JavaScript字符串对象、日期对象、定时器/" data-id="ciqrp60cg000lwbe8s0mhaa0j" class="article-share-link">Share</a>
       
       
     </footer>
