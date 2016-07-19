@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JavaScript碰撞检测 | 紫--小梦</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="JavaScript碰撞检测主要用于游戏开发等。几乎所有的游戏都离不开碰撞检测——无论是各物体之间的碰撞检测，还是物体与场景之间的碰撞检测。
+代码如下：
+
+    &amp;lt;style&amp;gt;
+        div.divtest{
+            width:500px;
+            height:300px;
+            border:1px solid bla">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript碰撞检测">
+<meta property="og:url" content="http://yoursite.com/2016/07/19/JavaScript碰撞检测/index.html">
+<meta property="og:site_name" content="紫--小梦">
+<meta property="og:description" content="JavaScript碰撞检测主要用于游戏开发等。几乎所有的游戏都离不开碰撞检测——无论是各物体之间的碰撞检测，还是物体与场景之间的碰撞检测。
+代码如下：
+
+    &amp;lt;style&amp;gt;
+        div.divtest{
+            width:500px;
+            height:300px;
+            border:1px solid bla">
+<meta property="og:updated_time" content="2016-07-19T15:03:19.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript碰撞检测">
+<meta name="twitter:description" content="JavaScript碰撞检测主要用于游戏开发等。几乎所有的游戏都离不开碰撞检测——无论是各物体之间的碰撞检测，还是物体与场景之间的碰撞检测。
+代码如下：
+
+    &amp;lt;style&amp;gt;
+        div.divtest{
+            width:500px;
+            height:300px;
+            border:1px solid bla">
+  
+    <link rel="alternate" href="/atom.xml" title="紫--小梦" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">紫--小梦</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">心怀梦想，志在远方。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-JavaScript碰撞检测" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/19/JavaScript碰撞检测/" class="article-date">
+  <time datetime="2016-07-19T13:11:40.000Z" itemprop="datePublished">2016-07-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript碰撞检测
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>JavaScript碰撞检测主要用于游戏开发等。几乎所有的游戏都离不开碰撞检测——无论是各物体之间的碰撞检测，还是物体与场景之间的碰撞检测。</p>
+<p>代码如下：</p>
+<pre>
+    &lt;style&gt;
+        div.divtest{
+            width:500px;
+            height:300px;
+            border:1px solid black;
+            position:relative;
+        }
+        div.divtest div:first-child{
+            width:50px;
+            height:50px;
+            background-color:red;
+            position:absolute;
+            top:0;
+            left:0;
+        }
+        div.divtest div:last-child{
+            width:50px;
+            height:50px;
+            background-color:blue;
+            position:absolute;
+            top:250px;
+            left:450px;
+        }
+    &lt;/style&gt;
+    &lt;div class="divtest"&gt;
+        &lt;div&gt;&lt;/div&gt;
+        &lt;div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        var div=document.querySelector(".divtest");
+        var box1=document.querySelector(".divtest div:first-child");
+        var box2=document.querySelector(".divtest div:last-child");
+        var dir1_l=true,dir1_t=true,dir2_l=false,dir2_t=false;//定义盒子的运动方向
+        var speed1_l=5,speed1_t=3,speed2_l=3,speed2_t=6; //定义盒子各个方向的运动速度
+        var divw,divh,boxw,boxh,box1_l,box1_t,box2_l,box2_t;//定义盒子的各个属性值
+        //检测浏览器获取样式（主要为了兼容IE）
+        if(div.currentStyle){
+            divw=parseInt(wrap.currentStyle.width);
+            divh=parseInt(wrap.currentStyle.height);
+            boxw=parseInt(box1.currentStyle.width);
+            boxh=parseInt(box1.currentStyle.height);
+            box1_l=parseInt(box1.currentStyle.left);
+            box1_t=parseInt(box1.currentStyle.top);
+            box2_l=parseInt(box2.currentStyle.left);
+            box2_t=parseInt(box1.currentStyle.top);
+        }else{
+            divw=parseInt(getComputedStyle(div,[]).width);
+            divh=parseInt(getComputedStyle(div,[]).height);
+            boxw=parseInt(getComputedStyle(box1,[]).width);
+            boxh=parseInt(getComputedStyle(box1,[]).height);
+            box1_l=parseInt(getComputedStyle(box1,[]).left);
+            box1_t=parseInt(getComputedStyle(box1,[]).top);
+            box2_l=parseInt(getComputedStyle(box2,[]).left);
+            box2_t=parseInt(getComputedStyle(box2,[]).top);
+        }
+
+        setInterval(function(){
+            //动态获取盒子的属性值
+            if(box1.style.left){
+                box1_l=parseInt(box1.style.left);
+                box1_t=parseInt(box1.style.top);
+                box2_l=parseInt(box2.style.left);
+                box2_t=parseInt(box2.style.top);
+            }
+            //判断box分别碰到边框的情况，改变其方向
+            if(box1_l&lt;=0){
+                dir1_l=true;
+            }else if(box1_l&gt;=divw-boxw){
+                dir1_l=false;
+            }
+            if(box2_l&lt;=0){
+                dir2_l=true;
+            }else if(box2_l&gt;=divw-boxw){
+                dir2_l=false;
+            }
+            if(box1_t&lt;=0){
+                dir1_t=true;
+            }else if(box1_t&gt;=divh-boxh){
+                dir1_t=false;
+            }
+            if(box2_t&lt;=0){
+                dir2_t=true;
+            }else if(box2_t&gt;=divh-boxh){
+                dir2_t=false;
+            }
+            //开始设置盒子碰撞的情况
+            //首先当盒子在水平方向上碰撞时，其top差的绝对值小于left差的绝对值
+            if(Math.abs(box1_l-box2_l)&gt;Math.abs(box1_t-box2_t)){
+                //水平方向发生碰撞，left的差值不超过box的宽度
+                //接下来就可以判断box1和box2分别在左右侧碰撞就可以了
+                if(box1_l&lt;box2_l&&box1_l+boxw&gt;=box2_l){
+                    dir1_l=false;
+                    dir2_l=true;
+                    console.log("红左蓝右");
+                }else if(box1_l&gt;box2_l&&box1_l&lt;=box2_l+boxw){
+                    dir1_l=true;
+                    dir2_l=false;
+                    console.log("红右蓝左");
+                }
+            }else if(Math.abs(box1_l-box2_l)&lt;Math.abs(box1_t-box2_t)){
+                //其次当盒子在竖直方向上碰撞时，其top差的绝对值大于left差的绝对值
+                //竖直方向发生碰撞，top的差值不超过box的高度
+                //接下来就可以判断box1和box2分别在上下侧碰撞就可以了
+                if(box1_t&lt;box2_t&&box1_t+boxh&gt;=box2_t){
+                    dir1_t=false;
+                    dir2_t=true;
+                    console.log("红上蓝下");
+                }else if(box1_t&gt;box2_t&&box1_t&lt;=box2_t+boxh){
+                    dir1_t=true;
+                    dir2_t=false;
+                    console.log("红下蓝上");
+                }
+            }
+            //开始规定盒子的运动数值
+            if(dir1_l){
+                box1_l+=speed1_l;
+            }else{
+                box1_l-=speed1_l;
+            }
+            if(dir2_l){
+                box2_l+=speed2_l;
+            }else{
+                box2_l-=speed2_l;
+            }
+            if(dir1_t){
+                box1_t+=speed1_t;
+            }else{
+                box1_t-=speed1_t;
+            }
+            if(dir2_t){
+                box2_t+=speed2_t;
+            }else{
+                box2_t-=speed2_t;
+            }
+            //写入盒子的行间样式属性，使其开始运动
+            box1.style.left=box1_l+"px";
+            box2.style.left=box2_l+"px";
+            box1.style.top=box1_t+"px";
+            box2.style.top=box2_t+"px";
+            },30)
+    &lt;/script&gt;
+</pre>
+
+<pre>
+    <style>
+        div.divtest{
+            width:500px;
+            height:300px;
+            border:1px solid black;
+            position:relative;
+        }
+        div.divtest div:first-child{
+            width:50px;
+            height:50px;
+            background-color:red;
+            position:absolute;
+            top:0;
+            left:0;
+        }
+        div.divtest div:last-child{
+            width:50px;
+            height:50px;
+            background-color:blue;
+            position:absolute;
+            top:250px;
+            left:450px;
+        }
+    </style>
+    <div class="divtest">
+        <div></div>
+        <div></div>
+    </div>
+    <script>
+        var div=document.querySelector(".divtest");
+        var box1=document.querySelector(".divtest div:first-child");
+        var box2=document.querySelector(".divtest div:last-child");
+        var dir1_l=true,dir1_t=true,dir2_l=false,dir2_t=false;//定义盒子的运动方向
+        var speed1_l=5,speed1_t=3,speed2_l=3,speed2_t=6; //定义盒子各个方向的运动速度
+        var divw,divh,boxw,boxh,box1_l,box1_t,box2_l,box2_t;//定义盒子的各个属性值
+        //检测浏览器获取样式（主要为了兼容IE）
+        if(div.currentStyle){
+            divw=parseInt(wrap.currentStyle.width);
+            divh=parseInt(wrap.currentStyle.height);
+            boxw=parseInt(box1.currentStyle.width);
+            boxh=parseInt(box1.currentStyle.height);
+            box1_l=parseInt(box1.currentStyle.left);
+            box1_t=parseInt(box1.currentStyle.top);
+            box2_l=parseInt(box2.currentStyle.left);
+            box2_t=parseInt(box1.currentStyle.top);
+        }else{
+            divw=parseInt(getComputedStyle(div,[]).width);
+            divh=parseInt(getComputedStyle(div,[]).height);
+            boxw=parseInt(getComputedStyle(box1,[]).width);
+            boxh=parseInt(getComputedStyle(box1,[]).height);
+            box1_l=parseInt(getComputedStyle(box1,[]).left);
+            box1_t=parseInt(getComputedStyle(box1,[]).top);
+            box2_l=parseInt(getComputedStyle(box2,[]).left);
+            box2_t=parseInt(getComputedStyle(box2,[]).top);
+        }
+
+        setInterval(function(){
+            //动态获取盒子的属性值
+            if(box1.style.left){
+                box1_l=parseInt(box1.style.left);
+                box1_t=parseInt(box1.style.top);
+                box2_l=parseInt(box2.style.left);
+                box2_t=parseInt(box2.style.top);
+            }
+            //判断box分别碰到边框的情况，改变其方向
+            if(box1_l<=0){
+                dir1_l=true;
+            }else if(box1_l>=divw-boxw){
+                dir1_l=false;
+            }
+            if(box2_l<=0){
+                dir2_l=true;
+            }else if(box2_l>=divw-boxw){
+                dir2_l=false;
+            }
+            if(box1_t<=0){
+                dir1_t=true;
+            }else if(box1_t>=divh-boxh){
+                dir1_t=false;
+            }
+            if(box2_t<=0){
+                dir2_t=true;
+            }else if(box2_t>=divh-boxh){
+                dir2_t=false;
+            }
+            //开始设置盒子碰撞的情况
+            //首先当盒子在水平方向上碰撞时，其top差的绝对值小于left差的绝对值
+            if(Math.abs(box1_l-box2_l)>Math.abs(box1_t-box2_t)){
+                //水平方向发生碰撞，left的差值不超过box的宽度
+                //接下来就可以判断box1和box2分别在左右侧碰撞就可以了
+                if(box1_l<box2_l&&box1_l+boxw>=box2_l){
+                    dir1_l=false;
+                    dir2_l=true;
+                    //console.log("红左蓝右");
+                }else if(box1_l>box2_l&&box1_l<=box2_l+boxw){
+                    dir1_l=true;
+                    dir2_l=false;
+                    //console.log("红右蓝左");
+                }
+            }else if(Math.abs(box1_l-box2_l)<Math.abs(box1_t-box2_t)){
+                //其次当盒子在竖直方向上碰撞时，其top差的绝对值大于left差的绝对值
+                //竖直方向发生碰撞，top的差值不超过box的高度
+                //接下来就可以判断box1和box2分别在上下侧碰撞就可以了
+                if(box1_t<box2_t&&box1_t+boxh>=box2_t){
+                    dir1_t=false;
+                    dir2_t=true;
+                    //console.log("红上蓝下");
+                }else if(box1_t>box2_t&&box1_t<=box2_t+boxh){
+                    dir1_t=true;
+                    dir2_t=false;
+                    //console.log("红下蓝上");
+                }
+            }
+            //开始规定盒子的运动数值
+            if(dir1_l){
+                box1_l+=speed1_l;
+            }else{
+                box1_l-=speed1_l;
+            }
+            if(dir2_l){
+                box2_l+=speed2_l;
+            }else{
+                box2_l-=speed2_l;
+            }
+            if(dir1_t){
+                box1_t+=speed1_t;
+            }else{
+                box1_t-=speed1_t;
+            }
+            if(dir2_t){
+                box2_t+=speed2_t;
+            }else{
+                box2_t-=speed2_t;
+            }
+            //写入盒子的行间样式属性，使其开始运动
+            box1.style.left=box1_l+"px";
+            box2.style.left=box2_l+"px";
+            box1.style.top=box1_t+"px";
+            box2.style.top=box2_t+"px";
+            },30)
+    </script>
+</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/07/19/JavaScript碰撞检测/" data-id="ciqtj8eog000tzle80narbrv9" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/07/19/JavaScript导航滚动/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JavaScript导航滚动</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/07/19/JavaScript碰撞检测/">JavaScript碰撞检测</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/19/JavaScript导航滚动/">JavaScript导航滚动</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/16/JavaScript字符串对象、日期对象、定时器/">JavaScript字符串对象、日期对象、定时器</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/16/JavaScript函数、Math对象、数组/">JavaScript函数、Math对象、数组</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/14/JavaScript全选反选/">JavaScript全选反选</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 刘晓萌<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

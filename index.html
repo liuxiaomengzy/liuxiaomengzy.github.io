@@ -68,6 +68,330 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-JavaScript碰撞检测" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/19/JavaScript碰撞检测/" class="article-date">
+  <time datetime="2016-07-19T13:11:40.000Z" itemprop="datePublished">2016-07-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/19/JavaScript碰撞检测/">JavaScript碰撞检测</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>JavaScript碰撞检测主要用于游戏开发等。几乎所有的游戏都离不开碰撞检测——无论是各物体之间的碰撞检测，还是物体与场景之间的碰撞检测。</p>
+<p>代码如下：</p>
+<pre>
+    &lt;style&gt;
+        div.divtest{
+            width:500px;
+            height:300px;
+            border:1px solid black;
+            position:relative;
+        }
+        div.divtest div:first-child{
+            width:50px;
+            height:50px;
+            background-color:red;
+            position:absolute;
+            top:0;
+            left:0;
+        }
+        div.divtest div:last-child{
+            width:50px;
+            height:50px;
+            background-color:blue;
+            position:absolute;
+            top:250px;
+            left:450px;
+        }
+    &lt;/style&gt;
+    &lt;div class="divtest"&gt;
+        &lt;div&gt;&lt;/div&gt;
+        &lt;div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        var div=document.querySelector(".divtest");
+        var box1=document.querySelector(".divtest div:first-child");
+        var box2=document.querySelector(".divtest div:last-child");
+        var dir1_l=true,dir1_t=true,dir2_l=false,dir2_t=false;//定义盒子的运动方向
+        var speed1_l=5,speed1_t=3,speed2_l=3,speed2_t=6; //定义盒子各个方向的运动速度
+        var divw,divh,boxw,boxh,box1_l,box1_t,box2_l,box2_t;//定义盒子的各个属性值
+        //检测浏览器获取样式（主要为了兼容IE）
+        if(div.currentStyle){
+            divw=parseInt(wrap.currentStyle.width);
+            divh=parseInt(wrap.currentStyle.height);
+            boxw=parseInt(box1.currentStyle.width);
+            boxh=parseInt(box1.currentStyle.height);
+            box1_l=parseInt(box1.currentStyle.left);
+            box1_t=parseInt(box1.currentStyle.top);
+            box2_l=parseInt(box2.currentStyle.left);
+            box2_t=parseInt(box1.currentStyle.top);
+        }else{
+            divw=parseInt(getComputedStyle(div,[]).width);
+            divh=parseInt(getComputedStyle(div,[]).height);
+            boxw=parseInt(getComputedStyle(box1,[]).width);
+            boxh=parseInt(getComputedStyle(box1,[]).height);
+            box1_l=parseInt(getComputedStyle(box1,[]).left);
+            box1_t=parseInt(getComputedStyle(box1,[]).top);
+            box2_l=parseInt(getComputedStyle(box2,[]).left);
+            box2_t=parseInt(getComputedStyle(box2,[]).top);
+        }
+
+        setInterval(function(){
+            //动态获取盒子的属性值
+            if(box1.style.left){
+                box1_l=parseInt(box1.style.left);
+                box1_t=parseInt(box1.style.top);
+                box2_l=parseInt(box2.style.left);
+                box2_t=parseInt(box2.style.top);
+            }
+            //判断box分别碰到边框的情况，改变其方向
+            if(box1_l&lt;=0){
+                dir1_l=true;
+            }else if(box1_l&gt;=divw-boxw){
+                dir1_l=false;
+            }
+            if(box2_l&lt;=0){
+                dir2_l=true;
+            }else if(box2_l&gt;=divw-boxw){
+                dir2_l=false;
+            }
+            if(box1_t&lt;=0){
+                dir1_t=true;
+            }else if(box1_t&gt;=divh-boxh){
+                dir1_t=false;
+            }
+            if(box2_t&lt;=0){
+                dir2_t=true;
+            }else if(box2_t&gt;=divh-boxh){
+                dir2_t=false;
+            }
+            //开始设置盒子碰撞的情况
+            //首先当盒子在水平方向上碰撞时，其top差的绝对值小于left差的绝对值
+            if(Math.abs(box1_l-box2_l)&gt;Math.abs(box1_t-box2_t)){
+                //水平方向发生碰撞，left的差值不超过box的宽度
+                //接下来就可以判断box1和box2分别在左右侧碰撞就可以了
+                if(box1_l&lt;box2_l&&box1_l+boxw&gt;=box2_l){
+                    dir1_l=false;
+                    dir2_l=true;
+                    console.log("红左蓝右");
+                }else if(box1_l&gt;box2_l&&box1_l&lt;=box2_l+boxw){
+                    dir1_l=true;
+                    dir2_l=false;
+                    console.log("红右蓝左");
+                }
+            }else if(Math.abs(box1_l-box2_l)&lt;Math.abs(box1_t-box2_t)){
+                //其次当盒子在竖直方向上碰撞时，其top差的绝对值大于left差的绝对值
+                //竖直方向发生碰撞，top的差值不超过box的高度
+                //接下来就可以判断box1和box2分别在上下侧碰撞就可以了
+                if(box1_t&lt;box2_t&&box1_t+boxh&gt;=box2_t){
+                    dir1_t=false;
+                    dir2_t=true;
+                    console.log("红上蓝下");
+                }else if(box1_t&gt;box2_t&&box1_t&lt;=box2_t+boxh){
+                    dir1_t=true;
+                    dir2_t=false;
+                    console.log("红下蓝上");
+                }
+            }
+            //开始规定盒子的运动数值
+            if(dir1_l){
+                box1_l+=speed1_l;
+            }else{
+                box1_l-=speed1_l;
+            }
+            if(dir2_l){
+                box2_l+=speed2_l;
+            }else{
+                box2_l-=speed2_l;
+            }
+            if(dir1_t){
+                box1_t+=speed1_t;
+            }else{
+                box1_t-=speed1_t;
+            }
+            if(dir2_t){
+                box2_t+=speed2_t;
+            }else{
+                box2_t-=speed2_t;
+            }
+            //写入盒子的行间样式属性，使其开始运动
+            box1.style.left=box1_l+"px";
+            box2.style.left=box2_l+"px";
+            box1.style.top=box1_t+"px";
+            box2.style.top=box2_t+"px";
+            },30)
+    &lt;/script&gt;
+</pre>
+
+<pre>
+    <style>
+        div.divtest{
+            width:500px;
+            height:300px;
+            border:1px solid black;
+            position:relative;
+        }
+        div.divtest div:first-child{
+            width:50px;
+            height:50px;
+            background-color:red;
+            position:absolute;
+            top:0;
+            left:0;
+        }
+        div.divtest div:last-child{
+            width:50px;
+            height:50px;
+            background-color:blue;
+            position:absolute;
+            top:250px;
+            left:450px;
+        }
+    </style>
+    <div class="divtest">
+        <div></div>
+        <div></div>
+    </div>
+    <script>
+        var div=document.querySelector(".divtest");
+        var box1=document.querySelector(".divtest div:first-child");
+        var box2=document.querySelector(".divtest div:last-child");
+        var dir1_l=true,dir1_t=true,dir2_l=false,dir2_t=false;//定义盒子的运动方向
+        var speed1_l=5,speed1_t=3,speed2_l=3,speed2_t=6; //定义盒子各个方向的运动速度
+        var divw,divh,boxw,boxh,box1_l,box1_t,box2_l,box2_t;//定义盒子的各个属性值
+        //检测浏览器获取样式（主要为了兼容IE）
+        if(div.currentStyle){
+            divw=parseInt(wrap.currentStyle.width);
+            divh=parseInt(wrap.currentStyle.height);
+            boxw=parseInt(box1.currentStyle.width);
+            boxh=parseInt(box1.currentStyle.height);
+            box1_l=parseInt(box1.currentStyle.left);
+            box1_t=parseInt(box1.currentStyle.top);
+            box2_l=parseInt(box2.currentStyle.left);
+            box2_t=parseInt(box1.currentStyle.top);
+        }else{
+            divw=parseInt(getComputedStyle(div,[]).width);
+            divh=parseInt(getComputedStyle(div,[]).height);
+            boxw=parseInt(getComputedStyle(box1,[]).width);
+            boxh=parseInt(getComputedStyle(box1,[]).height);
+            box1_l=parseInt(getComputedStyle(box1,[]).left);
+            box1_t=parseInt(getComputedStyle(box1,[]).top);
+            box2_l=parseInt(getComputedStyle(box2,[]).left);
+            box2_t=parseInt(getComputedStyle(box2,[]).top);
+        }
+
+        setInterval(function(){
+            //动态获取盒子的属性值
+            if(box1.style.left){
+                box1_l=parseInt(box1.style.left);
+                box1_t=parseInt(box1.style.top);
+                box2_l=parseInt(box2.style.left);
+                box2_t=parseInt(box2.style.top);
+            }
+            //判断box分别碰到边框的情况，改变其方向
+            if(box1_l<=0){
+                dir1_l=true;
+            }else if(box1_l>=divw-boxw){
+                dir1_l=false;
+            }
+            if(box2_l<=0){
+                dir2_l=true;
+            }else if(box2_l>=divw-boxw){
+                dir2_l=false;
+            }
+            if(box1_t<=0){
+                dir1_t=true;
+            }else if(box1_t>=divh-boxh){
+                dir1_t=false;
+            }
+            if(box2_t<=0){
+                dir2_t=true;
+            }else if(box2_t>=divh-boxh){
+                dir2_t=false;
+            }
+            //开始设置盒子碰撞的情况
+            //首先当盒子在水平方向上碰撞时，其top差的绝对值小于left差的绝对值
+            if(Math.abs(box1_l-box2_l)>Math.abs(box1_t-box2_t)){
+                //水平方向发生碰撞，left的差值不超过box的宽度
+                //接下来就可以判断box1和box2分别在左右侧碰撞就可以了
+                if(box1_l<box2_l&&box1_l+boxw>=box2_l){
+                    dir1_l=false;
+                    dir2_l=true;
+                    //console.log("红左蓝右");
+                }else if(box1_l>box2_l&&box1_l<=box2_l+boxw){
+                    dir1_l=true;
+                    dir2_l=false;
+                    //console.log("红右蓝左");
+                }
+            }else if(Math.abs(box1_l-box2_l)<Math.abs(box1_t-box2_t)){
+                //其次当盒子在竖直方向上碰撞时，其top差的绝对值大于left差的绝对值
+                //竖直方向发生碰撞，top的差值不超过box的高度
+                //接下来就可以判断box1和box2分别在上下侧碰撞就可以了
+                if(box1_t<box2_t&&box1_t+boxh>=box2_t){
+                    dir1_t=false;
+                    dir2_t=true;
+                    //console.log("红上蓝下");
+                }else if(box1_t>box2_t&&box1_t<=box2_t+boxh){
+                    dir1_t=true;
+                    dir2_t=false;
+                    //console.log("红下蓝上");
+                }
+            }
+            //开始规定盒子的运动数值
+            if(dir1_l){
+                box1_l+=speed1_l;
+            }else{
+                box1_l-=speed1_l;
+            }
+            if(dir2_l){
+                box2_l+=speed2_l;
+            }else{
+                box2_l-=speed2_l;
+            }
+            if(dir1_t){
+                box1_t+=speed1_t;
+            }else{
+                box1_t-=speed1_t;
+            }
+            if(dir2_t){
+                box2_t+=speed2_t;
+            }else{
+                box2_t-=speed2_t;
+            }
+            //写入盒子的行间样式属性，使其开始运动
+            box1.style.left=box1_l+"px";
+            box2.style.left=box2_l+"px";
+            box1.style.top=box1_t+"px";
+            box2.style.top=box2_t+"px";
+            },30)
+    </script>
+</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/07/19/JavaScript碰撞检测/" data-id="ciqtj8eog000tzle80narbrv9" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-JavaScript导航滚动" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/07/19/JavaScript导航滚动/" class="article-date">
@@ -153,7 +477,7 @@
             for(var j=0;j&lt;span.length;j++){
                 span[j].i=i
                 span[j].j=j;
-                span[j].onclick=function(){
+                span[j].onmouseover=function(){
                 slide[this.i].style.left=this.j*100+"px";
                 }
             }
@@ -205,7 +529,7 @@
             for(var j=0;j<span.length;j++){
                 span[j].i=i
                 span[j].j=j;
-                span[j].onclick=function(){
+                span[j].onmouseover=function(){
                 slide[this.i].style.left=this.j*100+"px";
                 }
             }
@@ -216,7 +540,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/19/JavaScript导航滚动/" data-id="ciqth9pxa000tsbe8t8rk9sl6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/19/JavaScript导航滚动/" data-id="ciqtj8enw000nzle8c7pyc674" class="article-share-link">Share</a>
       
       
     </footer>
@@ -448,7 +772,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/16/JavaScript字符串对象、日期对象、定时器/" data-id="ciqtelmv4000jsbe867ildyup" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/16/JavaScript字符串对象、日期对象、定时器/" data-id="ciqtj8enu000mzle8fvtthm03" class="article-share-link">Share</a>
       
       
     </footer>
@@ -613,7 +937,7 @@ function functionname(参数列表){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/16/JavaScript函数、Math对象、数组/" data-id="ciqtelmvb000nsbe89ngcwn0z" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/16/JavaScript函数、Math对象、数组/" data-id="ciqtj8enq000kzle87f58b1nt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -749,7 +1073,7 @@ function functionname(参数列表){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/14/JavaScript全选反选/" data-id="ciqtelmv7000lsbe8parjkgsi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/14/JavaScript全选反选/" data-id="ciqtj8enp000jzle88pji5a2r" class="article-share-link">Share</a>
       
       
     </footer>
@@ -944,7 +1268,7 @@ function functionname(参数列表){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/14/JavaScript显示隐藏及Tab切换/" data-id="ciqtelmvc000osbe8wwvxdf5v" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/14/JavaScript显示隐藏及Tab切换/" data-id="ciqtj8eo0000pzle8013xgvi4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1032,7 +1356,7 @@ function functionname(参数列表){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/14/JavaScript数据类型转换和输出/" data-id="ciqtelmvg000qsbe8bprbjk3a" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/14/JavaScript数据类型转换和输出/" data-id="ciqtj8eny000ozle842dh85a0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1186,7 +1510,7 @@ onmouseup            某个鼠标按键被松开
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/13/If...Else、Switch、For循环、While循环/" data-id="ciqtelmux000gsbe8a8971j5i" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/13/If...Else、Switch、For循环、While循环/" data-id="ciqtj8enl000izle8elp9ny34" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1426,7 +1750,7 @@ onmouseup            某个鼠标按键被松开
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/11/JavaScript基础/" data-id="ciqtelmv9000msbe8gpdxfl43" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/11/JavaScript基础/" data-id="ciqtj8ens000lzle836s4uvb8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1530,169 +1854,7 @@ onmouseup            某个鼠标按键被松开
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/09/CSS3媒体查询/" data-id="ciqtelmu20003sbe8s28iiwwm" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-LESSCSS初使用" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/07/06/LESSCSS初使用/" class="article-date">
-  <time datetime="2016-07-06T09:27:41.000Z" itemprop="datePublished">2016-07-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/06/LESSCSS初使用/">LESSCSS初使用</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="首先，用到less你的电脑必须有HBuilder并安装插件。"><a href="#首先，用到less你的电脑必须有HBuilder并安装插件。" class="headerlink" title="首先，用到less你的电脑必须有HBuilder并安装插件。"></a>首先，用到less你的电脑必须有HBuilder并安装插件。</h4><h3 id="LESS介绍"><a href="#LESS介绍" class="headerlink" title="LESS介绍"></a>LESS介绍</h3><p>LESSCSS是一种动态样式语言，属于CSS预处理语言的一种，使用类似CSS的语法，为CSS赋予动态语言的特性，如变量、继承、运算、函数等，更方便CSS的编写和维护。</p>
-<p>LESSCSS可以在多种语言、环境中使用，包括浏览器端、桌面客户端。</p>
-<p>想要了解更多，请<a href="http://www.1024i.com/demo/less/index.html" target="_blank" rel="external">点击这里</a>。</p>
-<h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><p>变量可以让我们单独定义一系列通过的样式，当你需要的时候调用。这样对全局模式时候只要修改几行代码就可以了。</p>
-<p>LESS源码：</p>
-<pre>
-    @color:pink;
-
-    #header{
-        color:@color;
-    }
-    h3{
-        color:@color;
-    }
-</pre>
-
-<p>编译后的CSS：</p>
-<pre>
-    #header{
-        color:pink;
-    }
-    h3{
-        color:pink;
-    }
-</pre>
-
-<h4 id="混合（Mixins）"><a href="#混合（Mixins）" class="headerlink" title="混合（Mixins）"></a>混合（Mixins）</h4><p>混合可以将一个定义好的class A轻松引入到另一个class B中，从而简单实现class B继承class A中的所有属性。还可以带参数地调用。</p>
-<p>LESS源码：</p>
-<pre>
-    .wrap(@radius:5px){
-        -webkit-border-radius:@radius;
-        -moz-border-radius:@radius;
-        -ms-border-radius:@radius;
-        -o-border-radius:@radius;
-        border-radius:@radius;
-    }
-    #header{
-        .wrap;
-    }
-    #footer{
-        .wrap(10px);
-    }
-</pre>
-
-<p>编译后的CSS：</p>
-<pre>
-    #header{
-        -webkit-border-radius:5px;
-        -moz-border-radius:5px;
-        -ms-border-radius:5px;
-        -o-border-radius:5px;
-        border-radius:5px;
-    }
-    #footer{
-        -webkit-border-radius:10px;
-        -moz-border-radius:10px;
-        -ms-border-radius:10px;
-        -o-border-radius:10px;
-        border-radius:10px;
-    }
-</pre>
-
-<h4 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h4><p>我们可以在一个选择器中嵌套另一个选择器来实现继承，这样大大减少代码量，并且代码更加清晰。</p>
-<p>LESS源码：</p>
-<pre>
-    #header{
-        h2{
-            font-size:20px;
-        }
-        div{
-            font-size:12px;
-            a{
-                text-decoration:none;
-                &:hover{
-                    border-width:1px;
-                }
-            }
-        }
-    }
-</pre>
-
-<p>编译后的CSS：</p>
-<pre>
-    #header h2{
-        font-size:20px;
-    }
-    #header div{
-        font-size:12px;
-    }
-    #header div a{
-        text-decoration:none;
-    }
-    #header div a:hover{
-        border-width:1px;
-    }
-</pre>
-
-<h4 id="函数和运算"><a href="#函数和运算" class="headerlink" title="函数和运算"></a>函数和运算</h4><p>运算提供了加减乘除操作；我们既可以做属性值和颜色的运算，这样就可以实现属性值之间的复杂关系。</p>
-<p>LESS源码：</p>
-<pre>
-    @the-border:1px;
-    @base-color:#111;
-    @red:#842210;
-
-    #header{
-        color:(@base-color * 3);
-        border-left:@the-border;
-        border-right:(@the-border * 2);
-    }
-    #footer{
-        color:(@base-color + #003300);
-        border-color:desaturate(@red,10%);
-    }
-</pre>
-
-<p>编译后的CSS：</p>
-<pre>
-    #header{
-        color:#333;
-        border-left:1px;
-        border-right:2px;
-    }
-    #footer{
-        color:#114411;
-        border-color:#7d2717;
-    }
-</pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/06/LESSCSS初使用/" data-id="ciqtelmvf000psbe8vuqkizb0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/09/CSS3媒体查询/" data-id="ciqtj8emp0004zle8wdusamz0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1736,6 +1898,10 @@ onmouseup            某个鼠标按键被松开
       <ul>
         
           <li>
+            <a href="/2016/07/19/JavaScript碰撞检测/">JavaScript碰撞检测</a>
+          </li>
+        
+          <li>
             <a href="/2016/07/19/JavaScript导航滚动/">JavaScript导航滚动</a>
           </li>
         
@@ -1749,10 +1915,6 @@ onmouseup            某个鼠标按键被松开
         
           <li>
             <a href="/2016/07/14/JavaScript全选反选/">JavaScript全选反选</a>
-          </li>
-        
-          <li>
-            <a href="/2016/07/14/JavaScript显示隐藏及Tab切换/">JavaScript显示隐藏及Tab切换</a>
           </li>
         
       </ul>
