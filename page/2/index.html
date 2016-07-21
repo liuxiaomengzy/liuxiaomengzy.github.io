@@ -68,6 +68,350 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-JavaScript基础" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/11/JavaScript基础/" class="article-date">
+  <time datetime="2016-07-11T09:37:58.000Z" itemprop="datePublished">2016-07-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/11/JavaScript基础/">JavaScript基础</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="JavaScript简介"><a href="#JavaScript简介" class="headerlink" title="JavaScript简介"></a>JavaScript简介</h3><p>JavaScript是一种基于对象（object）和事件驱动（even driven）并具有相对安全性的客户端脚本语言。同时也是一种广泛用于客户端Web开发的脚本语言，常用来给HTML网页添加动态功能，是一种动态、弱类型、基于原型的语言，内置支持类。</p>
+<ol>
+<li>JavaScript是一种轻量级的编程语言。</li>
+<li>JavaScript是可插入HTML页面的编程代码。</li>
+<li>JavaScript插入HTML页面后，可由所有现代浏览器执行。</li>
+<li>JavaScript可以让网页呈现各种动态效果。</li>
+</ol>
+<h5 id="JavaScript组成"><a href="#JavaScript组成" class="headerlink" title="JavaScript组成"></a>JavaScript组成</h5><p><strong>核心</strong><code>ECMAscript</code>——提供核心语言的功能（基础语言）</p>
+<p>ECMAscript描述了语法、类型、语句、关键字、保留字、运算符、对象这些内容。ECMAscript定义了脚本语言的所有属性、方法和对象。</p>
+<p>JavaScript/ActionScript/ScriptEase等其他语言通过实现ECMAScript作为其功能的基准。</p>
+<p><strong>文档对象模型</strong><code>DOM</code>(document object model)——提供访问和操作网页内容的方法和接口</p>
+<p><strong>浏览器对象模型</strong><code>BOM</code>(browser object model)——提供与浏览器交互的方法和接口</p>
+<h5 id="JavaScript特点"><a href="#JavaScript特点" class="headerlink" title="JavaScript特点"></a>JavaScript特点</h5><ol>
+<li><p>一种解释性执行的脚本语言。</p>
+</li>
+<li><p>一种基于对象的脚本语言。</p>
+</li>
+<li><p>一种简单弱类型脚本语言。</p>
+</li>
+<li><p>一种相对安全脚本语言。</p>
+</li>
+<li><p>一种事件驱动脚本语言。</p>
+</li>
+<li><p>一种跨平台性脚本语言。</p>
+</li>
+</ol>
+<h5 id="JavaScript语法"><a href="#JavaScript语法" class="headerlink" title="JavaScript语法"></a>JavaScript语法</h5><ol>
+<li>区分大小写</li>
+<li>弱类型变量</li>
+<li>行尾的分号可有可无（建议都写）</li>
+<li>括号{}用于代码块</li>
+<li>注释方式同于C和Java</li>
+</ol>
+<h3 id="JavaScript引入"><a href="#JavaScript引入" class="headerlink" title="JavaScript引入"></a>JavaScript引入</h3><h5 id="第一种：直接写在script标签内"><a href="#第一种：直接写在script标签内" class="headerlink" title="第一种：直接写在script标签内"></a>第一种：直接写在script标签内</h5><p>script最好放在body之后，处理交互事件，等到内容显示之后载入；否则放在head标签内可能会造成加载延迟，或者覆盖代码(因html加载方式是从上到下加载的)。</p>
+<pre>
+    &lt;html&gt;
+        &lt;head&gt;
+            &lt;meta charset="utf-8" /&gt;
+            &lt;title&gt;&lt;/title&gt;
+        &lt;/head&gt;
+        &lt;body&gt;&lt;/body&gt;
+        &lt;script&gt;
+            alert("hello");
+        &lt;/script&gt;
+    &lt;/html&gt;
+</pre>
+
+<h5 id="第二种：引入js文件"><a href="#第二种：引入js文件" class="headerlink" title="第二种：引入js文件"></a>第二种：引入js文件</h5><pre>
+    &lt;html&gt;
+        &lt;head&gt;
+            &lt;meta charset="utf-8" /&gt;
+            &lt;title&gt;&lt;/title&gt;
+        &lt;/head&gt;
+        &lt;body&gt;&lt;/body&gt;
+        &lt;script src="js/index.js" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;/html&gt;
+</pre>
+
+<h5 id="第三种：在标签内引入（不推荐）"><a href="#第三种：在标签内引入（不推荐）" class="headerlink" title="第三种：在标签内引入（不推荐）"></a>第三种：在标签内引入（不推荐）</h5><pre>
+    &lt;html&gt;
+        &lt;head&gt;
+            &lt;meta charset="utf-8" /&gt;
+            &lt;title&gt;&lt;/title&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+            &lt;input type="button" name="btn" id="btn" value="按钮" onclick="alert('点击我！')" /&gt;
+        &lt;/body&gt;
+    &lt;/html&gt;
+</pre>
+
+<h3 id="JavaScript基础语法"><a href="#JavaScript基础语法" class="headerlink" title="JavaScript基础语法"></a>JavaScript基础语法</h3><h5 id="alert"><a href="#alert" class="headerlink" title="alert()"></a>alert()</h5><p>让浏览器弹出一个窗口，窗口里的内容就是alert（）中的内容</p>
+<pre>
+    &lt;script type="text/javascript"&gt;
+        alert("Hello World!");
+    &lt;/script&gt;
+</pre>
+
+<p><strong>单行注释</strong></p>
+<p>用“//”注释内容，不可换行</p>
+<p><strong>多行注释</strong></p>
+<p>用“/**/”注释内容，可以换行</p>
+<pre>
+    &lt;script type="text/javascript"&gt;
+        /*var a=0;
+        var b=1;
+        var c=2;*/
+        alert("Hello World!");//注释语句
+    &lt;/script&gt;
+</pre>
+
+<h5 id="元素的获取"><a href="#元素的获取" class="headerlink" title="元素的获取"></a>元素的获取</h5><p>为了把事件写在script标签中，可以先获取到标签，主要有以下几种方法：</p>
+<ol>
+<li><p><code>document.getElementById();</code>//通过标签id值来获取标签</p>
+</li>
+<li><p><code>document.getElementsByClassName();</code>//通过标签的class值来获取标签（返回的是一个数组，将所有相同class名的标签都返回）</p>
+</li>
+<li><p><code>document.getElementsByTagName();</code>//通过标签的名字来获取标签（返回的是一个数组，将所有相同的标签名的标签都返回）</p>
+</li>
+<li><p><code>document.getElementsByName();</code>//通过标签的name值来获取标签，常用于选择表单元素（返回的是一个数组，将所有相同的name值的标签返回）</p>
+</li>
+</ol>
+<h5 id="onclick事件绑定"><a href="#onclick事件绑定" class="headerlink" title="onclick事件绑定"></a>onclick事件绑定</h5><p>onclick事件会在对象被点击时发生。单击事件是在同一元素上发生了鼠标按下事件之后又发生了鼠标放开事件时才发生的。</p>
+<pre>
+    &lt;input type="button" name="btn" id="btnclick" value="按钮" /&gt;
+    &lt;div id="divclick" style="width:100px;height:100px;background-color:pink;"&gt;&lt;/div&gt;
+    &lt;script&gt;
+        document.getElementById("btnclick").onclick=function(){
+            document.getElementById("divclick").style.display="none";
+        }
+    &lt;/script&gt;
+</pre>
+
+<pre>
+    <input type="button" name="btn" id="btnclick" value="按钮">
+    <div id="divclick" style="width:100px;height:100px;background-color:pink;"></div>
+    <script>
+        document.getElementById("btnclick").onclick=function(){
+            document.getElementById("divclick").style.display="none";
+        }
+    </script>
+</pre>
+
+<h5 id="onmouseover事件和onmouseout事件"><a href="#onmouseover事件和onmouseout事件" class="headerlink" title="onmouseover事件和onmouseout事件"></a>onmouseover事件和onmouseout事件</h5><p><code>onmouseover</code>属性在鼠标移动到元素上时触发。</p>
+<p><code>onmouseout</code>属性在鼠标指针移动到元素外时触发。</p>
+<pre>
+    &lt;input type="button" name="btn" id="btnmouse" value="按钮" /&gt;
+    &lt;div id="divmouse" style="width:100px;height:100px;background-color:purple;"&gt;&lt;/div&gt;
+    &lt;script&gt;
+        var btn=document.getElementById("btnmouse");
+        var odiv=document.getElementById("divmouse");
+        btn.onmouseover=function(){
+            odiv.style.display="none";
+        }
+        btn.onmouseout=function(){
+            odiv.style.display="block";
+        }
+    &lt;/script&gt;
+</pre>
+
+<pre>
+    <input type="button" name="btn" id="btnmouse" value="按钮">
+    <div id="divmouse" style="width:100px;height:100px;background-color:purple;"></div>
+    <script>
+        var btn=document.getElementById("btnmouse");
+        var odiv=document.getElementById("divmouse");
+        btn.onmouseover=function(){
+            odiv.style.display="none";
+        }
+        btn.onmouseout=function(){
+            odiv.style.display="block";
+        }
+    </script>
+</pre>
+
+<h5 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h5><p>变量首先是一个容器，可以用来存放数据，而且存放在这个容器中的数据可以发生变化。变量不仅可以是数字，可以是任意数据类型。</p>
+<p>“var” + “变量名” + “=” + “值” + “;” 如var a=12;</p>
+<p>变量命名规范：</p>
+<ol>
+<li>区分大小写</li>
+<li>第一个字符必须是字母、下划线<code>_</code>或美元符号<code>$</code></li>
+<li>其他字符可以是字母、下划线、美元符号或数字</li>
+<li>不能含空格</li>
+<li>不能以关键字或保留字命名<a href="http://www.runoob.com/js/js-reserved.html" target="_blank" rel="external">关键字保留字点这里</a></li>
+</ol>
+<h5 id="JavaScript数据类型"><a href="#JavaScript数据类型" class="headerlink" title="JavaScript数据类型"></a>JavaScript数据类型</h5><p>用<code>typeof</code>函数查看数据类型</p>
+<p>1.null内容为空，表示一个空的值，可以创建数组、创建时间、创建字符串</p>
+<p>2.undefined没有赋值或不存在的变量类型，仅仅在判断函数参数是否传递时有用</p>
+<p>3.number数字类型：</p>
+<p>包含整数、浮点数、科学计数法(1.2e5)、负数、NaN(Not a Number)和Infinity。number类型的数可以进行加、减、乘、除、求余、自增、自减运算</p>
+<p>4.string字符串类型：</p>
+<p>字符串是以单引号<code>&#39;&#39;</code>或双引号<code>&quot;&quot;</code>括起来的任意文本。</p>
+<p><strong><code>&#39;&#39;</code>或<code>&quot;&quot;</code>本身只是一种表示方式，不是字符串的一部分。</strong></p>
+<p>因此”abc”只有a、b、c三个字符；当字符串既包含单引号又包含双引号时，用转义字符<code>\</code>来标识，如”I\’m \”OK\”!”，表示字符串内容是I’m “OK”!</p>
+<p>5.boolean布尔类型，布尔只有<code>true和false</code>，布尔常用在条件测试中</p>
+<p>6.Array数组类型</p>
+<p>7.object对象类型</p>
+<h5 id="JavaScript运算符"><a href="#JavaScript运算符" class="headerlink" title="JavaScript运算符"></a>JavaScript运算符</h5><p>1.赋值运算符<code>=</code>赋值仅仅是把给变量赋值，如a=5</p>
+<p><code>+=</code> a+=5相当于a=a+5</p>
+<p><code>-=</code> a-=5相当于a=a-5</p>
+<p><code>*=</code> a <em> =5相当于a=a </em> 5</p>
+<p><code>/=</code> a/=5相当于a=a/5</p>
+<p><code>%=</code> a%=5相当于a=a%5</p>
+<p>2.算数操作符</p>
+<p>加 <code>+</code> 减 <code>-</code> 乘 <code>*</code> 除 <code>/</code> 求模/取余 <code>%</code></p>
+<p>3.关系操作符</p>
+<p>大于 <code>&gt;</code> 小于 <code>&lt;</code> 小于等于 <code>&lt;=</code> 大于等于 <code>&gt;=</code> 不等于 <code>!=</code></p>
+<p>等于 <code>==</code> 此情况下，只要值相同就返回True</p>
+<p>全等于<code>===</code> 此情况需要值和类型都要匹配才能返回True</p>
+<p><strong>关系操作符返回的都是布尔值</strong></p>
+<p>4.条件操作符</p>
+<p>5.逻辑操作符</p>
+<p>与 <code>&amp;&amp;</code> 或 <code>||</code> 非 <code>!</code></p>
+<p>6.递增递减操作符</p>
+<p><code>++</code>和<code>--</code></p>
+<p>j=i++等同于j=i;i=i+1 <code>先赋值 后运算</code></p>
+<p>j=++i等同于i=i+1;j=i <code>先运算 后赋值</code></p>
+<p><strong>操作符优先级</strong></p>
+<p>逻辑非&gt;算术操作符&gt;关系操作符&gt;逻辑与 逻辑或&gt;条件操作符&gt;赋值操作符</p>
+<p><strong>操作符书写</strong></p>
+<p>JavaScript书写：y=(x+2)*(((x+1)/3-2)/4+5)</p>
+<p>相当于数学中的：y=(x+2)*{[(x+1)/3-2]/4+5}</p>
+<p>小括号    提升优先级</p>
+<p>中括号    数组        [1,2,3,4,5]</p>
+<p>大括号    对象        function(){}</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/07/11/JavaScript基础/" data-id="ciqwgr38x000npoe8x08omzkf" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-CSS3媒体查询" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/09/CSS3媒体查询/" class="article-date">
+  <time datetime="2016-07-09T01:50:36.000Z" itemprop="datePublished">2016-07-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/09/CSS3媒体查询/">CSS3媒体查询</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="CSS3媒体查询也就是指-media-查询"><a href="#CSS3媒体查询也就是指-media-查询" class="headerlink" title="CSS3媒体查询也就是指@media 查询"></a>CSS3媒体查询也就是指@media 查询</h3><p><code>媒体查询不需要像CSS3其他属性一样添加前缀。</code></p>
+<h3 id="media-查询"><a href="#media-查询" class="headerlink" title="@media 查询"></a>@media 查询</h3><p>使用 @media 查询，就可以针对不同的媒体类型定义不同的样式。</p>
+<p>@media 可以针对不同屏幕尺寸设置不同样式，特别是针对响应式页面。</p>
+<p>当改变浏览器大小过程中，页面会根据浏览器的宽度和高度重新渲染页面。</p>
+<h4 id="CSS语法"><a href="#CSS语法" class="headerlink" title="CSS语法"></a>CSS语法</h4><pre>
+    @media mediatype and|not|only (media feature){
+        CSS-Code;
+    }
+</pre>
+
+<p>也可以针对不同的媒体使用不同stylesheets：</p>
+<pre>
+    &lt;link rel="stylesheet" media="mediatype and|not|only (media feature)" href="mystylesheet.css" /&gt;
+</pre>
+
+<h4 id="mediatype媒体类型"><a href="#mediatype媒体类型" class="headerlink" title="mediatype媒体类型"></a>mediatype媒体类型</h4><p>all        用于所有设备</p>
+<p>print    用于打印机和打印预览</p>
+<p>screen    用于电脑屏幕，平板电脑，智能手机等</p>
+<p>speech    用于屏幕阅读器等发声设备</p>
+<h4 id="媒体特性"><a href="#媒体特性" class="headerlink" title="媒体特性"></a>媒体特性</h4><p>媒体特性书写方式为：</p>
+<p>媒体特性:媒体特性指定值</p>
+<h6 id="1-最大宽度max-width"><a href="#1-最大宽度max-width" class="headerlink" title="1.最大宽度max-width"></a>1.最大宽度max-width</h6><p><code>max-width</code>指媒体类型小于或等于指定的宽度时，样式生效。</p>
+<pre>
+    @media screen and (max-width:480px){
+        .aside{
+            display:none;
+        }
+    }
+</pre>
+
+<p>上面表示当屏幕小于或等于480px时，侧边栏（.aside）将被隐藏。</p>
+<h6 id="2-最小宽度min-width"><a href="#2-最小宽度min-width" class="headerlink" title="2.最小宽度min-width"></a>2.最小宽度min-width</h6><p><code>min-width</code>指媒体类型大于或等于指定宽度时，样式生效。</p>
+<pre>
+    @media screen and (min-width:1200px){
+        .nav{
+            width:1000px;
+        }
+    }
+</pre>
+
+<p>上面表示当屏幕大于或等于1200px时，导航栏（.nav）宽度为1000px。</p>
+<h6 id="3-多个媒体特征使用"><a href="#3-多个媒体特征使用" class="headerlink" title="3.多个媒体特征使用"></a>3.多个媒体特征使用</h6><p>媒体查询可以使用关键词<code>and</code>将多个媒体特性结合在一起。一个媒体查询可以包含0到多个表达式，表达式又可以包含0到多个关键字，以及一种媒体类型。</p>
+<p>当屏幕在500px~900px之间时，body的背景色为金色，如下所示：</p>
+<pre>
+    @media screen and (min-width:500px) and (max-width:900px){
+        body{
+            background-color:gold;
+        }
+    }
+</pre>
+
+<h6 id="4-设备屏幕的输出宽度Device-Width"><a href="#4-设备屏幕的输出宽度Device-Width" class="headerlink" title="4.设备屏幕的输出宽度Device Width"></a>4.设备屏幕的输出宽度Device Width</h6><p>在只能设备上，可以<strong>根据屏幕设备的尺寸来设置相应的样式</strong>（或者调用相应的样式文件）。同样对于屏幕设备可以使用<code>min/max</code>对应参数。</p>
+<pre>
+    &lt;link rel="stylesheet" media="screen and (max-device-width:480px)" href="iphone.css" /&gt;
+</pre>
+
+<p>上述代码指“iphone.css”样式适用于最大设备宽度为480px。</p>
+<h6 id="5-not关键词"><a href="#5-not关键词" class="headerlink" title="5.not关键词"></a>5.not关键词</h6><p><strong>使用关键词“not”是用来排除某种制定的媒体类型</strong>，也就是用来排除符合表达式的设备。 也就是说not关键词表示对后面的表达式执行反操作。</p>
+<pre>
+    @media not print and (max-width:1200px){样式代码}
+</pre>
+
+<p>上述代码表示：样式代码将被使用在除打印设备和设备宽度小于1200px下的所有设备中。</p>
+<h6 id="6-only关键词"><a href="#6-only关键词" class="headerlink" title="6.only关键词"></a>6.only关键词</h6><p><strong>only用来指定某种特定的媒体类型</strong>，可以用来排除不支持媒体查询的浏览器。</p>
+<p>only很多时候用来对不支持Media Query但却支持Media Type的设备隐藏样式表的。其主要有：</p>
+<p>支持媒体特性的设备，正常调用样式，此时可以认为only不存在；</p>
+<p>不支持媒体特性但又支持媒体类型的设备，这样就会不读样式，因其首先读取only而非screen；</p>
+<p>另外不支持Media Query的浏览器，不论是否支持only，样式都不会被采用。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/07/09/CSS3媒体查询/" data-id="ciqwgr37t0004poe85866yiiy" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-LESSCSS初使用" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/07/06/LESSCSS初使用/" class="article-date">
@@ -220,7 +564,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/06/LESSCSS初使用/" data-id="ciqu68std000pfje82nzc6txi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/06/LESSCSS初使用/" data-id="ciqwgr397000spoe8mog284pb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -392,7 +736,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/05/CSS3弹性布局/" data-id="ciqu68ss50008fje8ljxlq5n4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/05/CSS3弹性布局/" data-id="ciqwgr37u0005poe8un7z5p0w" class="article-share-link">Share</a>
       
       
     </footer>
@@ -474,7 +818,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/04/CSS3 @font-face规则和多列/" data-id="ciqu68srf0000fje8rt30z46d" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/04/CSS3 @font-face规则和多列/" data-id="ciqwgr37g0000poe8daxhxe8u" class="article-share-link">Share</a>
       
       
     </footer>
@@ -695,7 +1039,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/04/CSS3动画/" data-id="ciqu68ss10007fje8b71f06if" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/04/CSS3动画/" data-id="ciqwgr37l0001poe8ryt4yj9z" class="article-share-link">Share</a>
       
       
     </footer>
@@ -951,7 +1295,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/02/CSS3变形/" data-id="ciqu68srp0002fje8moafflot" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/02/CSS3变形/" data-id="ciqwgr37o0002poe8h9cyeo8p" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1040,7 +1384,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/01/CSS3过渡/" data-id="ciqu68srv0005fje8n1e8jmq6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/01/CSS3过渡/" data-id="ciqwgr3860008poe8h31hg7ex" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1216,7 +1560,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/30/CSS3背景/" data-id="ciqu68ssb0009fje8347u7hfj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/30/CSS3背景/" data-id="ciqwgr3820007poe8ug468yma" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1337,358 +1681,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/29/CSS3圆角/" data-id="ciqu68srl0001fje89xf6ppst" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-CSS3盒模型" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/06/29/CSS3盒模型/" class="article-date">
-  <time datetime="2016-06-29T13:27:18.000Z" itemprop="datePublished">2016-06-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/29/CSS3盒模型/">CSS3盒模型</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="CSS3盒模型也就是指-box-sizing-属性"><a href="#CSS3盒模型也就是指-box-sizing-属性" class="headerlink" title="CSS3盒模型也就是指 box-sizing 属性"></a>CSS3盒模型也就是指 box-sizing 属性</h3><p><code>box-sizing</code>主要有三个值，分别为content-box（默认值）|| border-box || padding-box。</p>
-<p><code>box-sizing:content-box</code>,border和padding不计算在width内</p>
-<p><code>box-sizing:padding-box</code>,padding计算在width内，border不计算在width内（暂时只有火狐支持，前缀加入<code>-moz-</code>）</p>
-<p><code>box-sizing:border-box</code>,border和padding都计算在width内</p>
-<h4 id="outline外轮廓"><a href="#outline外轮廓" class="headerlink" title="outline外轮廓"></a>outline外轮廓</h4><p>在此顺便提一下<code>outline</code>属性，<code>outline</code>是绘制于元素周围的一条线，位于边框边缘的外围，可起到突出元素的作用。</p>
-<p>轮廓线不会占据空间，也不一定是矩形</p>
-<p><code>outline</code>简写属性在一个声明中设置所有的轮廓属性,包括<code>outline-color</code> <code>outline-style</code> <code>outline-width</code>,与border一样，顺序可以任性调换。</p>
-<p><code>outline</code>不包含在<code>box-sizing</code>内。</p>
-<pre>
-    &ltstyle&gt
-        .div1{
-            width:200px;
-            height:200px;
-            background-color:pink;
-            box-sizing:content-box;
-            padding:50px;
-            border:20px solid gold;
-            color:white;
-            margin:0 auto;
-            outline:5px solid black;
-        }
-        .div2{
-            width:200px;
-            height:200px;
-            background-color:red;
-            -moz-box-sizing:padding-box;
-            box-sizing:padding-box;
-            padding:50px;
-            border:20px solid gold;
-            color:white;
-            margin:0 auto;
-            outline:5px solid black;
-        }
-        .div3{
-            width:200px;
-            height:200px;
-            background-color:blue;
-            box-sizing:border-box;
-            padding:50px;
-            border:20px solid gold;
-            color:white;
-            margin:0 auto;
-            outline:5px solid black;
-        }
-    &lt/style&gt
-    &ltdiv class="div1"&gt我是div我是div&lt/div&gt
-    &ltdiv class="div2"&gt我是div我是div&lt/div&gt
-    &ltdiv class="div3"&gt我是div我是div&lt/div&gt
-</pre>
-<pre>
-    <style>
-        .he1{
-            width:200px;
-            height:200px;
-            background-color:pink;
-            box-sizing:content-box;
-            padding:50px;
-            border:20px solid gold;
-            color:white;
-            margin:0 auto;
-            outline:5px solid black;
-        }
-        .he2{
-            width:200px;
-            height:200px;
-            background-color:red;
-            -moz-box-sizing:padding-box;
-            box-sizing:padding-box;
-            padding:50px;
-            border:20px solid gold;
-            color:white;
-            margin:0 auto;
-            outline:5px solid black;
-        }
-        .he3{
-            width:200px;
-            height:200px;
-            background-color:blue;
-            box-sizing:border-box;
-            padding:50px;
-            border:20px solid gold;
-            color:white;
-            margin:0 auto;
-            outline:5px solid black;
-        }
-    </style>
-    <div class="he1">我是div我是div</div>
-    <div class="he2">我是div我是div</div>
-    <div class="he3">我是div我是div</div>
-</pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/29/CSS3盒模型/" data-id="ciqu68sru0004fje8zjixnrrm" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-CSS3选择器" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/06/28/CSS3选择器/" class="article-date">
-  <time datetime="2016-06-28T13:57:24.000Z" itemprop="datePublished">2016-06-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/28/CSS3选择器/">CSS3选择器</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="CSS3选择器主要包含以下几种"><a href="#CSS3选择器主要包含以下几种" class="headerlink" title="CSS3选择器主要包含以下几种"></a>CSS3选择器主要包含以下几种</h2><h3 id="子元素选择器"><a href="#子元素选择器" class="headerlink" title="子元素选择器"></a>子元素选择器</h3><p><code>E &gt; F</code>类型，子元素选择器选中的是子元素F，子子孙孙不会被选</p>
-<p>而后代选择器<code>E F</code>类型是选中所有的F，包含F的后代也选中</p>
-<h3 id="兄弟选择器"><a href="#兄弟选择器" class="headerlink" title="兄弟选择器"></a>兄弟选择器</h3><h4 id="相邻兄弟选择器"><a href="#相邻兄弟选择器" class="headerlink" title="相邻兄弟选择器"></a>相邻兄弟选择器</h4><p><code>E + F</code>类型，必备属性：1.必须同级；2.必须相邻；3.必须在其下方；4.有且只有一个符合。</p>
-<h4 id="通用兄弟选择器"><a href="#通用兄弟选择器" class="headerlink" title="通用兄弟选择器"></a>通用兄弟选择器</h4><p><code>E ~ F</code>类型，必备属性：1.必须同级；2.必须在其下方；3.可以有多个符合。</p>
-<h3 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h3><p><code>[ ]</code>类型，例如<code>[class]</code>指具有class属性的值</p>
-<p><code>[abc =&quot;value&quot;]</code>类型，属性和值选择器</p>
-<p><code>[abc ~=&quot;value&quot;] ~</code>表示几个以空格隔开的属性值中包含了”value”</p>
-<p><code>[abc ^=&quot;value&quot;] ^</code>以value开头的值</p>
-<p><code>[abc $=&quot;value&quot;] $</code>以value结尾的值</p>
-<p><code>[abc *=&quot;value&quot;] *</code>包含value的值</p>
-<p><code>[abc |=&quot;value&quot;] |</code>以value或value-开头的值</p>
-<p><code>[abc =value]</code>和<code>[abc *=&quot;value&quot;]</code>较实用。</p>
-<h3 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h3><h4 id="锚点伪类（a的伪类）"><a href="#锚点伪类（a的伪类）" class="headerlink" title="锚点伪类（a的伪类）"></a>锚点伪类（a的伪类）</h4><p>简称爱恨法则  love &amp; hate</p>
-<ol>
-<li><p>l = link        没有访问过的状态</p>
-</li>
-<li><p>v = visited    访问过后的状态</p>
-</li>
-<li><p>h = hover    鼠标悬浮在标签上的状态</p>
-</li>
-<li><p>a = active    鼠标悬浮在标签上按下没有松开的状态</p>
-</li>
-</ol>
-<p>使用时候顺序不能变，必须从前到后。</p>
-<h4 id="UI元素伪类-表单元素"><a href="#UI元素伪类-表单元素" class="headerlink" title="UI元素伪类 表单元素"></a>UI元素伪类 表单元素</h4><p><code>disabled</code>    废弃属性，元素不可用</p>
-<p><code>focus</code>        聚焦属性</p>
-<p><code>checked</code>    选中(并不能完美支持)</p>
-<p><code>enabled</code>    可用状态</p>
-<pre>
-    &ltstyle&gt
-        input:disabled{
-            border:2px solid blue;
-            background-color:gold;
-        }
-        input:focus{
-            border:2px solid red;
-        }
-        input:checked{
-            display:block;
-            width:50px;
-            height:50px;
-        }
-        input:enabled{
-            background-color:pink;
-        }
-    &lt/style&gt
-    &ltform&gt
-        &ltinput type="text" disabled /&gt
-        &ltinput type="text"/&gt
-        &ltinput type="text"/&gt
-        &ltinput type="checkbox"/&gt
-        &ltinput type="checkbox"/&gt
-    &lt/form&gt
-</pre>
-<pre>
-    <style>
-        input:disabled{
-            border:2px solid blue;
-            background-color:gold;
-        }
-        input:focus{
-            border:2px solid red;
-        }
-        input:checked{
-            display:block;
-            width:50px;
-            height:50px;
-        }
-        input:enabled{        
-            background-color:pink;
-        }
-    </style>
-    <form>
-        <input type="text" disabled>
-        <input type="text">
-        <input type="text">
-        <input type="checkbox">
-        <input type="checkbox">
-    </form>
-</pre>
-
-<h3 id="否定选择器"><a href="#否定选择器" class="headerlink" title="否定选择器"></a>否定选择器</h3><p><code>:not</code>类型，通常和属性选择器结合使用。</p>
-<pre>
-    &ltstyle&gt
-        input:not([type="submit"]){
-            border:2px solid gold;
-        }
-    &lt/style&gt
-    &ltform&gt
-    &ltinput type="text"/&gt
-    &ltinput type="submit"/&gt
-    &lt/form&gt
-</pre>
-
-<p>效果如下：</p>
-<p><img src="https://raw.githubusercontent.com/liuxiaomengzy/liuxiaomengzy.github.io/master/images/not%E5%90%A6%E5%AE%9A%E9%80%89%E6%8B%A9%E5%99%A8.png" alt="not否定选择器"></p>
-<h3 id="nth选择器"><a href="#nth选择器" class="headerlink" title="nth选择器"></a>nth选择器</h3><p><code>:first-child</code>选择某个元素的第一个子元素</p>
-<p><code>last-child</code>选择某个元素的最后一个子元素</p>
-<p><code>nth-last-child()</code>选择某个元素的一个或多个特定的子元素，从这个元素的最后一个子元素开始算</p>
-<p><code>:nth-of-type()</code>选择指定的元素</p>
-<p><code>:nth-last-of-type()</code>选择指定的元素，从元素的最后一个开始计算</p>
-<p><code>:first-of-type</code>选择一个上级元素下的第一个同类子元素</p>
-<p><code>:last-of-type</code>选择一个上级元素的最后一个同类子元素</p>
-<p><code>:only-child</code>选择的元素是它的父元素的唯一一个子元素</p>
-<p><code>:only-of-type</code>选择一个元素是它的上级元素的唯一一个相同类型的子元素</p>
-<p><code>:empty</code>选择的元素里面没有任何内容</p>
-<p>因属性较多，后面属性设置会覆盖前面，就不在一一展现，仅列举几个</p>
-<pre>
-    &ltstyle&gt
-        ul li:first-child{
-            background-color:black;
-        }
-        ul li:last-child{
-            background-color:pink;
-        }
-        ul li:nth-of-type(3){
-            background-color:blue;
-        }
-    &lt/style&gt
-    &ltul&gt
-        &ltli&gt&lt/li&gt
-        &ltli&gt&lt/li&gt
-        &ltli&gt&lt/li&gt
-        &ltli&gt&lt/li&gt
-        &ltli&gt&lt/li&gt
-    &lt/ul&gt
-</pre>
-
-<p>效果如下：</p>
-<p><img src="https://raw.githubusercontent.com/liuxiaomengzy/liuxiaomengzy.github.io/master/images/nth%E9%80%89%E6%8B%A9%E5%99%A8.png" alt="nth选择器"></p>
-<p><code>:nth-child()</code>选择某个元素的一个或多个特定的子元素</p>
-<p><code>:nth-child(length)</code>参数是具体数字</p>
-<p><code>:nth-child(n)</code>参数是n,n从1开始计算</p>
-<p><code>:nth-child(2n)</code>n的倍数选择，n从1开始算(偶数行也可用<code>even</code>)</p>
-<p><code>:nth-child(2n+1)</code>表示隔几选一(奇数行也可用<code>odd</code>)</p>
-<p><code>:nth-child(n+length)</code>选择大于等于length后面的元素</p>
-<p><code>:nth-child(-n+length)</code>选择小于等于length前面的元素</p>
-<h3 id="伪元素"><a href="#伪元素" class="headerlink" title="伪元素"></a>伪元素</h3><p><code>::first-letter</code>选择文本块的第一个字母，除非在同一行里面包含一些其它元素，不过这个主要运用于段落排版上多</p>
-<p><code>::first-line</code>选择元素的第一行</p>
-<p><code>::before</code>,<code>::after</code>这两个主要用来给元素的前面或后面插入内容，这两个常用”content”配合使用，见过最多的就是清除浮动还有图片icon</p>
-<p><code>::selection</code>用来改变浏览网页选中文本的默认效果，<code>::selection</code>只能设置两个属性background,color属性，设置其他属性是没有任何效果的</p>
-<pre>
-    &ltstyle&gt
-        div{
-            width:500px;
-            height:500px;
-            background-color:green;
-            margin:0 auto;
-            font-size:30px;
-            position:relative;
-            font-size:30px;
-            }
-        div::before{
-            content:"";
-            width:200px;
-            height:200px;
-            background-color:orange;
-            display:block;
-            position:absolute;
-            top:60px;
-            left:0;
-        }
-        div::after{
-            content:"";
-            width:200px;
-            height:200px;
-            background-color:gold;
-            display:block;
-            position:absolute;
-            right:0;
-            top:0;
-        }
-        div::first-letter{
-            color:red;
-            font-size:60px;
-        }
-        div::first-line{
-            color:purple;
-        }
-        div::selection{
-            color:white;
-            background:black;
-        }
-    &lt/style&gt
-    &ltdiv&gt我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div
-    &lt/div&gt    
-</pre>
-
-<p>效果如下：</p>
-<p><img src="https://raw.githubusercontent.com/liuxiaomengzy/liuxiaomengzy.github.io/master/images/%E4%BC%AA%E5%85%83%E7%B4%A0.png" alt="伪元素"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/28/CSS3选择器/" data-id="ciqu68srx0006fje8ztzuij51" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/29/CSS3圆角/" data-id="ciqwgr37r0003poe812d8u4wy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1701,7 +1694,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">__('next') &raquo;</a>
+    <a class="extend prev" rel="prev" href="/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">__('next') &raquo;</a>
   </nav>
 </section>
         
@@ -1732,6 +1725,14 @@
       <ul>
         
           <li>
+            <a href="/2016/07/21/JavaScriptDOM文档对象类型/">JavaScriptDOM文档对象类型</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/21/JavaScript闭包、Object对象/">JavaScript闭包、Object对象</a>
+          </li>
+        
+          <li>
             <a href="/2016/07/19/JavaScript碰撞检测/">JavaScript碰撞检测</a>
           </li>
         
@@ -1741,14 +1742,6 @@
         
           <li>
             <a href="/2016/07/16/JavaScript字符串对象、日期对象、定时器/">JavaScript字符串对象、日期对象、定时器</a>
-          </li>
-        
-          <li>
-            <a href="/2016/07/16/JavaScript函数、Math对象、数组/">JavaScript函数、Math对象、数组</a>
-          </li>
-        
-          <li>
-            <a href="/2016/07/14/JavaScript全选反选/">JavaScript全选反选</a>
           </li>
         
       </ul>

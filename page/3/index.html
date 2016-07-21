@@ -68,6 +68,357 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-CSS3盒模型" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/29/CSS3盒模型/" class="article-date">
+  <time datetime="2016-06-29T13:27:18.000Z" itemprop="datePublished">2016-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/29/CSS3盒模型/">CSS3盒模型</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="CSS3盒模型也就是指-box-sizing-属性"><a href="#CSS3盒模型也就是指-box-sizing-属性" class="headerlink" title="CSS3盒模型也就是指 box-sizing 属性"></a>CSS3盒模型也就是指 box-sizing 属性</h3><p><code>box-sizing</code>主要有三个值，分别为content-box（默认值）|| border-box || padding-box。</p>
+<p><code>box-sizing:content-box</code>,border和padding不计算在width内</p>
+<p><code>box-sizing:padding-box</code>,padding计算在width内，border不计算在width内（暂时只有火狐支持，前缀加入<code>-moz-</code>）</p>
+<p><code>box-sizing:border-box</code>,border和padding都计算在width内</p>
+<h4 id="outline外轮廓"><a href="#outline外轮廓" class="headerlink" title="outline外轮廓"></a>outline外轮廓</h4><p>在此顺便提一下<code>outline</code>属性，<code>outline</code>是绘制于元素周围的一条线，位于边框边缘的外围，可起到突出元素的作用。</p>
+<p>轮廓线不会占据空间，也不一定是矩形</p>
+<p><code>outline</code>简写属性在一个声明中设置所有的轮廓属性,包括<code>outline-color</code> <code>outline-style</code> <code>outline-width</code>,与border一样，顺序可以任性调换。</p>
+<p><code>outline</code>不包含在<code>box-sizing</code>内。</p>
+<pre>
+    &ltstyle&gt
+        .div1{
+            width:200px;
+            height:200px;
+            background-color:pink;
+            box-sizing:content-box;
+            padding:50px;
+            border:20px solid gold;
+            color:white;
+            margin:0 auto;
+            outline:5px solid black;
+        }
+        .div2{
+            width:200px;
+            height:200px;
+            background-color:red;
+            -moz-box-sizing:padding-box;
+            box-sizing:padding-box;
+            padding:50px;
+            border:20px solid gold;
+            color:white;
+            margin:0 auto;
+            outline:5px solid black;
+        }
+        .div3{
+            width:200px;
+            height:200px;
+            background-color:blue;
+            box-sizing:border-box;
+            padding:50px;
+            border:20px solid gold;
+            color:white;
+            margin:0 auto;
+            outline:5px solid black;
+        }
+    &lt/style&gt
+    &ltdiv class="div1"&gt我是div我是div&lt/div&gt
+    &ltdiv class="div2"&gt我是div我是div&lt/div&gt
+    &ltdiv class="div3"&gt我是div我是div&lt/div&gt
+</pre>
+<pre>
+    <style>
+        .he1{
+            width:200px;
+            height:200px;
+            background-color:pink;
+            box-sizing:content-box;
+            padding:50px;
+            border:20px solid gold;
+            color:white;
+            margin:0 auto;
+            outline:5px solid black;
+        }
+        .he2{
+            width:200px;
+            height:200px;
+            background-color:red;
+            -moz-box-sizing:padding-box;
+            box-sizing:padding-box;
+            padding:50px;
+            border:20px solid gold;
+            color:white;
+            margin:0 auto;
+            outline:5px solid black;
+        }
+        .he3{
+            width:200px;
+            height:200px;
+            background-color:blue;
+            box-sizing:border-box;
+            padding:50px;
+            border:20px solid gold;
+            color:white;
+            margin:0 auto;
+            outline:5px solid black;
+        }
+    </style>
+    <div class="he1">我是div我是div</div>
+    <div class="he2">我是div我是div</div>
+    <div class="he3">我是div我是div</div>
+</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/06/29/CSS3盒模型/" data-id="ciqwgr37v0006poe8d0ewfunc" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-CSS3选择器" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/28/CSS3选择器/" class="article-date">
+  <time datetime="2016-06-28T13:57:24.000Z" itemprop="datePublished">2016-06-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/28/CSS3选择器/">CSS3选择器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="CSS3选择器主要包含以下几种"><a href="#CSS3选择器主要包含以下几种" class="headerlink" title="CSS3选择器主要包含以下几种"></a>CSS3选择器主要包含以下几种</h2><h3 id="子元素选择器"><a href="#子元素选择器" class="headerlink" title="子元素选择器"></a>子元素选择器</h3><p><code>E &gt; F</code>类型，子元素选择器选中的是子元素F，子子孙孙不会被选</p>
+<p>而后代选择器<code>E F</code>类型是选中所有的F，包含F的后代也选中</p>
+<h3 id="兄弟选择器"><a href="#兄弟选择器" class="headerlink" title="兄弟选择器"></a>兄弟选择器</h3><h4 id="相邻兄弟选择器"><a href="#相邻兄弟选择器" class="headerlink" title="相邻兄弟选择器"></a>相邻兄弟选择器</h4><p><code>E + F</code>类型，必备属性：1.必须同级；2.必须相邻；3.必须在其下方；4.有且只有一个符合。</p>
+<h4 id="通用兄弟选择器"><a href="#通用兄弟选择器" class="headerlink" title="通用兄弟选择器"></a>通用兄弟选择器</h4><p><code>E ~ F</code>类型，必备属性：1.必须同级；2.必须在其下方；3.可以有多个符合。</p>
+<h3 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h3><p><code>[ ]</code>类型，例如<code>[class]</code>指具有class属性的值</p>
+<p><code>[abc =&quot;value&quot;]</code>类型，属性和值选择器</p>
+<p><code>[abc ~=&quot;value&quot;] ~</code>表示几个以空格隔开的属性值中包含了”value”</p>
+<p><code>[abc ^=&quot;value&quot;] ^</code>以value开头的值</p>
+<p><code>[abc $=&quot;value&quot;] $</code>以value结尾的值</p>
+<p><code>[abc *=&quot;value&quot;] *</code>包含value的值</p>
+<p><code>[abc |=&quot;value&quot;] |</code>以value或value-开头的值</p>
+<p><code>[abc =value]</code>和<code>[abc *=&quot;value&quot;]</code>较实用。</p>
+<h3 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h3><h4 id="锚点伪类（a的伪类）"><a href="#锚点伪类（a的伪类）" class="headerlink" title="锚点伪类（a的伪类）"></a>锚点伪类（a的伪类）</h4><p>简称爱恨法则  love &amp; hate</p>
+<ol>
+<li><p>l = link        没有访问过的状态</p>
+</li>
+<li><p>v = visited    访问过后的状态</p>
+</li>
+<li><p>h = hover    鼠标悬浮在标签上的状态</p>
+</li>
+<li><p>a = active    鼠标悬浮在标签上按下没有松开的状态</p>
+</li>
+</ol>
+<p>使用时候顺序不能变，必须从前到后。</p>
+<h4 id="UI元素伪类-表单元素"><a href="#UI元素伪类-表单元素" class="headerlink" title="UI元素伪类 表单元素"></a>UI元素伪类 表单元素</h4><p><code>disabled</code>    废弃属性，元素不可用</p>
+<p><code>focus</code>        聚焦属性</p>
+<p><code>checked</code>    选中(并不能完美支持)</p>
+<p><code>enabled</code>    可用状态</p>
+<pre>
+    &ltstyle&gt
+        input:disabled{
+            border:2px solid blue;
+            background-color:gold;
+        }
+        input:focus{
+            border:2px solid red;
+        }
+        input:checked{
+            display:block;
+            width:50px;
+            height:50px;
+        }
+        input:enabled{
+            background-color:pink;
+        }
+    &lt/style&gt
+    &ltform&gt
+        &ltinput type="text" disabled /&gt
+        &ltinput type="text"/&gt
+        &ltinput type="text"/&gt
+        &ltinput type="checkbox"/&gt
+        &ltinput type="checkbox"/&gt
+    &lt/form&gt
+</pre>
+<pre>
+    <style>
+        input:disabled{
+            border:2px solid blue;
+            background-color:gold;
+        }
+        input:focus{
+            border:2px solid red;
+        }
+        input:checked{
+            display:block;
+            width:50px;
+            height:50px;
+        }
+        input:enabled{        
+            background-color:pink;
+        }
+    </style>
+    <form>
+        <input type="text" disabled>
+        <input type="text">
+        <input type="text">
+        <input type="checkbox">
+        <input type="checkbox">
+    </form>
+</pre>
+
+<h3 id="否定选择器"><a href="#否定选择器" class="headerlink" title="否定选择器"></a>否定选择器</h3><p><code>:not</code>类型，通常和属性选择器结合使用。</p>
+<pre>
+    &ltstyle&gt
+        input:not([type="submit"]){
+            border:2px solid gold;
+        }
+    &lt/style&gt
+    &ltform&gt
+    &ltinput type="text"/&gt
+    &ltinput type="submit"/&gt
+    &lt/form&gt
+</pre>
+
+<p>效果如下：</p>
+<p><img src="https://raw.githubusercontent.com/liuxiaomengzy/liuxiaomengzy.github.io/master/images/not%E5%90%A6%E5%AE%9A%E9%80%89%E6%8B%A9%E5%99%A8.png" alt="not否定选择器"></p>
+<h3 id="nth选择器"><a href="#nth选择器" class="headerlink" title="nth选择器"></a>nth选择器</h3><p><code>:first-child</code>选择某个元素的第一个子元素</p>
+<p><code>last-child</code>选择某个元素的最后一个子元素</p>
+<p><code>nth-last-child()</code>选择某个元素的一个或多个特定的子元素，从这个元素的最后一个子元素开始算</p>
+<p><code>:nth-of-type()</code>选择指定的元素</p>
+<p><code>:nth-last-of-type()</code>选择指定的元素，从元素的最后一个开始计算</p>
+<p><code>:first-of-type</code>选择一个上级元素下的第一个同类子元素</p>
+<p><code>:last-of-type</code>选择一个上级元素的最后一个同类子元素</p>
+<p><code>:only-child</code>选择的元素是它的父元素的唯一一个子元素</p>
+<p><code>:only-of-type</code>选择一个元素是它的上级元素的唯一一个相同类型的子元素</p>
+<p><code>:empty</code>选择的元素里面没有任何内容</p>
+<p>因属性较多，后面属性设置会覆盖前面，就不在一一展现，仅列举几个</p>
+<pre>
+    &ltstyle&gt
+        ul li:first-child{
+            background-color:black;
+        }
+        ul li:last-child{
+            background-color:pink;
+        }
+        ul li:nth-of-type(3){
+            background-color:blue;
+        }
+    &lt/style&gt
+    &ltul&gt
+        &ltli&gt&lt/li&gt
+        &ltli&gt&lt/li&gt
+        &ltli&gt&lt/li&gt
+        &ltli&gt&lt/li&gt
+        &ltli&gt&lt/li&gt
+    &lt/ul&gt
+</pre>
+
+<p>效果如下：</p>
+<p><img src="https://raw.githubusercontent.com/liuxiaomengzy/liuxiaomengzy.github.io/master/images/nth%E9%80%89%E6%8B%A9%E5%99%A8.png" alt="nth选择器"></p>
+<p><code>:nth-child()</code>选择某个元素的一个或多个特定的子元素</p>
+<p><code>:nth-child(length)</code>参数是具体数字</p>
+<p><code>:nth-child(n)</code>参数是n,n从1开始计算</p>
+<p><code>:nth-child(2n)</code>n的倍数选择，n从1开始算(偶数行也可用<code>even</code>)</p>
+<p><code>:nth-child(2n+1)</code>表示隔几选一(奇数行也可用<code>odd</code>)</p>
+<p><code>:nth-child(n+length)</code>选择大于等于length后面的元素</p>
+<p><code>:nth-child(-n+length)</code>选择小于等于length前面的元素</p>
+<h3 id="伪元素"><a href="#伪元素" class="headerlink" title="伪元素"></a>伪元素</h3><p><code>::first-letter</code>选择文本块的第一个字母，除非在同一行里面包含一些其它元素，不过这个主要运用于段落排版上多</p>
+<p><code>::first-line</code>选择元素的第一行</p>
+<p><code>::before</code>,<code>::after</code>这两个主要用来给元素的前面或后面插入内容，这两个常用”content”配合使用，见过最多的就是清除浮动还有图片icon</p>
+<p><code>::selection</code>用来改变浏览网页选中文本的默认效果，<code>::selection</code>只能设置两个属性background,color属性，设置其他属性是没有任何效果的</p>
+<pre>
+    &ltstyle&gt
+        div{
+            width:500px;
+            height:500px;
+            background-color:green;
+            margin:0 auto;
+            font-size:30px;
+            position:relative;
+            font-size:30px;
+            }
+        div::before{
+            content:"";
+            width:200px;
+            height:200px;
+            background-color:orange;
+            display:block;
+            position:absolute;
+            top:60px;
+            left:0;
+        }
+        div::after{
+            content:"";
+            width:200px;
+            height:200px;
+            background-color:gold;
+            display:block;
+            position:absolute;
+            right:0;
+            top:0;
+        }
+        div::first-letter{
+            color:red;
+            font-size:60px;
+        }
+        div::first-line{
+            color:purple;
+        }
+        div::selection{
+            color:white;
+            background:black;
+        }
+    &lt/style&gt
+    &ltdiv&gt我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div
+    &lt/div&gt    
+</pre>
+
+<p>效果如下：</p>
+<p><img src="https://raw.githubusercontent.com/liuxiaomengzy/liuxiaomengzy.github.io/master/images/%E4%BC%AA%E5%85%83%E7%B4%A0.png" alt="伪元素"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/06/28/CSS3选择器/" data-id="ciqwgr38c0009poe8lny0p429" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-HTML5新增音视频" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/06/28/HTML5新增音视频/" class="article-date">
@@ -148,7 +499,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/28/HTML5新增音视频/" data-id="ciqu68sso000efje8ir87nqls" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/28/HTML5新增音视频/" data-id="ciqwgr38k000fpoe8sx6pxidk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -343,7 +694,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/28/HTML5新增表单元素/" data-id="ciqu68ssk000cfje8ljgh8f2u" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/28/HTML5新增表单元素/" data-id="ciqwgr38j000epoe8qc9o9u76" class="article-share-link">Share</a>
       
       
     </footer>
@@ -452,7 +803,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/27/HTML5短语句/" data-id="ciqu68sst000hfje85wwixxk2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/27/HTML5短语句/" data-id="ciqwgr38m000gpoe84by8tjio" class="article-share-link">Share</a>
       
       
     </footer>
@@ -525,7 +876,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/27/HTML5新增标签/" data-id="ciqu68ssh000bfje8z97sel1l" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/27/HTML5新增标签/" data-id="ciqwgr38i000dpoe8mv03ojo0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -724,7 +1075,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/25/CSS总结/" data-id="ciqu68ssq000ffje8a2obj6y9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/25/CSS总结/" data-id="ciqwgr38f000bpoe85ops98w8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -851,7 +1202,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/24/meta标签/" data-id="ciqu68sti000rfje89rq7cxcy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/24/meta标签/" data-id="ciqwgr39a000upoe8h0g1eewr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -922,7 +1273,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/23/CSS单位/" data-id="ciqu68ssm000dfje8lb4wd2c8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/23/CSS单位/" data-id="ciqwgr38e000apoe8d7rixjo5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1091,126 +1442,7 @@ action=""
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/22/HTML简述/" data-id="ciqu68stk000sfje83q9muzz7" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-HEXO博客的搭建" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/06/22/HEXO博客的搭建/" class="article-date">
-  <time datetime="2016-06-22T09:04:58.000Z" itemprop="datePublished">2016-06-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/22/HEXO博客的搭建/">搭建HEXO博客</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="本文主要针对Mac电脑。"><a href="#本文主要针对Mac电脑。" class="headerlink" title="本文主要针对Mac电脑。"></a>本文主要针对Mac电脑。</h2><h2 id="第一步：安装node-JS"><a href="#第一步：安装node-JS" class="headerlink" title="第一步：安装node.JS"></a>第一步：安装node.JS</h2><ol>
-<li>首先<a href="https://nodejs.org/en/" target="_blank" rel="external">下载node.JS</a></li>
-<li>解压后运行，根据提示安装。</li>
-<li>打开终端，输入”node -v”，当出现”v4.4.5”这类的说明你的Mac已经安装了node；否则重新步骤1。</li>
-</ol>
-<h2 id="第二步：安装git"><a href="#第二步：安装git" class="headerlink" title="第二步：安装git"></a>第二步：安装git</h2><ol>
-<li>作用是把本地的hexo内容上传到github</li>
-<li>安装Xcode就有git，输入”git –version”当出现git的数字即为已经装好。</li>
-</ol>
-<h2 id="第三步：安装hexo"><a href="#第三步：安装hexo" class="headerlink" title="第三步：安装hexo"></a>第三步：安装hexo</h2><ol>
-<li>在命令行输入”npm install hexo -g”来开始安装hexo</li>
-<li>当出现error或者其他报错时候，可以添加”sudo”来增加权限，即”sudo npm install hero -g”</li>
-<li>之后会让你输入电脑密码(假如你设置的话)，之后等待你下载并安装完成</li>
-<li>输入”hexo”检查你的电脑是否已经装好hexo</li>
-<li>创建一个存储的hexo目录并”cd”其进入，输入”hexo init”初始化hexo目录</li>
-<li>输入”hexo server”启动本地服务,当出现如下即可复制网址在浏览器中查看。<pre>
-INFO  Start processing
-INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
-</pre>
-
-</li>
-</ol>
-<h2 id="第四步：配置github"><a href="#第四步：配置github" class="headerlink" title="第四步：配置github"></a>第四步：配置github</h2><ol>
-<li>必要条件：github账号，没有可以<a href="https://github.com/" target="_blank" rel="external">点击这里注册</a></li>
-<li>在创建的hexo目录下输入”git”回车启动git，再输入”ssh-keygen”之后连续按回车三次，当出现如下时候，可以进行下一步<pre><br>+—[RSA 2048]—-+<br>|             o.++|<br>|           . .<em>+o|<br>|          = +++ B|<br>|         B =.o+B.|<br>|        S </em> +.o=+|<br>|         = E ooo=|<br>|          = +  oo|<br>|           o +. .|<br>|            +.o+.|<br>+—-[SHA256]—–+<br></pre></li>
-<li>输入”vim ~/.ssh/id_rsa.pub”完整复制如下代码，注意不要多带也不要少<pre>ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCt4KbeDTOxGyFWUcVo77axVpRLNY1ArBKpcSYGBsy1pRUIzkRQRJHFw4NSsiMYLrw6B/sngvtERSS4MoQVSueiy978kwNw5tU+RQ4hCCAd9XBvTJh7cyXm4VI3lPq1nGjrNcLgN1mFphg7npru2HSr0za2mGc0DfdJgurh1zbLYkIpXM70AKcfWtCBe9ghOQ3GSgA+TM675L6TjGxPsejvbP8qVvM8kbe8ucdL0ykkcCz1HcdRrqfu5T815JaCiEOabkkIMQ6qQOnQnXwD/B5lUMazb3e9UYqcNsZn2S3ujJ06HHe9lsyKlCSaIVAauBIsApKrHvNzwdBpkZ0YHnQD lanou@YF06-4.local</pre></li>
-<li>然后在github-&gt;setting-&gt;SSH and GPG keys-&gt;SSH keys下title随意命名，在key中粘贴，点击”ADD SSH key”即可</li>
-<li>配置github与本地机器验证，输入“git config –global user.name”””的引号中输入你的github用户名，回车，输入“git config –global user.emall”””的引号中输入你的github注册邮箱，回车即可</li>
-<li>在github右上角+号下拉框选择”New repository”,在”Repository name”中输入”your name+.github.io” 勾选 “Initialize this repository with a README”，再点击”Creat repository”即可创建博客域名仓库。</li>
-</ol>
-<h2 id="第五步：发布博客"><a href="#第五步：发布博客" class="headerlink" title="第五步：发布博客"></a>第五步：发布博客</h2><ol>
-<li>在本地创建的hexo文件找到”config.yml”在Sublime Text中打开，找到”#Site”,可以在里面更改你认为需要更改的。代码如下<pre># Site<br>title:<br>subtitle:<br>description:<br>author:<br>language: zh-CN<br>timezone:</pre></li>
-<li>下拉至最后，找到”deploy”在”type:”中输入” git”(注意空格)</li>
-<li>在新创建的博客域名仓库找到”Clone or download”点击选择”Use HTTPS”复制<a href="https://地址，在type下回车另起一行输入&quot;repo:&quot;，然后空格+域名仓库的https地址，保存即可" target="_blank" rel="external">https://地址，在type下回车另起一行输入&quot;repo:&quot;，然后空格+域名仓库的https地址，保存即可</a><pre>deploy:<br>type: git<br>repo: <a href="https://github.com/liuxiaomengzy/liuxiaomengzy.github.io.git" target="_blank" rel="external">https://github.com/liuxiaomengzy/liuxiaomengzy.github.io.git</a></pre></li>
-<li>然后在终端中输入”npm install hexo-deployer-git –save”等待其流程运行完成出现如下代码即可<pre>[fsevents] Success: “/Users/lanou/Desktop/blog/node_modules/hexo-deployer-git/node_modules/hexo-fs/node_modules/chokidar/node_modules/fsevents/lib/binding/Release/node-v46-darwin-x64/fse.node” is installed via remote<br>hexo-deployer-git@0.2.0 node_modules/hexo-deployer-git<br>├── moment@2.13.0<br>├── chalk@1.1.3 (escape-string-regexp@1.0.5, supports-color@2.0.0, ansi-styles@2.2.1, strip-ansi@3.0.1, has-ansi@2.0.0)<br>├── hexo-util@0.6.0 (striptags@2.1.1, html-entities@1.2.0, bluebird@3.4.1, highlight.js@9.4.0, cross-spawn@4.0.0, camel-case@3.0.0)<br>├── hexo-fs@0.1.6 (escape-string-regexp@1.0.5, graceful-fs@4.1.4, bluebird@3.4.1, chokidar@1.5.2)<br>└── swig@1.4.2 (optimist@0.6.1, uglify-js@2.4.24)</pre></li>
-<li>输入”hexo g”是md文件转换为html文件，完成后即可输入”hexo d”发布上传到github。</li>
-<li>新文件创建方法：输入”hexo new XXX(新的文本文件)”，编辑完成后输入”hexo server”本地运行ok后，输入”hexo g”是md文件转换为html文件，完成后即可输入”hexo d”发布上传到github了。</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/22/HEXO博客的搭建/" data-id="ciqu68ssd000afje87c29oi6j" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/06/22/hello-world/" class="article-date">
-  <time datetime="2016-06-22T04:04:58.000Z" itemprop="datePublished">2016-06-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/22/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/22/hello-world/" data-id="ciqu68stm000tfje8df25ht1b" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/22/HTML简述/" data-id="ciqwgr38n000hpoe8ht3r7kjf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1223,7 +1455,7 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/2/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">__('next') &raquo;</a>
   </nav>
 </section>
         
@@ -1254,6 +1486,14 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
       <ul>
         
           <li>
+            <a href="/2016/07/21/JavaScriptDOM文档对象类型/">JavaScriptDOM文档对象类型</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/21/JavaScript闭包、Object对象/">JavaScript闭包、Object对象</a>
+          </li>
+        
+          <li>
             <a href="/2016/07/19/JavaScript碰撞检测/">JavaScript碰撞检测</a>
           </li>
         
@@ -1263,14 +1503,6 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
         
           <li>
             <a href="/2016/07/16/JavaScript字符串对象、日期对象、定时器/">JavaScript字符串对象、日期对象、定时器</a>
-          </li>
-        
-          <li>
-            <a href="/2016/07/16/JavaScript函数、Math对象、数组/">JavaScript函数、Math对象、数组</a>
-          </li>
-        
-          <li>
-            <a href="/2016/07/14/JavaScript全选反选/">JavaScript全选反选</a>
           </li>
         
       </ul>

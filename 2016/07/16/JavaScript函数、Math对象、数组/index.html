@@ -6,57 +6,48 @@
   <title>JavaScript函数、Math对象、数组 | 紫--小梦</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="函数函数是由事件驱动的或者当它被调用时执行的可重复使用的代码块。
-
+函数的格式
 function functionname(参数列表){
     执行代码块;
     return 返回值;
 }
 
 
-function：关键词
-functionname：函数名，用来标识函数的名字
+function：关键词，全小写
+functionname：函数名，用来标识函数的名字，区分大小写，习惯使用驼峰式命名(moveSlide)，css为下划线
 参数列表：由外部向函数传入的内容
-return：从函数内部向外传递内容（函数会停止执行）
-
-    //无参无返回函数
-    fu">
+retur">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript函数、Math对象、数组">
 <meta property="og:url" content="http://yoursite.com/2016/07/16/JavaScript函数、Math对象、数组/index.html">
 <meta property="og:site_name" content="紫--小梦">
 <meta property="og:description" content="函数函数是由事件驱动的或者当它被调用时执行的可重复使用的代码块。
-
+函数的格式
 function functionname(参数列表){
     执行代码块;
     return 返回值;
 }
 
 
-function：关键词
-functionname：函数名，用来标识函数的名字
+function：关键词，全小写
+functionname：函数名，用来标识函数的名字，区分大小写，习惯使用驼峰式命名(moveSlide)，css为下划线
 参数列表：由外部向函数传入的内容
-return：从函数内部向外传递内容（函数会停止执行）
-
-    //无参无返回函数
-    fu">
-<meta property="og:updated_time" content="2016-07-16T08:33:11.000Z">
+retur">
+<meta property="og:updated_time" content="2016-07-21T12:57:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript函数、Math对象、数组">
 <meta name="twitter:description" content="函数函数是由事件驱动的或者当它被调用时执行的可重复使用的代码块。
-
+函数的格式
 function functionname(参数列表){
     执行代码块;
     return 返回值;
 }
 
 
-function：关键词
-functionname：函数名，用来标识函数的名字
+function：关键词，全小写
+functionname：函数名，用来标识函数的名字，区分大小写，习惯使用驼峰式命名(moveSlide)，css为下划线
 参数列表：由外部向函数传入的内容
-return：从函数内部向外传递内容（函数会停止执行）
-
-    //无参无返回函数
-    fu">
+retur">
   
     <link rel="alternate" href="/atom.xml" title="紫--小梦" type="application/atom+xml">
   
@@ -132,15 +123,15 @@ return：从函数内部向外传递内容（函数会停止执行）
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p>函数是由事件驱动的或者当它被调用时执行的可重复使用的代码块。</p>
-<pre>
+<h5 id="函数的格式"><a href="#函数的格式" class="headerlink" title="函数的格式"></a>函数的格式</h5><pre>
 function functionname(参数列表){
     执行代码块;
     return 返回值;
 }
 </pre>
 
-<p>function：关键词</p>
-<p>functionname：函数名，用来标识函数的名字</p>
+<p>function：关键词，全小写</p>
+<p>functionname：函数名，用来标识函数的名字，区分大小写，习惯使用驼峰式命名(moveSlide)，css为下划线</p>
 <p>参数列表：由外部向函数传入的内容</p>
 <p>return：从函数内部向外传递内容（函数会停止执行）</p>
 <pre>
@@ -166,6 +157,7 @@ function functionname(参数列表){
 
 <h5 id="函数调用"><a href="#函数调用" class="headerlink" title="函数调用"></a>函数调用</h5><p>在调用函数时，可以向其传递值，这些值称为参数。这些参数可以在函数中使用。可以使用任意多的参数，由”,”分隔。</p>
 <p>如果没有返回值/参数，则不写；变量和参数必须以一致的顺序出现。</p>
+<p>return给函数返回值，调用函数后可以获取到return的部分。使用return会跳出函数，阻止函数后面语句执行。</p>
 <pre>
     function sum(num1,num2){
         return num1 + num2;
@@ -174,9 +166,35 @@ function functionname(参数列表){
     var r=sum(3,5)
 </pre>
 
-<h5 id="局部变量和全局变量"><a href="#局部变量和全局变量" class="headerlink" title="局部变量和全局变量"></a>局部变量和全局变量</h5><p>在函数内部声明的变量是局部变量，只能在函数内部访问它。（作用域是局部的）局部变量在函数运行以后被删除。</p>
+<h5 id="局部变量和全局变量"><a href="#局部变量和全局变量" class="headerlink" title="局部变量和全局变量"></a>局部变量和全局变量</h5><p>在函数内部声明的变量是局部变量，只能在函数内部访问它。（作用域是局部的）局部变量在函数运行以后就会被释放，不再存在。</p>
 <p>在函数外部声明的变量是全局变量，网页上的所有脚本和函数都能访问它。全局变量在页面关闭后被删除。<strong>全局变量声明方式，不使用var关键字或在函数外部声明</strong></p>
+<ol>
+<li><p>变量查找首先在函数内部调用之前去查找，如果找到就调用查找到的离得最近的那个变量</p>
+</li>
+<li><p>变量查找在函数内部前面没有找到，在调用后面找到一个局部变量，则调用时此变量的值为undefined</p>
+</li>
+</ol>
+<pre>
+    function abc(){
+        abc="abc";
+        abc="abcd";
+        alert(abc);//此时弹出abcd
+
+        alert(abcd);//此时弹出undefined
+        abcd="abcd"
+    }
+</pre>
+
+
+
 <h5 id="匿名变量"><a href="#匿名变量" class="headerlink" title="匿名变量"></a>匿名变量</h5><p>匿名变量也叫尚未声明的变量，该变量将被自动作为全局变量声明。</p>
+<h4 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h4><p>匿名函数指函数没有名字，直接运行。</p>
+<pre>
+    function(x,y){
+        return x+y;
+    }
+</pre>
+
 <h3 id="Math对象"><a href="#Math对象" class="headerlink" title="Math对象"></a>Math对象</h3><p>Math对象用于执行数学任务。</p>
 <pre>
     Math.min(1,2,3);//1 获取若干个数中的最小值
@@ -264,7 +282,7 @@ function functionname(参数列表){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/16/JavaScript函数、Math对象、数组/" data-id="ciqu68st0000jfje897hvw8d5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/16/JavaScript函数、Math对象、数组/" data-id="ciqwgr38u000kpoe8ma33gqae" class="article-share-link">Share</a>
       
       
     </footer>
@@ -322,6 +340,14 @@ function functionname(参数列表){
       <ul>
         
           <li>
+            <a href="/2016/07/21/JavaScriptDOM文档对象类型/">JavaScriptDOM文档对象类型</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/21/JavaScript闭包、Object对象/">JavaScript闭包、Object对象</a>
+          </li>
+        
+          <li>
             <a href="/2016/07/19/JavaScript碰撞检测/">JavaScript碰撞检测</a>
           </li>
         
@@ -331,14 +357,6 @@ function functionname(参数列表){
         
           <li>
             <a href="/2016/07/16/JavaScript字符串对象、日期对象、定时器/">JavaScript字符串对象、日期对象、定时器</a>
-          </li>
-        
-          <li>
-            <a href="/2016/07/16/JavaScript函数、Math对象、数组/">JavaScript函数、Math对象、数组</a>
-          </li>
-        
-          <li>
-            <a href="/2016/07/14/JavaScript全选反选/">JavaScript全选反选</a>
           </li>
         
       </ul>
