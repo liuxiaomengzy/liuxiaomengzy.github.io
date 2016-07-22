@@ -68,6 +68,77 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-CSS单位" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/23/CSS单位/" class="article-date">
+  <time datetime="2016-06-23T06:08:36.000Z" itemprop="datePublished">2016-06-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/23/CSS单位/">CSS单位</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="本文主要介绍几种长度单位"><a href="#本文主要介绍几种长度单位" class="headerlink" title="本文主要介绍几种长度单位"></a>本文主要介绍几种长度单位</h2><h3 id="px"><a href="#px" class="headerlink" title="px"></a>px</h3><p>px指像素，是相对于显示器的屏幕分辨率而言，较为固定，即</p>
+<pre>
+    p{font-size=20px}
+</pre>
+
+
+<h3 id="em"><a href="#em" class="headerlink" title="em"></a>em</h3><p>em也称倍数，是相对单位，是相对于父级的字号来设置的，浏览器默认<strong>1em=16px</strong>；或者当父级有设置font-size时，继承父级的font-size再对em的单位相乘。</p>
+<pre>
+    &ltdiv style="font-size:15px;"&gt
+        &ltspan style="font-size:2em"&gt &lt/span&gt
+    &lt/div&gt
+</pre>
+
+<p>如上，即span的font-size为2em=30px。</p>
+<h3 id="rem"><a href="#rem" class="headerlink" title="rem"></a>rem</h3><p><strong>rem=root em</strong>即根元素的font-size，也就是对整个html文档来说相对于<code>&lt;html&gt;</code>为元素设定字体大小，仍然是相对单位，只不过<code>仅相对于&lt;html&gt;</code>元素，而不会受到父级的影响。</p>
+<p><code>&lt;html&gt;默认设置最小字体为12px，当&lt;12px时，浏览器默认为12px</code></p>
+<h3 id="max-width"><a href="#max-width" class="headerlink" title="max-width"></a>max-width</h3><p>max-width设置元素的最大宽度</p>
+<h3 id="max-height"><a href="#max-height" class="headerlink" title="max-height"></a>max-height</h3><p>max-height设置元素的最大高度</p>
+<h3 id="min-width"><a href="#min-width" class="headerlink" title="min-width"></a>min-width</h3><p>min-width设置元素的最小宽度</p>
+<h3 id="min-height"><a href="#min-height" class="headerlink" title="min-height"></a>min-height</h3><p>min-height设置元素的最小宽度</p>
+<h3 id="vw"><a href="#vw" class="headerlink" title="vw"></a>vw</h3><p>vw主要是指视窗宽度，1vw=1/100视窗宽度</p>
+<h3 id="vh"><a href="#vh" class="headerlink" title="vh"></a>vh</h3><p>vh主要是指视窗高度，1vh=1/100视窗高度</p>
+<h3 id=""><a href="#" class="headerlink" title="%"></a>%</h3><p>%即指百分比，以百分比为单位的长度值是继承其父级元素的长度值。</p>
+<pre>
+ body{
+     width:1000px;
+ }
+ 其子元素
+ p{
+     width:50%;
+ }
+ 即子元素p的font-size=1000*50%=500px
+</pre>
+
+<p><strong><em><code>max-width，max-height，min-width，min-height,%，vh，vw主要用来做html文件对浏览器窗口的自适应</code></em></strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/06/23/CSS单位/" data-id="ciqxsbs7p000aa3e857xvkhdc" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-HTML简述" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/06/22/HTML简述/" class="article-date">
@@ -227,7 +298,7 @@ action=""
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/22/HTML简述/" data-id="ciqxolxbb000j4we8bmcgyglh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/22/HTML简述/" data-id="ciqxsbs84000ha3e859mdyllw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -301,7 +372,7 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/22/HEXO博客的搭建/" data-id="ciqxolxan000e4we8hyw9uhiu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/22/HEXO博客的搭建/" data-id="ciqxsbs7y000ea3e810s2lkqu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -346,7 +417,7 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/22/hello-world/" data-id="ciqxolxbr000r4we8ovkezhkr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/22/hello-world/" data-id="ciqxsbs9j000wa3e8q50rjd6g" class="article-share-link">Share</a>
       
       
     </footer>
@@ -390,6 +461,10 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
       <ul>
         
           <li>
+            <a href="/2016/07/22/JavaScript图片轮播/">JavaScript图片轮播</a>
+          </li>
+        
+          <li>
             <a href="/2016/07/22/JavaScript制作简易日历/">JavaScript制作简易日历</a>
           </li>
         
@@ -403,10 +478,6 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
         
           <li>
             <a href="/2016/07/19/JavaScript碰撞检测/">JavaScript碰撞检测</a>
-          </li>
-        
-          <li>
-            <a href="/2016/07/19/JavaScript导航滚动/">JavaScript导航滚动</a>
           </li>
         
       </ul>
