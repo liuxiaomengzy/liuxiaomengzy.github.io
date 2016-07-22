@@ -68,6 +68,306 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-JavaScript制作简易日历" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/22/JavaScript制作简易日历/" class="article-date">
+  <time datetime="2016-07-22T11:31:37.000Z" itemprop="datePublished">2016-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/22/JavaScript制作简易日历/">JavaScript制作简易日历</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>制作日历原理就是通过对Date对象和BOM对象的混合使用来完成。</p>
+<pre>
+    &lt;style&gt;
+        .divcalinder ul{
+            margin:0;
+            padding:0;
+            list-style-type:none;
+        }
+        .divcalinder{
+            width:434px;
+            margin:0 auto;
+        }
+        .calinderset{
+            text-align:center;
+        }
+        .calinderset button{
+            width:100px;
+            height:40px;
+            margin:2px;
+            font-size:20px;
+            overflow:hidden;
+        }
+        .divmessage{
+            height:30px;
+            line-height:30px;
+            font-size:20px;
+            text-align:center;
+            color:gold;
+        }
+        .ulweek{
+            text-align:center;
+            height:30px;
+            border-bottom:1px solid white;
+            overflow:hidden;
+        }
+        .ulweek li{
+            float:left;
+            color:black;
+            width:62px;
+            padding:5px 0;
+            font-size:16px;
+            color:white;
+        }
+        .ulday{
+            overflow:hidden;
+        }
+        .ulday li{
+            float:left;
+            width:58px;
+            height:58px;
+            border:1px solid aqua;
+            margin:1px;
+            text-align:center;
+            line-height:58px;
+            font-size:18px;
+            color:black;
+        }
+    &lt;/style&gt;
+    &lt;div class="divcalinder"&gt;
+        &lt;div class="calinderset"&gt;
+            &lt;button&gt;上一年&lt;/button&gt;
+            &lt;button&gt;上一月&lt;/button&gt;
+            &lt;button&gt;下一月&lt;/button&gt;
+            &lt;button&gt;下一年&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class="divmessage"&gt;&lt;/div&gt;
+        &lt;ul class="ulweek"&gt;
+            &lt;li&gt;星期日&lt;/li&gt;
+            &lt;li&gt;星期一&lt;/li&gt;
+            &lt;li&gt;星期二&lt;/li&gt;
+            &lt;li&gt;星期三&lt;/li&gt;
+            &lt;li&gt;星期四&lt;/li&gt;
+            &lt;li&gt;星期五&lt;/li&gt;
+            &lt;li&gt;星期六&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;ul class="ulday"&gt;&lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        var btns=document.querySelectorAll(".calinderset button");
+        var message=document.querySelector(".divmessage");
+        var ul=document.querySelector(".ulday");
+        var time=new Object();
+        var date1=new Date();
+        time.y=date1.getFullYear();
+        time.m=date1.getMonth();
+        var newD=date1.getDate();
+        var newM=date1.getMonth();
+        var newY=date1.getFullYear();
+        function calinder(){
+            ul.innerHTML="";
+            message.innerHTML="";
+            message.innerHTML=time.y+"年"+(time.m+1)+"月";
+            var first=new Date(time.y,time.m,1);
+            time.first=first.getDay();
+            var last=new Date(time.y,time.m+1,0);
+            time.last=last.getDate();    
+            for(var i=0;i&lt;time.first;i++){
+                var newLi=document.createElement("li");
+                newLi.style.backgroundColor="aqua";
+                ul.appendChild(newLi);
+            }
+            for(var i=1;i&lt;=time.last;i++){
+                var newLi=document.createElement("li");
+                newLi.innerText=i;
+                newLi.style.backgroundColor="lime";
+                ul.appendChild(newLi);
+                if(newD==i&&newM==time.m&&newY==time.y){
+                    newLi.style.backgroundColor="red";
+                }
+            }
+        }
+        calinder();
+        btns[1].onclick=function(){
+            time.m--;
+            if(time.m&lt;0){
+                time.m=11;
+                time.y--;
+            }
+            calinder();
+        }
+        btns[2].onclick=function(){
+            time.m++;
+            if(time.m&gt;11){
+                time.m=0;
+                time.y++;
+            }
+            calinder();
+        }
+        btns[0].onclick=function(){
+            time.y--;
+            calinder();
+        }
+        btns[3].onclick=function(){
+            time.y++;
+            calinder();
+        }
+    &lt;/script&gt;
+</pre>
+
+<pre>
+    <style>
+        .divcalinder ul{
+            margin:0;
+            padding:0;
+            list-style-type:none;
+        }
+        .divcalinder{
+            width:434px;
+            margin:0 auto;
+        }
+        .calinderset{
+            text-align:center;
+        }
+        .calinderset button{
+            width:100px;
+            height:40px;
+            margin:2px;
+            font-size:20px;
+            overflow:hidden;
+        }
+        .divmessage{
+            height:30px;
+            line-height:30px;
+            font-size:20px;
+            text-align:center;
+            color:gold;
+        }
+        .ulweek{
+            text-align:center;
+            height:30px;
+            border-bottom:1px solid white;
+            overflow:hidden;
+        }
+        .ulweek li{
+            float:left;
+            color:black;
+            width:62px;
+            padding:5px 0;
+            font-size:16px;
+            color:white;
+        }
+        .ulday{
+            overflow:hidden;
+        }
+        .ulday li{
+            float:left;
+            width:58px;
+            height:58px;
+            border:1px solid aqua;
+            margin:1px;
+            text-align:center;
+            line-height:58px;
+            font-size:18px;
+            color:black;
+        }
+    </style>
+    <div class="divcalinder">
+        <div class="calinderset"><button>上一年</button><button>上一月</button><button>下一月</button><button>下一年</button>
+        </div>
+        <div class="divmessage"></div>
+        <ul class="ulweek"><li>星期日</li><li>星期一</li><li>星期二</li><li>星期三</li><li>星期四</li><li>星期五</li><li>星期六</li>
+        </ul>
+        <ul class="ulday"></ul>
+    </div>
+    <script>
+        var btns=document.querySelectorAll(".calinderset button");
+        var message=document.querySelector(".divmessage");
+        var ul=document.querySelector(".ulday");
+        var time=new Object();
+        var date1=new Date();
+        time.y=date1.getFullYear();
+        time.m=date1.getMonth();
+        var newD=date1.getDate();
+        var newM=date1.getMonth();
+        var newY=date1.getFullYear();
+        function calinder(){
+            ul.innerHTML="";
+            message.innerHTML="";
+            message.innerHTML=time.y+"年"+(time.m+1)+"月";
+            var first=new Date(time.y,time.m,1);
+            time.first=first.getDay();
+            var last=new Date(time.y,time.m+1,0);
+            time.last=last.getDate();    
+            for(var i=0;i<time.first;i++){
+                var newLi=document.createElement("li");
+                newLi.style.backgroundColor="aqua";
+                ul.appendChild(newLi);
+            }
+            for(var i=1;i<=time.last;i++){
+                var newLi=document.createElement("li");
+                newLi.innerText=i;
+                newLi.style.backgroundColor="lime";
+                ul.appendChild(newLi);
+                if(newD==i&&newM==time.m&&newY==time.y){
+                    newLi.style.backgroundColor="red";
+                }
+            }
+        }
+        calinder();
+        btns[1].onclick=function(){
+            time.m--;
+            if(time.m<0){
+                time.m=11;
+                time.y--;
+            }
+            calinder();
+        }
+        btns[2].onclick=function(){
+            time.m++;
+            if(time.m>11){
+                time.m=0;
+                time.y++;
+            }
+            calinder();
+        }
+        btns[0].onclick=function(){
+            time.y--;
+            calinder();
+        }
+        btns[3].onclick=function(){
+            time.y++;
+            calinder();
+        }
+    </script>
+</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/07/22/JavaScript制作简易日历/" data-id="ciqxolxbc000k4we87p5o0hoe" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-JavaScriptDOM文档对象类型" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/07/21/JavaScriptDOM文档对象类型/" class="article-date">
@@ -90,12 +390,134 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>DOM文档对象类型</p>
+        <h3 id="DOM文档对象类型"><a href="#DOM文档对象类型" class="headerlink" title="DOM文档对象类型"></a>DOM文档对象类型</h3><p><strong>childNodes</strong>子节点，获取所有的文本和子元素</p>
+<p><strong>children</strong>子元素</p>
+<p><strong>parentNode</strong>父节点</p>
+<p><strong>nextElementSibling</strong>同级的下一个子元素</p>
+<p><strong>previousElementSibling</strong>同级的上一个子元素</p>
+<p><strong>nextSibling</strong>同级的下一个节点</p>
+<p><strong>previousSibling</strong>同级的上一个节点</p>
+<pre>
+    console.log(uls.childNodes);
 
+    console.log(uls.children);
+
+    console.log(uls.parentNode);
+
+    console.log(lis[1].nextElementSibling);
+
+    console.log(lis[1].previousElementSibling);
+
+    console.log(lis[1].nextSibling);
+
+    console.log(lis[1].previousSinling);
+</pre>
+
+<p><strong>createElement</strong>创建元素</p>
+<p><strong>appendChild</strong>插入元素</p>
+<p>如果插入的元素原文档里没有，那就是直接插入；如果有，那就是把要插入的元素从原位置移动到被插入元素的最后面。</p>
+<p><strong>removeChild</strong>删除子元素</p>
+<p><strong>insertBefore(ele1,ele2)</strong>在ele2前插入</p>
+<p>ele1要插入的元素，如果原先在文档里有此元素，那么就是调换位置，如果没有，那就是插入</p>
+<p>ele2插入在谁前面</p>
+<p><strong>hasChildNodes</strong>检查元素是否有子节点</p>
+<p><strong>replaceChild(ele1,ele2)</strong>替换元素</p>
+<p>ele1替换的元素，如果原先在文档里有此元素，那么对ele1来说就是换个位置</p>
+<p>ele2被替换的元素，替换后被删除</p>
+<pre>
+    var newDiv=document.createElement("div");
+
+    uls.appendChild(newDiv);
+
+    uls.removeChild(lis[2]);
+
+    uls.insertBefore(newDiv,lis[0]);
+
+    console.log(uls.hasChildNodes());//返回布尔值
+
+    uls.replaceChild(newDiv,lis[1]);
+</pre>
+
+<p><strong>getAttribute</strong>获取元素的属性值</p>
+<p><strong>setAttribute</strong>更改原有属性的属性值/创建新的属性</p>
+<p>setAttribute假如元素有该属性，则为更改原有属性的属性值</p>
+<p>setAttribute假如元素无该属性，则为创建新的属性</p>
+<p><strong>removeAttribute</strong>删除属性</p>
+<p><strong>hasAttribute</strong>检查是否有此属性</p>
+<p><strong>cloneNode()</strong>复制元素</p>
+<p>cloneNode(true)复制整个元素，包括子节点</p>
+<p>cloneNode(false)复制元素本身，不包括子节点</p>
+<p>cloneNode接收的参数默认为false，<code>只能复制元素或节点，不能复制事件</code>，也就证明了复制的元素和原元素不全等</p>
+<pre>
+    &lt;div class="imdiv" index="5"&gt;&lt;/div&gt;
+
+    var imdiv=document.querySelector(".imdiv");
+
+    console.log(imdiv.getAttribute("index"));
+
+    imdiv.setAttribute("index",90);//改变原有属性值
+
+    imdiv.setAttribute("width",100);//创建新的属性
+
+    imdiv.removeAttribute("index");
+
+    console.log(imdiv.hasAttribute("index"));//返回布尔值
+
+    var newDiv=imdiv.cloneNode(true);
+
+    document.body.appendChild(newDiv);
+</pre>
+
+<p>BOM简易应用：</p>
+<pre>
+    &lt;button class="bombtn"&gt;增加一个li&lt;/button&gt;
+    &lt;ul class="bomul"&gt;&lt;/ul&gt;
+    &lt;script&gt;
+        var btn=document.querySelector(".bombtn");
+        var ul=document.querySelector(".bomul");
+        var sum=1;
+        btn.onclick=function(){
+            var newLi=document.createElement("li");
+            newLi.innerHTML="我是第"+sum+"个li";
+            sum++;
+            var newSpan=document.createElement("span");
+            newSpan.innerHTML="删除";
+            newSpan.style.color="blue";
+            newLi.appendChild(newSpan);
+            ul.appendChild(newLi);
+            newSpan.onclick=function(){
+                this.parentNode.parentNode.removeChild(this.parentNode);
+            }
+        }
+    &lt;/script&gt;
+</pre>
+
+<pre>
+    <button class="bombtn">增加一个li</button>
+    <ul class="bomul"></ul>
+    <script>
+        var btn=document.querySelector(".bombtn");
+        var ul=document.querySelector(".bomul");
+        var sum=1;
+        btn.onclick=function(){
+            var newLi=document.createElement("li");
+            newLi.innerHTML="我是第"+sum+"个li";
+            sum++;
+            var newSpan=document.createElement("span");
+            newSpan.innerHTML="删除";
+            newSpan.style.color="blue";
+            newLi.appendChild(newSpan);
+            ul.appendChild(newLi);
+            newSpan.onclick=function(){
+                this.parentNode.parentNode.removeChild(this.parentNode);
+            }
+        }
+    </script>
+</pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/21/JavaScriptDOM文档对象类型/" data-id="ciqwgr38v000lpoe83odqr5d0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/21/JavaScriptDOM文档对象类型/" data-id="ciqxolxas000h4we8ts5bqhoh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -261,7 +683,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/21/JavaScript闭包、Object对象/" data-id="ciqwgr398000tpoe85xie7phn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/21/JavaScript闭包、Object对象/" data-id="ciqxolxbv000t4we80qalw78m" class="article-share-link">Share</a>
       
       
     </footer>
@@ -585,7 +1007,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/19/JavaScript碰撞检测/" data-id="ciqwgr392000rpoe8urlm89jw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/19/JavaScript碰撞检测/" data-id="ciqxolxbu000s4we8s5i7ypzs" class="article-share-link">Share</a>
       
       
     </footer>
@@ -743,7 +1165,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/19/JavaScript导航滚动/" data-id="ciqwgr38y000opoe8azk11mmz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/19/JavaScript导航滚动/" data-id="ciqxolxbn000p4we8adpe23vn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -975,7 +1397,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/16/JavaScript字符串对象、日期对象、定时器/" data-id="ciqwgr38w000mpoe831ja2oyr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/16/JavaScript字符串对象、日期对象、定时器/" data-id="ciqxolxbj000o4we87bc3p526" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1167,7 +1589,7 @@ function functionname(参数列表){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/16/JavaScript函数、Math对象、数组/" data-id="ciqwgr38u000kpoe8ma33gqae" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/16/JavaScript函数、Math对象、数组/" data-id="ciqxolxbf000m4we81dmlc4nz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1303,7 +1725,7 @@ function functionname(参数列表){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/14/JavaScript全选反选/" data-id="ciqwgr38t000jpoe8c5yx4qp8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/14/JavaScript全选反选/" data-id="ciqxolxbe000l4we8qjoc9abi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1498,7 +1920,7 @@ function functionname(参数列表){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/14/JavaScript显示隐藏及Tab切换/" data-id="ciqwgr390000qpoe88b07xy11" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/14/JavaScript显示隐藏及Tab切换/" data-id="ciqxolxcg000w4we8hjqjot7j" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1586,161 +2008,7 @@ function functionname(参数列表){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/14/JavaScript数据类型转换和输出/" data-id="ciqwgr38z000ppoe8swghoson" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-If...Else、Switch、For循环、While循环" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/07/13/If...Else、Switch、For循环、While循环/" class="article-date">
-  <time datetime="2016-07-13T06:08:54.000Z" itemprop="datePublished">2016-07-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/13/If...Else、Switch、For循环、While循环/">If...Else、Switch、For循环、While循环</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="JavaScript-If…Else语句"><a href="#JavaScript-If…Else语句" class="headerlink" title="JavaScript If…Else语句"></a>JavaScript If…Else语句</h3><p><strong>条件语句用于基于不同的条件来执行不同的动作。</strong></p>
-<p><code>if...else</code></p>
-<p>1.<code>if语句</code>——只有当指定条件为true时，使用该语句来执行代码</p>
-<p>语法：</p>
-<pre>
-    if(条件){
-        只有当条件为true时执行的代码
-    }
-</pre>
-
-
-<p>2.<code>if...else语句</code>——当条件为true时执行代码，当条件为false时执行其他代码</p>
-<p>语法：</p>
-<pre>
-    if(条件){
-        当条件为true时执行的代码
-    }else{
-        当条件不为true时执行的代码
-    }
-</pre>
-
-<p>3.<code>if...else if...else语句</code>——使用该语句来选择多个代码块之一来执行</p>
-<p>语法：</p>
-<pre>
-    if(条件 1){
-        当条件 1 为true时执行的代码
-    }else if(条件 2){
-        当条件 2 为true时执行的代码
-    }else{
-        当条件 1 和条件 2 都不为true时执行的代码
-    }
-</pre>
-
-<h3 id="JavaScript-Switch语句"><a href="#JavaScript-Switch语句" class="headerlink" title="JavaScript Switch语句"></a>JavaScript Switch语句</h3><p><strong>选择语句switch语句用于基于不同的条件来执行不同的动作</strong></p>
-<p>语法：</p>
-<pre>
-    switch(n){
-        case 1:
-            执行代码块 1;
-            break;
-        case 2:
-            执行代码块 2;
-            break;
-        default:
-            n与case 1 和 case 2 不同时执行的代码;
-    }
-</pre>
-
-<p>原理：首先设置表达式n（通常是一个变量）。随后表达式的值会与结构中的每个case作比较。如果存在匹配，则与该case关联的代码块会被执行。</p>
-<p>break 用来阻止代码自动地向下一个case运行（否则执行完一个case会继续执行下一个case）；default用来规定匹配不存在时做的事情。<strong>每个case后一定要加break；default相当于else</strong></p>
-<h3 id="JavaScript-For循环"><a href="#JavaScript-For循环" class="headerlink" title="JavaScript For循环"></a>JavaScript For循环</h3><p><strong>循环可以将代码块执行指定的次数</strong>，主要用于数量方面有一定范围限制，为多个类似或同一类型的标签添加同样的或有规律可循的动作。</p>
-<p>语法：</p>
-<pre>
-    for(表达式1;判断表达式2;表达式3){
-        被执行的代码块
-    }
-</pre>
-
-<p>表达式 1 在循环开始前执行；判断表达式 2 定义运行循环的条件；表达式 3 在循环已被执行后执行 </p>
-<p>(1)表达式1用来初始化所用的变量，可以初始化一个（或多个）值，它是<code>可选的</code></p>
-<pre>
-    for(var i=0,len=cars.length;i&lt;len;i++){
-        alert(i);
-    }
-</pre>
-
-<p>(2)表达式2用于评估初始变量的条件，它也是<code>可选的</code>；如果表达式2返回true，则循环再次开始，如果返回false，则循环将结束</p>
-<p><strong>如果省略表达式2，必须在循环内提供break，否则循环无法停止，可能造成浏览器崩溃</strong></p>
-<p>(3)表达式3会增加初始变量的值。增量可以是负数（i- -）或者更大（i=i+8）它也是<code>可选的</code></p>
-<h3 id="JavaScript-While循环"><a href="#JavaScript-While循环" class="headerlink" title="JavaScript While循环"></a>JavaScript While循环</h3><p><strong>只要指定条件为true，循环就可以一直执行代码，可能导致浏览器崩溃</strong></p>
-<h5 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h5><p>语法：</p>
-<pre>
-    while(){
-        需要执行的代码
-    }
-</pre>
-
-<h5 id="do-while循环"><a href="#do-while循环" class="headerlink" title="do/while循环"></a>do/while循环</h5><p>do/while循环是while循环的变体。该循环会在检查条件是否为真之前执行一次代码块，然后如果条件为真的话，就会重复这个循环</p>
-<p>语法：</p>
-<pre>
-    do{
-        需要执行的代码
-    }
-    while(条件)        
-</pre>
-
-<h3 id="JavaScript-Break和Continue语句"><a href="#JavaScript-Break和Continue语句" class="headerlink" title="JavaScript Break和Continue语句"></a>JavaScript Break和Continue语句</h3><h5 id="break语句"><a href="#break语句" class="headerlink" title="break语句"></a>break语句</h5><p><code>break语句用于跳出循环</code>。break语句跳出循环后，会继续执行该循环之后的代码（如果有）。</p>
-<h5 id="continue语句"><a href="#continue语句" class="headerlink" title="continue语句"></a>continue语句</h5><p><code>continue语句用于跳过循环中的一个迭代</code>。continue语句中断循环中的迭代，如果出现了指定条件，然后继续循环中的下一个迭代。</p>
-<h3 id="JavaScript常用事件"><a href="#JavaScript常用事件" class="headerlink" title="JavaScript常用事件"></a>JavaScript常用事件</h3><pre>
-onblur                元素失去焦点
-
-onchange            用户改变域的内容
-
-onclick                鼠标单击某个对象
-
-ondblclick            鼠标双击某个对象
-
-onerror                当加载文档或图像时发生某个错误
-
-onfocus                元素获得焦点
-
-onkeydown            某个键盘的键被按下
-
-onkeypress            某个键盘的键被按下或按住
-
-onkeyup                某个键盘的键被松开
-
-onload                某个页面或者图像被完成加载
-
-onmousedown            某个鼠标按键被按下
-
-onmousemove            鼠标被移动
-
-onmouseout            鼠标从某个元素移开
-
-onmouseover            鼠标被移到某个元素之上
-
-onmouseup            某个鼠标按键被松开
-</pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/13/If...Else、Switch、For循环、While循环/" data-id="ciqwgr38p000ipoe8ibyyi3wb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/14/JavaScript数据类型转换和输出/" data-id="ciqxolxbp000q4we8p6afb09b" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1784,6 +2052,10 @@ onmouseup            某个鼠标按键被松开
       <ul>
         
           <li>
+            <a href="/2016/07/22/JavaScript制作简易日历/">JavaScript制作简易日历</a>
+          </li>
+        
+          <li>
             <a href="/2016/07/21/JavaScriptDOM文档对象类型/">JavaScriptDOM文档对象类型</a>
           </li>
         
@@ -1797,10 +2069,6 @@ onmouseup            某个鼠标按键被松开
         
           <li>
             <a href="/2016/07/19/JavaScript导航滚动/">JavaScript导航滚动</a>
-          </li>
-        
-          <li>
-            <a href="/2016/07/16/JavaScript字符串对象、日期对象、定时器/">JavaScript字符串对象、日期对象、定时器</a>
           </li>
         
       </ul>

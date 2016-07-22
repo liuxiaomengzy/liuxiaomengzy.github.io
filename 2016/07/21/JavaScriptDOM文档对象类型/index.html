@@ -5,16 +5,40 @@
   
   <title>JavaScriptDOM文档对象类型 | 紫--小梦</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="DOM文档对象类型">
+  <meta name="description" content="DOM文档对象类型childNodes子节点，获取所有的文本和子元素
+children子元素
+parentNode父节点
+nextElementSibling同级的下一个子元素
+previousElementSibling同级的上一个子元素
+nextSibling同级的下一个节点
+previousSibling同级的上一个节点
+
+    console.log(uls.childNodes);">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScriptDOM文档对象类型">
 <meta property="og:url" content="http://yoursite.com/2016/07/21/JavaScriptDOM文档对象类型/index.html">
 <meta property="og:site_name" content="紫--小梦">
-<meta property="og:description" content="DOM文档对象类型">
-<meta property="og:updated_time" content="2016-07-21T15:05:09.000Z">
+<meta property="og:description" content="DOM文档对象类型childNodes子节点，获取所有的文本和子元素
+children子元素
+parentNode父节点
+nextElementSibling同级的下一个子元素
+previousElementSibling同级的上一个子元素
+nextSibling同级的下一个节点
+previousSibling同级的上一个节点
+
+    console.log(uls.childNodes);">
+<meta property="og:updated_time" content="2016-07-22T11:29:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScriptDOM文档对象类型">
-<meta name="twitter:description" content="DOM文档对象类型">
+<meta name="twitter:description" content="DOM文档对象类型childNodes子节点，获取所有的文本和子元素
+children子元素
+parentNode父节点
+nextElementSibling同级的下一个子元素
+previousElementSibling同级的上一个子元素
+nextSibling同级的下一个节点
+previousSibling同级的上一个节点
+
+    console.log(uls.childNodes);">
   
     <link rel="alternate" href="/atom.xml" title="紫--小梦" type="application/atom+xml">
   
@@ -89,12 +113,134 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>DOM文档对象类型</p>
+        <h3 id="DOM文档对象类型"><a href="#DOM文档对象类型" class="headerlink" title="DOM文档对象类型"></a>DOM文档对象类型</h3><p><strong>childNodes</strong>子节点，获取所有的文本和子元素</p>
+<p><strong>children</strong>子元素</p>
+<p><strong>parentNode</strong>父节点</p>
+<p><strong>nextElementSibling</strong>同级的下一个子元素</p>
+<p><strong>previousElementSibling</strong>同级的上一个子元素</p>
+<p><strong>nextSibling</strong>同级的下一个节点</p>
+<p><strong>previousSibling</strong>同级的上一个节点</p>
+<pre>
+    console.log(uls.childNodes);
 
+    console.log(uls.children);
+
+    console.log(uls.parentNode);
+
+    console.log(lis[1].nextElementSibling);
+
+    console.log(lis[1].previousElementSibling);
+
+    console.log(lis[1].nextSibling);
+
+    console.log(lis[1].previousSinling);
+</pre>
+
+<p><strong>createElement</strong>创建元素</p>
+<p><strong>appendChild</strong>插入元素</p>
+<p>如果插入的元素原文档里没有，那就是直接插入；如果有，那就是把要插入的元素从原位置移动到被插入元素的最后面。</p>
+<p><strong>removeChild</strong>删除子元素</p>
+<p><strong>insertBefore(ele1,ele2)</strong>在ele2前插入</p>
+<p>ele1要插入的元素，如果原先在文档里有此元素，那么就是调换位置，如果没有，那就是插入</p>
+<p>ele2插入在谁前面</p>
+<p><strong>hasChildNodes</strong>检查元素是否有子节点</p>
+<p><strong>replaceChild(ele1,ele2)</strong>替换元素</p>
+<p>ele1替换的元素，如果原先在文档里有此元素，那么对ele1来说就是换个位置</p>
+<p>ele2被替换的元素，替换后被删除</p>
+<pre>
+    var newDiv=document.createElement("div");
+
+    uls.appendChild(newDiv);
+
+    uls.removeChild(lis[2]);
+
+    uls.insertBefore(newDiv,lis[0]);
+
+    console.log(uls.hasChildNodes());//返回布尔值
+
+    uls.replaceChild(newDiv,lis[1]);
+</pre>
+
+<p><strong>getAttribute</strong>获取元素的属性值</p>
+<p><strong>setAttribute</strong>更改原有属性的属性值/创建新的属性</p>
+<p>setAttribute假如元素有该属性，则为更改原有属性的属性值</p>
+<p>setAttribute假如元素无该属性，则为创建新的属性</p>
+<p><strong>removeAttribute</strong>删除属性</p>
+<p><strong>hasAttribute</strong>检查是否有此属性</p>
+<p><strong>cloneNode()</strong>复制元素</p>
+<p>cloneNode(true)复制整个元素，包括子节点</p>
+<p>cloneNode(false)复制元素本身，不包括子节点</p>
+<p>cloneNode接收的参数默认为false，<code>只能复制元素或节点，不能复制事件</code>，也就证明了复制的元素和原元素不全等</p>
+<pre>
+    &lt;div class="imdiv" index="5"&gt;&lt;/div&gt;
+
+    var imdiv=document.querySelector(".imdiv");
+
+    console.log(imdiv.getAttribute("index"));
+
+    imdiv.setAttribute("index",90);//改变原有属性值
+
+    imdiv.setAttribute("width",100);//创建新的属性
+
+    imdiv.removeAttribute("index");
+
+    console.log(imdiv.hasAttribute("index"));//返回布尔值
+
+    var newDiv=imdiv.cloneNode(true);
+
+    document.body.appendChild(newDiv);
+</pre>
+
+<p>BOM简易应用：</p>
+<pre>
+    &lt;button class="bombtn"&gt;增加一个li&lt;/button&gt;
+    &lt;ul class="bomul"&gt;&lt;/ul&gt;
+    &lt;script&gt;
+        var btn=document.querySelector(".bombtn");
+        var ul=document.querySelector(".bomul");
+        var sum=1;
+        btn.onclick=function(){
+            var newLi=document.createElement("li");
+            newLi.innerHTML="我是第"+sum+"个li";
+            sum++;
+            var newSpan=document.createElement("span");
+            newSpan.innerHTML="删除";
+            newSpan.style.color="blue";
+            newLi.appendChild(newSpan);
+            ul.appendChild(newLi);
+            newSpan.onclick=function(){
+                this.parentNode.parentNode.removeChild(this.parentNode);
+            }
+        }
+    &lt;/script&gt;
+</pre>
+
+<pre>
+    <button class="bombtn">增加一个li</button>
+    <ul class="bomul"></ul>
+    <script>
+        var btn=document.querySelector(".bombtn");
+        var ul=document.querySelector(".bomul");
+        var sum=1;
+        btn.onclick=function(){
+            var newLi=document.createElement("li");
+            newLi.innerHTML="我是第"+sum+"个li";
+            sum++;
+            var newSpan=document.createElement("span");
+            newSpan.innerHTML="删除";
+            newSpan.style.color="blue";
+            newLi.appendChild(newSpan);
+            ul.appendChild(newLi);
+            newSpan.onclick=function(){
+                this.parentNode.parentNode.removeChild(this.parentNode);
+            }
+        }
+    </script>
+</pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/21/JavaScriptDOM文档对象类型/" data-id="ciqwgr38v000lpoe83odqr5d0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/21/JavaScriptDOM文档对象类型/" data-id="ciqxolxas000h4we8ts5bqhoh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -102,6 +248,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2016/07/22/JavaScript制作简易日历/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JavaScript制作简易日历
+        
+      </div>
+    </a>
   
   
     <a href="/2016/07/21/JavaScript闭包、Object对象/" id="article-nav-older" class="article-nav-link-wrap">
@@ -143,6 +298,10 @@
       <ul>
         
           <li>
+            <a href="/2016/07/22/JavaScript制作简易日历/">JavaScript制作简易日历</a>
+          </li>
+        
+          <li>
             <a href="/2016/07/21/JavaScriptDOM文档对象类型/">JavaScriptDOM文档对象类型</a>
           </li>
         
@@ -156,10 +315,6 @@
         
           <li>
             <a href="/2016/07/19/JavaScript导航滚动/">JavaScript导航滚动</a>
-          </li>
-        
-          <li>
-            <a href="/2016/07/16/JavaScript字符串对象、日期对象、定时器/">JavaScript字符串对象、日期对象、定时器</a>
           </li>
         
       </ul>
