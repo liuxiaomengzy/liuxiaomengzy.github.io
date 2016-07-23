@@ -35,7 +35,7 @@
 <meta property="og:image" content="http://www.dianmeng.com/moban/tupian/200808/2008080611515139.jpg">
 <meta property="og:image" content="http://www.jiujiuba.com/xxpict2/picnews/7132249442.jpg">
 <meta property="og:image" content="http://pic.putaojiayuan.com/uploadfile/tuku/KaTongChaHua/12190515346673.jpg">
-<meta property="og:updated_time" content="2016-07-22T15:06:18.000Z">
+<meta property="og:updated_time" content="2016-07-23T01:19:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript图片轮播">
 <meta name="twitter:description" content="&amp;lt;style&amp;gt;
@@ -225,6 +225,18 @@
         div.onmouseout=function(){
             timing();
         }
+        last.onmouseover=function(){
+            clearInterval(timer);
+        }
+        next.onmouseover=function(){
+            clearInterval(timer);
+        }
+        last.onmouseout=function(){
+            timing();
+        }
+        next.onmouseout=function(){
+            timing();
+        }
         //点击切换上一个
         lastMove();
         function lastMove(){
@@ -272,7 +284,7 @@
                 div.style.left=-(thisIndex+1)*100+"%";
                 setTimeout(function(){
                     div.style.transitionDuration="0.5s";
-                })
+                },30)
             },500)
         }
     &lt;/script&gt;
@@ -324,7 +336,7 @@
             font-size:30px;
             position:absolute;
             top:50%;
-            transform:translateY(-20px);
+            transform:translateY(-50%);
         }
         .imgocbtn1{
             left:0;
@@ -368,6 +380,18 @@
             clearInterval(timer);
         }
         div.onmouseout=function(){
+            timing();
+        }
+        last.onmouseover=function(){
+            clearInterval(timer);
+        }
+        next.onmouseover=function(){
+            clearInterval(timer);
+        }
+        last.onmouseout=function(){
+            timing();
+        }
+        next.onmouseout=function(){
             timing();
         }
         //点击切换上一个
@@ -417,7 +441,7 @@
                 div.style.left=-(thisIndex+1)*100+"%";
                 setTimeout(function(){
                     div.style.transitionDuration="0.5s";
-                })
+                },30)
             },500)
         }
     </script>
@@ -425,7 +449,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/22/JavaScript图片轮播/" data-id="ciqxsbs8h000na3e8bdc3qqwd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/22/JavaScript图片轮播/" data-id="ciqygz1r8000kgre8mrzws9mm" class="article-share-link">Share</a>
       
       
     </footer>

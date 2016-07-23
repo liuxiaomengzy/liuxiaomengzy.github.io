@@ -192,6 +192,18 @@
         div.onmouseout=function(){
             timing();
         }
+        last.onmouseover=function(){
+            clearInterval(timer);
+        }
+        next.onmouseover=function(){
+            clearInterval(timer);
+        }
+        last.onmouseout=function(){
+            timing();
+        }
+        next.onmouseout=function(){
+            timing();
+        }
         //点击切换上一个
         lastMove();
         function lastMove(){
@@ -239,7 +251,7 @@
                 div.style.left=-(thisIndex+1)*100+"%";
                 setTimeout(function(){
                     div.style.transitionDuration="0.5s";
-                })
+                },30)
             },500)
         }
     &lt;/script&gt;
@@ -291,7 +303,7 @@
             font-size:30px;
             position:absolute;
             top:50%;
-            transform:translateY(-20px);
+            transform:translateY(-50%);
         }
         .imgocbtn1{
             left:0;
@@ -335,6 +347,18 @@
             clearInterval(timer);
         }
         div.onmouseout=function(){
+            timing();
+        }
+        last.onmouseover=function(){
+            clearInterval(timer);
+        }
+        next.onmouseover=function(){
+            clearInterval(timer);
+        }
+        last.onmouseout=function(){
+            timing();
+        }
+        next.onmouseout=function(){
             timing();
         }
         //点击切换上一个
@@ -384,7 +408,7 @@
                 div.style.left=-(thisIndex+1)*100+"%";
                 setTimeout(function(){
                     div.style.transitionDuration="0.5s";
-                })
+                },30)
             },500)
         }
     </script>
@@ -392,7 +416,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/22/JavaScript图片轮播/" data-id="ciqxsbs8h000na3e8bdc3qqwd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/22/JavaScript图片轮播/" data-id="ciqygz1r8000kgre8mrzws9mm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -695,7 +719,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/22/JavaScript制作简易日历/" data-id="ciqxsbs8f000ma3e8iphcfdux" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/22/JavaScript制作简易日历/" data-id="ciqygz1r9000lgre8d74avkqz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -854,7 +878,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/21/JavaScriptDOM文档对象类型/" data-id="ciqxsbs8a000ja3e84vlw9dmw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/21/JavaScriptDOM文档对象类型/" data-id="ciqygz1rg000qgre87m4eln7v" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1020,7 +1044,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/21/JavaScript闭包、Object对象/" data-id="ciqxsbs9g000ua3e8lb02myod" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/21/JavaScript闭包、Object对象/" data-id="ciqygz1ro000ugre8betecugk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1344,7 +1368,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/19/JavaScript碰撞检测/" data-id="ciqxsbs8z000sa3e8w1qajvs1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/19/JavaScript碰撞检测/" data-id="ciqygz1rk000sgre8y0qhqkfq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1502,7 +1526,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/19/JavaScript导航滚动/" data-id="ciqxsbs8m000qa3e8coti91mc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/19/JavaScript导航滚动/" data-id="ciqygz1ru000xgre8ivzpyzbm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1734,7 +1758,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/16/JavaScript字符串对象、日期对象、定时器/" data-id="ciqxsbs8l000pa3e8jxdz9h3f" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/16/JavaScript字符串对象、日期对象、定时器/" data-id="ciqygz1rb000mgre8lb72d5cl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1926,7 +1950,7 @@ function functionname(参数列表){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/16/JavaScript函数、Math对象、数组/" data-id="ciqxsbs8e000la3e8ic12a7f1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/16/JavaScript函数、Math对象、数组/" data-id="ciqygz1r7000jgre8wos3datl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -2062,7 +2086,7 @@ function functionname(参数列表){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/14/JavaScript全选反选/" data-id="ciqxsbs8c000ka3e83bh91p7u" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/14/JavaScript全选反选/" data-id="ciqygz1rc000ngre8c6w2qyw0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -2257,7 +2281,7 @@ function functionname(参数列表){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/14/JavaScript显示隐藏及Tab切换/" data-id="ciqxsbs9a000ta3e82f9jyotn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/14/JavaScript显示隐藏及Tab切换/" data-id="ciqygz1ri000rgre8gam7xhq3" class="article-share-link">Share</a>
       
       
     </footer>
