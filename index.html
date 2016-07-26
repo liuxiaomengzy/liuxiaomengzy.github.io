@@ -68,6 +68,78 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-JavaScriptDOM元素对象" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/26/JavaScriptDOM元素对象/" class="article-date">
+  <time datetime="2016-07-26T11:56:41.000Z" itemprop="datePublished">2016-07-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/26/JavaScriptDOM元素对象/">JavaScriptDOM元素对象</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在HTML DOM中，元素对象代表着一个HTML元素。</p>
+<h3 id="DOM元素对象类型主要有："><a href="#DOM元素对象类型主要有：" class="headerlink" title="DOM元素对象类型主要有："></a>DOM元素对象类型主要有：</h3><p><strong>client</strong></p>
+<p><strong>clientLeft</strong>左边框border-left-width</p>
+<p><strong>clientTop</strong>上边框border-tp-width</p>
+<p><strong>clientHeight</strong>可视区的高度paddingTop+height+paddingBottom</p>
+<p><strong>clientWidth</strong>可视区的宽度paddingLeft+width+PaddingRight</p>
+<p><strong>offset</strong></p>
+<p><strong>offsetWidth</strong>盒模型的宽borderLeft+paddingLeft+width+paddingRight+borderRight</p>
+<p><strong>offsetHeight</strong>盒模型的高borderTop+paddingTop+height+paddingBottom+borderBottom</p>
+<p><strong>offsetParent</strong>定位父级，离元素最近的设置了position属性的父元素（若无则为body）</p>
+<p><strong>offsetLeft</strong>到定位父级左边框borderLeft的距离</p>
+<p><strong>offsetTop</strong>到定位父级上边框borderTop的距离</p>
+<p><strong>scroll</strong></p>
+<p><strong>scrollTop</strong>滚动条向上滚动的距离（滚动条滚动到可视区上面的距离）</p>
+<p><strong>scrollLeft</strong>滚动条向左滚动的距离（滚动条超出可视区左边的宽度）</p>
+<p><strong>scrollHeight</strong>滚动条的高度paddingTop+height(内容高度)+paddingBottom，最小值为clientHeight。</p>
+<p><strong>scrollWidth</strong>滚动条的宽度paddingLeft+width+paddingRight，最小值为clientWidth。</p>
+<h3 id="DOM浏览器兼容问题"><a href="#DOM浏览器兼容问题" class="headerlink" title="DOM浏览器兼容问题"></a>DOM浏览器兼容问题</h3><p>主要兼容问题元素对象为scrollHeight、scrollTop和clientHeight，可通过三元运算来选择不同的设置来兼容不同浏览器。<code>保险起见，可以都设置三元运算来避免浏览器兼容问题</code></p>
+<p>例如：<code>scrollTop=document.body.scrollTop?document.body.scrollTop:document.documentElement.scrollTop;</code></p>
+<p><strong>注意：浏览器可视区的宽高只能使用<code>document.documentElement.clientWidth</code>和<code>document.documentElement.clientHeight</code>来表示</strong></p>
+<h3 id="offsetLeft、offsetTop值的获取"><a href="#offsetLeft、offsetTop值的获取" class="headerlink" title="offsetLeft、offsetTop值的获取"></a>offsetLeft、offsetTop值的获取</h3><pre>
+    function offset(obj){
+        var offset={};
+        offset.left=obj.offsetLeft;
+        offset.top=obj.offsetTop;
+        while(obj.offsetParent){
+            obj=obj.offsetParent;
+            offset.left+=(obj.offsetLeft+obj.clientLeft);
+            offset.top+=(obj.offsetTop+obj.clientTop);
+        }
+        return offset;
+    }
+</pre>
+
+<h3 id="onscroll事件"><a href="#onscroll事件" class="headerlink" title="onscroll事件"></a>onscroll事件</h3><p>onscroll事件在元素滚动条滚动时触发。</p>
+<p><code>object.onscroll=function(){myScript};</code></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/07/26/JavaScriptDOM元素对象/" data-id="cir3hspge000je9e8607t0o0w" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-JavaScript瀑布流" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/07/23/JavaScript瀑布流/" class="article-date">
@@ -307,7 +379,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/23/JavaScript瀑布流/" data-id="cir34zq1i000rwde8qysjinub" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/23/JavaScript瀑布流/" data-id="cir3hspgv000te9e8vfke7z13" class="article-share-link">Share</a>
       
       
     </footer>
@@ -665,7 +737,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/22/JavaScript图片轮播/" data-id="cir34zq1b000lwde8bhk1h62y" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/22/JavaScript图片轮播/" data-id="cir3hspgl000ne9e8bs40a1lf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -968,7 +1040,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/22/JavaScript制作简易日历/" data-id="cir34zq1c000mwde8u56m4bcu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/22/JavaScript制作简易日历/" data-id="cir3hspgj000me9e8age6ikvd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1127,7 +1199,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/21/JavaScriptDOM文档对象类型/" data-id="cir34zq0r000gwde89uo10wn9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/21/JavaScriptDOM文档对象类型/" data-id="cir3hsphh000ze9e8n734ta3w" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1293,7 +1365,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/21/JavaScript闭包、Object对象/" data-id="cir34zq1v000ywde8c2c7elix" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/21/JavaScript闭包、Object对象/" data-id="cir3hspgy000ve9e85tl3ta4l" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1617,7 +1689,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/19/JavaScript碰撞检测/" data-id="cir34zq1o000uwde8h8jd3r49" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/19/JavaScript碰撞检测/" data-id="cir3hspgw000ue9e89u9khkx5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1775,7 +1847,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/19/JavaScript导航滚动/" data-id="cir34zq1e000owde8hheo8cue" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/19/JavaScript导航滚动/" data-id="cir3hspgo000qe9e8bm3vr82o" class="article-share-link">Share</a>
       
       
     </footer>
@@ -2007,7 +2079,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/16/JavaScript字符串对象、日期对象、定时器/" data-id="cir34zq1d000nwde8jhnuf7p3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/16/JavaScript字符串对象、日期对象、定时器/" data-id="cir3hspgn000pe9e8m0rixap9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -2199,143 +2271,7 @@ function functionname(参数列表){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/16/JavaScript函数、Math对象、数组/" data-id="cir34zq18000jwde82j7zva4u" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-JavaScript全选反选" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/07/14/JavaScript全选反选/" class="article-date">
-  <time datetime="2016-07-14T11:49:03.000Z" itemprop="datePublished">2016-07-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/14/JavaScript全选反选/">JavaScript全选反选</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="input的checked属性"><a href="#input的checked属性" class="headerlink" title="input的checked属性"></a>input的checked属性</h3><p>通过点击切换按钮，实现选框的选中/取消选中效果。主要用于购物车等。</p>
-<pre>
-    &lt;style&gt;
-        ul.inputul{
-            list-style-type:none;
-        }
-    &lt;/style&gt;
-    &lt;input type="button" id="inputall" value="全选" />&lt;input type="button" id="inputnotall" value="反选" />&lt;input type="checkbox" id="inputspecial" /&gt;
-    &lt;ul class="inputul"&gt;
-        &lt;li&gt;&lt;span&gt;&lt;/span&gt;&lt;input type="checkbox"&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;span&gt;&lt;/span&gt;&lt;input type="checkbox"&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;span&gt;&lt;/span&gt;&lt;input type="checkbox"&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;span&gt;&lt;/span&gt;&lt;input type="checkbox"&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;span&gt;&lt;/span&gt;&lt;input type="checkbox"&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;span&gt;&lt;/span&gt;&lt;input type="checkbox"&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-    &lt;script&gt;
-        var spans=document.querySelectorAll(".inputul span");
-        var all=document.querySelector("#inputall");
-        var notall=document.querySelector("#inputnotall");
-        var inputcheck=document.querySelectorAll(".inputul input");
-        var special=document.querySelector("#inputspecial");
-
-        for(var i=0;i&lt;spans.length;i++){
-            spans[i].innerHTML=i+1+".";
-        }
-        all.onclick=function(){
-            for(var i=0;i&lt;inputcheck.length;i++){
-                inputcheck[i].checked=true;
-            }            
-            special.checked=true;
-        }
-        notall.onclick=function(){
-            var sum=0;
-            for(var i=0;i&lt;inputcheck.length;i++){
-                inputcheck[i].checked=!inputcheck[i].checked;
-            }
-            for(var i=0;i&lt;inputcheck.length;i++){
-                if(inputcheck[i].checked==false){
-                    break;
-                }
-                sum++;
-            }
-            if(sum==inputcheck.length){
-                special.checked=true;
-            }else{
-                special.checked=false;
-            }
-        }
-    &lt;/script&gt;
-</pre>
-
-<pre>
-    <style>
-        ul.inputul{
-            list-style-type:none;
-        }
-    </style>
-    <input type="button" id="inputall" value="全选"><input type="button" id="inputnotall" value="反选"><input type="checkbox" id="inputspecial">
-    <ul class="inputul">
-        <li><span></span><input type="checkbox"></li>
-        <li><span></span><input type="checkbox"></li>
-        <li><span></span><input type="checkbox"></li>
-        <li><span></span><input type="checkbox"></li>
-        <li><span></span><input type="checkbox"></li>
-        <li><span></span><input type="checkbox"></li>
-    </ul>
-    <script>
-        var spans=document.querySelectorAll(".inputul span");
-        var all=document.querySelector("#inputall");
-        var notall=document.querySelector("#inputnotall");
-        var inputcheck=document.querySelectorAll(".inputul input");
-        var special=document.querySelector("#inputspecial");
-        for(var i=0;i<spans.length;i++){
-            spans[i].innerHTML=i+1+".";
-        }
-        all.onclick=function(){
-            for(var i=0;i<inputcheck.length;i++){
-                inputcheck[i].checked=true;
-            }            
-            special.checked=true;
-        }
-        notall.onclick=function(){
-            var sum=0;
-            for(var i=0;i<inputcheck.length;i++){
-                inputcheck[i].checked=!inputcheck[i].checked;
-            }
-            for(var i=0;i<inputcheck.length;i++){
-                if(inputcheck[i].checked==false){
-                    break;
-                }
-                sum++;
-            }
-            if(sum==inputcheck.length){
-                special.checked=true;
-            }else{
-                special.checked=false;
-            }
-        }
-    </script>
-</pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/14/JavaScript全选反选/" data-id="cir34zq1a000kwde8ru2awy96" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/16/JavaScript函数、Math对象、数组/" data-id="cir3hspgi000le9e8dlcpulvj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -2379,6 +2315,10 @@ function functionname(参数列表){
       <ul>
         
           <li>
+            <a href="/2016/07/26/JavaScriptDOM元素对象/">JavaScriptDOM元素对象</a>
+          </li>
+        
+          <li>
             <a href="/2016/07/23/JavaScript瀑布流/">JavaScript瀑布流</a>
           </li>
         
@@ -2392,10 +2332,6 @@ function functionname(参数列表){
         
           <li>
             <a href="/2016/07/21/JavaScriptDOM文档对象类型/">JavaScriptDOM文档对象类型</a>
-          </li>
-        
-          <li>
-            <a href="/2016/07/21/JavaScript闭包、Object对象/">JavaScript闭包、Object对象</a>
           </li>
         
       </ul>

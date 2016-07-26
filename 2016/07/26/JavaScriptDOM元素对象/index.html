@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JavaScriptDOM元素对象 | 紫--小梦</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在HTML DOM中，元素对象代表着一个HTML元素。
+DOM元素对象类型主要有：client
+clientLeft左边框border-left-width
+clientTop上边框border-tp-width
+clientHeight可视区的高度paddingTop+height+paddingBottom
+clientWidth可视区的宽度paddingLeft+width+PaddingR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScriptDOM元素对象">
+<meta property="og:url" content="http://yoursite.com/2016/07/26/JavaScriptDOM元素对象/index.html">
+<meta property="og:site_name" content="紫--小梦">
+<meta property="og:description" content="在HTML DOM中，元素对象代表着一个HTML元素。
+DOM元素对象类型主要有：client
+clientLeft左边框border-left-width
+clientTop上边框border-tp-width
+clientHeight可视区的高度paddingTop+height+paddingBottom
+clientWidth可视区的宽度paddingLeft+width+PaddingR">
+<meta property="og:updated_time" content="2016-07-26T13:20:19.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScriptDOM元素对象">
+<meta name="twitter:description" content="在HTML DOM中，元素对象代表着一个HTML元素。
+DOM元素对象类型主要有：client
+clientLeft左边框border-left-width
+clientTop上边框border-tp-width
+clientHeight可视区的高度paddingTop+height+paddingBottom
+clientWidth可视区的宽度paddingLeft+width+PaddingR">
+  
+    <link rel="alternate" href="/atom.xml" title="紫--小梦" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">紫--小梦</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">心怀梦想，志在远方。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-JavaScriptDOM元素对象" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/26/JavaScriptDOM元素对象/" class="article-date">
+  <time datetime="2016-07-26T11:56:41.000Z" itemprop="datePublished">2016-07-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScriptDOM元素对象
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在HTML DOM中，元素对象代表着一个HTML元素。</p>
+<h3 id="DOM元素对象类型主要有："><a href="#DOM元素对象类型主要有：" class="headerlink" title="DOM元素对象类型主要有："></a>DOM元素对象类型主要有：</h3><p><strong>client</strong></p>
+<p><strong>clientLeft</strong>左边框border-left-width</p>
+<p><strong>clientTop</strong>上边框border-tp-width</p>
+<p><strong>clientHeight</strong>可视区的高度paddingTop+height+paddingBottom</p>
+<p><strong>clientWidth</strong>可视区的宽度paddingLeft+width+PaddingRight</p>
+<p><strong>offset</strong></p>
+<p><strong>offsetWidth</strong>盒模型的宽borderLeft+paddingLeft+width+paddingRight+borderRight</p>
+<p><strong>offsetHeight</strong>盒模型的高borderTop+paddingTop+height+paddingBottom+borderBottom</p>
+<p><strong>offsetParent</strong>定位父级，离元素最近的设置了position属性的父元素（若无则为body）</p>
+<p><strong>offsetLeft</strong>到定位父级左边框borderLeft的距离</p>
+<p><strong>offsetTop</strong>到定位父级上边框borderTop的距离</p>
+<p><strong>scroll</strong></p>
+<p><strong>scrollTop</strong>滚动条向上滚动的距离（滚动条滚动到可视区上面的距离）</p>
+<p><strong>scrollLeft</strong>滚动条向左滚动的距离（滚动条超出可视区左边的宽度）</p>
+<p><strong>scrollHeight</strong>滚动条的高度paddingTop+height(内容高度)+paddingBottom，最小值为clientHeight。</p>
+<p><strong>scrollWidth</strong>滚动条的宽度paddingLeft+width+paddingRight，最小值为clientWidth。</p>
+<h3 id="DOM浏览器兼容问题"><a href="#DOM浏览器兼容问题" class="headerlink" title="DOM浏览器兼容问题"></a>DOM浏览器兼容问题</h3><p>主要兼容问题元素对象为scrollHeight、scrollTop和clientHeight，可通过三元运算来选择不同的设置来兼容不同浏览器。<code>保险起见，可以都设置三元运算来避免浏览器兼容问题</code></p>
+<p>例如：<code>scrollTop=document.body.scrollTop?document.body.scrollTop:document.documentElement.scrollTop;</code></p>
+<p><strong>注意：浏览器可视区的宽高只能使用<code>document.documentElement.clientWidth</code>和<code>document.documentElement.clientHeight</code>来表示</strong></p>
+<h3 id="offsetLeft、offsetTop值的获取"><a href="#offsetLeft、offsetTop值的获取" class="headerlink" title="offsetLeft、offsetTop值的获取"></a>offsetLeft、offsetTop值的获取</h3><pre>
+    function offset(obj){
+        var offset={};
+        offset.left=obj.offsetLeft;
+        offset.top=obj.offsetTop;
+        while(obj.offsetParent){
+            obj=obj.offsetParent;
+            offset.left+=(obj.offsetLeft+obj.clientLeft);
+            offset.top+=(obj.offsetTop+obj.clientTop);
+        }
+        return offset;
+    }
+</pre>
+
+<h3 id="onscroll事件"><a href="#onscroll事件" class="headerlink" title="onscroll事件"></a>onscroll事件</h3><p>onscroll事件在元素滚动条滚动时触发。</p>
+<p><code>object.onscroll=function(){myScript};</code></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/07/26/JavaScriptDOM元素对象/" data-id="cir3hspge000je9e8607t0o0w" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/07/23/JavaScript瀑布流/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JavaScript瀑布流</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/07/26/JavaScriptDOM元素对象/">JavaScriptDOM元素对象</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/23/JavaScript瀑布流/">JavaScript瀑布流</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/22/JavaScript图片轮播/">JavaScript图片轮播</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/22/JavaScript制作简易日历/">JavaScript制作简易日历</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/21/JavaScriptDOM文档对象类型/">JavaScriptDOM文档对象类型</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 刘晓萌<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
