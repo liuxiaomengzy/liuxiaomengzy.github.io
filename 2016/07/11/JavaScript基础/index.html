@@ -19,7 +19,7 @@ JavaScript插">
 JavaScript是一种轻量级的编程语言。
 JavaScript是可插入HTML页面的编程代码。
 JavaScript插">
-<meta property="og:updated_time" content="2016-07-17T09:46:31.000Z">
+<meta property="og:updated_time" content="2016-07-26T13:35:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript基础">
 <meta name="twitter:description" content="JavaScript简介JavaScript是一种基于对象（object）和事件驱动（even driven）并具有相对安全性的客户端脚本语言。同时也是一种广泛用于客户端Web开发的脚本语言，常用来给HTML网页添加动态功能，是一种动态、弱类型、基于原型的语言，内置支持类。
@@ -111,8 +111,8 @@ JavaScript插">
 <h5 id="JavaScript组成"><a href="#JavaScript组成" class="headerlink" title="JavaScript组成"></a>JavaScript组成</h5><p><strong>核心</strong><code>ECMAscript</code>——提供核心语言的功能（基础语言）</p>
 <p>ECMAscript描述了语法、类型、语句、关键字、保留字、运算符、对象这些内容。ECMAscript定义了脚本语言的所有属性、方法和对象。</p>
 <p>JavaScript/ActionScript/ScriptEase等其他语言通过实现ECMAScript作为其功能的基准。</p>
-<p><strong>文档对象模型</strong><code>DOM</code>(document object model)——提供访问和操作网页内容的方法和接口</p>
-<p><strong>浏览器对象模型</strong><code>BOM</code>(browser object model)——提供与浏览器交互的方法和接口</p>
+<p><strong>文档对象模型</strong><code>DOM</code>(document object model)——提供访问和操作网页内容的方法和接口。</p>
+<p><strong>浏览器对象模型</strong><code>BOM</code>(browser object model)——提供与浏览器交互的方法和接口。</p>
 <h5 id="JavaScript特点"><a href="#JavaScript特点" class="headerlink" title="JavaScript特点"></a>JavaScript特点</h5><ol>
 <li><p>一种解释性执行的脚本语言。</p>
 </li>
@@ -193,13 +193,13 @@ JavaScript插">
 
 <h5 id="元素的获取"><a href="#元素的获取" class="headerlink" title="元素的获取"></a>元素的获取</h5><p>为了把事件写在script标签中，可以先获取到标签，主要有以下几种方法：</p>
 <ol>
-<li><p><code>document.getElementById();</code>//通过标签id值来获取标签</p>
+<li><p><code>document.getElementById();</code>//通过标签id值来获取标签；</p>
 </li>
-<li><p><code>document.getElementsByClassName();</code>//通过标签的class值来获取标签（返回的是一个数组，将所有相同class名的标签都返回）</p>
+<li><p><code>document.getElementsByClassName();</code>//通过标签的class值来获取标签（返回的是一个数组，将所有相同class名的标签都返回）；</p>
 </li>
-<li><p><code>document.getElementsByTagName();</code>//通过标签的名字来获取标签（返回的是一个数组，将所有相同的标签名的标签都返回）</p>
+<li><p><code>document.getElementsByTagName();</code>//通过标签的名字来获取标签（返回的是一个数组，将所有相同的标签名的标签都返回）；</p>
 </li>
-<li><p><code>document.getElementsByName();</code>//通过标签的name值来获取标签，常用于选择表单元素（返回的是一个数组，将所有相同的name值的标签返回）</p>
+<li><p><code>document.getElementsByName();</code>//通过标签的name值来获取标签，常用于选择表单元素（返回的是一个数组，将所有相同的name值的标签返回）。</p>
 </li>
 </ol>
 <h5 id="onclick事件绑定"><a href="#onclick事件绑定" class="headerlink" title="onclick事件绑定"></a>onclick事件绑定</h5><p>onclick事件会在对象被点击时发生。单击事件是在同一元素上发生了鼠标按下事件之后又发生了鼠标放开事件时才发生的。</p>
@@ -259,22 +259,22 @@ JavaScript插">
 <p>“var” + “变量名” + “=” + “值” + “;” 如var a=12;</p>
 <p>变量命名规范：</p>
 <ol>
-<li>区分大小写</li>
-<li>第一个字符必须是字母、下划线<code>_</code>或美元符号<code>$</code></li>
-<li>其他字符可以是字母、下划线、美元符号或数字</li>
-<li>不能含空格</li>
-<li>不能以关键字或保留字命名<a href="http://www.runoob.com/js/js-reserved.html" target="_blank" rel="external">关键字保留字点这里</a></li>
+<li>区分大小写；</li>
+<li>第一个字符必须是字母、下划线<code>_</code>或美元符号<code>$</code>；</li>
+<li>其他字符可以是字母、下划线、美元符号或数字；</li>
+<li>不能含空格；</li>
+<li>不能以关键字或保留字命名<a href="http://www.runoob.com/js/js-reserved.html" target="_blank" rel="external">关键字保留字点这里</a>。</li>
 </ol>
 <h5 id="JavaScript数据类型"><a href="#JavaScript数据类型" class="headerlink" title="JavaScript数据类型"></a>JavaScript数据类型</h5><p>用<code>typeof</code>函数查看数据类型</p>
-<p>1.null内容为空，表示一个空的值，可以创建数组、创建时间、创建字符串</p>
-<p>2.undefined没有赋值或不存在的变量类型，仅仅在判断函数参数是否传递时有用</p>
+<p>1.null内容为空，表示一个空的值，可以创建数组、创建时间、创建字符串。</p>
+<p>2.undefined没有赋值或不存在的变量类型，仅仅在判断函数参数是否传递时有用。</p>
 <p>3.number数字类型：</p>
-<p>包含整数、浮点数、科学计数法(1.2e5)、负数、NaN(Not a Number)和Infinity。number类型的数可以进行加、减、乘、除、求余、自增、自减运算</p>
+<p>包含整数、浮点数、科学计数法(1.2e5)、负数、NaN(Not a Number)和Infinity。number类型的数可以进行加、减、乘、除、求余、自增、自减运算。</p>
 <p>4.string字符串类型：</p>
 <p>字符串是以单引号<code>&#39;&#39;</code>或双引号<code>&quot;&quot;</code>括起来的任意文本。</p>
 <p><strong><code>&#39;&#39;</code>或<code>&quot;&quot;</code>本身只是一种表示方式，不是字符串的一部分。</strong></p>
 <p>因此”abc”只有a、b、c三个字符；当字符串既包含单引号又包含双引号时，用转义字符<code>\</code>来标识，如”I\’m \”OK\”!”，表示字符串内容是I’m “OK”!</p>
-<p>5.boolean布尔类型，布尔只有<code>true和false</code>，布尔常用在条件测试中</p>
+<p>5.boolean布尔类型，布尔只有<code>true和false</code>，布尔常用在条件测试中。</p>
 <p>6.Array数组类型</p>
 <p>7.object对象类型</p>
 <h5 id="JavaScript运算符"><a href="#JavaScript运算符" class="headerlink" title="JavaScript运算符"></a>JavaScript运算符</h5><p>1.赋值运算符<code>=</code>赋值仅仅是把给变量赋值，如a=5</p>
@@ -309,7 +309,7 @@ JavaScript插">
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/11/JavaScript基础/" data-id="cir3hspgm000oe9e8l2sf9y82" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/11/JavaScript基础/" data-id="cir3i9b6b000pf6e8rq8cf7zj" class="article-share-link">Share</a>
       
       
     </footer>
