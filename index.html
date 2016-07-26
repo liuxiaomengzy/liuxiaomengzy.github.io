@@ -106,7 +106,7 @@
 <p><strong>scrollTop</strong>滚动条向上滚动的距离（滚动条滚动到可视区上面的距离）</p>
 <p><strong>scrollLeft</strong>滚动条向左滚动的距离（滚动条超出可视区左边的宽度）</p>
 <p><strong>scrollHeight</strong>滚动条的高度paddingTop+height(内容高度)+paddingBottom，最小值为clientHeight。</p>
-<p><strong>scrollWidth</strong>滚动条的宽度paddingLeft+width+paddingRight，最小值为clientWidth。</p>
+<p><strong>scrollWidth</strong>滚动条的宽度paddingLeft+width+paddingRight（当被包含元素的width超出包含元素的width时，包含元素的margin-right和padding-right都不起作用），最小值为clientWidth。</p>
 <h3 id="DOM浏览器兼容问题"><a href="#DOM浏览器兼容问题" class="headerlink" title="DOM浏览器兼容问题"></a>DOM浏览器兼容问题</h3><p>主要兼容问题元素对象为scrollHeight、scrollTop和clientHeight，可通过三元运算来选择不同的设置来兼容不同浏览器。<code>保险起见，可以都设置三元运算来避免浏览器兼容问题</code></p>
 <p>例如：<code>scrollTop=document.body.scrollTop?document.body.scrollTop:document.documentElement.scrollTop;</code></p>
 <p><strong>注意：浏览器可视区的宽高只能使用<code>document.documentElement.clientWidth</code>和<code>document.documentElement.clientHeight</code>来表示</strong></p>
@@ -130,7 +130,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/26/JavaScriptDOM元素对象/" data-id="cir3i9b5u000jf6e80ymfhpfu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/26/JavaScriptDOM元素对象/" data-id="cir3iguy6000jfve835np81ec" class="article-share-link">Share</a>
       
       
     </footer>
@@ -379,7 +379,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/23/JavaScript瀑布流/" data-id="cir3i9b6l000uf6e861dy8zst" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/23/JavaScript瀑布流/" data-id="cir3iguyo000tfve8igksph21" class="article-share-link">Share</a>
       
       
     </footer>
@@ -737,7 +737,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/22/JavaScript图片轮播/" data-id="cir3i9b6a000of6e8qzuefkun" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/22/JavaScript图片轮播/" data-id="cir3iguyf000pfve8x1jqu54v" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1040,7 +1040,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/22/JavaScript制作简易日历/" data-id="cir3i9b69000nf6e8h8dahhsf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/22/JavaScript制作简易日历/" data-id="cir3iguyc000nfve8y6k6g41n" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1199,7 +1199,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/21/JavaScriptDOM文档对象类型/" data-id="cir3i9b5w000kf6e8tj3x3ek7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/21/JavaScriptDOM文档对象类型/" data-id="cir3iguy8000kfve82k9fh6qw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1365,7 +1365,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/21/JavaScript闭包、Object对象/" data-id="cir3i9b6p000wf6e83ccm5kpu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/21/JavaScript闭包、Object对象/" data-id="cir3iguys000wfve8cdizb2ej" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1689,7 +1689,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/19/JavaScript碰撞检测/" data-id="cir3i9b6o000vf6e8iprl9pkh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/19/JavaScript碰撞检测/" data-id="cir3iguyr000vfve8cpfcsre4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1847,7 +1847,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/19/JavaScript导航滚动/" data-id="cir3i9b6i000sf6e83rl8dwes" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/19/JavaScript导航滚动/" data-id="cir3iguyj000rfve84odjcggl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -2079,7 +2079,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/16/JavaScript字符串对象、日期对象、定时器/" data-id="cir3i9b6d000qf6e8ob8oh26j" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/16/JavaScript字符串对象、日期对象、定时器/" data-id="cir3iguyh000qfve8ovh414wb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -2271,7 +2271,7 @@ function functionname(参数列表){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/16/JavaScript函数、Math对象、数组/" data-id="cir3i9b68000mf6e8spswcu04" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/16/JavaScript函数、Math对象、数组/" data-id="cir3iguya000mfve89utranjq" class="article-share-link">Share</a>
       
       
     </footer>

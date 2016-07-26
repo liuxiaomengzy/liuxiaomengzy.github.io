@@ -21,7 +21,7 @@ clientLeft左边框border-left-width
 clientTop上边框border-tp-width
 clientHeight可视区的高度paddingTop+height+paddingBottom
 clientWidth可视区的宽度paddingLeft+width+PaddingR">
-<meta property="og:updated_time" content="2016-07-26T13:20:19.000Z">
+<meta property="og:updated_time" content="2016-07-26T13:41:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScriptDOM元素对象">
 <meta name="twitter:description" content="在HTML DOM中，元素对象代表着一个HTML元素。
@@ -120,7 +120,7 @@ clientWidth可视区的宽度paddingLeft+width+PaddingR">
 <p><strong>scrollTop</strong>滚动条向上滚动的距离（滚动条滚动到可视区上面的距离）</p>
 <p><strong>scrollLeft</strong>滚动条向左滚动的距离（滚动条超出可视区左边的宽度）</p>
 <p><strong>scrollHeight</strong>滚动条的高度paddingTop+height(内容高度)+paddingBottom，最小值为clientHeight。</p>
-<p><strong>scrollWidth</strong>滚动条的宽度paddingLeft+width+paddingRight，最小值为clientWidth。</p>
+<p><strong>scrollWidth</strong>滚动条的宽度paddingLeft+width+paddingRight（当被包含元素的width超出包含元素的width时，包含元素的margin-right和padding-right都不起作用），最小值为clientWidth。</p>
 <h3 id="DOM浏览器兼容问题"><a href="#DOM浏览器兼容问题" class="headerlink" title="DOM浏览器兼容问题"></a>DOM浏览器兼容问题</h3><p>主要兼容问题元素对象为scrollHeight、scrollTop和clientHeight，可通过三元运算来选择不同的设置来兼容不同浏览器。<code>保险起见，可以都设置三元运算来避免浏览器兼容问题</code></p>
 <p>例如：<code>scrollTop=document.body.scrollTop?document.body.scrollTop:document.documentElement.scrollTop;</code></p>
 <p><strong>注意：浏览器可视区的宽高只能使用<code>document.documentElement.clientWidth</code>和<code>document.documentElement.clientHeight</code>来表示</strong></p>
@@ -144,7 +144,7 @@ clientWidth可视区的宽度paddingLeft+width+PaddingR">
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/26/JavaScriptDOM元素对象/" data-id="cir3i9b5u000jf6e80ymfhpfu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/26/JavaScriptDOM元素对象/" data-id="cir3iguy6000jfve835np81ec" class="article-share-link">Share</a>
       
       
     </footer>
