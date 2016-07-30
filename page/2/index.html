@@ -68,6 +68,198 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-JavaScript函数、Math对象、数组" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/16/JavaScript函数、Math对象、数组/" class="article-date">
+  <time datetime="2016-07-16T01:06:47.000Z" itemprop="datePublished">2016-07-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/16/JavaScript函数、Math对象、数组/">JavaScript函数、Math对象、数组</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p>函数是由事件驱动的或者当它被调用时执行的可重复使用的代码块。</p>
+<h5 id="函数的格式"><a href="#函数的格式" class="headerlink" title="函数的格式"></a>函数的格式</h5><pre>
+function functionname(参数列表){
+    执行代码块;
+    return 返回值;
+}
+</pre>
+
+<p>function：关键词，全小写</p>
+<p>functionname：函数名，用来标识函数的名字，区分大小写，习惯使用驼峰式命名(moveSlide)，css为下划线</p>
+<p>参数列表：由外部向函数传入的内容</p>
+<p>return：从函数内部向外传递内容（函数会停止执行）</p>
+<pre>
+    //无参无返回函数
+    function name1(){
+        代码块;
+    }
+    //有参无返回函数
+    function name2(a){
+        代码块;
+    }
+    //无参有返回函数
+    function name3(){
+        代码块;
+        return 123;
+    }
+    //有参有返回函数
+    function name4(a){
+        代码块;
+        return 123;
+    }
+</pre>
+
+<h5 id="函数调用"><a href="#函数调用" class="headerlink" title="函数调用"></a>函数调用</h5><p>在调用函数时，可以向其传递值，这些值称为参数。这些参数可以在函数中使用。可以使用任意多的参数，由”,”分隔。</p>
+<p>如果没有返回值/参数，则不写；变量和参数必须以一致的顺序出现。</p>
+<p>return给函数返回值，调用函数后可以获取到return的部分。使用return会跳出函数，阻止函数后面语句执行。</p>
+<pre>
+    function sum(num1,num2){
+        return num1 + num2;
+    }
+    //函数调用
+    var r=sum(3,5)
+</pre>
+
+<h5 id="局部变量和全局变量"><a href="#局部变量和全局变量" class="headerlink" title="局部变量和全局变量"></a>局部变量和全局变量</h5><p>在函数内部声明的变量是局部变量，只能在函数内部访问它。（作用域是局部的）局部变量在函数运行以后就会被释放，不再存在。</p>
+<p>在函数外部声明的变量是全局变量，网页上的所有脚本和函数都能访问它。全局变量在页面关闭后被删除。<strong>全局变量声明方式，不使用var关键字或在函数外部声明</strong></p>
+<ol>
+<li><p>变量查找首先在函数内部调用之前去查找，如果找到就调用查找到的离得最近的那个变量</p>
+</li>
+<li><p>变量查找在函数内部前面没有找到，在调用后面找到一个局部变量，则调用时此变量的值为undefined</p>
+</li>
+</ol>
+<pre>
+    function abc(){
+        abc="abc";
+        abc="abcd";
+        alert(abc);//此时弹出abcd
+
+        alert(abcd);//此时弹出undefined
+        abcd="abcd"
+    }
+</pre>
+
+
+
+<h5 id="匿名变量"><a href="#匿名变量" class="headerlink" title="匿名变量"></a>匿名变量</h5><p>匿名变量也叫尚未声明的变量，该变量将被自动作为全局变量声明。</p>
+<h4 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h4><p>匿名函数指函数没有名字，直接运行。</p>
+<pre>
+    function(x,y){
+        return x+y;
+    }
+</pre>
+
+<h3 id="Math对象"><a href="#Math对象" class="headerlink" title="Math对象"></a>Math对象</h3><p>Math对象用于执行数学任务。</p>
+<pre>
+    Math.min(1,2,3);//1 获取若干个数中的最小值
+
+    Math.max(1,2,3);//3 获取若干个数中的最大值
+
+    Math.ceil(1.2);//2 对数进行上舍入
+
+    Math.floor(1.8);//1 对数进行下舍入
+
+    Math.round(1.5);//2 把数四舍五入为最接近的整数
+
+    Math.random();// 0~1之间的随机数（不包含0和1）
+
+    //给一个min、max，就能产生一个在最大值最小值之间的随机数，并且包括min、max
+
+    console.log(Math.floor(Math.random()*(max-min+1)+min));
+
+    console.log(Math.round(Math.random()*(max-min)+min));
+
+    console.log(parseInt(Math.random()*(max-min+1)+min));
+</pre>
+
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><h5 id="1-数组概念"><a href="#1-数组概念" class="headerlink" title="1.数组概念"></a>1.数组概念</h5><p>数组是一种保存数据的有序列表。数组可以用一个变量名存储所有的值，并且可以用变量名访问任何一个值。数组中的每个元素都有自己的ID，以便它可以很容易地被找到。数组的大小可以动态调整，可以随着数据的添加自动增长以容纳新增数据。</p>
+<h5 id="2-数组定义"><a href="#2-数组定义" class="headerlink" title="2.数组定义"></a>2.数组定义</h5><p>(1). 常规方式</p>
+<pre>
+    var arr1=new Array();
+    arr1[0]=1;
+    arr1[1]=2;
+    arr1[2]=3;
+</pre>
+
+<p>(2). 简洁方式</p>
+<pre>
+    var arr2=new Array(1,2,3);
+    var arr3=new Array();//空数组
+</pre>
+
+<p>(3). 字面</p>
+<pre>
+    var arr4=[1,2,3];
+    var arr5=[];//空数组
+</pre>
+
+<h5 id="3-数组取值-赋值"><a href="#3-数组取值-赋值" class="headerlink" title="3.数组取值/赋值"></a>3.数组取值/赋值</h5><p>数组是有序数据列表，取值和赋值都是通过下标得到。</p>
+<p>下标：用来表示每个数据的位置信息，从0开始计数。</p>
+<pre>
+    var arr=[1,2,3];
+    var a=arr[0];//取值
+    arr[1]=10;//赋值
+    arr[3]=20;//错误写法，数组越界
+</pre>
+
+<h3 id="Array数组对象"><a href="#Array数组对象" class="headerlink" title="Array数组对象"></a>Array数组对象</h3><p><strong>数组元素的插入删除</strong></p>
+<p><strong>push(元素)</strong>：向数组的末尾添加一个或多个元素，并返回新的长度</p>
+<p><strong>unshift(元素)</strong>：向数组的开头添加一个或更多元素，并返回新的长度</p>
+<p><strong>pop()</strong>：删除数组的最后一个元素，把数组长度减1，并返回删除元素的值；如果这个数组已经为空，则不改变数组，并返回undefined值</p>
+<p><strong>shift()</strong>：删除数组的第一个元素，并返回删除元素的值；如果数组为空，则比进行任何操作，返回undefined值</p>
+<p><strong>splice()</strong>：该方法向/从数组中添加/删除项目，然后返回被删除的项目</p>
+<p><strong>splice(起始位置,长度,添加内容(可选))</strong>：该方法从起始位置开始，删除长度个元素</p>
+<p><strong>splice(起始位置,0,插入元素1,插入元素2,插入元素3…)</strong>：从起始位置删除0个元素，然后把要插入的元素从起始位置插入进数组</p>
+<p><strong>数组元素的替换</strong></p>
+<p><strong>splice(要替换元素的起始位置,替换长度,新替换元素1,新替换元素2…)</strong></p>
+<p><strong>数组的拼接</strong></p>
+<p><strong>contact()</strong>:用于连接两个或多个数组；不会改变现有数组，仅仅会返回被连接数组的一个副本</p>
+<p><strong>数组元素之间添加分隔符</strong></p>
+<p><strong>join()</strong>：该方法把数组中的所有元素放入一个字符串，元素通过括号中的参数作为分隔符进行分隔的</p>
+<p><strong>数组元素的排序</strong></p>
+<p><strong>sort()</strong>：用于对数组的元素进行排序(<code>按照ASCII表的顺序排序，而非数值大小</code>)</p>
+<pre>
+    //按数值大小排序
+    function sortNumber(a,b){
+        return a-b;//a,b表示数组中的任意两个元素，若return&gt;0 b前a后；若return&lt;0 a前b后
+        //a-b输出从小到大排序，b-a输出从大到小排序
+    }
+    console.log(arr.sort(sortNumber));
+</pre>
+
+<h3 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h3><p>二维数组指的是数组中的每个元素都是一个数组。多用来进行矩阵相关操作。</p>
+<pre>
+    var arr=[[1,2,3],[4,5,6],[7,8,9]];//二维数组
+
+    arr[i][j];//二维数组获取方式
+</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/07/16/JavaScript函数、Math对象、数组/" data-id="cir8jsj8j000plce85hknfvjm" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-JavaScript全选反选" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/07/14/JavaScript全选反选/" class="article-date">
@@ -228,7 +420,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/14/JavaScript全选反选/" data-id="cir7bqcys000lsee8ojx1vd5l" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/14/JavaScript全选反选/" data-id="cir8jsj8d000llce8m9e7xe29" class="article-share-link">Share</a>
       
       
     </footer>
@@ -423,7 +615,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/14/JavaScript显示隐藏及Tab切换/" data-id="cir7bqczb000tsee8bmjft9b6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/14/JavaScript显示隐藏及Tab切换/" data-id="cir8jsj8l000rlce8i6semk47" class="article-share-link">Share</a>
       
       
     </footer>
@@ -511,7 +703,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/14/JavaScript数据类型转换和输出/" data-id="cir7bqcz9000ssee8187qxtbu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/14/JavaScript数据类型转换和输出/" data-id="cir8jsj8k000qlce862d9y9ks" class="article-share-link">Share</a>
       
       
     </footer>
@@ -665,7 +857,7 @@ onmouseup            某个鼠标按键被松开
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/13/If...Else、Switch、For循环、While循环/" data-id="cir7bqcyb000isee8w2vnr0u4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/13/If...Else、Switch、For循环、While循环/" data-id="cir8jsj83000hlce8n17f3k2y" class="article-share-link">Share</a>
       
       
     </footer>
@@ -905,7 +1097,7 @@ onmouseup            某个鼠标按键被松开
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/11/JavaScript基础/" data-id="cir7bqcyz000psee89ebjwhwm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/11/JavaScript基础/" data-id="cir8jsj8r000tlce8557iicz5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1009,7 +1201,7 @@ onmouseup            某个鼠标按键被松开
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/09/CSS3媒体查询/" data-id="cir7bqcx80004see87fiemff3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/09/CSS3媒体查询/" data-id="cir8jsj760005lce8sx9r647k" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1171,7 +1363,7 @@ onmouseup            某个鼠标按键被松开
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/06/LESSCSS初使用/" data-id="cir7bqczk000xsee8atdn9dur" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/06/LESSCSS初使用/" data-id="cir8jsj90000ylce8v2sqpom3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1343,7 +1535,7 @@ onmouseup            某个鼠标按键被松开
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/05/CSS3弹性布局/" data-id="cir7bqcxc0005see8rligq0al" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/05/CSS3弹性布局/" data-id="cir8jsj7i0008lce8ai4ppih3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1425,228 +1617,7 @@ onmouseup            某个鼠标按键被松开
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/04/CSS3 @font-face规则和多列/" data-id="cir7bqcwq0000see8gq7fyohs" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-CSS3动画" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/07/04/CSS3动画/" class="article-date">
-  <time datetime="2016-07-04T01:19:14.000Z" itemprop="datePublished">2016-07-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/04/CSS3动画/">CSS3动画</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Animation动画"><a href="#Animation动画" class="headerlink" title="Animation动画"></a>Animation动画</h2><h4 id="简写方式为animation-liu-5s-infinite-linear-2s-normal"><a href="#简写方式为animation-liu-5s-infinite-linear-2s-normal" class="headerlink" title="简写方式为animation:liu 5s infinite linear 2s normal;"></a>简写方式为animation:liu 5s infinite linear 2s normal;</h4><h6 id="animation-animation-name-animation-duration-animation-timing-function-animation-iteration-count-animation-delay-animation-direction"><a href="#animation-animation-name-animation-duration-animation-timing-function-animation-iteration-count-animation-delay-animation-direction" class="headerlink" title="animation:animation-name animation-duration animation-timing-function animation-iteration-count animation-delay animation-direction;"></a>animation:animation-name animation-duration animation-timing-function animation-iteration-count animation-delay animation-direction;</h6><h3 id="animation-name动画属性名"><a href="#animation-name动画属性名" class="headerlink" title="animation-name动画属性名"></a>animation-name动画属性名</h3><p><code>animation-name</code>属性为<code>@keyframes</code>动画规定名称。</p>
-<h3 id="keframes动画关键帧"><a href="#keframes动画关键帧" class="headerlink" title="@keframes动画关键帧"></a>@keframes动画关键帧</h3><p>通过<code>@keyframes</code>规则，能够创建动画。创建动画的原理是将一套CSS样式逐渐变化为另一套样式。在动画过程中，能够多次改变这套样式。</p>
-<p>以<strong>百分比</strong>来规定改变发生的时间，或者通过关键词<strong>from和to</strong>，等价于<strong>0%和100%</strong>。</p>
-<p>示例如下：</p>
-<pre>
-    @keyframes name{
-            from{
-
-            }
-            to{
-
-            }
-    }
-</pre>
-
-<h3 id="animation-duration动画持续时间"><a href="#animation-duration动画持续时间" class="headerlink" title="animation-duration动画持续时间"></a>animation-duration动画持续时间</h3><p><code>animation-duration</code>属性定义动画完成一个周期所需要的时间，以秒计。默认为0，没有动画效果。</p>
-<h3 id="animation-timing-function动画效果"><a href="#animation-timing-function动画效果" class="headerlink" title="animation-timing-function动画效果"></a>animation-timing-function动画效果</h3><p><code>animation-timing-function</code>规定动画的速度曲线。主要有：</p>
-<ol>
-<li>linear        匀速</li>
-<li>ease            先快后慢（默认属性）</li>
-<li>ease-in        由慢到快</li>
-<li>ease-out        由快到慢</li>
-<li>ease-in-out    先慢后快再慢</li>
-<li>cubic-bezier(n,n,n,n)自定义函数，可能的值为0~1。</li>
-</ol>
-<h3 id="animation-iteration-count动画循环次数"><a href="#animation-iteration-count动画循环次数" class="headerlink" title="animation-iteration-count动画循环次数"></a>animation-iteration-count动画循环次数</h3><p><code>animation-iteration-count</code>指定元素播放动画循环次数。默认值1，播放一次。</p>
-<p><code>animation-iteration-count:n | infinite;</code>n指动画播放次数的数值；infinite指动画无限次播放。</p>
-<h3 id="animation-delay延迟"><a href="#animation-delay延迟" class="headerlink" title="animation-delay延迟"></a>animation-delay延迟</h3><p><code>animation-delay</code>指定元素动画开始时间，单位为s秒。默认值0。</p>
-<h3 id="animation-direction播放方向"><a href="#animation-direction播放方向" class="headerlink" title="animation-direction播放方向"></a>animation-direction播放方向</h3><p><code>animation-direction</code>指定元素动画播放的方向。</p>
-<p><code>animation-direction:normal | alternate;</code>normal默认值，动画的每次循环都是向前播放；alternate动画播放第奇数次正常播放，第偶数次反方向播放。</p>
-<h3 id="animation-fill-mode"><a href="#animation-fill-mode" class="headerlink" title="animation-fill-mode"></a>animation-fill-mode</h3><p><code>animation-fill-mode</code>属性规定动画在播放之前或之后，其动画效果是否可见。</p>
-<p><code>animation-fill-mode:none | forwards</code>none不改变默认行为；forwards当动画完成后，保持最后一个属性值。</p>
-<p>示例如下：</p>
-<pre>
-    &ltstyle&gt
-        div.animationdiv{
-            width:600px;
-            height:600px;
-            position:relative;
-            left:150px;
-        }
-        div.animationdemo{
-            width:100px;
-            height:100px;
-            position:absolute;
-            background-color:fuchsia;
-            animation:animationmove infinite 8s linear 2s normal;
-        }
-        @keyframes animationmove{
-            0%{
-                left:0;
-                top:0;
-                transform:scale(1,1);
-            }
-            12.5%{
-                left:200px;
-                top:0;
-                background-color:red;
-                transform:scale(1,1);
-            }
-            25%{
-                left:400px;
-                top:0;
-                background-color:teal;
-                transform:scale(2,2);
-            }
-            37.5%{
-                left:400px;
-                top:200px;
-                background-color:aqua;
-                transform:scale(2,2);
-                border-radius:25%;
-            }
-            50%{
-                left:400px;
-                top:400px;
-                border-radius:50%;
-            }
-            62.5%{
-                left:200px;
-                top:400px;
-                background-color:olive;
-                transform:scale(2,2);
-            }
-            75%{
-                left:0;
-                top:400px;
-                background-color:lime;
-                transform:scale(1,1);
-            }
-            87.5%{
-                left:0;
-                top:200px;
-                background-color:green;
-                transform:scale(2,2);
-                border-radius:50%;
-            }
-            100%{
-                left:0;
-                top:0;
-                background-color:fuchsia;
-                transform:scale(1,1);
-            }
-        }
-    &lt/style&gt
-    &ltdiv class="animationdiv"&gt
-        &ltdiv class="animationdemo"&gt&lt/div&gt
-    &lt/div&gt
-</pre>
-
-<pre>
-    <style>
-        div.animationdiv{
-            width:600px;
-            height:600px;
-            position:relative;
-            left:150px;
-        }
-        div.animationdemo{
-            width:100px;
-            height:100px;
-            position:absolute;
-            background-color:fuchsia;
-            animation:animationmove infinite 8s linear 2s normal;
-        }
-        @keyframes animationmove{
-            0%{
-                left:0;
-                top:0;
-                transform:scale(1,1);
-            }
-            12.5%{
-                left:200px;
-                top:0;
-                background-color:red;
-                transfddddddddorm:scale(1,1);
-            }
-            25%{
-                left:400px;
-                top:0;
-                background-color:teal;
-                transform:scale(2,2);
-            }
-            37.5%{
-                left:400px;
-                top:200px;
-                background-color:aqua;
-                transform:scale(2,2);
-                border-radius:25%;
-            }
-            50%{
-                left:400px;
-                top:400px;
-                border-radius:50%;
-            }
-            62.5%{
-                left:200px;
-                top:400px;
-                background-color:olive;
-                transform:scale(2,2);
-            }
-            75%{
-                left:0;
-                top:400px;
-                background-color:lime;
-                transform:scale(1,1);
-            }
-            87.5%{
-                left:0;
-                top:200px;
-                background-color:green;
-                transform:scale(2,2);
-                border-radius:50%;
-            }
-            100%{
-                left:0;
-                top:0;
-                background-color:fuchsia;
-                transform:scale(1,1);
-            }
-        }
-    </style>
-    <div class="animationdiv">
-        <div class="animationdemo"></div>
-    </div>
-</pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/04/CSS3动画/" data-id="cir7bqcwy0001see80vazrulp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/04/CSS3 @font-face规则和多列/" data-id="cir8jsj710003lce8pz2xxxac" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1690,6 +1661,10 @@ onmouseup            某个鼠标按键被松开
       <ul>
         
           <li>
+            <a href="/2016/07/30/JavaScriptBOM浏览器对象模型/">JavaScriptBOM浏览器对象模型</a>
+          </li>
+        
+          <li>
             <a href="/2016/07/26/JavaScriptDOM元素对象/">JavaScriptDOM元素对象</a>
           </li>
         
@@ -1703,10 +1678,6 @@ onmouseup            某个鼠标按键被松开
         
           <li>
             <a href="/2016/07/22/JavaScript制作简易日历/">JavaScript制作简易日历</a>
-          </li>
-        
-          <li>
-            <a href="/2016/07/21/JavaScriptDOM文档对象类型/">JavaScriptDOM文档对象类型</a>
           </li>
         
       </ul>
