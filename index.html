@@ -68,6 +68,148 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-JavaScript事件流、事件类型、事件对象和事件委托" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/30/JavaScript事件流、事件类型、事件对象和事件委托/" class="article-date">
+  <time datetime="2016-07-30T08:28:55.000Z" itemprop="datePublished">2016-07-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/30/JavaScript事件流、事件类型、事件对象和事件委托/">JavaScript事件流、事件类型、事件对象和事件委托</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="JavaScript事件流"><a href="#JavaScript事件流" class="headerlink" title="JavaScript事件流"></a>JavaScript事件流</h3><p>事件流描述的是在页面中接受事件的顺序，分为<strong>事件冒泡</strong>和<strong>事件捕获</strong>。</p>
+<p><code>事件冒泡</code>指事件一级一级的往上触发，一直到根元素为止</p>
+<p><code>事件捕获</code>指事件从根元素开始触发，一直到触发元素的事件为止</p>
+<h5 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">DOM0级事件	直接在元素上绑定，绑定多个后面会覆盖前面</span><br><span class="line">			例如：</span><br><span class="line">			wrap.onclick=function()&#123;</span><br><span class="line">				alert(&quot;a&quot;);</span><br><span class="line">			&#125;</span><br><span class="line">			wrap.onclick=function()&#123;</span><br><span class="line">				alert(&quot;b&quot;);//仅仅会弹出b，因为覆盖前面</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">DOM2级事件	可以多次绑定</span><br><span class="line"></span><br><span class="line">	addEventListener(type,fn,bol);		绑定事件</span><br><span class="line">	removeEventListener(type,fn,bol);	解除事件</span><br><span class="line">		type：事件类型</span><br><span class="line">		fn：  事件语句，必须是对应的非匿名函数</span><br><span class="line">		bol： 事件触发机制  false事件冒泡 true事件捕获</span><br><span class="line">		解除检测某个事件语句，type、fn、bol都必须对应相同</span><br><span class="line">		</span><br><span class="line">	attachEvent(type,fn);	IE上的DOM2级绑定事件</span><br><span class="line">	datachEvent(type,fn);	IE上的DOM2级解除事件</span><br><span class="line">	</span><br><span class="line">	wrap.addEventListener(&quot;click&quot;,function(e)&#123;</span><br><span class="line">		//匿名函数的匿名参数，表示触发的事件对象</span><br><span class="line">		//为了兼容IE低版本，需要使用window.event</span><br><span class="line">		var e=e||window.event;</span><br><span class="line">		console.log(e.currentTarget);</span><br><span class="line">	&#125;,false)</span><br></pre></td></tr></table></figure>
+<p><strong>函数不添加()，就是执行代码块；添加()，就是执行结果</strong></p>
+<h3 id="event对象"><a href="#event对象" class="headerlink" title="event对象"></a>event对象</h3><p>event对象代表事件的状态，比如事件在其中发生的元素、键盘按键的状态、鼠标的位置、鼠标按钮的状态。</p>
+<p><strong>事件通常与函数结合使用，函数不会在事件发生前被执行！</strong></p>
+<h5 id="event方法"><a href="#event方法" class="headerlink" title="event方法"></a>event方法</h5><p><strong>event.initEvent();</strong>初始化新创建的event对象的属性</p>
+<p><strong>event.preventDefault();</strong>阻止默认事件</p>
+<p><strong>event.stopPropagation();</strong>阻止事件继续派发</p>
+<h3 id="事件类型"><a href="#事件类型" class="headerlink" title="事件类型"></a>事件类型</h3><h6 id="UI事件：当用户与页面上的元素交互时触发"><a href="#UI事件：当用户与页面上的元素交互时触发" class="headerlink" title="UI事件：当用户与页面上的元素交互时触发"></a>UI事件：当用户与页面上的元素交互时触发</h6><p><strong>load事件：</strong>当页面加载完毕之后触发</p>
+<p><strong>resize事件：</strong>当浏览器窗口改变大小时候触发</p>
+<p><strong>scroll事件：</strong>当用户滚动一个带滚动条的元素时触发</p>
+<h6 id="鼠标事件：通过鼠标在页面上执行操作"><a href="#鼠标事件：通过鼠标在页面上执行操作" class="headerlink" title="鼠标事件：通过鼠标在页面上执行操作"></a>鼠标事件：通过鼠标在页面上执行操作</h6><p><strong>contextmenu事件：</strong>弹出右键菜单</p>
+<p><strong>click事件：</strong>对象被点击时发生（在同一元素发生鼠标按下事件后又发生鼠标放开事件时才发生的）</p>
+<p><strong>mousedown事件：</strong>鼠标被按下时触发</p>
+<p><strong>mousemove事件：</strong>在鼠标指针移动时触发</p>
+<p><strong>mouseup事件：</strong>在鼠标按键松开时触发</p>
+<p><strong>mouseover事件：</strong>鼠标指针移动到指定的对象上时触发（鼠标指针穿过任何子元素，同样会触发事件）</p>
+<p><strong>mouseenter事件：</strong>当鼠标指针进入（穿过）指定元素时触发（只有鼠标指针穿过被选元素时才会触发）</p>
+<p><strong>mouseout事件：</strong>无论鼠标指针离开被选元素还是任何子元素都会触发mouseout事件（鼠标指针离开任何子元素，同样会触发事件）</p>
+<p><strong>mouseleave事件：</strong>只有在鼠标指针离开被选元素时，才会触发mouseleave事件（只有在鼠标指针离开被选元素时，才会触发）</p>
+<p><strong>mousewheel事件：</strong>非火狐滚轮事件</p>
+<p><strong>DOMMouseScroll事件：</strong>火狐滚轮事件</p>
+<h6 id="键盘事件：通过键盘在页面上执行操作"><a href="#键盘事件：通过键盘在页面上执行操作" class="headerlink" title="键盘事件：通过键盘在页面上执行操作"></a>键盘事件：通过键盘在页面上执行操作</h6><p><strong>keydown事件：</strong>某个键盘按键被按下触发</p>
+<p><strong>keyup事件：</strong>某个键盘按键被松开触发</p>
+<p><strong>keypress事件：</strong>某个键盘被按下并松开触发</p>
+<h6 id="表单事件"><a href="#表单事件" class="headerlink" title="表单事件"></a>表单事件</h6><p><strong>focus事件：</strong>在对象获得焦点时发生</p>
+<p><strong>blur事件：</strong>在对象失去焦点时发生</p>
+<p><strong>change事件：</strong>当元素的值发生改变时在元素失去焦点时发生（可以作用于<code>&lt;input&gt;&lt;textarea&gt;&lt;keygen&gt;&lt;select&gt;</code>元素）</p>
+<p><strong>input事件：</strong>当元素的值发生改变时立即发生（可以作用于<code>&lt;input&gt;&lt;textara&gt;</code>元素）</p>
+<h6 id="触屏事件"><a href="#触屏事件" class="headerlink" title="触屏事件"></a>触屏事件</h6><p><strong>touch事件：</strong>在用户触摸屏幕（页面）时触发</p>
+<h3 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h3><p><strong>clientX</strong> 当事件被触发时，鼠标指针的水平坐标。相对于可视区域</p>
+<p><strong>clientY</strong> 当事件被触发时，鼠标指针的竖直坐标。相对于可视区域</p>
+<p><strong>layerX</strong> 鼠标相对于定位父级border左上角的起始位置（包括border）</p>
+<p><strong>layerY</strong> 鼠标相对于定位父级border左上角的起始位置（包括border）</p>
+<p><strong>offsetX</strong> 鼠标相对于触发事件元素的位置，从内容区域的左上角开始定位（不包括border）</p>
+<p><strong>offsetY</strong> 鼠标相对于触发事件元素的位置，从内容区域的左上角开始定位（不包括border）</p>
+<p><strong>pageX</strong> 鼠标在页面上的位置，从页面左上角开始定位。相对于整个页面</p>
+<p><strong>pageY</strong> 鼠标在页面上的位置，从页面左上角开始定位。相对于整个页面</p>
+<p><strong>screenX</strong> 鼠标在显示屏幕上的坐标，相对于屏幕</p>
+<p><strong>screenY</strong> 鼠标在显示屏幕上的坐标，相对于屏幕</p>
+<p><strong>movementX</strong> 鼠标的移动距离 <code>mousemove事件特有</code></p>
+<p><strong>movementY</strong> 鼠标的移动距离 <code>mousemove事件特有</code></p>
+<p><strong>X</strong> 在IE里独有，跟layerX一个效果</p>
+<p><strong>Y</strong> 在IE里独有，跟layerY一个效果</p>
+<p><strong>alrKey</strong> 返回当事件被触发时，”ALT”是否被按下</p>
+<p><strong>button</strong> 当事件被触发时，哪个鼠标按钮被点击（0鼠标左键，1鼠标中键，2鼠标右键）IE（1鼠标左键，4鼠标中键，2鼠标右键）</p>
+<p><strong>bubbles</strong> 表明事件是否冒泡，是则返回true；否则返回false</p>
+<p><strong>cancelable</strong> 表明事件是否拥有可取消的默认动作</p>
+<p><strong>ctrlKey</strong> 当事件触发时，”CTRL”键是否被按下</p>
+<p><strong>currentTarget</strong> 返回其监听器触发的节点，即当前处理该事件的元素、文档或窗口。也就是事件绑定的元素，和this是一样的（在捕获和气泡阶段非常有用，在这两个节点不同于target属性）</p>
+<p><strong>defaultPrevented</strong> 是否阻止了默认事件</p>
+<p><strong>detail</strong> 判断滚轮向上或向下 火狐浏览器 正值表示页面向下滑动</p>
+<p><strong>wheelDelta</strong> 判断滚轮向上或向下 非火狐浏览器 负值表示页面向下滑动</p>
+<p><strong>eventPhase</strong> 返回事件传播的当前阶段。分别为捕获阶段、正常事件派发和气泡阶段</p>
+<p><strong>formElement</strong> 对于mouseover和mouseout事件，fromElement引用移出鼠标的元素</p>
+<p><strong>isTrusted</strong> 表明当前事件是否由用户行为触发</p>
+<p><strong>metaKey</strong> 当事件被触发时，”meta”键是否被按下</p>
+<p><strong>path</strong> 层级关系</p>
+<p><strong>relatedTarget</strong> 返回与事件的目标节点相关的节点。对于mouseover事件来说，该属性是鼠标指针移到目标节点上时所离开的那个节点。对于mouseout事件来说，该属性是离开目标时，鼠标指针进入的节点。对于其他类型的事件来说，这个属性没有用。</p>
+<p><strong>returnValue</strong> IE属性，它的值比事件句柄的返回值优先级高。把这个属性设置为false，可以取消发生事件的源元素的默认动作。</p>
+<p><strong>shiftKey</strong> 事件被触发时，”SHIFT”键是否被按下</p>
+<p><strong>srcElement</strong> IE属性，对于生成事件的window对象、document对象或element对象的引用</p>
+<p><strong>target</strong> 返回触发此事件的元素（事件的目标节点）</p>
+<p><strong>timeStamp</strong> 返回一个时间戳，距离页面打开的毫秒数</p>
+<p><strong>toElement</strong> 对于mouseover和mouseout事件，该属性引用移入鼠标的元素</p>
+<p><strong>type</strong> 当前event对象表示的事件的名称（如：”click”、”submit”、”load”等）</p>
+<p><strong>view</strong> 根元素</p>
+<p><strong>which</strong> 返回哪个键被按下了</p>
+<h3 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h3><p>利用冒泡原理，把事件加到父级上，触发执行效果。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">	.btntarget&#123;</span><br><span class="line">		width:150px;</span><br><span class="line">		height:40px;</span><br><span class="line">		background-color:gray;</span><br><span class="line">		border:none;</span><br><span class="line">		font-size:20px;</span><br><span class="line">		border-radius:10px;</span><br><span class="line">	&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;button class=&quot;btntarget&quot;&gt;增加一个li&lt;/button&gt;</span><br><span class="line">&lt;ul class=&quot;ultarget&quot;&gt;</span><br><span class="line">	&lt;li&gt;我是li1&lt;/li&gt;</span><br><span class="line">	&lt;li&gt;我是li2&lt;/li&gt;</span><br><span class="line">	&lt;li&gt;我是li3&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">	var btnli=document.querySelector(&quot;.btntarget&quot;);</span><br><span class="line">	var ul=document.querySelector(&quot;.ultarget&quot;);</span><br><span class="line">	var lis=ul.getElementsByTagName(&quot;li&quot;);</span><br><span class="line">	var num=4;</span><br><span class="line">	btnli.addEventListener(&quot;click&quot;,function()&#123;</span><br><span class="line">		var newLi=document.createElement(&quot;li&quot;);</span><br><span class="line">		newLi.innerHTML=&quot;我是li&quot;+num;</span><br><span class="line">		ul.appendChild(newLi);</span><br><span class="line">		num++;</span><br><span class="line">	&#125;,false)</span><br><span class="line">	ul.onclick=function()&#123;</span><br><span class="line">		var e=e||window.event;</span><br><span class="line">		var targets=e.target||e.srcElement;</span><br><span class="line">		for(var i=0;i&lt;lis.length;i++)&#123;</span><br><span class="line">			if(targets==lis[i])&#123;</span><br><span class="line">				alert(i);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<pre>
+    <style>
+        .btntarget{
+            width:150px;
+            height:40px;
+            background-color:gray;
+            border:none;
+            font-size:20px;
+            border-radius:10px;
+        }
+    </style>
+    <button class="btntarget">增加一个li</button>
+    <ul class="ultarget"><li>我是li1</li><li>我是li2</li><li>我是li3</li></ul>
+    <script>
+        var btntarget=document.querySelector(".btntarget");
+        var ultarget=document.querySelector(".ultarget");
+        var listarget=ultarget.getElementsByTagName("li");
+        var num=4;
+        btntarget.addEventListener("click",function(){
+            var newLi=document.createElement("li");
+            newLi.innerHTML="我是li"+num;
+            ultarget.appendChild(newLi);
+            num++;
+        },false)
+        ultarget.onclick=function(){
+            var e=e||window.event;
+            var targets=e.target||e.srcElement;
+            for(var i=0;i<listarget.length;i++){
+                if(targets==listarget[i]){
+                    alert(i);
+                }
+            }
+        }
+    </script>
+</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/07/30/JavaScript事件流、事件类型、事件对象和事件委托/" data-id="cir98u1k5000ja9e847i9oj69" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-JavaScriptBOM浏览器对象模型" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/07/30/JavaScriptBOM浏览器对象模型/" class="article-date">
@@ -124,7 +266,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/30/JavaScriptBOM浏览器对象模型/" data-id="cir8jsj81000glce8njqgrn07" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/30/JavaScriptBOM浏览器对象模型/" data-id="cir98u1k7000ka9e8plrem8o6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -196,7 +338,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/26/JavaScriptDOM元素对象/" data-id="cir8jsj8b000klce8ds59grbv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/26/JavaScriptDOM元素对象/" data-id="cir98u1jz000ha9e80d3z9o94" class="article-share-link">Share</a>
       
       
     </footer>
@@ -445,7 +587,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/23/JavaScript瀑布流/" data-id="cir8jsj8s000ulce8ijxpggj7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/23/JavaScript瀑布流/" data-id="cir98u1kz000ta9e8jn604htq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -803,7 +945,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/22/JavaScript图片轮播/" data-id="cir8jsj8o000slce8br0w6eqq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/22/JavaScript图片轮播/" data-id="cir98u1kt000ra9e85ikfkl66" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1106,7 +1248,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/22/JavaScript制作简易日历/" data-id="cir8jsj8g000nlce810g28j64" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/22/JavaScript制作简易日历/" data-id="cir98u1kc000ma9e8uqfcmha4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1265,7 +1407,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/21/JavaScriptDOM文档对象类型/" data-id="cir8jsj8a000jlce8z7n3alrw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/21/JavaScriptDOM文档对象类型/" data-id="cir98u1ka000la9e839uul3ha" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1520,7 +1662,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/21/JavaScript闭包、Object对象/" data-id="cir8jsj8t000vlce8fw6pbx6y" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/21/JavaScript闭包、Object对象/" data-id="cir98u1la000xa9e8nens4all" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1844,7 +1986,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/19/JavaScript碰撞检测/" data-id="cir8jsj8u000wlce8yofi5u2n" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/19/JavaScript碰撞检测/" data-id="cir98u1l6000wa9e86zp1jzxj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -2002,239 +2144,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/19/JavaScript导航滚动/" data-id="cir8jsj8y000xlce8joom3m33" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-JavaScript字符串对象、日期对象、定时器" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/07/16/JavaScript字符串对象、日期对象、定时器/" class="article-date">
-  <time datetime="2016-07-16T07:52:39.000Z" itemprop="datePublished">2016-07-16</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/16/JavaScript字符串对象、日期对象、定时器/">JavaScript字符串对象、日期对象、定时器</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="String字符串对象"><a href="#String字符串对象" class="headerlink" title="String字符串对象"></a>String字符串对象</h3><p>String对象用于处理文本（字符串）。</p>
-<p><code>toString</code>||<code>String()</code>转换为字符串,<em>不能转换null和undefined</em></p>
-<pre>
-    var a=10;
-    console.log(a.toString());
-    var b=20;
-    console.log(String(b));
-</pre>
-
-<h5 id="创建字符串"><a href="#创建字符串" class="headerlink" title="创建字符串"></a>创建字符串</h5><p><strong>new String()</strong>;    String类型有默认length属性，表示字符串包含多少个字符（空格也是字符）。</p>
-<h5 id="字符串方法"><a href="#字符串方法" class="headerlink" title="字符串方法"></a>字符串方法</h5><p><strong>charAt()</strong>：返回字符串指定位置的字符；字符串第一个字符下标为0，如果参数不在0与string.length之间，则返回一个空字符串。</p>
-<p><strong>search()</strong>：查找字符串指定字符的位置，只能查找到<strong>第一个</strong>匹配的位置，如果找不到则返回-1。</p>
-<p><strong>substring(start,stop)</strong>：star、stop为<strong>非负的整数</strong>，如果省略stop则返回的子串会一直到字符串结尾。</p>
-<p>该方法返回一个新的字符串从start(包括start)到stop-1(不包括stop)的所有字符，长度为stop减start。</p>
-<p>如果start=stop，返回一个长度为0的字符串；如果start&gt;stop，则提取子串之前会先交换这两个参数。</p>
-<p><strong>slice(start,end)</strong>：start、end<strong>可以为负数</strong></p>
-<p>该方法提取字符串的某个部分，并以新的字符串返回被提取的部分。包括字符串从start(包括start)开始到end(不包括end)结束为止的所有字符。</p>
-<p>start、end如果为负数，则参数规定的是从字符串的尾部开始算起的位置，如-1指的是最后一个字符，以此类推。</p>
-<p><strong>substr(start,length)</strong>：start<strong>可以为负数</strong>、length可选</p>
-<p>该方法返回一个新的字符串，包含从star(包括start)处开始的length个字符；如果没有指定length则为从start到结尾的字符。</p>
-<p><strong><em>因ECMAscript未对此方法进行标准化，因此反对使用。</em></strong></p>
-<p><em>String 对象的方法 slice()、substring() 和 substr() （不建议使用）都可返回字符串的指定部分。slice() 比 substring() 要灵活一些，因为它允许使用负数作为参数。slice() 与 substr() 有所不同，因为它用两个字符的位置来指定子串，而 substr() 则用字符位置和长度来指定子串。</em></p>
-<p><strong>replace(ragexp/substr,replacement)</strong>用于在字符串中用一些字符替换另一些字符。</p>
-<p>返回一个新的字符串，用replacement替换regexp第一次匹配或所有匹配之后得到的。</p>
-<p>如果regexp具有全局标志 g，那么replace()将替换所有匹配的子串；否则<strong>默认只替换第一个匹配的子串</strong></p>
-<pre>
-    var str="hello world";
-    console.log(str.replace("l","*"));
-    console.log(str.replace(/l/g,"*"));
-</pre>
-
-<p><strong>split(separator,howmany)</strong>：用于把一个字符串分割字符串数组。</p>
-<p>separator为字符串或者表达式，从该参数地方分割字符串。howmany可选规定返回的数组最大长度，如果设置返回的字符串不会超过这个参数；如果没有设置整个字符串都会分割不考虑长度。</p>
-<p>返回的数组不包含separator自身。如果把空字符串(“ “)作为separator，则字符串每个字符之间都会被分割。</p>
-<p><strong>concat(stringX…)</strong>用于将一个或多个字符串拼接起来，获得一个新的字符串。</p>
-<p><strong>indexOf()</strong>返回某个指定的字符在字符串中<strong>首次</strong>出现的位置，在字符串中从前向后搜索，如果没有则返回-1。</p>
-<p><strong>lastIndexOf()</strong>返回某个指定的字符在字符串中<strong>最后</strong>出现的位置，在字符串中从后向前搜索，如果没有则返回-1。</p>
-<h3 id="Date日期对象"><a href="#Date日期对象" class="headerlink" title="Date日期对象"></a>Date日期对象</h3><p>Date对象用于处理日期和时间。</p>
-<p>创建Date对象语法：</p>
-<p><code>var myDate=new Date()</code></p>
-<p>Date对象属性constructor（返回对创建次对象的Date函数的引用）和prototype（使有能力向对象添加属性和方法）。</p>
-<h5 id="Date对象方法"><a href="#Date对象方法" class="headerlink" title="Date对象方法"></a>Date对象方法</h5><p><strong>getFullYear()</strong>：可返回一个表示年份的4位数字</p>
-<p><strong>getMonth()</strong>：可返回表示月份的数字，返回0(一月)~11(十二月)的一个整数</p>
-<p><strong>getDate()</strong>：可返回月份的某一天，返回1~31之间的一个整数</p>
-<p><strong>getDay()</strong>：可返回表示星期的某一天的数字，返回0(周日)~6(周六)之间的一个整数</p>
-<p><strong>getMilliseconds()</strong>：可返回当前时间的毫秒数，返回0~999之间的一个整数</p>
-<p><strong>getTime()</strong>：可返回距1970年1月1日到现在的毫秒数</p>
-<h3 id="JavaScript计时事件"><a href="#JavaScript计时事件" class="headerlink" title="JavaScript计时事件"></a>JavaScript计时事件</h3><h5 id="一次性定时器setTimeout"><a href="#一次性定时器setTimeout" class="headerlink" title="一次性定时器setTimeout()"></a>一次性定时器setTimeout()</h5><p><code>setTimeout(code,millisec)</code></p>
-<p>setTimeout()第一个参数是含有JavaScript语句的代码串，第二个参数指在执行代码前需要等待的毫秒数。只会执行一次。</p>
-<p><code>clearTimeout(id_of_settimeout)</code></p>
-<p>clearTimeout()可取消由setTimeout()方法设置的timeout。其参数必须是由setTimeout()返回的ID值。</p>
-<h5 id="循环定时器setInterval"><a href="#循环定时器setInterval" class="headerlink" title="循环定时器setInterval()"></a>循环定时器setInterval()</h5><p><code>setInterval(code,millisec)</code></p>
-<p>setInterval()方法可按照指定的周期(以毫秒计)来调用函数或计算表达式。setInterval()方法会不停地调用函数，直到clearInterval()被调用或窗口关闭。</p>
-<p><code>clearInterval(id_of_setinterval)</code></p>
-<p>clearInterval()可取消由setInterval()设置的timeout。其参数必须是由setInterval()返回的ID值。</p>
-<p>用一次性定时器模拟循环定时：</p>
-<pre>
-    &lt;input type="button" value="开始/暂停" id="timebtn" /&gt;
-    &lt;input type="button" value="重置" id="timeclear"/&gt;
-    &lt;input type="text" id="timetext" value="0" /&gt;
-    &lt;script&gt;
-        var i=0;
-        var j=0;
-        var t=null;
-        var btn1=document.getElementById("timebtn1");
-        var clear=document.getElementById("timeclear1");
-        var text=document.getElementById("timetext");
-        function time(){        
-            text.value=i;        
-            i+=1;
-            t=setTimeout("time()",30);
-        }
-        function stop(){
-            i=0;
-            j=0;
-            setTimeout(text.value=0,0)
-            clearTimeout(t);
-        }
-        btn1.onclick=function(){
-            if(j==0){
-                time();
-                j=1;
-            }else if(j==1){
-                clearTimeout(t);
-                j=0;
-            }
-        }
-        clear.onclick=function(){
-            stop();
-        }
-    &lt;/script&gt;
-</pre>
-
-<pre>
-    <input type="button" value="开始/暂停" id="timebtn1"><input type="button" value="重置" id="timeclear1">
-    <input type="text" id="timetext" value="0">
-    <script>
-        var i=0;
-        var j=0;
-        var t=null;
-        var btn1=document.getElementById("timebtn1");
-        var clear=document.getElementById("timeclear1");
-        var text=document.getElementById("timetext");
-        function time(){        
-            text.value=i;        
-            i+=1;
-            t=setTimeout("time()",30);
-        }
-        function stop(){
-            i=0;
-            j=0;
-            setTimeout(text.value=0,0)
-            clearTimeout(t);
-        }
-        btn1.onclick=function(){
-            if(j==0){
-                time();
-                j=1;
-            }else if(j==1){
-                clearTimeout(t);
-                j=0;
-            }
-        }
-        clear.onclick=function(){
-            stop();
-        }
-    </script>
-</pre>
-
-<p>再来一个倒计时吧：</p>
-<pre>
-    &lt;input type="date" id="inputdate" /&gt;
-    &lt;input type="button" id="timebtn2" value="设置日期" /&gt;
-    &lt;input type="button" id="timeclear2" value="暂停" /&gt;
-    &lt;div id="timelast"&gt;&lt;/div&gt;
-    &lt;script&gt;
-        var date1 = document.getElementById("inputdate");
-        var btn11 = document.getElementById("timebtn2");
-        var btn22 = document.getElementById("timeclear2");
-        btn11.onclick = function() {
-            var str = date1.value;
-            year2 = parseInt(str.slice(0, 4));
-            month2 = parseInt(str.slice(5, 7));
-            day2 = parseInt(str.slice(-2));
-            t = setInterval('daojishi(year2,month2,day2,"timelast")', 30)
-        }
-        btn22.onclick = function() {
-            clearInterval(t)
-        }
-        function daojishi(year, month, day, divid) {
-            var today = new Date();
-            var setday = new Date(year, month - 1, day);
-            var lefttime = setday.getTime() - today.getTime();
-            var seconds = parseInt(lefttime / 1000);
-            var milliseconds=lefttime%1000;
-            var second=seconds%60;
-            var minutes=(seconds-second)/60%60;
-            var hours=(seconds-second-minutes*60)/(60*60)%24
-            var days=(seconds-second-minutes*60-hours*60*60)/(60*60*24);
-            var div = document.getElementById(divid);
-            div.innerHTML = "距离" + year + "年" + month + "月" + day + "日还有" + days + "天" + hours + "小时" + minutes + "分" + second + "秒" + milliseconds + "毫秒";
-        }
-    &lt;/script&gt;
-</pre>
-
-<pre>
-    <input type="date" id="inputdate"><input type="button" id="timebtn2" value="设置日期"><input type="button" id="timeclear2" value="暂停">
-    <div id="timelast"></div>
-    <script type="text/javascript">
-        var date1 = document.getElementById("inputdate");
-        var btn11 = document.getElementById("timebtn2");
-        var btn22 = document.getElementById("timeclear2");
-        btn11.onclick = function() {
-            var str = date1.value;
-            year2 = parseInt(str.slice(0, 4));
-            month2 = parseInt(str.slice(5, 7));
-            day2 = parseInt(str.slice(-2));
-            t = setInterval('daojishi(year2,month2,day2,"timelast")', 30)
-        }
-        btn22.onclick = function() {
-            clearInterval(t)
-        }
-        function daojishi(year, month, day, divid) {
-            var today = new Date();
-            var setday = new Date(year, month - 1, day);
-            var lefttime = setday.getTime() - today.getTime();
-            var seconds = parseInt(lefttime / 1000);
-            var milliseconds=lefttime%1000;
-            var second=seconds%60;
-            var minutes=(seconds-second)/60%60;
-            var hours=(seconds-second-minutes*60)/(60*60)%24
-            var days=(seconds-second-minutes*60-hours*60*60)/(60*60*24);
-            var div = document.getElementById(divid);
-            div.innerHTML = "距离" + year + "年" + month + "月" + day + "日还有" + days + "天" + hours + "小时" + minutes + "分" + second + "秒" + milliseconds + "毫秒";
-        }        
-    </script>
-</pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/16/JavaScript字符串对象、日期对象、定时器/" data-id="cir8jsj8h000olce83x6i4922" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/19/JavaScript导航滚动/" data-id="cir98u1l3000ua9e8f9lv229p" class="article-share-link">Share</a>
       
       
     </footer>
@@ -2278,6 +2188,10 @@
       <ul>
         
           <li>
+            <a href="/2016/07/30/JavaScript事件流、事件类型、事件对象和事件委托/">JavaScript事件流、事件类型、事件对象和事件委托</a>
+          </li>
+        
+          <li>
             <a href="/2016/07/30/JavaScriptBOM浏览器对象模型/">JavaScriptBOM浏览器对象模型</a>
           </li>
         
@@ -2291,10 +2205,6 @@
         
           <li>
             <a href="/2016/07/22/JavaScript图片轮播/">JavaScript图片轮播</a>
-          </li>
-        
-          <li>
-            <a href="/2016/07/22/JavaScript制作简易日历/">JavaScript制作简易日历</a>
           </li>
         
       </ul>

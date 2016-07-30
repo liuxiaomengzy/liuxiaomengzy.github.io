@@ -68,6 +68,238 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-JavaScript字符串对象、日期对象、定时器" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/16/JavaScript字符串对象、日期对象、定时器/" class="article-date">
+  <time datetime="2016-07-16T07:52:39.000Z" itemprop="datePublished">2016-07-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/16/JavaScript字符串对象、日期对象、定时器/">JavaScript字符串对象、日期对象、定时器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="String字符串对象"><a href="#String字符串对象" class="headerlink" title="String字符串对象"></a>String字符串对象</h3><p>String对象用于处理文本（字符串）。</p>
+<p><code>toString</code>||<code>String()</code>转换为字符串,<em>不能转换null和undefined</em></p>
+<pre>
+    var a=10;
+    console.log(a.toString());
+    var b=20;
+    console.log(String(b));
+</pre>
+
+<h5 id="创建字符串"><a href="#创建字符串" class="headerlink" title="创建字符串"></a>创建字符串</h5><p><strong>new String()</strong>;    String类型有默认length属性，表示字符串包含多少个字符（空格也是字符）。</p>
+<h5 id="字符串方法"><a href="#字符串方法" class="headerlink" title="字符串方法"></a>字符串方法</h5><p><strong>charAt()</strong>：返回字符串指定位置的字符；字符串第一个字符下标为0，如果参数不在0与string.length之间，则返回一个空字符串。</p>
+<p><strong>search()</strong>：查找字符串指定字符的位置，只能查找到<strong>第一个</strong>匹配的位置，如果找不到则返回-1。</p>
+<p><strong>substring(start,stop)</strong>：star、stop为<strong>非负的整数</strong>，如果省略stop则返回的子串会一直到字符串结尾。</p>
+<p>该方法返回一个新的字符串从start(包括start)到stop-1(不包括stop)的所有字符，长度为stop减start。</p>
+<p>如果start=stop，返回一个长度为0的字符串；如果start&gt;stop，则提取子串之前会先交换这两个参数。</p>
+<p><strong>slice(start,end)</strong>：start、end<strong>可以为负数</strong></p>
+<p>该方法提取字符串的某个部分，并以新的字符串返回被提取的部分。包括字符串从start(包括start)开始到end(不包括end)结束为止的所有字符。</p>
+<p>start、end如果为负数，则参数规定的是从字符串的尾部开始算起的位置，如-1指的是最后一个字符，以此类推。</p>
+<p><strong>substr(start,length)</strong>：start<strong>可以为负数</strong>、length可选</p>
+<p>该方法返回一个新的字符串，包含从star(包括start)处开始的length个字符；如果没有指定length则为从start到结尾的字符。</p>
+<p><strong><em>因ECMAscript未对此方法进行标准化，因此反对使用。</em></strong></p>
+<p><em>String 对象的方法 slice()、substring() 和 substr() （不建议使用）都可返回字符串的指定部分。slice() 比 substring() 要灵活一些，因为它允许使用负数作为参数。slice() 与 substr() 有所不同，因为它用两个字符的位置来指定子串，而 substr() 则用字符位置和长度来指定子串。</em></p>
+<p><strong>replace(ragexp/substr,replacement)</strong>用于在字符串中用一些字符替换另一些字符。</p>
+<p>返回一个新的字符串，用replacement替换regexp第一次匹配或所有匹配之后得到的。</p>
+<p>如果regexp具有全局标志 g，那么replace()将替换所有匹配的子串；否则<strong>默认只替换第一个匹配的子串</strong></p>
+<pre>
+    var str="hello world";
+    console.log(str.replace("l","*"));
+    console.log(str.replace(/l/g,"*"));
+</pre>
+
+<p><strong>split(separator,howmany)</strong>：用于把一个字符串分割字符串数组。</p>
+<p>separator为字符串或者表达式，从该参数地方分割字符串。howmany可选规定返回的数组最大长度，如果设置返回的字符串不会超过这个参数；如果没有设置整个字符串都会分割不考虑长度。</p>
+<p>返回的数组不包含separator自身。如果把空字符串(“ “)作为separator，则字符串每个字符之间都会被分割。</p>
+<p><strong>concat(stringX…)</strong>用于将一个或多个字符串拼接起来，获得一个新的字符串。</p>
+<p><strong>indexOf()</strong>返回某个指定的字符在字符串中<strong>首次</strong>出现的位置，在字符串中从前向后搜索，如果没有则返回-1。</p>
+<p><strong>lastIndexOf()</strong>返回某个指定的字符在字符串中<strong>最后</strong>出现的位置，在字符串中从后向前搜索，如果没有则返回-1。</p>
+<h3 id="Date日期对象"><a href="#Date日期对象" class="headerlink" title="Date日期对象"></a>Date日期对象</h3><p>Date对象用于处理日期和时间。</p>
+<p>创建Date对象语法：</p>
+<p><code>var myDate=new Date()</code></p>
+<p>Date对象属性constructor（返回对创建次对象的Date函数的引用）和prototype（使有能力向对象添加属性和方法）。</p>
+<h5 id="Date对象方法"><a href="#Date对象方法" class="headerlink" title="Date对象方法"></a>Date对象方法</h5><p><strong>getFullYear()</strong>：可返回一个表示年份的4位数字</p>
+<p><strong>getMonth()</strong>：可返回表示月份的数字，返回0(一月)~11(十二月)的一个整数</p>
+<p><strong>getDate()</strong>：可返回月份的某一天，返回1~31之间的一个整数</p>
+<p><strong>getDay()</strong>：可返回表示星期的某一天的数字，返回0(周日)~6(周六)之间的一个整数</p>
+<p><strong>getMilliseconds()</strong>：可返回当前时间的毫秒数，返回0~999之间的一个整数</p>
+<p><strong>getTime()</strong>：可返回距1970年1月1日到现在的毫秒数</p>
+<h3 id="JavaScript计时事件"><a href="#JavaScript计时事件" class="headerlink" title="JavaScript计时事件"></a>JavaScript计时事件</h3><h5 id="一次性定时器setTimeout"><a href="#一次性定时器setTimeout" class="headerlink" title="一次性定时器setTimeout()"></a>一次性定时器setTimeout()</h5><p><code>setTimeout(code,millisec)</code></p>
+<p>setTimeout()第一个参数是含有JavaScript语句的代码串，第二个参数指在执行代码前需要等待的毫秒数。只会执行一次。</p>
+<p><code>clearTimeout(id_of_settimeout)</code></p>
+<p>clearTimeout()可取消由setTimeout()方法设置的timeout。其参数必须是由setTimeout()返回的ID值。</p>
+<h5 id="循环定时器setInterval"><a href="#循环定时器setInterval" class="headerlink" title="循环定时器setInterval()"></a>循环定时器setInterval()</h5><p><code>setInterval(code,millisec)</code></p>
+<p>setInterval()方法可按照指定的周期(以毫秒计)来调用函数或计算表达式。setInterval()方法会不停地调用函数，直到clearInterval()被调用或窗口关闭。</p>
+<p><code>clearInterval(id_of_setinterval)</code></p>
+<p>clearInterval()可取消由setInterval()设置的timeout。其参数必须是由setInterval()返回的ID值。</p>
+<p>用一次性定时器模拟循环定时：</p>
+<pre>
+    &lt;input type="button" value="开始/暂停" id="timebtn" /&gt;
+    &lt;input type="button" value="重置" id="timeclear"/&gt;
+    &lt;input type="text" id="timetext" value="0" /&gt;
+    &lt;script&gt;
+        var i=0;
+        var j=0;
+        var t=null;
+        var btn1=document.getElementById("timebtn1");
+        var clear=document.getElementById("timeclear1");
+        var text=document.getElementById("timetext");
+        function time(){        
+            text.value=i;        
+            i+=1;
+            t=setTimeout("time()",30);
+        }
+        function stop(){
+            i=0;
+            j=0;
+            setTimeout(text.value=0,0)
+            clearTimeout(t);
+        }
+        btn1.onclick=function(){
+            if(j==0){
+                time();
+                j=1;
+            }else if(j==1){
+                clearTimeout(t);
+                j=0;
+            }
+        }
+        clear.onclick=function(){
+            stop();
+        }
+    &lt;/script&gt;
+</pre>
+
+<pre>
+    <input type="button" value="开始/暂停" id="timebtn1"><input type="button" value="重置" id="timeclear1">
+    <input type="text" id="timetext" value="0">
+    <script>
+        var i=0;
+        var j=0;
+        var t=null;
+        var btn1=document.getElementById("timebtn1");
+        var clear=document.getElementById("timeclear1");
+        var text=document.getElementById("timetext");
+        function time(){        
+            text.value=i;        
+            i+=1;
+            t=setTimeout("time()",30);
+        }
+        function stop(){
+            i=0;
+            j=0;
+            setTimeout(text.value=0,0)
+            clearTimeout(t);
+        }
+        btn1.onclick=function(){
+            if(j==0){
+                time();
+                j=1;
+            }else if(j==1){
+                clearTimeout(t);
+                j=0;
+            }
+        }
+        clear.onclick=function(){
+            stop();
+        }
+    </script>
+</pre>
+
+<p>再来一个倒计时吧：</p>
+<pre>
+    &lt;input type="date" id="inputdate" /&gt;
+    &lt;input type="button" id="timebtn2" value="设置日期" /&gt;
+    &lt;input type="button" id="timeclear2" value="暂停" /&gt;
+    &lt;div id="timelast"&gt;&lt;/div&gt;
+    &lt;script&gt;
+        var date1 = document.getElementById("inputdate");
+        var btn11 = document.getElementById("timebtn2");
+        var btn22 = document.getElementById("timeclear2");
+        btn11.onclick = function() {
+            var str = date1.value;
+            year2 = parseInt(str.slice(0, 4));
+            month2 = parseInt(str.slice(5, 7));
+            day2 = parseInt(str.slice(-2));
+            t = setInterval('daojishi(year2,month2,day2,"timelast")', 30)
+        }
+        btn22.onclick = function() {
+            clearInterval(t)
+        }
+        function daojishi(year, month, day, divid) {
+            var today = new Date();
+            var setday = new Date(year, month - 1, day);
+            var lefttime = setday.getTime() - today.getTime();
+            var seconds = parseInt(lefttime / 1000);
+            var milliseconds=lefttime%1000;
+            var second=seconds%60;
+            var minutes=(seconds-second)/60%60;
+            var hours=(seconds-second-minutes*60)/(60*60)%24
+            var days=(seconds-second-minutes*60-hours*60*60)/(60*60*24);
+            var div = document.getElementById(divid);
+            div.innerHTML = "距离" + year + "年" + month + "月" + day + "日还有" + days + "天" + hours + "小时" + minutes + "分" + second + "秒" + milliseconds + "毫秒";
+        }
+    &lt;/script&gt;
+</pre>
+
+<pre>
+    <input type="date" id="inputdate"><input type="button" id="timebtn2" value="设置日期"><input type="button" id="timeclear2" value="暂停">
+    <div id="timelast"></div>
+    <script type="text/javascript">
+        var date1 = document.getElementById("inputdate");
+        var btn11 = document.getElementById("timebtn2");
+        var btn22 = document.getElementById("timeclear2");
+        btn11.onclick = function() {
+            var str = date1.value;
+            year2 = parseInt(str.slice(0, 4));
+            month2 = parseInt(str.slice(5, 7));
+            day2 = parseInt(str.slice(-2));
+            t = setInterval('daojishi(year2,month2,day2,"timelast")', 30)
+        }
+        btn22.onclick = function() {
+            clearInterval(t)
+        }
+        function daojishi(year, month, day, divid) {
+            var today = new Date();
+            var setday = new Date(year, month - 1, day);
+            var lefttime = setday.getTime() - today.getTime();
+            var seconds = parseInt(lefttime / 1000);
+            var milliseconds=lefttime%1000;
+            var second=seconds%60;
+            var minutes=(seconds-second)/60%60;
+            var hours=(seconds-second-minutes*60)/(60*60)%24
+            var days=(seconds-second-minutes*60-hours*60*60)/(60*60*24);
+            var div = document.getElementById(divid);
+            div.innerHTML = "距离" + year + "年" + month + "月" + day + "日还有" + days + "天" + hours + "小时" + minutes + "分" + second + "秒" + milliseconds + "毫秒";
+        }        
+    </script>
+</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/07/16/JavaScript字符串对象、日期对象、定时器/" data-id="cir98u1kr000qa9e8iucwhbzu" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-JavaScript函数、Math对象、数组" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/07/16/JavaScript函数、Math对象、数组/" class="article-date">
@@ -250,7 +482,7 @@ function functionname(参数列表){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/16/JavaScript函数、Math对象、数组/" data-id="cir8jsj8j000plce85hknfvjm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/16/JavaScript函数、Math对象、数组/" data-id="cir98u1kg000oa9e8ytajxd1d" class="article-share-link">Share</a>
       
       
     </footer>
@@ -420,7 +652,7 @@ function functionname(参数列表){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/14/JavaScript全选反选/" data-id="cir8jsj8d000llce8m9e7xe29" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/14/JavaScript全选反选/" data-id="cir98u1ki000pa9e8vtqnncql" class="article-share-link">Share</a>
       
       
     </footer>
@@ -469,6 +701,8 @@ function functionname(参数列表){
     docuemnt.querySelectorAll(".list li");//获取所有class为list元素下的所有li元素，返回数组
 </pre>
 
+<h5 id="querySelector和getElement区别"><a href="#querySelector和getElement区别" class="headerlink" title="querySelector和getElement区别"></a>querySelector和getElement区别</h5><p><strong>querySelector获取的元素是静态的，通过其他方法增加或删除其获取的元素，其获取的元素对象不会发生变化</strong></p>
+<p><strong>getElement获取的元素是动态的，通过其他方法增加或删除其获取的元素，其获取的元素对象会动态变化</strong></p>
 <h3 id="className属性"><a href="#className属性" class="headerlink" title="className属性"></a>className属性</h3><p>语法：<code>object.className=className</code></p>
 <p>className属性设置或返回元素的class属性。</p>
 <pre>
@@ -615,7 +849,7 @@ function functionname(参数列表){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/14/JavaScript显示隐藏及Tab切换/" data-id="cir8jsj8l000rlce8i6semk47" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/14/JavaScript显示隐藏及Tab切换/" data-id="cir98u1l4000va9e86dkhk88u" class="article-share-link">Share</a>
       
       
     </footer>
@@ -703,7 +937,7 @@ function functionname(参数列表){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/14/JavaScript数据类型转换和输出/" data-id="cir8jsj8k000qlce862d9y9ks" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/14/JavaScript数据类型转换和输出/" data-id="cir98u1kx000sa9e84328x3wg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -857,7 +1091,7 @@ onmouseup            某个鼠标按键被松开
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/13/If...Else、Switch、For循环、While循环/" data-id="cir8jsj83000hlce8n17f3k2y" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/13/If...Else、Switch、For循环、While循环/" data-id="cir98u1ji000ga9e88e7wikmx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1097,7 +1331,7 @@ onmouseup            某个鼠标按键被松开
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/11/JavaScript基础/" data-id="cir8jsj8r000tlce8557iicz5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/11/JavaScript基础/" data-id="cir98u1kd000na9e8t014n6ta" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1201,7 +1435,7 @@ onmouseup            某个鼠标按键被松开
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/09/CSS3媒体查询/" data-id="cir8jsj760005lce8sx9r647k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/09/CSS3媒体查询/" data-id="cir98u1hs0002a9e8u990o8sc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1363,7 +1597,7 @@ onmouseup            某个鼠标按键被松开
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/06/LESSCSS初使用/" data-id="cir8jsj90000ylce8v2sqpom3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/06/LESSCSS初使用/" data-id="cir98u1ld000za9e8ujxigw0l" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1535,89 +1769,7 @@ onmouseup            某个鼠标按键被松开
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/05/CSS3弹性布局/" data-id="cir8jsj7i0008lce8ai4ppih3" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-CSS3 @font-face规则和多列" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/07/04/CSS3 @font-face规则和多列/" class="article-date">
-  <time datetime="2016-07-04T11:30:20.000Z" itemprop="datePublished">2016-07-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/04/CSS3 @font-face规则和多列/">CSS3 @font-face规则和多列</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="CSS3-font-face规则"><a href="#CSS3-font-face规则" class="headerlink" title="CSS3 @font-face规则"></a>CSS3 @font-face规则</h3><p><strong>使用CSS3 <code>@font-face</code>规则，网页设计师再也不必使用计算机安装的字体；网页设计师可以使用任何喜欢的字体。</strong></p>
-<p>当你发现需要使用的字体文件时，只需简单的将字体文件包含在网站中，它会自动下载给需要的用户。</p>
-<p>你想要的字体就是在CCS3 @font-face规则中定义的。</p>
-<p>示例如下：</p>
-<pre>
-    &ltstyle&gt
-        @font-face{
-            font-family:你的自定义字体名称;
-            src:url("字体路径");
-        }
-        /*引用*/
-        p{
-            font-family:你的自定义字体名称;
-        }
-    &lt/style&gt
-    &ltp&gt我是文字&lt/p&gt
-</pre>
-
-<h3 id="CSS3多列"><a href="#CSS3多列" class="headerlink" title="CSS3多列"></a>CSS3多列</h3><p>通过CSS3，可以创建多个列来对文本进行布局（例如报纸），主要属性如下：</p>
-<ol>
-<li><p>column-count定义分栏的数目；</p>
-</li>
-<li><p>column-gap定义列与列之间的间隔；</p>
-</li>
-<li><p>column-rule定义列与列的宽度、样式和颜色规则。</p>
-</li>
-</ol>
-<pre>
-    &ltstyle&gt
-        div.column{
-            column-count:3;
-            column-gap: 50px;
-            column-rule: 10px dotted gold;
-        }
-    &lt/style&gt
-    &ltdiv class="column">
-        人生就是从烦恼中走过，去寻找人生的智慧，去寻找人生的真谛。假如人身没有烦恼，非常完美，那么那是一场童话；假如人生没有失落，没有失落也就没有希望，人生总是在失落中遥望，遥望有一天能走出苦恼。生活是从误解中收获宽恕，从伤害中收获饶恕，从烦恼中收获智慧，从痛苦中收获善良。
-    &lt/div&gt
-    &ltdiv class="column"&gt
-        人生就是从烦恼中走过，去寻找人生的智慧，去寻找人生的真谛。假如人身没有烦恼，非常完美，那么那是一场童话；假如人生没有失落，没有失落也就没有希望，人生总是在失落中遥望，遥望有一天能走出苦恼。生活是从误解中收获宽恕，从伤害中收获饶恕，从烦恼中收获智慧，从痛苦中收获善良。
-    &lt/div&gt
-</pre>
-
-
-<p>图片如下：</p>
-<p><img src="https://raw.githubusercontent.com/liuxiaomengzy/liuxiaomengzy.github.io/master/images/column%E5%A4%9A%E5%88%97.png" alt="column多列"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/04/CSS3 @font-face规则和多列/" data-id="cir8jsj710003lce8pz2xxxac" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/05/CSS3弹性布局/" data-id="cir98u1hx0004a9e8xi0266hp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1661,6 +1813,10 @@ onmouseup            某个鼠标按键被松开
       <ul>
         
           <li>
+            <a href="/2016/07/30/JavaScript事件流、事件类型、事件对象和事件委托/">JavaScript事件流、事件类型、事件对象和事件委托</a>
+          </li>
+        
+          <li>
             <a href="/2016/07/30/JavaScriptBOM浏览器对象模型/">JavaScriptBOM浏览器对象模型</a>
           </li>
         
@@ -1674,10 +1830,6 @@ onmouseup            某个鼠标按键被松开
         
           <li>
             <a href="/2016/07/22/JavaScript图片轮播/">JavaScript图片轮播</a>
-          </li>
-        
-          <li>
-            <a href="/2016/07/22/JavaScript制作简易日历/">JavaScript制作简易日历</a>
           </li>
         
       </ul>
