@@ -96,6 +96,69 @@
 <p>touchend：相当于mouseup事件</p>
 <p>应用如下：</p>
 <pre>
+    &lt;style&gt;
+        .divtouch{
+            width:300px;
+            height:500px;
+            border:1px solid blue;
+            position:relative;
+            margin:0 auto;
+        }
+        .divtouch p{
+            font-size:30px;
+            text-align:center;
+        }
+        .divtouch div{
+            position:absolute;
+            width:50px;
+            height:50px;
+            background-color:pink;
+            top:0;
+            left:0;
+        }
+    &lt;/style&gt;
+    &lt;div class="divtouch"&gt;
+        &lt;p&gt;&lt;/p&gt;
+        &lt;div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        var para=document.querySelector(".divtouch p");
+        var divtouchBlock=document.querySelector(".divtouch div");
+        var s={
+            startX:0,
+            startY:0,
+            endX:0,
+            endY:0,
+            disX:0,
+            disY:0,
+            ofl:0,
+            oft:0,
+        }
+        divtouchBlock.addEventListener("touchstart",function(e){
+            var e=e||window.event;
+            para.innerHTML=e.touches.length+"根手指";
+            s.ofl=divtouchBlock.offsetLeft;
+            s.oft=divtouchBlock.offsetTop;
+            s.startX=e.touches[0].clientX;
+            s.startY=e.touches[0].clientY;
+            e.preventDefault();
+        },false)
+        document.addEventListener("touchmove",function(e){
+            var e=e||window.event;
+            if(e.touches.length!=1){
+                return;
+            }
+            s.endX=e.touches[0].clientX;
+            s.endY=e.touches[0].clientY;
+            s.disX=s.endX-s.startX+s.ofl;
+            s.disY=s.endY-s.startY+s.oft;
+            divtouchBlock.style.left=s.disX+"px";
+            divtouchBlock.style.top=s.disY+"px";
+        },false)
+    &lt;/script&gt;
+</pre>
+
+<pre>
     <style>
         .divtouch{
             width:300px;
@@ -157,10 +220,38 @@
         },false)
     </script>
 </pre>
+
+<h3 id="设备事件——方向API（陀螺仪）"><a href="#设备事件——方向API（陀螺仪）" class="headerlink" title="设备事件——方向API（陀螺仪）"></a>设备事件——方向API（陀螺仪）</h3><p>方向事件指DeviceOrientationEvent，其触发事件为<strong>deviceorientation</strong></p>
+<pre>
+    if(window.DeviceOrientationEvent){
+        window.addEventListener("deviceorientation",function(e){
+            var e=e||window.event;
+            e.alpha;//0~360度，0度指向正北方（Z轴）
+            e.beta;//设备前后转-180~180度（X轴）
+            e.gamma;//设备左右转-90~90度（Y轴）
+        },false)
+    }
+</pre>
+
+<h3 id="设备事件——加速度API"><a href="#设备事件——加速度API" class="headerlink" title="设备事件——加速度API"></a>设备事件——加速度API</h3><p>加速度事件指DeviceMotionEvent，其触发事件为<strong>devicemotion</strong></p>
+<pre>
+    if(window.DeviceMotionEvent){
+        window.addEventListener("devicemotion",function(e){
+            var e=e||window.event;
+            e.acceleration.x;//加速度，x代表x方向
+            e.acceleration.y;
+            e.acceleration.z;
+
+            e.accelerationIncludingGravity.x;//重力加速度，x轴代表x方向
+            e.accelerationIncludingGravity.y;
+            e.accelerationIncludingGravity.z;
+        },false)
+    }
+</pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/06/JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage/" data-id="cirjabjco000pmze894fte4ko" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/06/JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage/" data-id="cirjb5aqt000opme8259z14zh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -414,7 +505,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/05/JavaScript滚轮事件的封装和滚轮轮播图/" data-id="cirjabjd6000zmze8o0hhswee" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/05/JavaScript滚轮事件的封装和滚轮轮播图/" data-id="cirjb5ara000xpme80d94l6xm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -502,7 +593,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/03/JavaScriptCallback回调函数和事件委托的封装/" data-id="cirjabjck000nmze8yvj40n6f" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/03/JavaScriptCallback回调函数和事件委托的封装/" data-id="cirjb5aqk000jpme8o8nigdj0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -644,7 +735,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/30/JavaScript事件流、事件类型、事件对象和事件委托/" data-id="cirjabjch000lmze8y8ctfefk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/30/JavaScript事件流、事件类型、事件对象和事件委托/" data-id="cirjb5aqp000lpme8iisudfh6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -710,7 +801,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/30/JavaScriptBOM浏览器对象模型/" data-id="cirjabjcf000jmze84cve8kg6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/30/JavaScriptBOM浏览器对象模型/" data-id="cirjb5aqq000mpme86d0hy1ex" class="article-share-link">Share</a>
       
       
     </footer>
@@ -782,7 +873,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/26/JavaScriptDOM元素对象/" data-id="cirjabjcg000kmze80m313ezw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/26/JavaScriptDOM元素对象/" data-id="cirjb5aqg000ipme8wp0chzrb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1031,7 +1122,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/23/JavaScript瀑布流/" data-id="cirjabjd3000xmze8b2uepc8m" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/23/JavaScript瀑布流/" data-id="cirjb5arc000ypme8p9ern7ne" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1389,7 +1480,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/22/JavaScript图片轮播/" data-id="cirjabjcw000smze8ie6ydmph" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/22/JavaScript图片轮播/" data-id="cirjb5aqw000qpme87euvfknj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1692,7 +1783,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/22/JavaScript制作简易日历/" data-id="cirjabjd0000wmze8pvc6lllx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/22/JavaScript制作简易日历/" data-id="cirjb5ar6000vpme8mhq104mm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1851,7 +1942,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/21/JavaScriptDOM文档对象类型/" data-id="cirjabjcj000mmze8ev1mnl97" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/21/JavaScriptDOM文档对象类型/" data-id="cirjb5aqv000ppme821gt2bmb" class="article-share-link">Share</a>
       
       
     </footer>

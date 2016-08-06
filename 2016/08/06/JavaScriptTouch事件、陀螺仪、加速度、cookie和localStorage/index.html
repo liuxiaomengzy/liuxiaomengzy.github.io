@@ -11,10 +11,9 @@ touchmove：相当于mousemove事件
 touchend：相当于mouseup事件
 应用如下：
 
-    
+    &amp;lt;style&amp;gt;
         .divtouch{
-            width:300px;
-            h">
+            width:300px;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage">
 <meta property="og:url" content="http://yoursite.com/2016/08/06/JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage/index.html">
@@ -25,11 +24,10 @@ touchmove：相当于mousemove事件
 touchend：相当于mouseup事件
 应用如下：
 
-    
+    &amp;lt;style&amp;gt;
         .divtouch{
-            width:300px;
-            h">
-<meta property="og:updated_time" content="2016-08-06T14:37:34.000Z">
+            width:300px;">
+<meta property="og:updated_time" content="2016-08-06T15:00:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage">
 <meta name="twitter:description" content="Touch事件touch事件在用户触摸屏幕时触发。其与mouse事件的最大区别在于其支持多点触控。主要有以下几种：
@@ -38,10 +36,9 @@ touchmove：相当于mousemove事件
 touchend：相当于mouseup事件
 应用如下：
 
-    
+    &amp;lt;style&amp;gt;
         .divtouch{
-            width:300px;
-            h">
+            width:300px;">
   
     <link rel="alternate" href="/atom.xml" title="紫--小梦" type="application/atom+xml">
   
@@ -122,6 +119,69 @@ touchend：相当于mouseup事件
 <p>touchend：相当于mouseup事件</p>
 <p>应用如下：</p>
 <pre>
+    &lt;style&gt;
+        .divtouch{
+            width:300px;
+            height:500px;
+            border:1px solid blue;
+            position:relative;
+            margin:0 auto;
+        }
+        .divtouch p{
+            font-size:30px;
+            text-align:center;
+        }
+        .divtouch div{
+            position:absolute;
+            width:50px;
+            height:50px;
+            background-color:pink;
+            top:0;
+            left:0;
+        }
+    &lt;/style&gt;
+    &lt;div class="divtouch"&gt;
+        &lt;p&gt;&lt;/p&gt;
+        &lt;div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        var para=document.querySelector(".divtouch p");
+        var divtouchBlock=document.querySelector(".divtouch div");
+        var s={
+            startX:0,
+            startY:0,
+            endX:0,
+            endY:0,
+            disX:0,
+            disY:0,
+            ofl:0,
+            oft:0,
+        }
+        divtouchBlock.addEventListener("touchstart",function(e){
+            var e=e||window.event;
+            para.innerHTML=e.touches.length+"根手指";
+            s.ofl=divtouchBlock.offsetLeft;
+            s.oft=divtouchBlock.offsetTop;
+            s.startX=e.touches[0].clientX;
+            s.startY=e.touches[0].clientY;
+            e.preventDefault();
+        },false)
+        document.addEventListener("touchmove",function(e){
+            var e=e||window.event;
+            if(e.touches.length!=1){
+                return;
+            }
+            s.endX=e.touches[0].clientX;
+            s.endY=e.touches[0].clientY;
+            s.disX=s.endX-s.startX+s.ofl;
+            s.disY=s.endY-s.startY+s.oft;
+            divtouchBlock.style.left=s.disX+"px";
+            divtouchBlock.style.top=s.disY+"px";
+        },false)
+    &lt;/script&gt;
+</pre>
+
+<pre>
     <style>
         .divtouch{
             width:300px;
@@ -183,10 +243,38 @@ touchend：相当于mouseup事件
         },false)
     </script>
 </pre>
+
+<h3 id="设备事件——方向API（陀螺仪）"><a href="#设备事件——方向API（陀螺仪）" class="headerlink" title="设备事件——方向API（陀螺仪）"></a>设备事件——方向API（陀螺仪）</h3><p>方向事件指DeviceOrientationEvent，其触发事件为<strong>deviceorientation</strong></p>
+<pre>
+    if(window.DeviceOrientationEvent){
+        window.addEventListener("deviceorientation",function(e){
+            var e=e||window.event;
+            e.alpha;//0~360度，0度指向正北方（Z轴）
+            e.beta;//设备前后转-180~180度（X轴）
+            e.gamma;//设备左右转-90~90度（Y轴）
+        },false)
+    }
+</pre>
+
+<h3 id="设备事件——加速度API"><a href="#设备事件——加速度API" class="headerlink" title="设备事件——加速度API"></a>设备事件——加速度API</h3><p>加速度事件指DeviceMotionEvent，其触发事件为<strong>devicemotion</strong></p>
+<pre>
+    if(window.DeviceMotionEvent){
+        window.addEventListener("devicemotion",function(e){
+            var e=e||window.event;
+            e.acceleration.x;//加速度，x代表x方向
+            e.acceleration.y;
+            e.acceleration.z;
+
+            e.accelerationIncludingGravity.x;//重力加速度，x轴代表x方向
+            e.accelerationIncludingGravity.y;
+            e.accelerationIncludingGravity.z;
+        },false)
+    }
+</pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/06/JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage/" data-id="cirjabjco000pmze894fte4ko" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/06/JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage/" data-id="cirjb5aqt000opme8259z14zh" class="article-share-link">Share</a>
       
       
     </footer>
