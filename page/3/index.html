@@ -68,6 +68,444 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-CSS3媒体查询" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/09/CSS3媒体查询/" class="article-date">
+  <time datetime="2016-07-09T01:50:36.000Z" itemprop="datePublished">2016-07-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/09/CSS3媒体查询/">CSS3媒体查询</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="CSS3媒体查询也就是指-media-查询"><a href="#CSS3媒体查询也就是指-media-查询" class="headerlink" title="CSS3媒体查询也就是指@media 查询"></a>CSS3媒体查询也就是指@media 查询</h3><p><code>媒体查询不需要像CSS3其他属性一样添加前缀。</code></p>
+<h3 id="media-查询"><a href="#media-查询" class="headerlink" title="@media 查询"></a>@media 查询</h3><p>使用 @media 查询，就可以针对不同的媒体类型定义不同的样式。</p>
+<p>@media 可以针对不同屏幕尺寸设置不同样式，特别是针对响应式页面。</p>
+<p>当改变浏览器大小过程中，页面会根据浏览器的宽度和高度重新渲染页面。</p>
+<h4 id="CSS语法"><a href="#CSS语法" class="headerlink" title="CSS语法"></a>CSS语法</h4><pre>
+    @media mediatype and|not|only (media feature){
+        CSS-Code;
+    }
+</pre>
+
+<p>也可以针对不同的媒体使用不同stylesheets：</p>
+<pre>
+    &lt;link rel="stylesheet" media="mediatype and|not|only (media feature)" href="mystylesheet.css" /&gt;
+</pre>
+
+<h4 id="mediatype媒体类型"><a href="#mediatype媒体类型" class="headerlink" title="mediatype媒体类型"></a>mediatype媒体类型</h4><p>all        用于所有设备</p>
+<p>print    用于打印机和打印预览</p>
+<p>screen    用于电脑屏幕，平板电脑，智能手机等</p>
+<p>speech    用于屏幕阅读器等发声设备</p>
+<h4 id="媒体特性"><a href="#媒体特性" class="headerlink" title="媒体特性"></a>媒体特性</h4><p>媒体特性书写方式为：</p>
+<p>媒体特性:媒体特性指定值</p>
+<h6 id="1-最大宽度max-width"><a href="#1-最大宽度max-width" class="headerlink" title="1.最大宽度max-width"></a>1.最大宽度max-width</h6><p><code>max-width</code>指媒体类型小于或等于指定的宽度时，样式生效。</p>
+<pre>
+    @media screen and (max-width:480px){
+        .aside{
+            display:none;
+        }
+    }
+</pre>
+
+<p>上面表示当屏幕小于或等于480px时，侧边栏（.aside）将被隐藏。</p>
+<h6 id="2-最小宽度min-width"><a href="#2-最小宽度min-width" class="headerlink" title="2.最小宽度min-width"></a>2.最小宽度min-width</h6><p><code>min-width</code>指媒体类型大于或等于指定宽度时，样式生效。</p>
+<pre>
+    @media screen and (min-width:1200px){
+        .nav{
+            width:1000px;
+        }
+    }
+</pre>
+
+<p>上面表示当屏幕大于或等于1200px时，导航栏（.nav）宽度为1000px。</p>
+<h6 id="3-多个媒体特征使用"><a href="#3-多个媒体特征使用" class="headerlink" title="3.多个媒体特征使用"></a>3.多个媒体特征使用</h6><p>媒体查询可以使用关键词<code>and</code>将多个媒体特性结合在一起。一个媒体查询可以包含0到多个表达式，表达式又可以包含0到多个关键字，以及一种媒体类型。</p>
+<p>当屏幕在500px~900px之间时，body的背景色为金色，如下所示：</p>
+<pre>
+    @media screen and (min-width:500px) and (max-width:900px){
+        body{
+            background-color:gold;
+        }
+    }
+</pre>
+
+<h6 id="4-设备屏幕的输出宽度Device-Width"><a href="#4-设备屏幕的输出宽度Device-Width" class="headerlink" title="4.设备屏幕的输出宽度Device Width"></a>4.设备屏幕的输出宽度Device Width</h6><p>在只能设备上，可以<strong>根据屏幕设备的尺寸来设置相应的样式</strong>（或者调用相应的样式文件）。同样对于屏幕设备可以使用<code>min/max</code>对应参数。</p>
+<pre>
+    &lt;link rel="stylesheet" media="screen and (max-device-width:480px)" href="iphone.css" /&gt;
+</pre>
+
+<p>上述代码指“iphone.css”样式适用于最大设备宽度为480px。</p>
+<h6 id="5-not关键词"><a href="#5-not关键词" class="headerlink" title="5.not关键词"></a>5.not关键词</h6><p><strong>使用关键词“not”是用来排除某种制定的媒体类型</strong>，也就是用来排除符合表达式的设备。 也就是说not关键词表示对后面的表达式执行反操作。</p>
+<pre>
+    @media not print and (max-width:1200px){样式代码}
+</pre>
+
+<p>上述代码表示：样式代码将被使用在除打印设备和设备宽度小于1200px下的所有设备中。</p>
+<h6 id="6-only关键词"><a href="#6-only关键词" class="headerlink" title="6.only关键词"></a>6.only关键词</h6><p><strong>only用来指定某种特定的媒体类型</strong>，可以用来排除不支持媒体查询的浏览器。</p>
+<p>only很多时候用来对不支持Media Query但却支持Media Type的设备隐藏样式表的。其主要有：</p>
+<p>支持媒体特性的设备，正常调用样式，此时可以认为only不存在；</p>
+<p>不支持媒体特性但又支持媒体类型的设备，这样就会不读样式，因其首先读取only而非screen；</p>
+<p>另外不支持Media Query的浏览器，不论是否支持only，样式都不会被采用。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/07/09/CSS3媒体查询/" data-id="cirj9xcg40009kue8wheowvpf" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-LESSCSS初使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/06/LESSCSS初使用/" class="article-date">
+  <time datetime="2016-07-06T09:27:41.000Z" itemprop="datePublished">2016-07-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/06/LESSCSS初使用/">LESSCSS初使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="首先，用到less你的电脑必须有HBuilder并安装插件。"><a href="#首先，用到less你的电脑必须有HBuilder并安装插件。" class="headerlink" title="首先，用到less你的电脑必须有HBuilder并安装插件。"></a>首先，用到less你的电脑必须有HBuilder并安装插件。</h4><h3 id="LESS介绍"><a href="#LESS介绍" class="headerlink" title="LESS介绍"></a>LESS介绍</h3><p>LESSCSS是一种动态样式语言，属于CSS预处理语言的一种，使用类似CSS的语法，为CSS赋予动态语言的特性，如变量、继承、运算、函数等，更方便CSS的编写和维护。</p>
+<p>LESSCSS可以在多种语言、环境中使用，包括浏览器端、桌面客户端。</p>
+<p>想要了解更多，请<a href="http://www.1024i.com/demo/less/index.html" target="_blank" rel="external">点击这里</a>。</p>
+<h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><p>变量可以让我们单独定义一系列通过的样式，当你需要的时候调用。这样对全局模式时候只要修改几行代码就可以了。</p>
+<p>LESS源码：</p>
+<pre>
+    @color:pink;
+
+    #header{
+        color:@color;
+    }
+    h3{
+        color:@color;
+    }
+</pre>
+
+<p>编译后的CSS：</p>
+<pre>
+    #header{
+        color:pink;
+    }
+    h3{
+        color:pink;
+    }
+</pre>
+
+<h4 id="混合（Mixins）"><a href="#混合（Mixins）" class="headerlink" title="混合（Mixins）"></a>混合（Mixins）</h4><p>混合可以将一个定义好的class A轻松引入到另一个class B中，从而简单实现class B继承class A中的所有属性。还可以带参数地调用。</p>
+<p>LESS源码：</p>
+<pre>
+    .wrap(@radius:5px){
+        -webkit-border-radius:@radius;
+        -moz-border-radius:@radius;
+        -ms-border-radius:@radius;
+        -o-border-radius:@radius;
+        border-radius:@radius;
+    }
+    #header{
+        .wrap;
+    }
+    #footer{
+        .wrap(10px);
+    }
+</pre>
+
+<p>编译后的CSS：</p>
+<pre>
+    #header{
+        -webkit-border-radius:5px;
+        -moz-border-radius:5px;
+        -ms-border-radius:5px;
+        -o-border-radius:5px;
+        border-radius:5px;
+    }
+    #footer{
+        -webkit-border-radius:10px;
+        -moz-border-radius:10px;
+        -ms-border-radius:10px;
+        -o-border-radius:10px;
+        border-radius:10px;
+    }
+</pre>
+
+<h4 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h4><p>我们可以在一个选择器中嵌套另一个选择器来实现继承，这样大大减少代码量，并且代码更加清晰。</p>
+<p>LESS源码：</p>
+<pre>
+    #header{
+        h2{
+            font-size:20px;
+        }
+        div{
+            font-size:12px;
+            a{
+                text-decoration:none;
+                &:hover{
+                    border-width:1px;
+                }
+            }
+        }
+    }
+</pre>
+
+<p>编译后的CSS：</p>
+<pre>
+    #header h2{
+        font-size:20px;
+    }
+    #header div{
+        font-size:12px;
+    }
+    #header div a{
+        text-decoration:none;
+    }
+    #header div a:hover{
+        border-width:1px;
+    }
+</pre>
+
+<h4 id="函数和运算"><a href="#函数和运算" class="headerlink" title="函数和运算"></a>函数和运算</h4><p>运算提供了加减乘除操作；我们既可以做属性值和颜色的运算，这样就可以实现属性值之间的复杂关系。</p>
+<p>LESS源码：</p>
+<pre>
+    @the-border:1px;
+    @base-color:#111;
+    @red:#842210;
+
+    #header{
+        color:(@base-color * 3);
+        border-left:@the-border;
+        border-right:(@the-border * 2);
+    }
+    #footer{
+        color:(@base-color + #003300);
+        border-color:desaturate(@red,10%);
+    }
+</pre>
+
+<p>编译后的CSS：</p>
+<pre>
+    #header{
+        color:#333;
+        border-left:1px;
+        border-right:2px;
+    }
+    #footer{
+        color:#114411;
+        border-color:#7d2717;
+    }
+</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/07/06/LESSCSS初使用/" data-id="cirj9xcia0012kue8swl6m2kl" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-CSS3弹性布局" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/05/CSS3弹性布局/" class="article-date">
+  <time datetime="2016-07-05T12:25:50.000Z" itemprop="datePublished">2016-07-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/05/CSS3弹性布局/">CSS3弹性布局</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="resize属性"><a href="#resize属性" class="headerlink" title="resize属性"></a>resize属性</h3><p><code>resize</code>属性规定是否可由用户调整元素的尺寸。</p>
+<p><em>若希望此属性生效，需设置元素的overflow:auto/hidden/scroll。</em></p>
+<p><code>resize:none | both | horizontal | vertical</code>none用户无法调整元素的尺寸；both用户可以调整元素的高度和宽度；horizontal用户可调整元素的宽度；vertical用户可调整元素的高度。</p>
+<p>示例如下：</p>
+<pre>
+    &lt;style&gt;
+        .resize1{
+            width:200px;
+            height:200px;
+            resize:both;
+            overflow:auto;
+            background-color:fuchsia;
+        }
+    &lt;/style&gt;
+    &lt;div class="resize1"&gt;&lt;/div&gt;
+</pre>
+
+<pre>
+    <style>
+        .resize1{
+            width:200px;
+            height:200px;
+            resize:both;
+            overflow:auto;
+            background-color:fuchsia;
+        }
+    </style>
+    <div class="resize1"></div>
+</pre>
+
+<h3 id="box-flex属性"><a href="#box-flex属性" class="headerlink" title="box-flex属性"></a>box-flex属性</h3><p>通过box-flex属性可以让子容器针对父容器的宽度按一定比例进行划分。</p>
+<p><strong>使用时父级必须设置display:box;</strong></p>
+<p>Chrome必须添加-webkit-前缀才会生效</p>
+<h3 id="box-orient定义子容器的排列方式"><a href="#box-orient定义子容器的排列方式" class="headerlink" title="box-orient定义子容器的排列方式"></a>box-orient定义子容器的排列方式</h3><p><code>box-orient:horizontal | vertical</code>horizontal子容器水平排列；vertical子容器垂直排列。</p>
+<h3 id="box-derection定义子容器的排列顺序"><a href="#box-derection定义子容器的排列顺序" class="headerlink" title="box-derection定义子容器的排列顺序"></a>box-derection定义子容器的排列顺序</h3><p><code>box-direction:normal | reverse</code>normal正常的，按照从左到右或从上到下；reverse反转，从右到左或从下到上。</p>
+<h3 id="box-align子容器的垂直对齐方式"><a href="#box-align子容器的垂直对齐方式" class="headerlink" title="box-align子容器的垂直对齐方式"></a>box-align子容器的垂直对齐方式</h3><p><code>box-align:start | center | end</code>start(默认)居顶对齐；center居中对齐；end居底对齐。</p>
+<h3 id="box-pack子容器的水平对齐方式"><a href="#box-pack子容器的水平对齐方式" class="headerlink" title="box-pack子容器的水平对齐方式"></a>box-pack子容器的水平对齐方式</h3><p><code>box-pack:start | center | end | justify</code>start(默认)居左对齐；center居中对齐；end居右对齐；justify水平等分父容器的宽度。</p>
+<pre>
+    &lt;style&gt;
+        div.tanxingbuju{
+            height:500px;
+            color:black;
+            font-size:20px;
+            display:-webkit-box;
+            -webkit-box-orient:vertical;
+            -webkit-box-direction:reverse;
+        }
+        .tanxingbuju div{
+            margin:0;
+            padding:0;
+        }
+        .tanxingbuju > div:nth-child(1){
+            -webkit-box-flex:1;
+            background-color:pink;
+        }
+        .tanxingbuju > div:nth-child(2){
+            -webkit-box-flex:4;
+            display:-webkit-box;
+            -webkit-box-orient:horizontal;
+            -webkit-box-align:center;
+            -webkit-box-direction:normal;
+            background-color:aqua;
+        }
+        .tanxingbuju > div:nth-child(3){
+            -webkit-box-flex:1;
+            background-color:lime;
+        }
+        .tanxingbuju > div > div:nth-child(1){
+            -webkit-box-flex:2;
+            background-color:red;
+            height:150px;
+        }
+        .tanxingbuju > div > div:nth-child(2){
+            -webkit-box-flex:3;
+            background-color:olive;
+            height:80px
+        }
+    &lt;/style&gt;
+    &lt;div class="tanxingbuju"&gt;
+        &lt;div&gt;第一&lt;/div&gt;
+        &lt;div&gt;
+            &lt;div&gt;左&lt;/div&gt;
+            &lt;div&gt;右&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div&gt;第三&lt;/div&gt;
+    &lt;/div&gt;
+</pre>
+<pre>
+    <style>
+        div.tanxingbuju{
+            height:500px;
+            color:black;
+            font-size:20px;
+            display:-webkit-box;
+            -webkit-box-orient:vertical;
+            -webkit-box-direction:reverse;
+        }
+        .tanxingbuju div{
+            margin:0;
+            padding:0;
+        }
+        .tanxingbuju > div:nth-child(1){
+            -webkit-box-flex:1;
+            background-color:pink;
+        }
+        .tanxingbuju > div:nth-child(2){
+            -webkit-box-flex:4;
+            display:-webkit-box;
+            -webkit-box-orient:horizontal;
+            -webkit-box-align:center;
+            -webkit-box-direction:normal;
+            background-color:aqua;
+        }
+        .tanxingbuju > div:nth-child(3){
+            -webkit-box-flex:1;
+            background-color:lime;
+        }
+        .tanxingbuju > div > div:nth-child(1){
+            -webkit-box-flex:2;
+            background-color:red;
+            height:150px;
+        }
+        .tanxingbuju > div > div:nth-child(2){
+            -webkit-box-flex:3;
+            background-color:blue;
+            height:80px
+        }
+    </style>
+    <div class="tanxingbuju">
+        <div>第一</div>
+        <div>
+            <div>左</div>
+            <div>右</div>
+        </div>
+        <div>第三</div>
+    </div>
+</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/07/05/CSS3弹性布局/" data-id="cirj9xcfr0004kue8hkmczw0f" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-CSS3 @font-face规则和多列" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/07/04/CSS3 @font-face规则和多列/" class="article-date">
@@ -140,7 +578,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/04/CSS3 @font-face规则和多列/" data-id="cirbtoy7r000084e8yxjar0w7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/04/CSS3 @font-face规则和多列/" data-id="cirj9xcfd0000kue8ro234cp7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -361,7 +799,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/04/CSS3动画/" data-id="cirbtoy82000384e8qyy1sck2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/04/CSS3动画/" data-id="cirj9xcfj0001kue88ajygiw1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -617,7 +1055,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/02/CSS3变形/" data-id="cirbtoy7x000184e85apwfap9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/02/CSS3变形/" data-id="cirj9xcfm0002kue83o1i2pzi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -706,7 +1144,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/01/CSS3过渡/" data-id="cirbtoy8b000684e8sddmcsyb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/01/CSS3过渡/" data-id="cirj9xcfu0006kue8iuh0sr6c" class="article-share-link">Share</a>
       
       
     </footer>
@@ -882,7 +1320,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/30/CSS3背景/" data-id="cirbtoy8g000884e8yhsluwvd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/30/CSS3背景/" data-id="cirj9xcg10008kue8z1tzqxcs" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1003,7 +1441,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/29/CSS3圆角/" data-id="cirbtoy80000284e870h2it3d" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/29/CSS3圆角/" data-id="cirj9xcfo0003kue8yahg4uzq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1128,518 +1566,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/29/CSS3盒模型/" data-id="cirbtoy8a000584e82ro6lr1x" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-CSS3选择器" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/06/28/CSS3选择器/" class="article-date">
-  <time datetime="2016-06-28T13:57:24.000Z" itemprop="datePublished">2016-06-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/28/CSS3选择器/">CSS3选择器</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="CSS3选择器主要包含以下几种"><a href="#CSS3选择器主要包含以下几种" class="headerlink" title="CSS3选择器主要包含以下几种"></a>CSS3选择器主要包含以下几种</h2><h3 id="子元素选择器"><a href="#子元素选择器" class="headerlink" title="子元素选择器"></a>子元素选择器</h3><p><code>E &gt; F</code>类型，子元素选择器选中的是子元素F，子子孙孙不会被选</p>
-<p>而后代选择器<code>E F</code>类型是选中所有的F，包含F的后代也选中</p>
-<h3 id="兄弟选择器"><a href="#兄弟选择器" class="headerlink" title="兄弟选择器"></a>兄弟选择器</h3><h4 id="相邻兄弟选择器"><a href="#相邻兄弟选择器" class="headerlink" title="相邻兄弟选择器"></a>相邻兄弟选择器</h4><p><code>E + F</code>类型，必备属性：1.必须同级；2.必须相邻；3.必须在其下方；4.有且只有一个符合。</p>
-<h4 id="通用兄弟选择器"><a href="#通用兄弟选择器" class="headerlink" title="通用兄弟选择器"></a>通用兄弟选择器</h4><p><code>E ~ F</code>类型，必备属性：1.必须同级；2.必须在其下方；3.可以有多个符合。</p>
-<h3 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h3><p><code>[ ]</code>类型，例如<code>[class]</code>指具有class属性的值</p>
-<p><code>[abc =&quot;value&quot;]</code>类型，属性和值选择器</p>
-<p><code>[abc ~=&quot;value&quot;] ~</code>表示几个以空格隔开的属性值中包含了”value”</p>
-<p><code>[abc ^=&quot;value&quot;] ^</code>以value开头的值</p>
-<p><code>[abc $=&quot;value&quot;] $</code>以value结尾的值</p>
-<p><code>[abc *=&quot;value&quot;] *</code>包含value的值</p>
-<p><code>[abc |=&quot;value&quot;] |</code>以value或value-开头的值</p>
-<p><code>[abc =value]</code>和<code>[abc *=&quot;value&quot;]</code>较实用。</p>
-<h3 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h3><h4 id="锚点伪类（a的伪类）"><a href="#锚点伪类（a的伪类）" class="headerlink" title="锚点伪类（a的伪类）"></a>锚点伪类（a的伪类）</h4><p>简称爱恨法则  love &amp; hate</p>
-<ol>
-<li><p>l = link        没有访问过的状态</p>
-</li>
-<li><p>v = visited    访问过后的状态</p>
-</li>
-<li><p>h = hover    鼠标悬浮在标签上的状态</p>
-</li>
-<li><p>a = active    鼠标悬浮在标签上按下没有松开的状态</p>
-</li>
-</ol>
-<p>使用时候顺序不能变，必须从前到后。</p>
-<h4 id="UI元素伪类-表单元素"><a href="#UI元素伪类-表单元素" class="headerlink" title="UI元素伪类 表单元素"></a>UI元素伪类 表单元素</h4><p><code>disabled</code>    废弃属性，元素不可用</p>
-<p><code>focus</code>        聚焦属性</p>
-<p><code>checked</code>    选中(并不能完美支持)</p>
-<p><code>enabled</code>    可用状态</p>
-<pre>
-    &ltstyle&gt
-        input:disabled{
-            border:2px solid blue;
-            background-color:gold;
-        }
-        input:focus{
-            border:2px solid red;
-        }
-        input:checked{
-            display:block;
-            width:50px;
-            height:50px;
-        }
-        input:enabled{
-            background-color:pink;
-        }
-    &lt/style&gt
-    &ltform&gt
-        &ltinput type="text" disabled /&gt
-        &ltinput type="text"/&gt
-        &ltinput type="text"/&gt
-        &ltinput type="checkbox"/&gt
-        &ltinput type="checkbox"/&gt
-    &lt/form&gt
-</pre>
-<pre>
-    <style>
-        input:disabled{
-            border:2px solid blue;
-            background-color:gold;
-        }
-        input:focus{
-            border:2px solid red;
-        }
-        input:checked{
-            display:block;
-            width:50px;
-            height:50px;
-        }
-        input:enabled{        
-            background-color:pink;
-        }
-    </style>
-    <form>
-        <input type="text" disabled>
-        <input type="text">
-        <input type="text">
-        <input type="checkbox">
-        <input type="checkbox">
-    </form>
-</pre>
-
-<h3 id="否定选择器"><a href="#否定选择器" class="headerlink" title="否定选择器"></a>否定选择器</h3><p><code>:not</code>类型，通常和属性选择器结合使用。</p>
-<pre>
-    &ltstyle&gt
-        input:not([type="submit"]){
-            border:2px solid gold;
-        }
-    &lt/style&gt
-    &ltform&gt
-    &ltinput type="text"/&gt
-    &ltinput type="submit"/&gt
-    &lt/form&gt
-</pre>
-
-<p>效果如下：</p>
-<p><img src="https://raw.githubusercontent.com/liuxiaomengzy/liuxiaomengzy.github.io/master/images/not%E5%90%A6%E5%AE%9A%E9%80%89%E6%8B%A9%E5%99%A8.png" alt="not否定选择器"></p>
-<h3 id="nth选择器"><a href="#nth选择器" class="headerlink" title="nth选择器"></a>nth选择器</h3><p><code>:first-child</code>选择某个元素的第一个子元素</p>
-<p><code>last-child</code>选择某个元素的最后一个子元素</p>
-<p><code>nth-last-child()</code>选择某个元素的一个或多个特定的子元素，从这个元素的最后一个子元素开始算</p>
-<p><code>:nth-of-type()</code>选择指定的元素</p>
-<p><code>:nth-last-of-type()</code>选择指定的元素，从元素的最后一个开始计算</p>
-<p><code>:first-of-type</code>选择一个上级元素下的第一个同类子元素</p>
-<p><code>:last-of-type</code>选择一个上级元素的最后一个同类子元素</p>
-<p><code>:only-child</code>选择的元素是它的父元素的唯一一个子元素</p>
-<p><code>:only-of-type</code>选择一个元素是它的上级元素的唯一一个相同类型的子元素</p>
-<p><code>:empty</code>选择的元素里面没有任何内容</p>
-<p>因属性较多，后面属性设置会覆盖前面，就不在一一展现，仅列举几个</p>
-<pre>
-    &ltstyle&gt
-        ul li:first-child{
-            background-color:black;
-        }
-        ul li:last-child{
-            background-color:pink;
-        }
-        ul li:nth-of-type(3){
-            background-color:blue;
-        }
-    &lt/style&gt
-    &ltul&gt
-        &ltli&gt&lt/li&gt
-        &ltli&gt&lt/li&gt
-        &ltli&gt&lt/li&gt
-        &ltli&gt&lt/li&gt
-        &ltli&gt&lt/li&gt
-    &lt/ul&gt
-</pre>
-
-<p>效果如下：</p>
-<p><img src="https://raw.githubusercontent.com/liuxiaomengzy/liuxiaomengzy.github.io/master/images/nth%E9%80%89%E6%8B%A9%E5%99%A8.png" alt="nth选择器"></p>
-<p><code>:nth-child()</code>选择某个元素的一个或多个特定的子元素</p>
-<p><code>:nth-child(length)</code>参数是具体数字</p>
-<p><code>:nth-child(n)</code>参数是n,n从1开始计算</p>
-<p><code>:nth-child(2n)</code>n的倍数选择，n从1开始算(偶数行也可用<code>even</code>)</p>
-<p><code>:nth-child(2n+1)</code>表示隔几选一(奇数行也可用<code>odd</code>)</p>
-<p><code>:nth-child(n+length)</code>选择大于等于length后面的元素</p>
-<p><code>:nth-child(-n+length)</code>选择小于等于length前面的元素</p>
-<h3 id="伪元素"><a href="#伪元素" class="headerlink" title="伪元素"></a>伪元素</h3><p><code>::first-letter</code>选择文本块的第一个字母，除非在同一行里面包含一些其它元素，不过这个主要运用于段落排版上多</p>
-<p><code>::first-line</code>选择元素的第一行</p>
-<p><code>::before</code>,<code>::after</code>这两个主要用来给元素的前面或后面插入内容，这两个常用”content”配合使用，见过最多的就是清除浮动还有图片icon</p>
-<p><code>::selection</code>用来改变浏览网页选中文本的默认效果，<code>::selection</code>只能设置两个属性background,color属性，设置其他属性是没有任何效果的</p>
-<pre>
-    &ltstyle&gt
-        div{
-            width:500px;
-            height:500px;
-            background-color:green;
-            margin:0 auto;
-            font-size:30px;
-            position:relative;
-            font-size:30px;
-            }
-        div::before{
-            content:"";
-            width:200px;
-            height:200px;
-            background-color:orange;
-            display:block;
-            position:absolute;
-            top:60px;
-            left:0;
-        }
-        div::after{
-            content:"";
-            width:200px;
-            height:200px;
-            background-color:gold;
-            display:block;
-            position:absolute;
-            right:0;
-            top:0;
-        }
-        div::first-letter{
-            color:red;
-            font-size:60px;
-        }
-        div::first-line{
-            color:purple;
-        }
-        div::selection{
-            color:white;
-            background:black;
-        }
-    &lt/style&gt
-    &ltdiv&gt我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div
-    &lt/div&gt    
-</pre>
-
-<p>效果如下：</p>
-<p><img src="https://raw.githubusercontent.com/liuxiaomengzy/liuxiaomengzy.github.io/master/images/%E4%BC%AA%E5%85%83%E7%B4%A0.png" alt="伪元素"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/28/CSS3选择器/" data-id="cirbtoy8q000c84e8ysj8hibp" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-HTML5新增音视频" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/06/28/HTML5新增音视频/" class="article-date">
-  <time datetime="2016-06-28T08:44:44.000Z" itemprop="datePublished">2016-06-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/28/HTML5新增音视频/">HTML5新增音视频</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="HTML5音视频主要包含以下内容"><a href="#HTML5音视频主要包含以下内容" class="headerlink" title="HTML5音视频主要包含以下内容"></a>HTML5音视频主要包含以下内容</h2><h3 id="audio音频"><a href="#audio音频" class="headerlink" title="audio音频"></a>audio音频</h3><p><code>&lt;audio&gt;&lt;/audio&gt;</code>标签定义声音，比如音乐或其他音频流。</p>
-<p>其属性有：</p>
-<ol>
-<li>autoplay属性，自动播放</li>
-<li>controls属性，出现控制面板</li>
-<li>loop属性，设置单曲循环</li>
-<li>preload属性，提前加载</li>
-<li>src属性，要播放的音频的URL</li>
-</ol>
-<p>当有多种资源时，就可以用到<code>&lt;source/&gt;</code>属性，一个<code>audio</code>里可以有多个<code>source</code>。</p>
-<pre>
-    &ltaudio preload autoplay controls&gt
-        &ltsource src="" type="audio/mp3" /&gt
-        &ltsource src="" type="audio/ogg" /&gt
-        &ltsource src="" type="audio/mpeg" /&gt
-    &lt/audio&gt
-</pre>
-<pre>
-    <audio preload="" autoplay controls>
-        <source src="" type="audio/mp3">
-        <source src="" type="audio/ogg">
-        <source src="" type="audio/mpeg">
-    </audio>
-</pre>
-
-<h3 id="video视频"><a href="#video视频" class="headerlink" title="video视频"></a>video视频</h3><p><code>&lt;video&gt;&lt;/video&gt;</code>标签定义视频，比如电影片段或其他视频流。</p>
-<p>其属性有：</p>
-<ol>
-<li>autoplay属性，自动播放</li>
-<li>controls属性，出现控制面板</li>
-<li>loop属性，设置单曲循环</li>
-<li>preload属性，提前加载</li>
-<li>src属性，要播放的音频的URL</li>
-<li>width属性，可以设置宽度让其高度自适应</li>
-</ol>
-<p>当有多种资源时，就可以用到<code>&lt;source/&gt;</code>属性，一个<code>video</code>里可以有多个<code>source</code>。</p>
-<pre>
-    &ltvideo width="100%" controls&gt
-        &ltsource src="http://www.zhangxinxu.com/study/media/cat.mp4" type="video/mp4"&gt
-        &ltsource src="" type="video/mkv" /&gt
-        &ltsource src="" type="video/rmvb" /&gt
-    &lt/video&gt
-</pre>
-<pre>
-    <video width="100%" controls>
-        <source src="http://www.zhangxinxu.com/study/media/cat.mp4" type="video/mp4">
-        <source src="" type="video/mkv">
-        <source src="" type="video/rmvb">
-    </video>
-</pre>
-
-<h3 id="source标签"><a href="#source标签" class="headerlink" title="source标签"></a>source标签</h3><p><code>&lt;source/&gt;</code>标签为媒介元素（比如<code>&lt;video&gt;</code>和<code>&lt;audio&gt;</code>）定义媒介资源。</p>
-<p><code>&lt;source/&gt;</code>标签允许您规定可替换的视频/音频文件供浏览器根据它对媒体类型或者编解码器的支持进行选择。</p>
-<h3 id="track标签"><a href="#track标签" class="headerlink" title="track标签"></a>track标签</h3><p>用在媒体播放器中的文本轨道，如歌词文件/字幕文件。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/28/HTML5新增音视频/" data-id="cirbtoy90000i84e8k2pojqag" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-HTML5新增表单元素" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/06/28/HTML5新增表单元素/" class="article-date">
-  <time datetime="2016-06-28T00:51:59.000Z" itemprop="datePublished">2016-06-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/28/HTML5新增表单元素/">HTML5新增表单元素</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="HTML5新增表单元素主要有"><a href="#HTML5新增表单元素主要有" class="headerlink" title="HTML5新增表单元素主要有"></a>HTML5新增表单元素主要有</h2><h3 id="input标签"><a href="#input标签" class="headerlink" title="input标签"></a>input标签</h3><p>其type类型主要有有以下几种：</p>
-<ol>
-<li><p><code>type=&quot;tel&quot;</code>用于输入电话号码</p>
-</li>
-<li><p><code>type=&quot;search&quot;</code>用于提示用户输入要搜索的文字。<code>search</code>和<code>text</code>的区别主要在于样式上</p>
-</li>
-<li><p><code>type=&quot;url&quot;</code>用于输入单个网址</p>
-</li>
-<li><p><code>type=&quot;email&quot;</code>用于输入单个电子邮件地址；如果指定multiple属性，可以输入多个电子邮件地址，以逗号分隔</p>
-</li>
-<li><p><code>type=&quot;datetime&quot;</code>用于输入时区设置为UTC的日期和时间</p>
-</li>
-<li><p><code>type=&quot;date&quot;</code>用于输入不含时区的日期</p>
-</li>
-<li><p><code>type=&quot;month&quot;</code>用于输入含年份和月份但不含时区的日期</p>
-</li>
-<li><p><code>type=&quot;week&quot;</code>用于输入含年份和周数但不含时区的日期</p>
-</li>
-<li><p><code>type=&quot;time&quot;</code>用于输入含小时、分钟、秒和秒的小数部分但不含时区的时间值</p>
-</li>
-<li><p><code>type=&quot;datetime-local&quot;</code>用于输入不含时区的日期和时间。</p>
-</li>
-<li><p><code>type=&quot;number&quot;</code>用于输入数字。</p>
-</li>
-<li><p><code>type=&quot;range&quot;</code>用于输入数字，但与<code>number</code>的区别在于无需输入具体数字。在大部分支持该类型的浏览器中，范围控件的实施形式为滑块。</p>
-</li>
-<li><p><code>type=&quot;color&quot;</code>用于通过颜色池控件选择颜色（现在浏览器还不兼容）。</p>
-</li>
-</ol>
-<pre>
-    &ltform>
-        &ltinput type="tel" /&gt
-        &ltinput type="search" /&gt
-        &ltinput type="url" /&gt
-        &ltinput type="email" /&gt
-        &ltinput type="datetime" /&gt
-        &ltinput type="date" /&gt
-        &ltinput type="month" /&gt
-        &ltinput type="week" /&gt
-        &ltinput type="time" /&gt
-        &ltinput type="datetime-local" /&gt
-        &ltinput type="number" /&gt
-        &ltinput type="range" /&gt
-        &ltinput type="color" /&gt
-        &ltinput type="submit" required /&gt
-    &lt/form>
-</pre>
-
-<pre>
-    <form>
-        <input type="tel">
-        <input type="search">
-        <input type="url">
-        <input type="email">
-        <input type="datetime">
-        <input type="date">
-        <input type="month">
-        <input type="week">
-        <input type="time">
-        <input type="datetime-local">
-        <input type="number">
-        <input type="range">
-        <input type="color">
-        <input type="submit" required>
-    </form>
-</pre>
-
-<h3 id="label标签"><a href="#label标签" class="headerlink" title="label标签"></a>label标签</h3><p><code>&lt;label&gt;&lt;/label&gt;</code>标签为<code>input</code>元素定义标注（标记）,必须配合<code>input</code>使用。</p>
-<p><code>&lt;label&gt;</code>标签的<code>for</code>属性应当与相关元素的<code>id</code>属性相同。</p>
-<pre>
-    &ltlabel for="textinput"&gt账号：&lt/label&gt
-    &ltinput type="text" placeholder="请输入您的账号" id="textinput"/&gt
-    &ltbr/&gt
-    &ltlabel for="pas"&gt密码：&lt/label&gt
-    &ltinput type="password" placeholder="请输入您的密码" id="pas"/&gt
-</pre>
-<pre>
-    <label for="textinput">账号：</label><input type="text" placeholder="请输入您的账号" id="textinput"><br>
-    <label for="pas">密码：</label><input type="password" placeholder="请输入您的密码" id="pas">
-</pre>
-
-<h3 id="datalist标签"><a href="#datalist标签" class="headerlink" title="datalist标签"></a>datalist标签</h3><p><code>&lt;datalist&gt;&lt;/datelist&gt;</code>标签定义选项列表，<code>option</code>为其选项，必须配合<code>input</code>使用。</p>
-<p> <code>&lt;datalist&gt;</code>标签的<code>list</code>属性应当与相关元素的<code>id</code>属性相同。</p>
-<pre>
-    &ltform&gt
-        &ltinput type="text" list="number"/&gt
-        &ltdatalist id="number"&gt
-            &ltoption&gt111&lt/option&gt
-            &ltoption&gt222&lt/option&gt
-            &ltoption&gt333&lt/option&gt
-            &ltoption&gt444&lt/option&gt
-            &ltoption&gt555&lt/option&gt
-            &ltoption&gt666&lt/option&gt
-        &lt/datalist&gt
-    &lt/form>
-</pre>
-<pre>
-    <form>
-        <input type="text" list="number">
-        <datalist id="number">
-            <option>111</option>
-            <option>222</option>
-            <option>333</option>
-            <option>444</option>
-            <option>555</option>
-            <option>666</option>
-        </datalist>
-    </form>
-</pre>
-
-<h3 id="keygen标签"><a href="#keygen标签" class="headerlink" title="keygen标签"></a>keygen标签</h3><p><code>&lt;keygen/&gt;</code>标签规定用于表单的密钥对生成器字段。</p>
-<pre>
-    &ltkeygen/&gt
-</pre>
-<pre>
-    <keygen>
-</pre>
-
-<h3 id="ins标签"><a href="#ins标签" class="headerlink" title="ins标签"></a>ins标签</h3><p><code>&lt;ins&gt;&lt;/ins&gt;</code>标签定义已经被插入文档中的文本。</p>
-<p>一般与<code>&lt;del&gt;&lt;/del&gt;</code>一同使用，来描述文档中的更新和修正。</p>
-<pre>
-    &ltp&gt这件衣服&ltdel&gt原价288元&lt/del&gt&ltins&gt现价108元&lt/ins&gt。&lt/p&gt
-</pre>
-<pre>
-    <p>这件衣服<del>原价288元</del><ins>现价108元</ins>。</p>
-</pre>
-
-<h3 id="samp标签"><a href="#samp标签" class="headerlink" title="samp标签"></a>samp标签</h3><p><code>&lt;samp&gt;&lt;/samp&gt;</code>标签定义计算机程序的样本文本。</p>
-<h3 id="fieldset标签和legend标签"><a href="#fieldset标签和legend标签" class="headerlink" title="fieldset标签和legend标签"></a>fieldset标签和legend标签</h3><p><code>&lt;fieldset&gt;&lt;/fieldset&gt;</code>标签将表单内容的一部分打包，生成一组相关表单的字段(相当于一个框，把你想要的框起来)。</p>
-<p><code>&lt;legend&gt;&lt;/legend&gt;</code>标签为<code>fieldset</code>元素定义标题(框的标题)。</p>
-<pre>
-    &ltform&gt
-        &ltfieldset&gt
-            &ltlegend&gt账号信息&lt/legend&gt
-            &ltlabel for="textinput"&gt账号：&lt/label&gt
-            &ltinput type="text" placeholder="请输入您的账号" id="textinput"/&gt
-            &ltbr/&gt
-            &ltlabel for="pas"&gt密码：&lt/label&gt
-            &ltinput type="password" placeholder="请输入您的密码" id="pas"/&gt            
-        &lt/fieldset&gt
-    &lt/form&gt
-</pre>
-
-<pre>
-    <form>
-        <fieldset>
-            <legend>账号信息</legend>
-            <label for="text">账号：</label><input type="text" placeholder="请输入您的账号" id="text"><br>
-            <label for="pass">密码：</label><input type="password" placeholder="请输入您的密码" id="pass">            </fieldset>
-    </form>
-</pre>
-
-<h2 id="HTML5新增form表单属性"><a href="#HTML5新增form表单属性" class="headerlink" title="HTML5新增form表单属性"></a>HTML5新增form表单属性</h2><h3 id="autofocus属性"><a href="#autofocus属性" class="headerlink" title="autofocus属性"></a>autofocus属性</h3><p>用于在网页加载后对焦到相关元素上的输入。(因怕影响阅读就不加入此属性)</p>
-<p><code>autofocus</code>的目标可以是输入、选择、文本区域和按钮。</p>
-<h3 id="placeholder属性"><a href="#placeholder属性" class="headerlink" title="placeholder属性"></a>placeholder属性</h3><p>用于提示用户应输入的数据类型。在上面已经用到。</p>
-<p>在对焦到相关元素以及用户输入数据之前，系统会以浅色文字显示占位符值。您可以在输入和文本区域中指定该值。</p>
-<h3 id="required属性"><a href="#required属性" class="headerlink" title="required属性"></a>required属性</h3><p><code>required</code>属性规定必需在提交之前填写输入字段。相当于最基本的一个验证。在上面已经用到。</p>
-<h3 id="pattern属性"><a href="#pattern属性" class="headerlink" title="pattern属性"></a>pattern属性</h3><p><code>pattern</code>属性规定用于验证输入字段的模式。主要结合JavaScript进行验证。</p>
-<h3 id="autocomplete属性"><a href="#autocomplete属性" class="headerlink" title="autocomplete属性"></a>autocomplete属性</h3><p><code>autocomplete</code>属性规定表单是否应该启用自动完成功能.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/28/HTML5新增表单元素/" data-id="cirbtoy8t000e84e8cmz9o4zt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/29/CSS3盒模型/" data-id="cirj9xcft0005kue8k6vnfq0h" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1652,7 +1579,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/2/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">__('next') &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">__('next') &raquo;</a>
   </nav>
 </section>
         
@@ -1670,7 +1597,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a></li></ul>
     </div>
   </div>
 
@@ -1683,23 +1610,23 @@
       <ul>
         
           <li>
+            <a href="/2016/08/06/JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage/">JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/05/JavaScript滚轮事件的封装和滚轮轮播图/">JavaScript滚轮事件的封装和滚轮轮播图</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/03/JavaScriptCallback回调函数和事件委托的封装/">JavaScriptCallback回调函数和事件委托的封装</a>
+          </li>
+        
+          <li>
             <a href="/2016/07/30/JavaScript事件流、事件类型、事件对象和事件委托/">JavaScript事件流、事件类型、事件对象和事件委托</a>
           </li>
         
           <li>
             <a href="/2016/07/30/JavaScriptBOM浏览器对象模型/">JavaScriptBOM浏览器对象模型</a>
-          </li>
-        
-          <li>
-            <a href="/2016/07/26/JavaScriptDOM元素对象/">JavaScriptDOM元素对象</a>
-          </li>
-        
-          <li>
-            <a href="/2016/07/23/JavaScript瀑布流/">JavaScript瀑布流</a>
-          </li>
-        
-          <li>
-            <a href="/2016/07/22/JavaScript图片轮播/">JavaScript图片轮播</a>
           </li>
         
       </ul>
