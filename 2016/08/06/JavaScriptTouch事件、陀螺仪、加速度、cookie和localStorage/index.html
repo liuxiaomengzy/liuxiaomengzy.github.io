@@ -29,7 +29,7 @@ touchend：相当于mouseup事件
         .divtouch{
             width:300px;
             h">
-<meta property="og:updated_time" content="2016-08-06T14:27:15.000Z">
+<meta property="og:updated_time" content="2016-08-06T14:32:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage">
 <meta name="twitter:description" content="Touch事件touch事件在用户触摸屏幕时触发。其与mouse事件的最大区别在于其支持多点触控。主要有以下几种：
@@ -167,6 +167,7 @@ touchend：相当于mouseup事件
             s.oft=divtouchBlock.offsetTop;
             s.startX=e.touches[0].offsetX;
             s.startY=e.touches[0].offsetY;
+            e.preventDefault();
         },false)
         document.addEventListener("touchmove",function(e){
             var e=e||window.event;
@@ -179,14 +180,13 @@ touchend：相当于mouseup事件
             s.disY=s.endY-s.startY+s.ofT;
             divtouchBlock.style.left=s.disX+"px";
             divtouchBlock.style.top=s.disY+"px";
-            e.preventDefault();
         },false)
     </script>
 </pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/06/JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage/" data-id="cirj9xch1000kkue82txi74c2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/06/JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage/" data-id="cirja4arc000nloe8ok00a8m6" class="article-share-link">Share</a>
       
       
     </footer>
