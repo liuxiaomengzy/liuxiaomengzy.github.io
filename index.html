@@ -139,8 +139,8 @@
             para.innerHTML=e.touches.length+"根手指";
             s.ofl=divtouchBlock.offsetLeft;
             s.oft=divtouchBlock.offsetTop;
-            s.startX=e.touches[0].offsetX;
-            s.startY=e.touches[0].offsetY;
+            s.startX=e.touches[0].clientX;
+            s.startY=e.touches[0].clientY;
             e.preventDefault();
         },false)
         document.addEventListener("touchmove",function(e){
@@ -148,8 +148,8 @@
             if(e.touches.length!=1){
                 return;
             }
-            s.endX=e.touches[0].offsetX;
-            s.endY=e.touches[0].offsetY;
+            s.endX=e.touches[0].clientX;
+            s.endY=e.touches[0].clientY;
             s.disX=s.endX-s.startX+s.ofl;
             s.disY=s.endY-s.startY+s.ofT;
             divtouchBlock.style.left=s.disX+"px";
@@ -160,7 +160,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/06/JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage/" data-id="cirja4arc000nloe8ok00a8m6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/06/JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage/" data-id="cirja6ncz000kmde8q1dyzt5e" class="article-share-link">Share</a>
       
       
     </footer>
@@ -414,7 +414,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/05/JavaScript滚轮事件的封装和滚轮轮播图/" data-id="cirja4arz000yloe8q928km7x" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/05/JavaScript滚轮事件的封装和滚轮轮播图/" data-id="cirja6ndj000wmde8t9yiov62" class="article-share-link">Share</a>
       
       
     </footer>
@@ -502,7 +502,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/03/JavaScriptCallback回调函数和事件委托的封装/" data-id="cirja4ar8000kloe8hzvb6oky" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/03/JavaScriptCallback回调函数和事件委托的封装/" data-id="cirja6ncw000jmde8ivott5f7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -644,7 +644,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/30/JavaScript事件流、事件类型、事件对象和事件委托/" data-id="cirja4ard000oloe8ckodhdm6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/30/JavaScript事件流、事件类型、事件对象和事件委托/" data-id="cirja6nd0000lmde8qexli01h" class="article-share-link">Share</a>
       
       
     </footer>
@@ -710,7 +710,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/30/JavaScriptBOM浏览器对象模型/" data-id="cirja4ar7000jloe8zipgekz3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/30/JavaScriptBOM浏览器对象模型/" data-id="cirja6nd2000mmde8r2pwbtok" class="article-share-link">Share</a>
       
       
     </footer>
@@ -782,7 +782,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/26/JavaScriptDOM元素对象/" data-id="cirja4ara000mloe8hzn66ltr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/26/JavaScriptDOM元素对象/" data-id="cirja6nd4000omde8w04cajsk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1031,7 +1031,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/23/JavaScript瀑布流/" data-id="cirja4as1000zloe8upl02df5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/23/JavaScript瀑布流/" data-id="cirja6ndn000ymde8qmefanl1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1389,7 +1389,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/22/JavaScript图片轮播/" data-id="cirja4arj000rloe8l3fd0jy1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/22/JavaScript图片轮播/" data-id="cirja6ndh000vmde85xskeew7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1692,7 +1692,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/22/JavaScript制作简易日历/" data-id="cirja4arg000ploe8nxllnrtk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/22/JavaScript制作简易日历/" data-id="cirja6nd8000qmde86cuupqpg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1851,7 +1851,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/21/JavaScriptDOM文档对象类型/" data-id="cirja4ar9000lloe8x8jxhqr0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/21/JavaScriptDOM文档对象类型/" data-id="cirja6nd3000nmde82t874tih" class="article-share-link">Share</a>
       
       
     </footer>
