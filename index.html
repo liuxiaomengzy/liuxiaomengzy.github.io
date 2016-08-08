@@ -248,10 +248,50 @@
         },false)
     }
 </pre>
+
+<h3 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h3><p>cookie是存储于访问者的计算机中的变量。每当同一台计算机通过浏览器请求某个页面时，就会发送这个cookie。可以使用JavaScript来创建和取回cookie的值。</p>
+<p><strong>服务器环境下才能设置cookie，每一个域名下最多20个cookie，每一个cookie不超过4kb。</strong></p>
+<p>每个cookie都是一个名/值对，如果要一次存储多个名/值对，可以使用分号加空格（; ）隔开。<code>document.cookie=&quot;userId=123; userName=Jack&quot;;</code></p>
+<p><strong>cookie的名或值中不能使用分号（;）、逗号（,）、等号（=）及空格。如需存储用escape()函数进行编码，从而避免乱码出现。</strong></p>
+<pre>
+    //设置cookie的名字，值，过期时间
+    setCookie("usename/password",userVal,10);
+    function setCookie(key,value,days){
+        var newDate=new Date();
+        var nowDay=nowDate.getDate();
+        nowDate.setDate(nowDay+days);
+        document.cookie=key+"="+value+";expires"+nowDate;
+    }
+    //删除cookie，将date设置为过去的时间来删除
+    setCookie("name","",-1);
+</pre>
+
+<h3 id="localStorageb本地存储"><a href="#localStorageb本地存储" class="headerlink" title="localStorageb本地存储"></a>localStorageb本地存储</h3><p>localStorage是HTML5提供的在客户端存储数据的新方法，<strong>localStorage是没有时间限制的数据存储</strong></p>
+<p>比cookie方便之处在于可以直接调用和删除。</p>
+<pre>
+    //设置localStorage
+    localStorage.username=user.value;
+    //获取localStorage
+    alert(localStorage.username);
+    //删除localStorage
+    localStorage.removeItem("username");
+</pre>
+
+<p>可通过如下代码来对访问页面次数进行计数：</p>
+<pre>
+    &lt;script&gt;
+        if(localStorage.pagecount){
+            localStorage.pagecount=Number(localStorage.pagecount)+1;//localStorage.pagecount为自定义参数
+        }else{
+            localStorage.pagecount=1;
+        }
+        console.log(localStorage.pagecount);
+    &lt;/script&gt;
+</pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/06/JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage/" data-id="cirjb5aqt000opme8259z14zh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/06/JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage/" data-id="cirm6lnld000kkte86cxpto82" class="article-share-link">Share</a>
       
       
     </footer>
@@ -505,7 +545,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/05/JavaScript滚轮事件的封装和滚轮轮播图/" data-id="cirjb5ara000xpme80d94l6xm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/05/JavaScript滚轮事件的封装和滚轮轮播图/" data-id="cirm6lnlx000vkte845avxdpx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -593,7 +633,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/03/JavaScriptCallback回调函数和事件委托的封装/" data-id="cirjb5aqk000jpme8o8nigdj0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/03/JavaScriptCallback回调函数和事件委托的封装/" data-id="cirm6lnlp000rkte8wvd7ygfg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -735,7 +775,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/30/JavaScript事件流、事件类型、事件对象和事件委托/" data-id="cirjb5aqp000lpme8iisudfh6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/30/JavaScript事件流、事件类型、事件对象和事件委托/" data-id="cirm6lnlk000okte8i7rx7ost" class="article-share-link">Share</a>
       
       
     </footer>
@@ -801,7 +841,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/30/JavaScriptBOM浏览器对象模型/" data-id="cirjb5aqq000mpme86d0hy1ex" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/30/JavaScriptBOM浏览器对象模型/" data-id="cirm6lnlb000jkte8yxcuapcd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -873,7 +913,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/26/JavaScriptDOM元素对象/" data-id="cirjb5aqg000ipme8wp0chzrb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/26/JavaScriptDOM元素对象/" data-id="cirm6lnlg000lkte8zk5el0j9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1122,7 +1162,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/23/JavaScript瀑布流/" data-id="cirjb5arc000ypme8p9ern7ne" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/23/JavaScript瀑布流/" data-id="cirm6lnm4000ykte8lxbj40l6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1480,7 +1520,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/22/JavaScript图片轮播/" data-id="cirjb5aqw000qpme87euvfknj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/22/JavaScript图片轮播/" data-id="cirm6lnlv000tkte8a92thnvd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1783,7 +1823,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/22/JavaScript制作简易日历/" data-id="cirjb5ar6000vpme8mhq104mm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/22/JavaScript制作简易日历/" data-id="cirm6lnm2000xkte8oowyhdwh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1942,7 +1982,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/21/JavaScriptDOM文档对象类型/" data-id="cirjb5aqv000ppme821gt2bmb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/21/JavaScriptDOM文档对象类型/" data-id="cirm6lnlh000mkte83w78gh6c" class="article-share-link">Share</a>
       
       
     </footer>
