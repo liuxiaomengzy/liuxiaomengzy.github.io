@@ -19,7 +19,7 @@ callback回调函数就是放在另一个函数（parent）的参数列表中，
 
     function fn(a,b,fn2){
         console">
-<meta property="og:updated_time" content="2016-08-06T11:58:13.000Z">
+<meta property="og:updated_time" content="2016-08-09T09:03:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScriptCallback回调函数和事件委托的封装">
 <meta name="twitter:description" content="callback回调函数由于JavaScript语句是按照次序执行的，因为动画未完成，动画之后的语句可能会产生错误或页面冲突。为避免这种情况，可以使用callback函数。
@@ -117,7 +117,7 @@ callback回调函数就是放在另一个函数（parent）的参数列表中，
 <h3 id="事件委托的封装"><a href="#事件委托的封装" class="headerlink" title="事件委托的封装"></a>事件委托的封装</h3><pre>
     function targetHandle(type,child,parent,fn){
         //type事件类型 child
-        if(parent.addEventListener){//判断父节点是否存在
+        if(parent.addEventListener){//判断浏览器是否为IE浏览器，此处为非IE
             parent.addEventListener(type,function(e){
                 var e=e||window.event;
                 var target=e.target;
@@ -129,6 +129,16 @@ callback回调函数就是放在另一个函数（parent）的参数列表中，
                     }
                 }
             },false)
+        }else{
+            parent.attachEvent(type,function(e){
+                var e=e||window.event;
+                var target=e.target;
+                for(var i=0;i&lt;child.lenthli++){
+                    if(cp(target,child[i])){
+                        fn.call(child[i]);
+                    }
+                }
+            })
         }
     }
 
@@ -157,7 +167,7 @@ callback回调函数就是放在另一个函数（parent）的参数列表中，
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/03/JavaScriptCallback回调函数和事件委托的封装/" data-id="cirm6lnlp000rkte8wvd7ygfg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/03/JavaScriptCallback回调函数和事件委托的封装/" data-id="cirn8pcfp000gdte83jsez4um" class="article-share-link">Share</a>
       
       
     </footer>
