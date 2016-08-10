@@ -68,6 +68,165 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-JavaScriptDOM文档对象类型" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/21/JavaScriptDOM文档对象类型/" class="article-date">
+  <time datetime="2016-07-21T15:04:05.000Z" itemprop="datePublished">2016-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/21/JavaScriptDOM文档对象类型/">JavaScriptDOM文档对象类型</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="DOM文档对象类型"><a href="#DOM文档对象类型" class="headerlink" title="DOM文档对象类型"></a>DOM文档对象类型</h3><p><strong>childNodes</strong>子节点，获取所有的文本和子元素</p>
+<p><strong>children</strong>子元素</p>
+<p><strong>parentNode</strong>父节点</p>
+<p><strong>nextElementSibling</strong>同级的下一个子元素</p>
+<p><strong>previousElementSibling</strong>同级的上一个子元素</p>
+<p><strong>nextSibling</strong>同级的下一个节点</p>
+<p><strong>previousSibling</strong>同级的上一个节点</p>
+<pre>
+    console.log(uls.childNodes);
+
+    console.log(uls.children);
+
+    console.log(uls.parentNode);
+
+    console.log(lis[1].nextElementSibling);
+
+    console.log(lis[1].previousElementSibling);
+
+    console.log(lis[1].nextSibling);
+
+    console.log(lis[1].previousSinling);
+</pre>
+
+<p><strong>createElement</strong>创建元素</p>
+<p><strong>appendChild</strong>插入元素</p>
+<p>如果插入的元素原文档里没有，那就是直接插入；如果有，那就是把要插入的元素从原位置移动到被插入元素的最后面。</p>
+<p><strong>removeChild</strong>删除子元素</p>
+<p><strong>insertBefore(ele1,ele2)</strong>在ele2前插入</p>
+<p>ele1要插入的元素，如果原先在文档里有此元素，那么就是调换位置，如果没有，那就是插入</p>
+<p>ele2插入在谁前面</p>
+<p><strong>hasChildNodes</strong>检查元素是否有子节点</p>
+<p><strong>replaceChild(ele1,ele2)</strong>替换元素</p>
+<p>ele1替换的元素，如果原先在文档里有此元素，那么对ele1来说就是换个位置</p>
+<p>ele2被替换的元素，替换后被删除</p>
+<pre>
+    var newDiv=document.createElement("div");
+
+    uls.appendChild(newDiv);
+
+    uls.removeChild(lis[2]);
+
+    uls.insertBefore(newDiv,lis[0]);
+
+    console.log(uls.hasChildNodes());//返回布尔值
+
+    uls.replaceChild(newDiv,lis[1]);
+</pre>
+
+<p><strong>getAttribute</strong>获取元素的属性值</p>
+<p><strong>setAttribute</strong>更改原有属性的属性值/创建新的属性</p>
+<p>setAttribute假如元素有该属性，则为更改原有属性的属性值</p>
+<p>setAttribute假如元素无该属性，则为创建新的属性</p>
+<p><strong>removeAttribute</strong>删除属性</p>
+<p><strong>hasAttribute</strong>检查是否有此属性</p>
+<p><strong>cloneNode()</strong>复制元素</p>
+<p>cloneNode(true)复制整个元素，包括子节点</p>
+<p>cloneNode(false)复制元素本身，不包括子节点</p>
+<p>cloneNode接收的参数默认为false，<code>只能复制元素或节点，不能复制事件</code>，也就证明了复制的元素和原元素不全等</p>
+<pre>
+    &lt;div class="imdiv" index="5"&gt;&lt;/div&gt;
+
+    var imdiv=document.querySelector(".imdiv");
+
+    console.log(imdiv.getAttribute("index"));
+
+    imdiv.setAttribute("index",90);//改变原有属性值
+
+    imdiv.setAttribute("width",100);//创建新的属性
+
+    imdiv.removeAttribute("index");
+
+    console.log(imdiv.hasAttribute("index"));//返回布尔值
+
+    var newDiv=imdiv.cloneNode(true);
+
+    document.body.appendChild(newDiv);
+</pre>
+
+<p>DOM简易应用：</p>
+<pre>
+    &lt;button class="dombtn"&gt;增加一个li&lt;/button&gt;
+    &lt;ul class="domul"&gt;&lt;/ul&gt;
+    &lt;script&gt;
+        var btn=document.querySelector(".dombtn");
+        var ul=document.querySelector(".domul");
+        var sum=1;
+        btn.onclick=function(){
+            var newLi=document.createElement("li");
+            newLi.innerHTML="我是第"+sum+"个li";
+            sum++;
+            var newSpan=document.createElement("span");
+            newSpan.innerHTML="删除";
+            newSpan.style.color="blue";
+            newLi.appendChild(newSpan);
+            ul.appendChild(newLi);
+            newSpan.onclick=function(){
+                this.parentNode.parentNode.removeChild(this.parentNode);
+            }
+        }
+    &lt;/script&gt;
+</pre>
+
+<pre>
+    <button class="dombtn">增加一个li</button>
+    <ul class="domul"></ul>
+    <script>
+        var btn=document.querySelector(".dombtn");
+        var ul=document.querySelector(".domul");
+        var sum=1;
+        btn.onclick=function(){
+            var newLi=document.createElement("li");
+            newLi.innerHTML="我是第"+sum+"个li";
+            sum++;
+            var newSpan=document.createElement("span");
+            newSpan.innerHTML="删除";
+            newSpan.style.color="blue";
+            newLi.appendChild(newSpan);
+            ul.appendChild(newLi);
+            newSpan.onclick=function(){
+                this.parentNode.parentNode.removeChild(this.parentNode);
+            }
+        }
+    </script>
+</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/07/21/JavaScriptDOM文档对象类型/" data-id="cirp0lfj6000oe2e8wa0ycuy1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-JavaScript闭包、Object对象" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/07/21/JavaScript闭包、Object对象/" class="article-date">
@@ -313,7 +472,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/21/JavaScript闭包、Object对象/" data-id="cirn8pcgt0011dte8xk2iqra1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/21/JavaScript闭包、Object对象/" data-id="cirp0lfk20010e2e8cpukkloy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -637,7 +796,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/19/JavaScript碰撞检测/" data-id="cirn8pcgs0010dte8wpszo2na" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/19/JavaScript碰撞检测/" data-id="cirp0lfk1000ze2e88a1ybftt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -795,7 +954,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/19/JavaScript导航滚动/" data-id="cirn8pcgh000udte8u5juccpq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/19/JavaScript导航滚动/" data-id="cirp0lfjs000te2e8g2fuaerl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1027,7 +1186,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/16/JavaScript字符串对象、日期对象、定时器/" data-id="cirn8pcgr000zdte8s9bw4tkw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/16/JavaScript字符串对象、日期对象、定时器/" data-id="cirp0lfjq000se2e8anq8j96i" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1219,7 +1378,7 @@ function functionname(参数列表){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/16/JavaScript函数、Math对象、数组/" data-id="cirn8pcg5000odte8sd2616oh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/16/JavaScript函数、Math对象、数组/" data-id="cirp0lfj8000pe2e8pm24nlbm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1389,7 +1548,7 @@ function functionname(参数列表){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/14/JavaScript全选反选/" data-id="cirn8pcg7000pdte8x0gdnipb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/14/JavaScript全选反选/" data-id="cirp0lfj4000ne2e8ckpjz1zu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1586,7 +1745,7 @@ function functionname(参数列表){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/14/JavaScript显示隐藏及Tab切换/" data-id="cirn8pcgk000wdte8rjpoounq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/14/JavaScript显示隐藏及Tab切换/" data-id="cirp0lfkf0013e2e8sz4y5a42" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1674,7 +1833,7 @@ function functionname(参数列表){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/14/JavaScript数据类型转换和输出/" data-id="cirn8pcgj000vdte81dn6mvla" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/14/JavaScript数据类型转换和输出/" data-id="cirp0lfju000ve2e8b1ivdiwv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1828,247 +1987,7 @@ onmouseup            某个鼠标按键被松开
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/13/If...Else、Switch、For循环、While循环/" data-id="cirn8pcg2000ldte85ie858ub" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-JavaScript基础" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/07/11/JavaScript基础/" class="article-date">
-  <time datetime="2016-07-11T09:37:58.000Z" itemprop="datePublished">2016-07-11</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/11/JavaScript基础/">JavaScript基础</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="JavaScript简介"><a href="#JavaScript简介" class="headerlink" title="JavaScript简介"></a>JavaScript简介</h3><p>JavaScript是一种基于对象（object）和事件驱动（even driven）并具有相对安全性的客户端脚本语言。同时也是一种广泛用于客户端Web开发的脚本语言，常用来给HTML网页添加动态功能，是一种动态、弱类型、基于原型的语言，内置支持类。</p>
-<ol>
-<li>JavaScript是一种轻量级的编程语言。</li>
-<li>JavaScript是可插入HTML页面的编程代码。</li>
-<li>JavaScript插入HTML页面后，可由所有现代浏览器执行。</li>
-<li>JavaScript可以让网页呈现各种动态效果。</li>
-</ol>
-<h5 id="JavaScript组成"><a href="#JavaScript组成" class="headerlink" title="JavaScript组成"></a>JavaScript组成</h5><p><strong>核心</strong><code>ECMAscript</code>——提供核心语言的功能（基础语言）</p>
-<p>ECMAscript描述了语法、类型、语句、关键字、保留字、运算符、对象这些内容。ECMAscript定义了脚本语言的所有属性、方法和对象。</p>
-<p>JavaScript/ActionScript/ScriptEase等其他语言通过实现ECMAScript作为其功能的基准。</p>
-<p><strong>文档对象模型</strong><code>DOM</code>(document object model)——提供访问和操作网页内容的方法和接口。</p>
-<p><strong>浏览器对象模型</strong><code>BOM</code>(browser object model)——提供与浏览器交互的方法和接口。</p>
-<h5 id="JavaScript特点"><a href="#JavaScript特点" class="headerlink" title="JavaScript特点"></a>JavaScript特点</h5><ol>
-<li><p>一种解释性执行的脚本语言。</p>
-</li>
-<li><p>一种基于对象的脚本语言。</p>
-</li>
-<li><p>一种简单弱类型脚本语言。</p>
-</li>
-<li><p>一种相对安全脚本语言。</p>
-</li>
-<li><p>一种事件驱动脚本语言。</p>
-</li>
-<li><p>一种跨平台性脚本语言。</p>
-</li>
-</ol>
-<h5 id="JavaScript语法"><a href="#JavaScript语法" class="headerlink" title="JavaScript语法"></a>JavaScript语法</h5><ol>
-<li>区分大小写</li>
-<li>弱类型变量</li>
-<li>行尾的分号可有可无（建议都写）</li>
-<li>括号{}用于代码块</li>
-<li>注释方式同于C和Java</li>
-</ol>
-<h3 id="JavaScript引入"><a href="#JavaScript引入" class="headerlink" title="JavaScript引入"></a>JavaScript引入</h3><h5 id="第一种：直接写在script标签内"><a href="#第一种：直接写在script标签内" class="headerlink" title="第一种：直接写在script标签内"></a>第一种：直接写在script标签内</h5><p>script最好放在body之后，处理交互事件，等到内容显示之后载入；否则放在head标签内可能会造成加载延迟，或者覆盖代码(因html加载方式是从上到下加载的)。</p>
-<pre>
-    &lt;html&gt;
-        &lt;head&gt;
-            &lt;meta charset="utf-8" /&gt;
-            &lt;title&gt;&lt;/title&gt;
-        &lt;/head&gt;
-        &lt;body&gt;&lt;/body&gt;
-        &lt;script&gt;
-            alert("hello");
-        &lt;/script&gt;
-    &lt;/html&gt;
-</pre>
-
-<h5 id="第二种：引入js文件"><a href="#第二种：引入js文件" class="headerlink" title="第二种：引入js文件"></a>第二种：引入js文件</h5><pre>
-    &lt;html&gt;
-        &lt;head&gt;
-            &lt;meta charset="utf-8" /&gt;
-            &lt;title&gt;&lt;/title&gt;
-        &lt;/head&gt;
-        &lt;body&gt;&lt;/body&gt;
-        &lt;script src="js/index.js" type="text/javascript"&gt;&lt;/script&gt;
-    &lt;/html&gt;
-</pre>
-
-<h5 id="第三种：在标签内引入（不推荐）"><a href="#第三种：在标签内引入（不推荐）" class="headerlink" title="第三种：在标签内引入（不推荐）"></a>第三种：在标签内引入（不推荐）</h5><pre>
-    &lt;html&gt;
-        &lt;head&gt;
-            &lt;meta charset="utf-8" /&gt;
-            &lt;title&gt;&lt;/title&gt;
-        &lt;/head&gt;
-        &lt;body&gt;
-            &lt;input type="button" name="btn" id="btn" value="按钮" onclick="alert('点击我！')" /&gt;
-        &lt;/body&gt;
-    &lt;/html&gt;
-</pre>
-
-<h3 id="JavaScript基础语法"><a href="#JavaScript基础语法" class="headerlink" title="JavaScript基础语法"></a>JavaScript基础语法</h3><h5 id="alert"><a href="#alert" class="headerlink" title="alert()"></a>alert()</h5><p>让浏览器弹出一个窗口，窗口里的内容就是alert（）中的内容</p>
-<pre>
-    &lt;script type="text/javascript"&gt;
-        alert("Hello World!");
-    &lt;/script&gt;
-</pre>
-
-<p><strong>单行注释</strong></p>
-<p>用“//”注释内容，不可换行</p>
-<p><strong>多行注释</strong></p>
-<p>用“/**/”注释内容，可以换行</p>
-<pre>
-    &lt;script type="text/javascript"&gt;
-        /*var a=0;
-        var b=1;
-        var c=2;*/
-        alert("Hello World!");//注释语句
-    &lt;/script&gt;
-</pre>
-
-<h5 id="元素的获取"><a href="#元素的获取" class="headerlink" title="元素的获取"></a>元素的获取</h5><p>为了把事件写在script标签中，可以先获取到标签，主要有以下几种方法：</p>
-<ol>
-<li><p><code>document.getElementById();</code>//通过标签id值来获取标签；</p>
-</li>
-<li><p><code>document.getElementsByClassName();</code>//通过标签的class值来获取标签（返回的是一个数组，将所有相同class名的标签都返回）；</p>
-</li>
-<li><p><code>document.getElementsByTagName();</code>//通过标签的名字来获取标签（返回的是一个数组，将所有相同的标签名的标签都返回）；</p>
-</li>
-<li><p><code>document.getElementsByName();</code>//通过标签的name值来获取标签，常用于选择表单元素（返回的是一个数组，将所有相同的name值的标签返回）。</p>
-</li>
-</ol>
-<h5 id="onclick事件绑定"><a href="#onclick事件绑定" class="headerlink" title="onclick事件绑定"></a>onclick事件绑定</h5><p>onclick事件会在对象被点击时发生。单击事件是在同一元素上发生了鼠标按下事件之后又发生了鼠标放开事件时才发生的。</p>
-<pre>
-    &lt;input type="button" name="btn" id="btnclick" value="按钮" /&gt;
-    &lt;div id="divclick" style="width:100px;height:100px;background-color:pink;"&gt;&lt;/div&gt;
-    &lt;script&gt;
-        document.getElementById("btnclick").onclick=function(){
-            document.getElementById("divclick").style.display="none";
-        }
-    &lt;/script&gt;
-</pre>
-
-<pre>
-    <input type="button" name="btn" id="btnclick" value="按钮">
-    <div id="divclick" style="width:100px;height:100px;background-color:pink;"></div>
-    <script>
-        document.getElementById("btnclick").onclick=function(){
-            document.getElementById("divclick").style.display="none";
-        }
-    </script>
-</pre>
-
-<h5 id="onmouseover事件和onmouseout事件"><a href="#onmouseover事件和onmouseout事件" class="headerlink" title="onmouseover事件和onmouseout事件"></a>onmouseover事件和onmouseout事件</h5><p><code>onmouseover</code>属性在鼠标移动到元素上时触发。</p>
-<p><code>onmouseout</code>属性在鼠标指针移动到元素外时触发。</p>
-<pre>
-    &lt;input type="button" name="btn" id="btnmouse" value="按钮" /&gt;
-    &lt;div id="divmouse" style="width:100px;height:100px;background-color:purple;"&gt;&lt;/div&gt;
-    &lt;script&gt;
-        var btn=document.getElementById("btnmouse");
-        var odiv=document.getElementById("divmouse");
-        btn.onmouseover=function(){
-            odiv.style.display="none";
-        }
-        btn.onmouseout=function(){
-            odiv.style.display="block";
-        }
-    &lt;/script&gt;
-</pre>
-
-<pre>
-    <input type="button" name="btn" id="btnmouse" value="按钮">
-    <div id="divmouse" style="width:100px;height:100px;background-color:purple;"></div>
-    <script>
-        var btn=document.getElementById("btnmouse");
-        var odiv=document.getElementById("divmouse");
-        btn.onmouseover=function(){
-            odiv.style.display="none";
-        }
-        btn.onmouseout=function(){
-            odiv.style.display="block";
-        }
-    </script>
-</pre>
-
-<h5 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h5><p>变量首先是一个容器，可以用来存放数据，而且存放在这个容器中的数据可以发生变化。变量不仅可以是数字，可以是任意数据类型。</p>
-<p>“var” + “变量名” + “=” + “值” + “;” 如var a=12;</p>
-<p>变量命名规范：</p>
-<ol>
-<li>区分大小写；</li>
-<li>第一个字符必须是字母、下划线<code>_</code>或美元符号<code>$</code>；</li>
-<li>其他字符可以是字母、下划线、美元符号或数字；</li>
-<li>不能含空格；</li>
-<li>不能以关键字或保留字命名<a href="http://www.runoob.com/js/js-reserved.html" target="_blank" rel="external">关键字保留字点这里</a>。</li>
-</ol>
-<h5 id="JavaScript数据类型"><a href="#JavaScript数据类型" class="headerlink" title="JavaScript数据类型"></a>JavaScript数据类型</h5><p>用<code>typeof</code>函数查看数据类型</p>
-<p>1.null内容为空，表示一个空的值，可以创建数组、创建时间、创建字符串。</p>
-<p>2.undefined没有赋值或不存在的变量类型，仅仅在判断函数参数是否传递时有用。</p>
-<p>3.number数字类型：</p>
-<p>包含整数、浮点数、科学计数法(1.2e5)、负数、NaN(Not a Number)和Infinity。number类型的数可以进行加、减、乘、除、求余、自增、自减运算。</p>
-<p>4.string字符串类型：</p>
-<p>字符串是以单引号<code>&#39;&#39;</code>或双引号<code>&quot;&quot;</code>括起来的任意文本。</p>
-<p><strong><code>&#39;&#39;</code>或<code>&quot;&quot;</code>本身只是一种表示方式，不是字符串的一部分。</strong></p>
-<p>因此”abc”只有a、b、c三个字符；当字符串既包含单引号又包含双引号时，用转义字符<code>\</code>来标识，如”I\’m \”OK\”!”，表示字符串内容是I’m “OK”!</p>
-<p>5.boolean布尔类型，布尔只有<code>true和false</code>，布尔常用在条件测试中。</p>
-<p>6.Array数组类型</p>
-<p>7.object对象类型</p>
-<h5 id="JavaScript运算符"><a href="#JavaScript运算符" class="headerlink" title="JavaScript运算符"></a>JavaScript运算符</h5><p>1.赋值运算符<code>=</code>赋值仅仅是把给变量赋值，如a=5</p>
-<p><code>+=</code> a+=5相当于a=a+5</p>
-<p><code>-=</code> a-=5相当于a=a-5</p>
-<p><code>*=</code> a<code>*</code>=5相当于a=a<code>*</code>5</p>
-<p><code>/=</code> a/=5相当于a=a/5</p>
-<p><code>%=</code> a%=5相当于a=a%5</p>
-<p>2.算数操作符</p>
-<p>加 <code>+</code> 减 <code>-</code> 乘 <code>*</code> 除 <code>/</code> 求模/取余 <code>%</code></p>
-<p>3.关系操作符</p>
-<p>大于 <code>&gt;</code> 小于 <code>&lt;</code> 小于等于 <code>&lt;=</code> 大于等于 <code>&gt;=</code> 不等于 <code>!=</code></p>
-<p>等于 <code>==</code> 此情况下，只要值相同就返回True</p>
-<p>全等于<code>===</code> 此情况需要值和类型都要匹配才能返回True</p>
-<p><strong>关系操作符返回的都是布尔值</strong></p>
-<p>4.条件操作符</p>
-<p>5.逻辑操作符</p>
-<p>与 <code>&amp;&amp;</code> 或 <code>||</code> 非 <code>!</code></p>
-<p>6.递增递减操作符</p>
-<p><code>++</code>和<code>--</code></p>
-<p>j=i++等同于j=i;i=i+1 <code>先赋值 后运算</code></p>
-<p>j=++i等同于i=i+1;j=i <code>先运算 后赋值</code></p>
-<p><strong>操作符优先级</strong></p>
-<p>逻辑非&gt;算术操作符&gt;关系操作符&gt;逻辑与 逻辑或&gt;条件操作符&gt;赋值操作符</p>
-<p><strong>操作符书写</strong></p>
-<p>JavaScript书写：y=(x+2)*(((x+1)/3-2)/4+5)</p>
-<p>相当于数学中的：y=(x+2)*{[(x+1)/3-2]/4+5}</p>
-<p>小括号    提升优先级</p>
-<p>中括号    数组        [1,2,3,4,5]</p>
-<p>大括号    对象        function(){}</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/11/JavaScript基础/" data-id="cirn8pcgb000rdte8pzddul1m" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/13/If...Else、Switch、For循环、While循环/" data-id="cirp0lfis000ie2e8h71h2rcy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -2112,6 +2031,10 @@ onmouseup            某个鼠标按键被松开
       <ul>
         
           <li>
+            <a href="/2016/08/10/JavaScriptRegExp正则对象/">JavaScriptRegExp正则对象</a>
+          </li>
+        
+          <li>
             <a href="/2016/08/06/JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage/">JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage</a>
           </li>
         
@@ -2125,10 +2048,6 @@ onmouseup            某个鼠标按键被松开
         
           <li>
             <a href="/2016/07/30/JavaScript事件流、事件类型、事件对象和事件委托/">JavaScript事件流、事件类型、事件对象和事件委托</a>
-          </li>
-        
-          <li>
-            <a href="/2016/07/30/JavaScriptBOM浏览器对象模型/">JavaScriptBOM浏览器对象模型</a>
           </li>
         
       </ul>

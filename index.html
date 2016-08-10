@@ -68,6 +68,164 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-JavaScriptRegExp正则对象" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/10/JavaScriptRegExp正则对象/" class="article-date">
+  <time datetime="2016-08-10T13:12:13.000Z" itemprop="datePublished">2016-08-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/10/JavaScriptRegExp正则对象/">JavaScriptRegExp正则对象</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="RegExp对象"><a href="#RegExp对象" class="headerlink" title="RegExp对象"></a>RegExp对象</h3><p><strong>RegExp对象</strong>表示正则表达式，是对字符串执行模式匹配的强大工具。</p>
+<p><strong>构造正则表达式方式：</strong></p>
+<ol>
+<li><p>直接定义：<code>var reg=/pattern/attributes;</code></p>
+</li>
+<li><p>创建RegExp对象：<code>var reg=new RegExp(pattern,attributes);</code></p>
+</li>
+</ol>
+<p>参数pattern是一个字符串，指定了正则表达式的模式或其他正则表达式；</p>
+<p>参数attribute是一个可选字符串，包含属性”g”、”i”和”m”，分别用于指定全局匹配、区分大小写的匹配和多行匹配。ECMAScript标准化之前，不支持m属性。如果pattern是正则表达式，而不是字符串，则必须省略该参数。</p>
+<p><strong>RegExpObject.test(string)</strong></p>
+<p>检测字符串是否匹配某个模式，是则返回true，否则返回false。</p>
+<h3 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h3><p>正则检测方式，如果不设置全局检测，那么只要检测到一次就结束。</p>
+<pre>
+    i        不区分大小写
+
+    g        全局匹配
+
+    m        多行匹配
+</pre>
+
+<h3 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h3><pre>
+    .        查找单个字符，所有非换行和行结束符的字符
+
+    \w        查找数字字母下划线
+
+    \W        查找非数字字母下划线
+
+    \d        查找数字
+
+    \D        查找非数字
+
+    \s        查找空格
+
+    \S        查找非空格
+
+    \b        检测单词开头或者结尾是否有
+
+    \B        不处于单词开头或结尾的
+
+    \0        空字符串，也相当于NUL
+
+    \n        查找换行符
+
+    \f        查找换页符
+
+    \t        查找制表符
+
+    \v        查找垂直制表符
+
+    \xxx    查找以八进制数xxx规定的字符
+
+    \xdd    查找以十六进制数dd规定的字符
+
+    \uxxxx    查找以十六进制数xxxx规定的Unicode字符
+</pre>
+
+<h3 id="量词"><a href="#量词" class="headerlink" title="量词"></a>量词</h3><pre>
+    n+        包含一个及以上（至少一个）n的字符串
+
+    n*        包含零个或多个n的字符串
+
+    n?        包含零个或一个n的字符串
+
+    n{X}    包含X个n的序列的字符串
+
+    n{X,Y}    包含X到Y个n的序列的字符串
+
+    n{X,}    包含至少X个n的序列的字符串
+
+    n$        匹配任何结尾为n的字符串
+
+    ^n        匹配任何开头为n的字符串
+
+    ?=n        匹配任何其后紧接指定字符串n的字符串
+
+    ?!n        匹配任何其后没有紧接指定字符串n的字符串
+</pre>
+
+<h3 id="方括号"><a href="#方括号" class="headerlink" title="方括号"></a>方括号</h3><pre>
+    [abc]    查找方括号之间的任何字符
+
+    [^abc]    查找任何不在方括号之间的字符
+
+    [0-9]    查找任何从0至9的数字
+
+    [a-z]    查找任何从小写a到小写z的字符
+
+    [A-Z]    查找任何从大写A到大写Z的字符
+
+    [A-Za-z]查找任何从大写A到小写Z的字符
+
+    ()        查找任何指定的选项
+</pre>
+
+<h3 id="支持正则表达式的方法"><a href="#支持正则表达式的方法" class="headerlink" title="支持正则表达式的方法"></a>支持正则表达式的方法</h3><p><strong>stringObject.search(regexp)</strong></p>
+<p>返回第一个与regexp相匹配的起始位置，如果没有则返回-1。<code>此方法不支持全局匹配</code>，如需忽略大小写，需添加i。</p>
+<p><strong>stringObject.match(regexp)</strong></p>
+<p>返回存放匹配结果的数组。数组内容依赖于regexp是否有全局标志g。</p>
+<p><strong>stringObject.replace(regexp,replacement)</strong></p>
+<p>返回一个新的字符串，用replacement替换regexp第一次匹配或所有匹配之后得到的。</p>
+<p><strong>stringObject.spilt(separator,howmany)</strong></p>
+<p>前面已讲过，在此不再一一熬述。</p>
+<pre>
+    //判断手机号
+    var reg1=/^1[34578]\d{9}/;
+    //判断固定电话号码
+    var reg2=/(^0\d{2,3}-[1-9]\d{6,7}$)|(^[1-9]\d{6,7}$)/;
+    //判断汉字
+    var reg3=/[\u4e00-\u9fa5]+/g;
+
+    //选择替换关键字
+    var reg4=/哈哈|呵呵|这个是/g;
+    var str="这个是的呵呵，这个哈哈是的，呵呵";
+    var newStr=str.replace(reg4,function(sr){
+        var str="";
+        for(var i=0;i&lt;sr.length;i++){
+            str+="*";
+        }
+        return str;
+    })
+    console.log(newStr);
+</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/08/10/JavaScriptRegExp正则对象/" data-id="cirp0lfiy000ke2e8muokckdo" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/08/06/JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage/" class="article-date">
@@ -291,7 +449,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/06/JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage/" data-id="cirn8pcg4000ndte8o9f2w3qt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/06/JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage/" data-id="cirp0lfjm000re2e8j22ko5rj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -545,7 +703,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/05/JavaScript滚轮事件的封装和滚轮轮播图/" data-id="cirn8pcgq000ydte8dfc78wzy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/05/JavaScript滚轮事件的封装和滚轮轮播图/" data-id="cirp0lfjz000ye2e87zbr5w4v" class="article-share-link">Share</a>
       
       
     </footer>
@@ -643,7 +801,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/03/JavaScriptCallback回调函数和事件委托的封装/" data-id="cirn8pcfp000gdte83jsez4um" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/03/JavaScriptCallback回调函数和事件委托的封装/" data-id="cirp0lfiw000je2e8bazdwod5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -785,7 +943,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/30/JavaScript事件流、事件类型、事件对象和事件委托/" data-id="cirn8pcgf000sdte8tvzaakc8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/30/JavaScript事件流、事件类型、事件对象和事件委托/" data-id="cirp0lfj0000me2e8jdyt2hq4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -851,7 +1009,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/30/JavaScriptBOM浏览器对象模型/" data-id="cirn8pcg3000mdte84hbtfp8y" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/30/JavaScriptBOM浏览器对象模型/" data-id="cirp0lfiz000le2e8gaa8gizo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -923,7 +1081,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/26/JavaScriptDOM元素对象/" data-id="cirn8pcg0000jdte8ypfv9ehm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/26/JavaScriptDOM元素对象/" data-id="cirp0lfiq000he2e8sr1ffwmi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1172,7 +1330,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/23/JavaScript瀑布流/" data-id="cirn8pcgo000xdte8qcmli3om" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/23/JavaScript瀑布流/" data-id="cirp0lfjy000xe2e8vmsr0hwh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1530,7 +1688,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/22/JavaScript图片轮播/" data-id="cirn8pcgg000tdte8j7tignj3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/22/JavaScript图片轮播/" data-id="cirp0lfjv000we2e8zmohob1v" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1833,166 +1991,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/22/JavaScript制作简易日历/" data-id="cirn8pcg9000qdte8cbqsi8yu" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-JavaScriptDOM文档对象类型" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/07/21/JavaScriptDOM文档对象类型/" class="article-date">
-  <time datetime="2016-07-21T15:04:05.000Z" itemprop="datePublished">2016-07-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/21/JavaScriptDOM文档对象类型/">JavaScriptDOM文档对象类型</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="DOM文档对象类型"><a href="#DOM文档对象类型" class="headerlink" title="DOM文档对象类型"></a>DOM文档对象类型</h3><p><strong>childNodes</strong>子节点，获取所有的文本和子元素</p>
-<p><strong>children</strong>子元素</p>
-<p><strong>parentNode</strong>父节点</p>
-<p><strong>nextElementSibling</strong>同级的下一个子元素</p>
-<p><strong>previousElementSibling</strong>同级的上一个子元素</p>
-<p><strong>nextSibling</strong>同级的下一个节点</p>
-<p><strong>previousSibling</strong>同级的上一个节点</p>
-<pre>
-    console.log(uls.childNodes);
-
-    console.log(uls.children);
-
-    console.log(uls.parentNode);
-
-    console.log(lis[1].nextElementSibling);
-
-    console.log(lis[1].previousElementSibling);
-
-    console.log(lis[1].nextSibling);
-
-    console.log(lis[1].previousSinling);
-</pre>
-
-<p><strong>createElement</strong>创建元素</p>
-<p><strong>appendChild</strong>插入元素</p>
-<p>如果插入的元素原文档里没有，那就是直接插入；如果有，那就是把要插入的元素从原位置移动到被插入元素的最后面。</p>
-<p><strong>removeChild</strong>删除子元素</p>
-<p><strong>insertBefore(ele1,ele2)</strong>在ele2前插入</p>
-<p>ele1要插入的元素，如果原先在文档里有此元素，那么就是调换位置，如果没有，那就是插入</p>
-<p>ele2插入在谁前面</p>
-<p><strong>hasChildNodes</strong>检查元素是否有子节点</p>
-<p><strong>replaceChild(ele1,ele2)</strong>替换元素</p>
-<p>ele1替换的元素，如果原先在文档里有此元素，那么对ele1来说就是换个位置</p>
-<p>ele2被替换的元素，替换后被删除</p>
-<pre>
-    var newDiv=document.createElement("div");
-
-    uls.appendChild(newDiv);
-
-    uls.removeChild(lis[2]);
-
-    uls.insertBefore(newDiv,lis[0]);
-
-    console.log(uls.hasChildNodes());//返回布尔值
-
-    uls.replaceChild(newDiv,lis[1]);
-</pre>
-
-<p><strong>getAttribute</strong>获取元素的属性值</p>
-<p><strong>setAttribute</strong>更改原有属性的属性值/创建新的属性</p>
-<p>setAttribute假如元素有该属性，则为更改原有属性的属性值</p>
-<p>setAttribute假如元素无该属性，则为创建新的属性</p>
-<p><strong>removeAttribute</strong>删除属性</p>
-<p><strong>hasAttribute</strong>检查是否有此属性</p>
-<p><strong>cloneNode()</strong>复制元素</p>
-<p>cloneNode(true)复制整个元素，包括子节点</p>
-<p>cloneNode(false)复制元素本身，不包括子节点</p>
-<p>cloneNode接收的参数默认为false，<code>只能复制元素或节点，不能复制事件</code>，也就证明了复制的元素和原元素不全等</p>
-<pre>
-    &lt;div class="imdiv" index="5"&gt;&lt;/div&gt;
-
-    var imdiv=document.querySelector(".imdiv");
-
-    console.log(imdiv.getAttribute("index"));
-
-    imdiv.setAttribute("index",90);//改变原有属性值
-
-    imdiv.setAttribute("width",100);//创建新的属性
-
-    imdiv.removeAttribute("index");
-
-    console.log(imdiv.hasAttribute("index"));//返回布尔值
-
-    var newDiv=imdiv.cloneNode(true);
-
-    document.body.appendChild(newDiv);
-</pre>
-
-<p>DOM简易应用：</p>
-<pre>
-    &lt;button class="dombtn"&gt;增加一个li&lt;/button&gt;
-    &lt;ul class="domul"&gt;&lt;/ul&gt;
-    &lt;script&gt;
-        var btn=document.querySelector(".dombtn");
-        var ul=document.querySelector(".domul");
-        var sum=1;
-        btn.onclick=function(){
-            var newLi=document.createElement("li");
-            newLi.innerHTML="我是第"+sum+"个li";
-            sum++;
-            var newSpan=document.createElement("span");
-            newSpan.innerHTML="删除";
-            newSpan.style.color="blue";
-            newLi.appendChild(newSpan);
-            ul.appendChild(newLi);
-            newSpan.onclick=function(){
-                this.parentNode.parentNode.removeChild(this.parentNode);
-            }
-        }
-    &lt;/script&gt;
-</pre>
-
-<pre>
-    <button class="dombtn">增加一个li</button>
-    <ul class="domul"></ul>
-    <script>
-        var btn=document.querySelector(".dombtn");
-        var ul=document.querySelector(".domul");
-        var sum=1;
-        btn.onclick=function(){
-            var newLi=document.createElement("li");
-            newLi.innerHTML="我是第"+sum+"个li";
-            sum++;
-            var newSpan=document.createElement("span");
-            newSpan.innerHTML="删除";
-            newSpan.style.color="blue";
-            newLi.appendChild(newSpan);
-            ul.appendChild(newLi);
-            newSpan.onclick=function(){
-                this.parentNode.parentNode.removeChild(this.parentNode);
-            }
-        }
-    </script>
-</pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/21/JavaScriptDOM文档对象类型/" data-id="cirn8pcg1000kdte85ejwnux3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/22/JavaScript制作简易日历/" data-id="cirp0lfjk000qe2e8vjni9jbu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -2036,6 +2035,10 @@
       <ul>
         
           <li>
+            <a href="/2016/08/10/JavaScriptRegExp正则对象/">JavaScriptRegExp正则对象</a>
+          </li>
+        
+          <li>
             <a href="/2016/08/06/JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage/">JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage</a>
           </li>
         
@@ -2049,10 +2052,6 @@
         
           <li>
             <a href="/2016/07/30/JavaScript事件流、事件类型、事件对象和事件委托/">JavaScript事件流、事件类型、事件对象和事件委托</a>
-          </li>
-        
-          <li>
-            <a href="/2016/07/30/JavaScriptBOM浏览器对象模型/">JavaScriptBOM浏览器对象模型</a>
           </li>
         
       </ul>
