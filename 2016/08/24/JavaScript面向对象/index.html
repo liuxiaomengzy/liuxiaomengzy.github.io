@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JavaScript面向对象 | 紫--小梦</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="JavaScript面向过程编辑与面向对象编辑面向过程编辑：
+
+注重解决问题的步骤，分析问题需要的每一步，实现函数的依次调用。
+
+代表编程语言：C语言。
+
+面向过程的思维方式就是典型的计算机思维方式：输入数据给处理器，处理器内部执行，然后处理器返回结果。
+
+
+面向对象编辑：
+
+面向对象是把构成问题事务分解成各个对象，建立对象的目的不是为了完成一个步骤，而是为了描述某个事物在整个解决问题的步骤中的行">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript面向对象">
+<meta property="og:url" content="http://yoursite.com/2016/08/24/JavaScript面向对象/index.html">
+<meta property="og:site_name" content="紫--小梦">
+<meta property="og:description" content="JavaScript面向过程编辑与面向对象编辑面向过程编辑：
+
+注重解决问题的步骤，分析问题需要的每一步，实现函数的依次调用。
+
+代表编程语言：C语言。
+
+面向过程的思维方式就是典型的计算机思维方式：输入数据给处理器，处理器内部执行，然后处理器返回结果。
+
+
+面向对象编辑：
+
+面向对象是把构成问题事务分解成各个对象，建立对象的目的不是为了完成一个步骤，而是为了描述某个事物在整个解决问题的步骤中的行">
+<meta property="og:updated_time" content="2016-08-26T14:44:41.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript面向对象">
+<meta name="twitter:description" content="JavaScript面向过程编辑与面向对象编辑面向过程编辑：
+
+注重解决问题的步骤，分析问题需要的每一步，实现函数的依次调用。
+
+代表编程语言：C语言。
+
+面向过程的思维方式就是典型的计算机思维方式：输入数据给处理器，处理器内部执行，然后处理器返回结果。
+
+
+面向对象编辑：
+
+面向对象是把构成问题事务分解成各个对象，建立对象的目的不是为了完成一个步骤，而是为了描述某个事物在整个解决问题的步骤中的行">
+  
+    <link rel="alternate" href="/atom.xml" title="紫--小梦" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">紫--小梦</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">心怀梦想，志在远方。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-JavaScript面向对象" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/24/JavaScript面向对象/" class="article-date">
+  <time datetime="2016-08-24T10:39:10.000Z" itemprop="datePublished">2016-08-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript面向对象
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="JavaScript面向过程编辑与面向对象编辑"><a href="#JavaScript面向过程编辑与面向对象编辑" class="headerlink" title="JavaScript面向过程编辑与面向对象编辑"></a>JavaScript面向过程编辑与面向对象编辑</h3><p><strong>面向过程编辑：</strong></p>
+<ol>
+<li><p>注重解决问题的步骤，分析问题需要的每一步，实现函数的依次调用。</p>
+</li>
+<li><p>代表编程语言：C语言。</p>
+</li>
+<li><p>面向过程的思维方式就是典型的计算机思维方式：输入数据给处理器，处理器内部执行，然后处理器返回结果。</p>
+</li>
+</ol>
+<p><strong>面向对象编辑：</strong></p>
+<ol>
+<li><p>面向对象是把构成问题事务分解成各个对象，建立对象的目的不是为了完成一个步骤，而是为了描述某个事物在整个解决问题的步骤中的行为。</p>
+</li>
+<li><p>代表编程语言：JavaScript，Java，C++，C#</p>
+</li>
+<li><p>面向对象编程就是抛开计算机思维，使用生活中的思维方式进行的编程方式。生活中，每一件事物都有自己的状态和行为，因此可以这么说——万事万物皆对象。</p>
+</li>
+<li><p>基本特征：封装，继承，多态。</p>
+</li>
+</ol>
+<h5 id="面向过程编辑与面向对象编辑的区别和联系"><a href="#面向过程编辑与面向对象编辑的区别和联系" class="headerlink" title="面向过程编辑与面向对象编辑的区别和联系"></a>面向过程编辑与面向对象编辑的区别和联系</h5><ol>
+<li><p>面向过程编程：注重解决问题的步骤，分析问题需要的每一步，实现函数依次调用。</p>
+</li>
+<li><p>面向对象编辑：注重问题中的对象，分析问题中对象的联系，实现对象间的通讯解决问题。</p>
+</li>
+<li><p>面向对象编程淡化过程，强调对象。    更接近我们日常处理问题的方式。</p>
+</li>
+<li><p>面向过程：所有功能都是在需要使用的时候才开发，相当于去餐馆点菜，现点现做，需要等待时间。</p>
+</li>
+<li><p>面向对象：在正式开发之前，就先把所有需要使用的功能开发好，并以属性或者方法的形式存放在一个对象中，在实际开发的时候根据需要来调用写好的功能。相当于去麦当劳，食物都是做好的，去了直接就可以吃了。</p>
+</li>
+<li><p>面向对象无法取代面向过程，他们是相辅相成的。面向对象关注于从宏观上把握事物之间的关系，在具体到如何实现某个细节时，仍然采用面向过程的思维方式。面向对象如果离开了面向过程，就无法实现真正的落地，成为无源之水。</p>
+</li>
+</ol>
+<h3 id="面向对象——类和对象"><a href="#面向对象——类和对象" class="headerlink" title="面向对象——类和对象"></a>面向对象——类和对象</h3><p><strong>类：</strong>类是一组具有相同特征和事物的抽象。</p>
+<p>一个对象所包含的所有数据和代码可以通过类来构成一个用户定义的数据类型。事实上，对象就是类类型（class type）的变量。一旦定义了一个类，就可以创建这个类的多个对象，每个对象与一组数据有关，而这个数据的类型在类中定义。</p>
+<p><strong>对象：</strong>对象是类的实例，对象是具体的事物。</p>
+<p>在一个面向对象的系统中，对象是运行期的基本实体。它可以用来表示一个人，一辆车，一个账户，或者是需要被程序处理的东西。它也可以用来表示用户定义的数据，例如一个变量，列表等。在面向对象的程序设计中，问题的分析一般以对象及对象间的自然联系为依据。对象在内存中占有一定空间，并且具有一个与之关联的地址。</p>
+<p>当一个程序运行时，对象之间通过互发消息来相互作用。每个对象都包含数据以及操作这些数据的代码。即使不了解彼此的数据和代码的细节，对象之间依然可以相互作用，所要了解的只是对象能够接受的消息的类型，以及对象返回的响应的类型，虽然不同的人会以不同的方法来实现。
+　　</p>
+<h3 id="Object对象的使用"><a href="#Object对象的使用" class="headerlink" title="Object对象的使用"></a>Object对象的使用</h3><p><strong>只有对象才有属性和方法，基本数据类型没有。</strong></p>
+<p><strong>string等类型能够使用的方法来自于他自身的构造器，在基本数据类型调用方法时会临时创建一个对象出来，在方法完成时，自动销毁。</strong></p>
+<pre>
+    //使用Object声明对象
+    var student = new Object();
+    //简写方法
+    var student = {};
+    //设置属性
+    student.name = "小明";
+    student.sex = "男";
+    //方法
+    student.say = function(){
+        alert(this.name+"\n"+this.sex);
+    }
+    //调用方法
+    student.say();
+</pre>
+
+<h3 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h3><pre>
+    function Student(name,sex){
+        //内部创建对象
+        var obj = {};
+        //属性
+        obj.name = name;
+        obj.sex = sex;
+        //方法
+        obj.showName = function(){
+            alert(obj.name);
+        }
+        obj.showSex = function(){
+            alert(obj.sex);
+        }
+        //返回对象
+        return obj;
+    }
+    //使用工厂模式创建对象
+    var xiaoMing = Student("小明","男");
+    //调用方法
+    xiaoMing.showName();
+    xiaoMing.showSex();
+</pre>
+
+<h3 id="构造函数和原型"><a href="#构造函数和原型" class="headerlink" title="构造函数和原型"></a>构造函数和原型</h3><p><strong>构造函数：</strong>用来构建对象的函数。</p>
+<ol>
+<li><p>为了区别普通函数，构造函数的函数名首字母规定为大写形式。</p>
+</li>
+<li><p>构造函数必须使用new运算符来调用执行（实例化对象）。</p>
+</li>
+</ol>
+<p><strong>原型：prototype</strong> 当我们声明一个类时，同时生成了一个对应的原型。</p>
+<ol>
+<li><p>通过new实例化出来的对象，其属性和行为来自于两个部分，一部分来自于构造函数，另一部分来自于原型。</p>
+</li>
+<li><p>原型本身就是一个对象。</p>
+</li>
+<li><p>通过prototype可以指向这个原型，原型可以通过constructor指向类（构造函数）。</p>
+</li>
+</ol>
+<p>一般来说，我们习惯把属性放在构造函数中，把方法放在原型中。目的是节省性能，因为实例化对象不一定每个都需要方法。</p>
+<p><strong>原型链：</strong>原型链是指对象在访问属性或方法时的查找方式。</p>
+<ol>
+<li><p>当访问一个对象的属性或方法时，会现在对象自身上查找属性或方法是否存在，如果存在就使用自身的属性或方法；如果不存在就去创建的构造函数的原型对象中查找，如果有就使用，没有就继续向上查找，以此类推，知道找到为止。如果到顶层对象中还找不到，则返回undefined。（当原型和构造函数都有的时候，找到的是其本身，因为原型链是先从对象自身查找的）</p>
+</li>
+<li><p>原型链最顶层为Object构造函数的prototype原型对象，给Object.prototype添加属性或方法可以被除null和undefined之外的所有数据类型对象使用。</p>
+</li>
+</ol>
+<pre>
+    //创建构造函数  类似 类
+    //特征：首字母大写
+    //一般情况下，把属性放在构造函数中，把方法放在原型中
+    function Student(name,sex){
+        this.name = name;
+        this.sex = sex;
+    }
+    Student.prototype = {
+        say : function(){
+            alert("姓名："+this.name+"\n"+"性别："+this.sex);
+        }
+    }
+    //向原型中追加属性或方法，必须放在原型对象下方，否则就会被覆盖
+    Student.prototype.height = "180cm";
+    //实例化对象
+    var student = new Student("小红","女");
+    //调用方法
+    student.say();
+</pre>
+
+<h3 id="面向对象基本特征"><a href="#面向对象基本特征" class="headerlink" title="面向对象基本特征"></a>面向对象基本特征</h3><h5 id="特征一：封装"><a href="#特征一：封装" class="headerlink" title="特征一：封装"></a>特征一：封装</h5><p>封装的目的在于将信息隐藏。封装机制将数据和代码捆绑到一起，避免了外界的干扰和不确定性，可以创建对象。简单的说，一个对象就是一个封装了数据和操作这些数据的代码的逻辑实体。</p>
+<p>在一个对象内部，某些代码和（或）某些数据是可以私有的，不能被外部访问。通过这种方式，对象对内部数据提供了不同级别的保护，以防止程序中无关的部分意外改变或错误的使用了对象的私有部分。在传统的面向对象的语言中，一般会提供public、protected、private等关键字来声明属性和方法的公开性；而JavaScript没有这些关键字，主要通过作用域来实现公有或私有。</p>
+<p>因为私有属性及私有方法只能在构造函数内部进行直接访问，因此通过公有的方法去访问私有的属性。</p>
+<p><strong>set方法</strong>专门给私有属性赋值的方法称为set方法。</p>
+<p><strong>get方法</strong>专门获取私有属性的方法称为get方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">function Women(name,sex)&#123;</span><br><span class="line">	//共有属性</span><br><span class="line">	this.name = name;</span><br><span class="line">	this.sex = sex;</span><br><span class="line">	//私有属性</span><br><span class="line">	var _age = &quot;20&quot;;</span><br><span class="line">	//公有方法</span><br><span class="line">	this.eat = function()&#123;</span><br><span class="line">	alert(&quot;吃了啥&quot;)；</span><br><span class="line">	//私有方法</span><br><span class="line">	var fight = function()&#123;</span><br><span class="line">		alert(&quot;go go go!&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	//私有属性及私有方法只能在构造函数内部进行直接访问。</span><br><span class="line">	//set方法及其合法性</span><br><span class="line">	this.setAge = function(age)&#123;</span><br><span class="line">		if(parseInt(age)&gt;100 || parseInt(age)&lt;0)&#123;</span><br><span class="line">			alert(&quot;年龄不合法&quot;);</span><br><span class="line">			return;</span><br><span class="line">		&#125;</span><br><span class="line">		_age = age;</span><br><span class="line">	&#125;</span><br><span class="line">	//get方法</span><br><span class="line">	this.getAge = function()&#123;</span><br><span class="line">		return _age;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="特征二：继承"><a href="#特征二：继承" class="headerlink" title="特征二：继承"></a>特征二：继承</h5><p>继承可以让某个类型的对象获得另一个对象的属性的方法。继承的特性是子类具有父类所有的特征和行为，继承的目的是找到类之间的共性，精简代码。</p>
+<p>我们可以向一个已经存在的类中添加新的特性，而不必改变这个类。这个可以通过这个类派生一个新类来实现。这个新的类将具有原来的那个类的特性，以及新的特性。继承的魅力和强大在于它允许程序员利用已经存在的类，并且可以以某种方式修改这个类，而不会影响其他的东西。</p>
+<p>构造函数的继承，使用call，apply方法</p>
+<pre>
+    function Person(name,age){
+        this.name = name;
+        this.age = age;
+    }
+    //Student继承于Person
+    function Student(name,age,sex){
+        //call方法
+        Person.call(this,name,age);
+        //apply方法（两种写法）
+        Person.apply(this,arguments)
+        Person.apply(this,[name,age]);
+        this.sex = sex;
+    }
+    var stu = new Student("小明","18","男");
+    console.log(stu);
+</pre>
+
+<p><strong>原型的继承：</strong>因为创建的对象由构造函数和原型两部分的属性和行为组成，所以需要进行原型的继承。JavaScript中的数据几乎都是对象，存在一个根对象Object.prototype。</p>
+<p><strong>传值：</strong>简单数据类型之间的赋值为传值。</p>
+<p><strong>传址：</strong>复杂数据类型之间的赋值为传址。</p>
+<pre>
+    var a = 1;
+    var b = a;
+    b = 5;
+    alert(a);
+    //a将值直接复制给b，修改b的值并不会影响a。
+    var arr1 = [1,2,3];
+    var arr2 = arr1;
+    arr2[0] = 10;
+    alert(arr1[0]);
+    //arr1将值的地址复制给arr2，修改arr2的值会影响到arr1的值。
+</pre>
+
+<p>因此，原型的继承应用以下方式：</p>
+<pre>
+    function Person(name){
+        this.name = name;
+    }
+    Person.prototype.say = function(){
+        alert("person");
+    }
+    function Student(name,age){
+        Person.apply(this,arguments);
+        this.age = age;
+    }
+    //创建一个空的构造函数
+    function Lin(){};
+    //通过赋值实现传址，Lin的原型就跟Person的一样了
+    Lin.prototype = Person.prototype;
+    //通过实例化出来的对象的存储地址就是新的地址了，同时赋值给Student实现了传址，所以Student.prototype的地址就是
+    //实例化出来的对象的地址，则其的内容就跟被继承的原型的内容一致，实现了原型继承
+    Student.prototype = new Lin();
+    //再更改其constructor属性，达到跟创建原型完全一致
+    Student.prototype.constructor = Student;
+    var person = new Person("小明");
+    var student = new Student("小红","18");
+    student.say();
+</pre>
+
+<p><strong>克隆</strong></p>
+<p><strong>JSON.stringify()：</strong>将[]或{}的对象转换成字符串形式的值。</p>
+<p><strong>JSON.parse()：</strong>将字符串形式的[]或{}值转换成对象。</p>
+<p><strong>克隆实现原理：</strong>利用字符串赋值为传值的特点，先将对象转换成字符串形式，然后将字符串形式的值再转换成对象。</p>
+<p><strong>兼容问题：</strong>不支持低版本IE浏览器。</p>
+<pre>
+    function Person(name){
+        this.name = name;
+    }
+    var person = new Person("小明");
+    var str = JSON.stingify(person);
+    var newObj = JSON.parse(str);
+    newObj.name = "小红";
+    console.log(person.name);
+</pre>
+
+<h5 id="特征三：多态"><a href="#特征三：多态" class="headerlink" title="特征三：多态"></a>特征三：多态</h5><p>多态指事物具有不同形式的能力。比如说加法操作，如果操作的是数字，则为两个数字求和；如果操作的是字符串，则将连接两个字符串。</p>
+<p>多态机制使具有不同内部结构的对象可以共享相同的外部接口。这意味着虽然针对不同对象的具体操作不同，但通过一个公共的类，那些操作可以通过相同的方式予以调用。多态在实现继承的过程中被广泛应用。</p>
+<p>面向对象设计语言支持多态，术语称之为”one interface muliple method（一个接口，多个实现）”。简单来说，多态机制允许通过相同的接口引发一组相关但不相同的动作，通过这种方式，可以减少代码的复杂度。在某个特定的情况下应该做出怎样的动作，这由编译器决定，而不需要程序员手工干预。</p>
+<h3 id="typeof查看数据类型的改进"><a href="#typeof查看数据类型的改进" class="headerlink" title="typeof查看数据类型的改进"></a>typeof查看数据类型的改进</h3><p>typeof可以准确判断出简单数据类型，但对复杂数据类型的判断相对比较模糊。例如：数组对象/时间对象/正则对象/Math对象等都返回的是“object”。因此封装一个函数来查询具体类型。</p>
+<p>其原理为Object对象的prototype的toString()方法会返回一个表示对象本身类型的字符串，再通过截取即可。</p>
+<pre>
+    function type(obj){
+        var o = {};
+        var str = o.toString.call(obj).slice(8,-1).toLowerCase();
+        return str;
+    }
+    var arr = [1,2,3];
+    console.log(type(arr));
+</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/08/24/JavaScript面向对象/" data-id="cisbv8j5f0010rqe8gindsdg4" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/08/10/JavaScriptRegExp正则对象/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JavaScriptRegExp正则对象</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/08/24/JavaScript面向对象/">JavaScript面向对象</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/10/JavaScriptRegExp正则对象/">JavaScriptRegExp正则对象</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/06/JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage/">JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/05/JavaScript滚轮事件的封装和滚轮轮播图/">JavaScript滚轮事件的封装和滚轮轮播图</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/03/JavaScriptCallback回调函数和事件委托的封装/">JavaScriptCallback回调函数和事件委托的封装</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 刘晓萌<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

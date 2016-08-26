@@ -17,7 +17,7 @@
 事件冒泡指事件一级一级的往上触发，一直到根元素为止
 事件捕获指事件从根元素开始触发，一直到触发元素的事件为止
 事件绑定123456789101112131415161718192021222324252627DOM0级事件	直接在元素上绑定，绑定多个后面会覆盖前面			例如：			wrap.onclick=f">
-<meta property="og:updated_time" content="2016-07-30T14:11:44.000Z">
+<meta property="og:updated_time" content="2016-08-24T02:45:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript事件流、事件类型、事件对象和事件委托">
 <meta name="twitter:description" content="JavaScript事件流事件流描述的是在页面中接受事件的顺序，分为事件冒泡和事件捕获。
@@ -101,7 +101,7 @@
         <h3 id="JavaScript事件流"><a href="#JavaScript事件流" class="headerlink" title="JavaScript事件流"></a>JavaScript事件流</h3><p>事件流描述的是在页面中接受事件的顺序，分为<strong>事件冒泡</strong>和<strong>事件捕获</strong>。</p>
 <p><code>事件冒泡</code>指事件一级一级的往上触发，一直到根元素为止</p>
 <p><code>事件捕获</code>指事件从根元素开始触发，一直到触发元素的事件为止</p>
-<h5 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">DOM0级事件	直接在元素上绑定，绑定多个后面会覆盖前面</span><br><span class="line">			例如：</span><br><span class="line">			wrap.onclick=function()&#123;</span><br><span class="line">				alert(&quot;a&quot;);</span><br><span class="line">			&#125;</span><br><span class="line">			wrap.onclick=function()&#123;</span><br><span class="line">				alert(&quot;b&quot;);//仅仅会弹出b，因为覆盖前面</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">DOM2级事件	可以多次绑定</span><br><span class="line"></span><br><span class="line">	addEventListener(type,fn,bol);		绑定事件</span><br><span class="line">	removeEventListener(type,fn,bol);	解除事件</span><br><span class="line">		type：事件类型</span><br><span class="line">		fn：  事件语句，必须是对应的非匿名函数</span><br><span class="line">		bol： 事件触发机制  false事件冒泡 true事件捕获</span><br><span class="line">		解除检测某个事件语句，type、fn、bol都必须对应相同</span><br><span class="line">		</span><br><span class="line">	attachEvent(type,fn);	IE上的DOM2级绑定事件</span><br><span class="line">	datachEvent(type,fn);	IE上的DOM2级解除事件</span><br><span class="line">	</span><br><span class="line">	wrap.addEventListener(&quot;click&quot;,function(e)&#123;</span><br><span class="line">		//匿名函数的匿名参数，表示触发的事件对象</span><br><span class="line">		//为了兼容IE低版本，需要使用window.event</span><br><span class="line">		var e=e||window.event;</span><br><span class="line">		console.log(e.currentTarget);</span><br><span class="line">	&#125;,false)</span><br></pre></td></tr></table></figure>
+<h5 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">DOM0级事件	直接在元素上绑定，绑定多个后面会覆盖前面</span><br><span class="line">			例如：</span><br><span class="line">			wrap.onclick=function()&#123;</span><br><span class="line">				alert(&quot;a&quot;);</span><br><span class="line">			&#125;</span><br><span class="line">			wrap.onclick=function()&#123;</span><br><span class="line">				alert(&quot;b&quot;);//仅仅会弹出b，因为覆盖前面</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">DOM2级事件	可以多次绑定</span><br><span class="line"></span><br><span class="line">	addEventListener(type,fn,bol);		绑定事件</span><br><span class="line">	removeEventListener(type,fn,bol);	解除事件</span><br><span class="line">		type：事件类型</span><br><span class="line">		fn：  事件语句，必须是对应的非匿名函数</span><br><span class="line">		bol： 事件触发机制  false事件冒泡 true事件捕获</span><br><span class="line">		解除检测某个事件语句，type、fn、bol都必须对应相同</span><br><span class="line">		</span><br><span class="line">	attachEvent(type,fn);	IE上的DOM2级绑定事件</span><br><span class="line">	detachEvent(type,fn);	IE上的DOM2级解除事件</span><br><span class="line">	</span><br><span class="line">	wrap.addEventListener(&quot;click&quot;,function(e)&#123;</span><br><span class="line">		//匿名函数的匿名参数，表示触发的事件对象</span><br><span class="line">		//为了兼容IE低版本，需要使用window.event</span><br><span class="line">		var e=e||window.event;</span><br><span class="line">		console.log(e.currentTarget);</span><br><span class="line">	&#125;,false)</span><br></pre></td></tr></table></figure>
 <p><strong>函数不添加()，就是执行代码块；添加()，就是执行结果</strong></p>
 <h3 id="event对象"><a href="#event对象" class="headerlink" title="event对象"></a>event对象</h3><p>event对象代表事件的状态，比如事件在其中发生的元素、键盘按键的状态、鼠标的位置、鼠标按钮的状态。</p>
 <p><strong>事件通常与函数结合使用，函数不会在事件发生前被执行！</strong></p>
@@ -208,7 +208,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/30/JavaScript事件流、事件类型、事件对象和事件委托/" data-id="cirylj90u000q0le8qed6nsz1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/30/JavaScript事件流、事件类型、事件对象和事件委托/" data-id="cisbv8j4u000orqe8w5elw373" class="article-share-link">Share</a>
       
       
     </footer>
@@ -266,6 +266,10 @@
       <ul>
         
           <li>
+            <a href="/2016/08/24/JavaScript面向对象/">JavaScript面向对象</a>
+          </li>
+        
+          <li>
             <a href="/2016/08/10/JavaScriptRegExp正则对象/">JavaScriptRegExp正则对象</a>
           </li>
         
@@ -279,10 +283,6 @@
         
           <li>
             <a href="/2016/08/03/JavaScriptCallback回调函数和事件委托的封装/">JavaScriptCallback回调函数和事件委托的封装</a>
-          </li>
-        
-          <li>
-            <a href="/2016/07/30/JavaScript事件流、事件类型、事件对象和事件委托/">JavaScript事件流、事件类型、事件对象和事件委托</a>
           </li>
         
       </ul>
