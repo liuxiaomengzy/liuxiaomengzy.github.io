@@ -68,6 +68,42 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-jQuery函数的封装" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/27/jQuery函数的封装/" class="article-date">
+  <time datetime="2016-08-27T03:38:59.000Z" itemprop="datePublished">2016-08-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/27/jQuery函数的封装/">jQuery函数的封装</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br></pre></td><td class="code"><pre><span class="line">&amp;lt;script&amp;gt;</span><br><span class="line">	//首先封装对象的获取方法</span><br><span class="line">	function getEles(arg)&#123;</span><br><span class="line">		//用正则判断开头和结尾是否一个或有多个空格</span><br><span class="line">		var reg1 = /^\s*|\s*$/g;</span><br><span class="line">		arg = arg.replace(reg1,&quot;&quot;);</span><br><span class="line">		//用正则判断中间是否有空格，假如有替换成一个空格</span><br><span class="line">		var reg2 = /\s+/g;</span><br><span class="line">		arg = arg.replace(reg2,&quot; &quot;);</span><br><span class="line">		//将arg通过空格来分割成需要的数组</span><br><span class="line">		var elArr = arg.split(&quot; &quot;);</span><br><span class="line">		var result = [];</span><br><span class="line">		var parents = [document];</span><br><span class="line">		//对arg进行遍历，找到选中的arg</span><br><span class="line">		for(var i=0;i&amp;lt;elArr.length;i++)&#123;</span><br><span class="line">			result = [];</span><br><span class="line">			for(var j=0;j&amp;lt;parents.length;j++)&#123;</span><br><span class="line">				//通过if分别判断需要使用id、class或者tagName选择器</span><br><span class="line">				if(/^#/.test(elArr[i]))&#123;</span><br><span class="line">					//通过字符串截取，去掉单词开头的#号</span><br><span class="line">					var idName = elArr[i].substring(1);</span><br><span class="line">					//找到对应的对象，并将其推入数组</span><br><span class="line">					var idArr = document.getElementById(idName);</span><br><span class="line">					result.push(idArr);</span><br><span class="line">				&#125;else if(/^\./.test(elArr[i]))&#123;</span><br><span class="line">					var className = elArr[i].slice(1);</span><br><span class="line">					var classArr = findClass(parents[j],className);</span><br><span class="line">					for(var k=0;k&amp;lt;classArr.length;k++)&#123;</span><br><span class="line">						result.push(classArr[k]);</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;else&#123;</span><br><span class="line">					var tagArr = parents[j].getElementsByTagName(elArr[i]);</span><br><span class="line">					for(var k=0;k&amp;lt;tagArr.length;k++)&#123;</span><br><span class="line">						result.push(tagArr[k]);</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			parents = result;</span><br><span class="line">		&#125;</span><br><span class="line">		return parents;</span><br><span class="line">	&#125;</span><br><span class="line">	//封装获取class，主要因为需要兼容IE浏览器</span><br><span class="line">	function findClass(obj,className)&#123;</span><br><span class="line">		if(window.getElementsByClassName)&#123;</span><br><span class="line">			return obj.getElementsByClassName(className);</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			//因为IE支持tagName选择器，所以首先找到obj下的所有标签，然后通过正则来找到需要的className</span><br><span class="line">			var tagArr = obj.getElementsByTagName(&quot;*&quot;);</span><br><span class="line">			var classArr = [];</span><br><span class="line">			var reg = new RegExp(&quot;\\b&quot;+className+&quot;\\b&quot;);</span><br><span class="line">			for(var k=0;k&amp;lt;tagArr.length;k++)&#123;</span><br><span class="line">				if(reg.test(tagArr[k].className))&#123;</span><br><span class="line">					classArr.push(tagArr[k]);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			return classArr;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	//jQuery标志为$，所以封装函数来模拟</span><br><span class="line">	function $(arg)&#123;</span><br><span class="line">		return new Jq(arg);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	//创建构造函数Jq</span><br><span class="line">	function Jq(arg)&#123;</span><br><span class="line">		//通过创建一个数组来记录选择到的对象</span><br><span class="line">		this.elements = [];</span><br><span class="line">		//因$(arg)能传三种形式，所以对其进行判断</span><br><span class="line">		if(typeof(arg) == &quot;function&quot;)&#123;</span><br><span class="line">			ready(arg);</span><br><span class="line">		&#125;else if(typeof(arg) == &quot;string&quot;)&#123;</span><br><span class="line">			this.elements = getEles(arg);</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			this.elements.push(arg);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	//因Jq(function)的函数是在html、css和js都加载完成时才运行的，所以需要对其进行判断</span><br><span class="line">	function ready(fn)&#123;</span><br><span class="line">		if(window.addEventListener)&#123;</span><br><span class="line">			document.addEventListener(&quot;DOMContentLoaded&quot;,fn,false);</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			var oS = document.createElement(&quot;script&quot;);</span><br><span class="line">			oS.defer = true;</span><br><span class="line">			var oH = document.getElementsByTagName(&quot;head&quot;)[0];</span><br><span class="line">			oH.appendChild(oS);</span><br><span class="line">			oS.onreadystatechange = function()&#123;</span><br><span class="line">				if(oS.readyState == &quot;complete&quot;)&#123;</span><br><span class="line">					fn();</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	//对其原型设置click方法，模拟jQuery的click()方法</span><br><span class="line">	Jq.prototype.click = function(fn)&#123;</span><br><span class="line">		for(var i=0;i&amp;lt;this.elements.length;i++)&#123;</span><br><span class="line">			addEvent(&quot;click&quot;,fn,this.elements[i]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	//因添加click时，需要涉及到IE的兼容，所以封装一个函数</span><br><span class="line">	function addEvent(event,fn,obj)&#123;</span><br><span class="line">		if(obj.addEventListener)&#123;</span><br><span class="line">			obj.addEventListener(event,fn,false);</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			obj.attachEvent(&quot;on&quot;+event,fn);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	//对其原型设置on方法，模拟jQuery的on()方法</span><br><span class="line">	Jq.prototype.on = function(event,fn)&#123;</span><br><span class="line">		//因有可能会设置&quot;click mouseleave&quot;等多事件，所以将其分成数组</span><br><span class="line">		var eventArr = event.split(&quot; &quot;);</span><br><span class="line">		for(var i=0;i&amp;lt;this.elements.length;i++)&#123;</span><br><span class="line">			for(var j=0;j&amp;lt;eventArr.length;j++)&#123;</span><br><span class="line">				addEvent(eventArr[j],fn,this.elements[i]);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	//对其原型设置.css方法，模拟jQuery的css()方法</span><br><span class="line">	Jq.prototype.css = function()&#123;</span><br><span class="line">		//因css(arg)有三种情况，所以对其分别设置</span><br><span class="line">		if(arguments.length == 1)&#123;</span><br><span class="line">			if(typeof(arguments[0]) == &quot;string&quot;)&#123;</span><br><span class="line">				//当只有一个属性时，是获取属性值，需要返回出去</span><br><span class="line">				return getStyle(this.elements[0],arguments[0]);</span><br><span class="line">			&#125;else&#123;</span><br><span class="line">				//当其为JSON数据时，就是设置</span><br><span class="line">				for(var i=0;i&amp;lt;this.elements.length;i++)&#123;</span><br><span class="line">					//通过使用for in循环来获得JSON的内容</span><br><span class="line">					for(var keys in arguments[0])&#123;</span><br><span class="line">						setStyle(this.elements[i],keys,arguments[0][keys]);</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;else if(arguments.length == 2)&#123;</span><br><span class="line">			for(var i=0;i&amp;lt;this.elements.length;i++)&#123;</span><br><span class="line">				setStyle(this.elements[i],arguments[0],arguments[1]);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	//因需兼容IE浏览器，所以封装getStyle函数</span><br><span class="line">	function getStyle(obj,style)&#123;</span><br><span class="line">		if(window.getComputedStyle)&#123;</span><br><span class="line">			return getComputedStyle(obj,null)[style];</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			return obj.currentStyle(style);</span><br><span class="line">		&#125;			</span><br><span class="line">	&#125;</span><br><span class="line">	//因需兼容IE浏览器，所以封装setStyle函数</span><br><span class="line">	function setStyle(obj,styleName,styleValue)&#123;</span><br><span class="line">		//因jQuery中width、height、left、top仅写数字时也是生效的，所以需要加个判断</span><br><span class="line">		var selectArr = [&quot;width&quot;,&quot;height&quot;,&quot;left&quot;,&quot;top&quot;];</span><br><span class="line">		for(var i=0;i&amp;lt;selectArr.length;i++)&#123;</span><br><span class="line">			if(selectArr[i] == styleName)&#123;</span><br><span class="line">				if(typeof(styleValue) == &quot;number&quot;)&#123;</span><br><span class="line">					styleValue = styleValue + &quot;px&quot;;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		obj.style[styleName] = styleValue;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	//对原型设置eq()的方法</span><br><span class="line">	Jq.prototype.eq = function(index)&#123;</span><br><span class="line">		return new Jq(this.elements[index]);</span><br><span class="line">	&#125;</span><br><span class="line">&amp;lt;/script&amp;gt;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/08/27/jQuery函数的封装/" data-id="ciscw46yu00150je8o95yj292" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-JavaScript面向对象" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/08/24/JavaScript面向对象/" class="article-date">
@@ -319,7 +355,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/24/JavaScript面向对象/" data-id="cisbv8j5f0010rqe8gindsdg4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/24/JavaScript面向对象/" data-id="ciscw46yy00170je8p6t8icm9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -477,7 +513,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/10/JavaScriptRegExp正则对象/" data-id="cisbv8j4p000lrqe8uptm7mzs" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/10/JavaScriptRegExp正则对象/" data-id="ciscw46wm000m0je86mmammaa" class="article-share-link">Share</a>
       
       
     </footer>
@@ -710,7 +746,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/06/JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage/" data-id="cisbv8j4q000mrqe8q01veb7y" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/06/JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage/" data-id="ciscw46wo000n0je884i0evee" class="article-share-link">Share</a>
       
       
     </footer>
@@ -964,7 +1000,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/05/JavaScript滚轮事件的封装和滚轮轮播图/" data-id="cisbv8j5a000xrqe83jy2vjrv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/05/JavaScript滚轮事件的封装和滚轮轮播图/" data-id="ciscw46y8000x0je86x3kf5eb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1062,7 +1098,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/03/JavaScriptCallback回调函数和事件委托的封装/" data-id="cisbv8j4m000jrqe86bjcnzy0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/03/JavaScriptCallback回调函数和事件委托的封装/" data-id="ciscw46vl000j0je8nut9rfqn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1204,7 +1240,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/30/JavaScript事件流、事件类型、事件对象和事件委托/" data-id="cisbv8j4u000orqe8w5elw373" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/30/JavaScript事件流、事件类型、事件对象和事件委托/" data-id="ciscw46xh000q0je8sm64shlz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1270,7 +1306,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/30/JavaScriptBOM浏览器对象模型/" data-id="cisbv8j4s000nrqe8smaqnfzu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/30/JavaScriptBOM浏览器对象模型/" data-id="ciscw46wp000o0je8jv3zkyfz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1342,7 +1378,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/26/JavaScriptDOM元素对象/" data-id="cisbv8j4o000krqe81f910bhw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/26/JavaScriptDOM元素对象/" data-id="ciscw46vf000i0je8zi5z3e5s" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1591,365 +1627,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/23/JavaScript瀑布流/" data-id="cisbv8j5c000yrqe8rg66ie1k" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-JavaScript图片轮播" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/07/22/JavaScript图片轮播/" class="article-date">
-  <time datetime="2016-07-22T13:13:09.000Z" itemprop="datePublished">2016-07-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/22/JavaScript图片轮播/">JavaScript图片轮播</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <pre>
-    &lt;style&gt;
-        ul{
-            margin:0;
-            padding:0;
-            list-style-type:none;
-        }
-        .imgoc{
-            width:75%;
-            margin:0 auto;
-            overflow:hidden;
-            position:relative;
-        }
-        .imgocdiv{
-            width:600%;
-            position:relative;
-            left:-100%;
-            transition-duration:.5s;
-        }
-        .imgocdiv img{
-            width:16.66666666%;
-            float:left;
-        }
-        .imgoc ul{
-            text-align:center;
-            position:absolute;
-            width:100%;
-            bottom:0px;
-        }
-        .imgoc ul li{
-            display:inline-block;
-            width:10px;
-            height:10px;
-            border-radius:50%;
-            background-color:red;
-            margin:4px;
-        }
-        .imgoc .imgactive{
-            background-color:blue;
-        }
-        .imgocbtn{
-            width:40px;
-            height:45px;
-            font-size:30px;
-            position:absolute;
-            top:50%;
-            transform:translateY(-20px);
-        }
-        .imgocbtn1{
-            left:0;
-        }
-        .imgocbtn2{
-            right:0;
-        }
-    &lt;/style&gt;
-    &lt;div class="imgoc"&gt;
-        &lt;div class="imgocdiv"&gt;
-            &lt;img src="http://www.jiujiuba.com/xxpict2/picnews/7132249442.jpg" /&gt;
-            &lt;img src="http://pic.putaojiayuan.com/uploadfile/tuku/KaTongChaHua/12190515346673.jpg" /&gt;
-            &lt;img src="http://img.ivsky.com/download/Photo/UploadFiles/2009-7/2009714102041365.jpg" /&gt;
-            &lt;img src="http://www.dianmeng.com/moban/tupian/200808/2008080611515139.jpg" /&gt;
-            &lt;img src="http://www.jiujiuba.com/xxpict2/picnews/7132249442.jpg" /&gt;
-            &lt;img src="http://pic.putaojiayuan.com/uploadfile/tuku/KaTongChaHua/12190515346673.jpg" /&gt;
-        &lt;/div&gt;
-        &lt;ul&gt;
-            &lt;li class="imgactive"&gt;&lt;/li&gt;
-            &lt;li&gt;&lt;/li&gt;
-            &lt;li&gt;&lt;/li&gt;
-            &lt;li&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-        &lt;button class="imgocbtn imgocbtn1"&gt;&lt;&lt;/button&gt;
-        &lt;button class="imgocbtn imgocbtn2"&gt;&gt;&lt;/button&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        var div=document.querySelector(".imgocdiv");
-        var lis=document.querySelectorAll(".imgoc ul li");
-        var last=document.querySelector(".imgocbtn1");
-        var next=document.querySelector(".imgocbtn2");
-        var thisIndex=0;
-        for(var i=0;i&lt;lis.length;i++){
-            lis[i].index=i;
-            lis[i].onclick=function(){
-                thisIndex=this.index;
-                move();
-            }
-        }
-        //给轮播设置自动切换
-        var timer;
-        function timing(){
-            timer=setInterval(function(){
-                thisIndex++;
-                move();    
-            },3000)
-        }
-        timing();
-        //当鼠标在图片上停止切换，离开再运行
-        div.onmouseover=function(){
-            clearInterval(timer);
-        }
-        div.onmouseout=function(){
-            timing();
-        }
-        last.onmouseover=function(){
-            clearInterval(timer);
-        }
-        next.onmouseover=function(){
-            clearInterval(timer);
-        }
-        last.onmouseout=function(){
-            timing();
-        }
-        next.onmouseout=function(){
-            timing();
-        }
-        //点击切换上一个
-        lastMove();
-        function lastMove(){
-            last.onclick=function(){
-                last.onclick="";
-                thisIndex--;
-                move();
-                setTimeout(function(){
-                    lastMove();
-                },500)
-            }
-        }
-        //点击切换下一个
-        nextMove();
-        function nextMove(){
-            next.onclick=function(){
-                next.onclick="";
-                thisIndex++;
-                move();
-                setTimeout(function(){
-                    nextMove();
-                },500)
-            }
-        }
-        function move(){
-            for(var j=0;j&lt;lis.length;j++){
-                lis[j].className="";
-            }
-            div.style.left=-(thisIndex+1)*100+"%";
-            if(thisIndex==lis.length){
-                thisIndex=0;
-                lis[thisIndex].className="imgactive";
-                setStyle();
-            }else if(thisIndex==-1){
-                thisIndex=lis.length-1;
-                lis[thisIndex].className="imgactive";
-                setStyle();
-            }else{
-                lis[thisIndex].className="imgactive";
-            }
-        }
-        function setStyle(){
-            setTimeout(function(){
-                div.style.transitionDuration="0s";
-                div.style.left=-(thisIndex+1)*100+"%";
-                setTimeout(function(){
-                    div.style.transitionDuration="0.5s";
-                },30)
-            },500)
-        }
-    &lt;/script&gt;
-</pre>
-
-<pre>
-    <style>
-        ul{
-            margin:0;
-            padding:0;
-            list-style-type:none;
-        }
-        .imgoc{
-            width:75%;
-            margin:0 auto;
-            overflow:hidden;
-            position:relative;
-        }
-        .imgocdiv{
-            width:600%;
-            position:relative;
-            left:-100%;
-            transition-duration:.5s;
-        }
-        .imgocdiv img{
-            width:16.66666666%;
-            float:left;
-        }
-        .imgoc ul{
-            text-align:center;
-            position:absolute;
-            width:100%;
-            bottom:0px;
-        }
-        .imgoc ul li{
-            display:inline-block;
-            width:10px;
-            height:10px;
-            border-radius:50%;
-            background-color:red;
-            margin:4px;
-        }
-        .imgoc .imgactive{
-            background-color:blue;
-        }
-        .imgocbtn{
-            width:40px;
-            height:45px;
-            font-size:30px;
-            position:absolute;
-            top:50%;
-            transform:translateY(-50%);
-        }
-        .imgocbtn1{
-            left:0;
-        }
-        .imgocbtn2{
-            right:0;
-        }
-    </style>
-    <div class="imgoc">
-        <div class="imgocdiv"><img src="http://www.jiujiuba.com/xxpict2/picnews/7132249442.jpg"><img src="http://pic.putaojiayuan.com/uploadfile/tuku/KaTongChaHua/12190515346673.jpg"><img src="http://img.ivsky.com/download/Photo/UploadFiles/2009-7/2009714102041365.jpg"><img src="http://www.dianmeng.com/moban/tupian/200808/2008080611515139.jpg"><img src="http://www.jiujiuba.com/xxpict2/picnews/7132249442.jpg"><img src="http://pic.putaojiayuan.com/uploadfile/tuku/KaTongChaHua/12190515346673.jpg">
-        </div>
-        <ul><li class="imgactive"></li><li></li><li></li><li></li>
-        </ul>
-        <button class="imgocbtn imgocbtn1"><</button>
-        <button class="imgocbtn imgocbtn2">></button>
-    </div>
-    <script>
-        var div=document.querySelector(".imgocdiv");
-        var lis=document.querySelectorAll(".imgoc ul li");
-        var last=document.querySelector(".imgocbtn1");
-        var next=document.querySelector(".imgocbtn2");
-        var thisIndex=0;
-        for(var i=0;i<lis.length;i++){
-            lis[i].index=i;
-            lis[i].onclick=function(){
-                thisIndex=this.index;
-                move();
-            }
-        }
-        //给轮播设置自动切换
-        var timer;
-        function timing(){
-            timer=setInterval(function(){
-                thisIndex++;
-                move();    
-            },3000)
-        }
-        timing();
-        //当鼠标在图片上停止切换，离开再运行
-        div.onmouseover=function(){
-            clearInterval(timer);
-        }
-        div.onmouseout=function(){
-            timing();
-        }
-        last.onmouseover=function(){
-            clearInterval(timer);
-        }
-        next.onmouseover=function(){
-            clearInterval(timer);
-        }
-        last.onmouseout=function(){
-            timing();
-        }
-        next.onmouseout=function(){
-            timing();
-        }
-        //点击切换上一个
-        lastMove();
-        function lastMove(){
-            last.onclick=function(){
-                last.onclick="";
-                thisIndex--;
-                move();
-                setTimeout(function(){
-                    lastMove();
-                },500)
-            }
-        }
-        //点击切换下一个
-        nextMove();
-        function nextMove(){
-            next.onclick=function(){
-                next.onclick="";
-                thisIndex++;
-                move();
-                setTimeout(function(){
-                    nextMove();
-                },500)
-            }
-        }
-        function move(){
-            for(var j=0;j<lis.length;j++){
-                lis[j].className="";
-            }
-            div.style.left=-(thisIndex+1)*100+"%";
-            if(thisIndex==lis.length){
-                thisIndex=0;
-                lis[thisIndex].className="imgactive";
-                setStyle();
-            }else if(thisIndex==-1){
-                thisIndex=lis.length-1;
-                lis[thisIndex].className="imgactive";
-                setStyle();
-            }else{
-                lis[thisIndex].className="imgactive";
-            }
-        }
-        function setStyle(){
-            setTimeout(function(){
-                div.style.transitionDuration="0s";
-                div.style.left=-(thisIndex+1)*100+"%";
-                setTimeout(function(){
-                    div.style.transitionDuration="0.5s";
-                },30)
-            },500)
-        }
-    </script>
-</pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/22/JavaScript图片轮播/" data-id="cisbv8j54000trqe85kcb6ais" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/23/JavaScript瀑布流/" data-id="ciscw46yc000z0je8yfnf2n2r" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1993,6 +1671,10 @@
       <ul>
         
           <li>
+            <a href="/2016/08/27/jQuery函数的封装/">jQuery函数的封装</a>
+          </li>
+        
+          <li>
             <a href="/2016/08/24/JavaScript面向对象/">JavaScript面向对象</a>
           </li>
         
@@ -2006,10 +1688,6 @@
         
           <li>
             <a href="/2016/08/05/JavaScript滚轮事件的封装和滚轮轮播图/">JavaScript滚轮事件的封装和滚轮轮播图</a>
-          </li>
-        
-          <li>
-            <a href="/2016/08/03/JavaScriptCallback回调函数和事件委托的封装/">JavaScriptCallback回调函数和事件委托的封装</a>
           </li>
         
       </ul>
