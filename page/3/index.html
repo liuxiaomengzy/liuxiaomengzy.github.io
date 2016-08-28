@@ -68,6 +68,203 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-JavaScript显示隐藏及Tab切换" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/14/JavaScript显示隐藏及Tab切换/" class="article-date">
+  <time datetime="2016-07-14T08:06:55.000Z" itemprop="datePublished">2016-07-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/14/JavaScript显示隐藏及Tab切换/">JavaScript显示隐藏及Tab切换</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="获取元素"><a href="#获取元素" class="headerlink" title="获取元素"></a>获取元素</h3><h5 id="querySelector-方法"><a href="#querySelector-方法" class="headerlink" title="querySelector()方法"></a>querySelector()方法</h5><p>语法：<code>document.querySelector(CSS selectors)</code></p>
+<p><strong><em>CSS选择器：类型String，指定一个或多个匹配元素的CSS元素，可以使用它们的id，类，类型，属性，属性值等来选取元素。</em></strong>对于多个选择器，使用逗号隔开，返回一个匹配的元素。</p>
+<p>接受一个参数，通过元素的css选择器查找元素。如果找到相应的元素则返回该元素的HTMLDivElement对象；如果不存在，则返回null。<strong>仅仅匹配指定选择器的第一个元素</strong></p>
+<pre>
+    document.querySelector("#div1");//获取id为div1的元素
+
+    document.querySelector(".div1");//获取class为div1的第一个子元素
+</pre>
+
+<h5 id="querySelectorAll-方法"><a href="#querySelectorAll-方法" class="headerlink" title="querySelectorAll()方法"></a>querySelectorAll()方法</h5><p>语法：<code>document.querySelectorAll(CSS selectors)</code></p>
+<p>接受一个参数，将返回一个对象数组，这个数组保存着所有符合选择器的节点列表。</p>
+<pre>
+    document.querySelectorAll("li");//获取所有li元素，返回数组
+
+    docuemnt.querySelectorAll(".list li");//获取所有class为list元素下的所有li元素，返回数组
+</pre>
+
+<h5 id="querySelector和getElement区别"><a href="#querySelector和getElement区别" class="headerlink" title="querySelector和getElement区别"></a>querySelector和getElement区别</h5><p><strong>querySelector获取的元素是静态的，通过其他方法增加或删除其获取的元素，其获取的元素对象不会发生变化</strong></p>
+<p><strong>getElement获取的元素是动态的，通过其他方法增加或删除其获取的元素，其获取的元素对象会动态变化</strong></p>
+<h3 id="className属性"><a href="#className属性" class="headerlink" title="className属性"></a>className属性</h3><p>语法：<code>object.className=className</code></p>
+<p>className属性设置或返回元素的class属性。</p>
+<pre>
+    &lt;style&gt;
+        .divshow{
+            width:200px;
+            height:200px;
+            background:aquamarine;
+        }
+    &lt;/style&gt;
+    &lt;input type="button" id="activebtn" value="显示/隐藏" /&gt;
+    &lt;div id="divactive" class="divshow"&gt;&lt;/div&gt;
+    &lt;script&gt;
+        var btn=document.querySelector("#activebtn");
+        var div=document.querySelector("#divactive");
+
+        btn.onclick=function(){
+            if(div.className=="divshow"){
+                div.className="";
+            }else{
+                div.className="divshow";
+            }
+        }
+    &lt;/script&gt;
+</pre>
+
+<pre>
+    <style>
+        .divshow{
+            width:200px;
+            height:200px;
+            background:aquamarine;
+        }
+    </style>
+    <input type="button" id="activebtn" value="显示/隐藏">
+    <div id="divactive" class="divshow"></div>
+    <script>
+        var btn=document.querySelector("#activebtn");
+        var div=document.querySelector("#divactive");
+
+        btn.onclick=function(){
+            if(div.className=="divshow"){
+                div.className="";
+            }else{
+                div.className="divshow";
+            }
+        }
+    </script>
+</pre>
+
+<h3 id="this变量"><a href="#this变量" class="headerlink" title="this变量"></a>this变量</h3><p><strong>永远指向其所在函数的所有者，如果没有所有者时指向window（窗口）</strong></p>
+<h3 id="Tab切换"><a href="#Tab切换" class="headerlink" title="Tab切换"></a>Tab切换</h3><p>tab切换（选项卡切换），实现效果点击按钮，分别切换按钮对应的div</p>
+<pre>
+    &lt;style&gt;
+        .divtab0{
+            position:relative;
+            width:200px;
+            height:200px;
+        }
+        .divtab{        
+            position:absolute;
+            top:0;
+            width:200px;
+            height:200px;
+            background-color:lime;
+            font-size:50px;
+            text-align:center;
+            line-height:200px;
+            display:none;
+        }
+        .tabbtncolor{
+            background-color:aqua;
+        }
+    &lt;/style&gt;
+    &lt;input type="button" class="tabbtn tabbtncolor" style="background-color:lime;" value="按钮一" 
+    /&gt;&lt;input type="button" class="tabbtn tabbtncolor" value="按钮二" 
+    /&gt;&lt;input type="button" class="tabbtn tabbtncolor" value="按钮三" /&gt;
+    &lt;div class="divtab0"&gt;
+        &lt;div class="divtab" style="display:block;"&gt;1&lt;/div&gt;
+        &lt;div class="divtab"&gt;2&lt;/div&gt;
+        &lt;div class="divtab"&gt;3&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        var inputs=document.querySelectorAll(".tabbtn");
+        var divs=document.querySelectorAll(".divtab");
+        for(var i=0;i&lt;inputs.length;i++){
+            inputs[i].index=i;
+            inputs[i].onclick=function(){
+                for(var j=0;j&lt;inputs.length;j++){
+                    inputs[j].style.backgroundColor="";
+                    divs[j].style.display="none";
+                }
+                this.style.backgroundColor="lime";
+                divs[this.index].style.display="block";
+            }
+        }
+    &lt;/script&gt;
+</pre>
+
+<pre>
+    <style>
+        .divtab0{
+            position:relative;
+            width:200px;
+            height:200px;
+        }
+        .divtab{        
+            position:absolute;
+            top:0;
+            width:200px;
+            height:200px;
+            background-color:lime;
+            font-size:50px;
+            text-align:center;
+            line-height:200px;
+            display:none;
+        }
+        .tabbtncolor{
+            background-color:aqua;
+        }
+    </style>
+    <input type="button" class="tabbtn tabbtncolor" style="background-color:lime;" value="按钮一"><input type="button" class="tabbtn tabbtncolor" value="按钮二"><input type="button" class="tabbtn tabbtncolor" value="按钮三">
+    <div class="divtab0">
+        <div class="divtab" style="display:block;">1</div>
+        <div class="divtab">2</div>
+        <div class="divtab">3</div>
+    </div>
+    <script>
+        var inputs=document.querySelectorAll(".tabbtn");
+        var divs=document.querySelectorAll(".divtab");
+        for(var i=0;i<inputs.length;i++){
+            inputs[i].index=i;
+            inputs[i].onclick=function(){
+                for(var j=0;j<inputs.length;j++){
+                    inputs[j].style.backgroundColor="";
+                    divs[j].style.display="none";
+                }
+                this.style.backgroundColor="lime";
+                divs[this.index].style.display="block";
+            }
+        }
+    </script>
+</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/07/14/JavaScript显示隐藏及Tab切换/" data-id="cisel39zn000z6ee8au0o0bf5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-JavaScript数据类型转换和输出" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/07/14/JavaScript数据类型转换和输出/" class="article-date">
@@ -146,7 +343,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/14/JavaScript数据类型转换和输出/" data-id="ciscw98sl000x1ce8cmac6euy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/14/JavaScript数据类型转换和输出/" data-id="cisel39zd000u6ee8u8ywrahs" class="article-share-link">Share</a>
       
       
     </footer>
@@ -300,7 +497,7 @@ onmouseup            某个鼠标按键被松开
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/13/If...Else、Switch、For循环、While循环/" data-id="ciscw98ro000h1ce89ve18fkt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/13/If...Else、Switch、For循环、While循环/" data-id="cisel39yd000h6ee80gvruxxw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -540,7 +737,7 @@ onmouseup            某个鼠标按键被松开
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/11/JavaScript基础/" data-id="ciscw98se000t1ce8sz3iqhxc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/11/JavaScript基础/" data-id="cisel39zc000t6ee80076t333" class="article-share-link">Share</a>
       
       
     </footer>
@@ -644,7 +841,7 @@ onmouseup            某个鼠标按键被松开
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/09/CSS3媒体查询/" data-id="ciscw98qy00041ce8w3vkn6dw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/09/CSS3媒体查询/" data-id="cisel39w100036ee8nheud4j3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -806,7 +1003,7 @@ onmouseup            某个鼠标按键被松开
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/06/LESSCSS初使用/" data-id="ciscw98sx00151ce8nyvpfo4q" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/06/LESSCSS初使用/" data-id="cisel39zp00116ee8nesaqvhb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -978,7 +1175,7 @@ onmouseup            某个鼠标按键被松开
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/05/CSS3弹性布局/" data-id="ciscw98qz00051ce87oibujr0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/05/CSS3弹性布局/" data-id="cisel39wg00056ee8t1kq51ea" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1060,7 +1257,7 @@ onmouseup            某个鼠标按键被松开
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/04/CSS3 @font-face规则和多列/" data-id="ciscw98qh00001ce8m2qpig59" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/04/CSS3 @font-face规则和多列/" data-id="cisel39vh00006ee8yu8p776f" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1281,7 +1478,7 @@ onmouseup            某个鼠标按键被松开
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/04/CSS3动画/" data-id="ciscw98qo00011ce8nvokzd1p" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/04/CSS3动画/" data-id="cisel39wo00086ee8uu59d5o5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1537,96 +1734,7 @@ onmouseup            某个鼠标按键被松开
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/02/CSS3变形/" data-id="ciscw98qr00021ce8rtm7ma0p" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-CSS3过渡" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/07/01/CSS3过渡/" class="article-date">
-  <time datetime="2016-07-01T00:54:53.000Z" itemprop="datePublished">2016-07-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/01/CSS3过渡/">CSS3过渡</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="CSS3过渡主要指transition属性，具体如下："><a href="#CSS3过渡主要指transition属性，具体如下：" class="headerlink" title="CSS3过渡主要指transition属性，具体如下："></a>CSS3过渡主要指transition属性，具体如下：</h2><h3 id="transition-all-2s-ease-in-out-3s"><a href="#transition-all-2s-ease-in-out-3s" class="headerlink" title="transition:all 2s ease-in-out 3s;"></a>transition:all 2s ease-in-out 3s;</h3><h4 id="transition-property-duration-transition-timing-function-delay"><a href="#transition-property-duration-transition-timing-function-delay" class="headerlink" title="transition:property duration transition-timing-function delay;"></a>transition:property duration transition-timing-function delay;</h4><h3 id="transition-property"><a href="#transition-property" class="headerlink" title="transition-property"></a>transition-property</h3><p><code>transition-property</code>属性指执行过渡变换的属性，这些属性必须有直接的改变，如all || width || height || left || right || top || bottom || opacity || font-size || color 等。</p>
-<h3 id="transition-duration"><a href="#transition-duration" class="headerlink" title="transition-duration"></a>transition-duration</h3><p><code>transition-duration</code>过渡变换延续的时间，单位s(秒)，可以为小数。</p>
-<h3 id="transition-timing-function"><a href="#transition-timing-function" class="headerlink" title="transition-timing-function"></a>transition-timing-function</h3><p><code>transition-timing-function</code>过渡的动画类型，主要有：</p>
-<ol>
-<li>linear        匀速</li>
-<li>ease            先快后慢</li>
-<li>ease-in        由慢到快</li>
-<li>ease-out        由快到慢</li>
-<li>ease-in-out    先慢后快再慢</li>
-<li>cubic-bezier(n,n,n,n)自定义函数，可能的值为0~1。</li>
-</ol>
-<h3 id="transition-delay"><a href="#transition-delay" class="headerlink" title="transition-delay"></a>transition-delay</h3><p><code>transition-delay</code>执行过渡开始的时间（延时）</p>
-<h5 id="设置过渡记得设置初始值！伪元素不能hover。"><a href="#设置过渡记得设置初始值！伪元素不能hover。" class="headerlink" title="设置过渡记得设置初始值！伪元素不能hover。"></a>设置过渡记得设置初始值！伪元素不能hover。</h5><p>示例如下：</p>
-<pre>
-    &ltstyle&gt
-        a.transition{
-            display:block;
-            width:300px;
-            height:300px;
-            background-color:pink;
-            margin:0 auto;            
-        }
-        a.transition:hover{
-            transition:all 2s ease-in 1s;    
-            width:500px;
-            height:500px;
-            background-color:fuchsia;
-            border:20px solid gold;
-            border-radius:50% / 50%;
-        }
-    &lt/style&gt
-    &lta class="transition" href="https://liuxiaomengzy.github.io/"&gt&lt/a&gt
-</pre>
-
-<pre>
-    <style>
-        a.transition{
-            display:block;
-            width:300px;
-            height:300px;
-            background-color:pink;
-            margin:0 auto;            
-        }
-        a.transition:hover{
-            transition:all 2s ease-in 1s;    
-            width:500px;
-            height:500px;
-            background-color:fuchsia;
-            border:20px solid gold;
-            border-radius:50% / 50%;
-        }
-    </style>
-    <a class="transition" href="https://liuxiaomengzy.github.io/" target="_blank" rel="external"></a>
-</pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/01/CSS3过渡/" data-id="ciscw98r700081ce82w134noj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/02/CSS3变形/" data-id="cisel39w000026ee8s3emkjp2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1670,6 +1778,10 @@ onmouseup            某个鼠标按键被松开
       <ul>
         
           <li>
+            <a href="/2016/08/28/HTML5canvas标签和JavaScript的结合运用/">HTML5canvas标签和JavaScript的结合运用</a>
+          </li>
+        
+          <li>
             <a href="/2016/08/26/jQuery函数的封装/">jQuery函数的封装</a>
           </li>
         
@@ -1683,10 +1795,6 @@ onmouseup            某个鼠标按键被松开
         
           <li>
             <a href="/2016/08/06/JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage/">JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage</a>
-          </li>
-        
-          <li>
-            <a href="/2016/08/05/JavaScript滚轮事件的封装和滚轮轮播图/">JavaScript滚轮事件的封装和滚轮轮播图</a>
           </li>
         
       </ul>

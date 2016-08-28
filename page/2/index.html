@@ -68,6 +68,255 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-JavaScript瀑布流" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/23/JavaScript瀑布流/" class="article-date">
+  <time datetime="2016-07-23T09:49:27.000Z" itemprop="datePublished">2016-07-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/23/JavaScript瀑布流/">JavaScript瀑布流</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>瀑布流，又称瀑布流式布局。是比较流行的一种网站页面布局，视觉表现为参差不齐的多栏布局，随着页面滚动条向下滚动，这种布局还会不断加载数据块并附加至当前尾部。最早采用此布局的网站是Pinterest，逐渐在国内流行开来。</p>
+<pre>
+    &lt;style&gt;
+        .flowul{
+            position:relative;
+            min-width:200px;
+        }
+        .flowul li{
+            margin:0;
+            padding:0;
+            list-style-type:none;
+            position:absolute;
+            margin-bottom:10px;
+            font-size:30px;
+            text-align:center;
+            color:black;
+        }
+    &lt;/style&gt;
+    &lt;ul class="flowul"&gt;&lt;/ul&gt;
+    &lt;script&gt;
+        var flowul=document.querySelector(".flowul");
+        var window_W;//定义窗口的宽度
+        var col;//定义列数
+        var old;//定义现在的列数
+        var arr=[];
+
+        getWidth();
+        old=col;//先给其一个当前的列数
+
+        function getWidth(){
+            arr=[];
+            window_W=document.body.currentStyle?document.body.currentStyle.width:getComputedStyle(document.body,[]).width;//根据浏览器类型，选择合适的代码获取宽度
+            window_W=parseInt(window_W);
+            col=parseInt((window_W-30)/400);
+            flowul.width=col*210-10+"px";
+            for(i=0;i&lt;col;i++){
+                arr.push(0);
+            }
+        }
+
+        //开始循环，排列出来所需要的li(及其个数)
+        for(var i=0;i&lt;20;i++){
+            var newLi=document.createElement("li");
+            newLi.style.width=200+"px";
+            newLi.style.backgroundColor="rgb("+getRandom(0,255)+","+getRandom(0,255)+","+getRandom(0,255)+")";
+            newLi.innerHTML=i+1;
+            var newHeight=getRandom(150,300);
+            newLi.style.height=newHeight+"px";
+            newLi.style.lineHeight=newHeight+"px";
+            //判断数组最小值及其对应下标            
+            var minH=arr[0];
+            var minNum=0;
+            for(var j=1;j&lt;arr.length;j++){
+                if(minH&gt;arr[j]){
+                    minH=arr[j];
+                    minNum=j;
+                }
+            }
+            newLi.style.left=minNum*210+"px";
+            newLi.style.top=arr[minNum]+"px";
+            flowul.appendChild(newLi);
+            arr[minNum]+=newHeight+10;
+        }
+        ulHeight();
+        //当浏览器宽度发生改变时，对li重新定位
+        window.onresize=function(){
+            getWidth();
+            if(old==col){
+                return;//当列数没有发生改变时，跳出
+            }else{
+                old=col;
+            }
+            //通过循环改变li的位置
+            for(var i=0;i&lt;20;i++){
+                var lis=document.querySelectorAll(".flowul li");
+                lis[i].style.transitionDuration="3s";
+                var newHeight=parseInt(lis[i].style.height);
+                var minH=arr[0];
+                var minNum=0;
+                for(var j=1;j&lt;arr.length;j++){
+                    if(minH&gt;arr[j]){
+                        minH=arr[j];
+                        minNum=j;
+                    }
+                }
+                lis[i].style.left=210*minNum+"px";
+                lis[i].style.top=arr[minNum]+"px";
+                arr[minNum]+=newHeight+10;
+            }
+            ulHeight();            
+        }
+        function ulHeight(){
+            var maxH=arr[0];
+            var maxNum=0;
+            for(var j=1;j&lt;arr.length;j++){
+                if(minH&lt;arr[j]){
+                    maxH=arr[j];
+                    maxNum=j;
+                }
+            }
+            flowul.style.height=arr[maxNum]+"px";
+        }
+        function getRandom(min,max){
+            return Math.round(Math.random()*(max-min)+min);
+        }
+    &lt;/script&gt;
+</pre>
+
+<pre>
+    <style>
+        .flowul{
+            position:relative;
+            min-width:200px;
+        }
+        .flowul li{
+            margin:0;
+            padding:0;
+            list-style-type:none;
+            position:absolute;
+            margin-bottom:10px;
+            font-size:30px;
+            text-align:center;
+            color:black;
+        }
+    </style>
+    <ul class="flowul"></ul>
+    <script>
+        var flowul=document.querySelector(".flowul");
+        var window_W;//定义窗口的宽度
+        var col;//定义列数
+        var old;//定义现在的列数
+        var arr=[];
+
+        getWidth();
+        old=col;//先给其一个当前的列数
+
+        function getWidth(){
+            arr=[];
+            window_W=document.body.currentStyle?document.body.currentStyle.width:getComputedStyle(document.body,[]).width;//根据浏览器类型，选择合适的代码获取宽度
+            window_W=parseInt(window_W);
+            col=parseInt((window_W-30)/400);
+            flowul.width=col*210-10+"px";
+            for(i=0;i<col;i++){
+                arr.push(0);
+            }
+        }
+
+        //开始循环，排列出来所需要的li(及其个数)
+        for(var i=0;i<20;i++){
+            var newLi=document.createElement("li");
+            newLi.style.width=200+"px";
+            newLi.style.backgroundColor="rgb("+getRandom(0,255)+","+getRandom(0,255)+","+getRandom(0,255)+")";
+            newLi.innerHTML=i+1;
+            var newHeight=getRandom(150,300);
+            newLi.style.height=newHeight+"px";
+            newLi.style.lineHeight=newHeight+"px";
+            //判断数组最小值及其对应下标            
+            var minH=arr[0];
+            var minNum=0;
+            for(var j=1;j<arr.length;j++){
+                if(minH>arr[j]){
+                    minH=arr[j];
+                    minNum=j;
+                }
+            }
+            newLi.style.left=minNum*210+"px";
+            newLi.style.top=arr[minNum]+"px";
+            flowul.appendChild(newLi);
+            arr[minNum]+=newHeight+10;
+        }
+        ulHeight();
+        //当浏览器宽度发生改变时，对li重新定位
+        window.onresize=function(){
+            getWidth();
+            if(old==col){
+                return;//当列数没有发生改变时，跳出
+            }else{
+                old=col;
+            }
+            //通过循环改变li的位置
+            for(var i=0;i<20;i++){
+                var lis=document.querySelectorAll(".flowul li");
+                lis[i].style.transitionDuration="3s";
+                var newHeight=parseInt(lis[i].style.height);
+                var minH=arr[0];
+                var minNum=0;
+                for(var j=1;j<arr.length;j++){
+                    if(minH>arr[j]){
+                        minH=arr[j];
+                        minNum=j;
+                    }
+                }
+                lis[i].style.left=210*minNum+"px";
+                lis[i].style.top=arr[minNum]+"px";
+                arr[minNum]+=newHeight+10;
+            }
+            ulHeight();            
+        }
+        function ulHeight(){
+            var maxH=arr[0];
+            var maxNum=0;
+            for(var j=1;j<arr.length;j++){
+                if(minH<arr[j]){
+                    maxH=arr[j];
+                    maxNum=j;
+                }
+            }
+            flowul.style.height=arr[maxNum]+"px";
+        }
+        function getRandom(min,max){
+            return Math.round(Math.random()*(max-min)+min);
+        }
+    </script>
+</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/07/23/JavaScript瀑布流/" data-id="cisel39zh000w6ee8ikn542jh" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-JavaScript图片轮播" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/07/22/JavaScript图片轮播/" class="article-date">
@@ -416,7 +665,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/22/JavaScript图片轮播/" data-id="ciscw98sf000u1ce89jzxuesv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/22/JavaScript图片轮播/" data-id="cisel39zf000v6ee8jj8qlv9g" class="article-share-link">Share</a>
       
       
     </footer>
@@ -719,7 +968,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/22/JavaScript制作简易日历/" data-id="ciscw98sc000s1ce8ih0kpenv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/22/JavaScript制作简易日历/" data-id="cisel39z6000r6ee8evwvi9td" class="article-share-link">Share</a>
       
       
     </footer>
@@ -878,7 +1127,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/21/JavaScriptDOM文档对象类型/" data-id="ciscw98rz000m1ce881kzla4v" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/21/JavaScriptDOM文档对象类型/" data-id="cisel39z0000n6ee8ka5kwosc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1133,7 +1382,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/21/JavaScript闭包、Object对象/" data-id="ciscw98ss00121ce8f1g9ufms" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/21/JavaScript闭包、Object对象/" data-id="cisel39zo00106ee8totwgxdc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1457,7 +1706,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/19/JavaScript碰撞检测/" data-id="ciscw98sp00111ce821d6m9v0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/19/JavaScript碰撞检测/" data-id="cisel39zt00136ee8p0y1wdai" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1615,7 +1864,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/19/JavaScript导航滚动/" data-id="ciscw98sh000w1ce8hn6ss0s6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/19/JavaScript导航滚动/" data-id="cisel39zm000y6ee8ufibmgvq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1847,7 +2096,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/16/JavaScript字符串对象、日期对象、定时器/" data-id="ciscw98sg000v1ce8rned706o" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/16/JavaScript字符串对象、日期对象、定时器/" data-id="cisel39za000s6ee8kkdj7fee" class="article-share-link">Share</a>
       
       
     </footer>
@@ -2039,7 +2288,7 @@ function functionname(参数列表){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/16/JavaScript函数、Math对象、数组/" data-id="ciscw98s7000r1ce8o426dvgm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/16/JavaScript函数、Math对象、数组/" data-id="cisel39z1000o6ee8hb5tfg1b" class="article-share-link">Share</a>
       
       
     </footer>
@@ -2209,204 +2458,7 @@ function functionname(参数列表){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/14/JavaScript全选反选/" data-id="ciscw98s5000q1ce8pwudm8xp" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-JavaScript显示隐藏及Tab切换" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/07/14/JavaScript显示隐藏及Tab切换/" class="article-date">
-  <time datetime="2016-07-14T08:06:55.000Z" itemprop="datePublished">2016-07-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/14/JavaScript显示隐藏及Tab切换/">JavaScript显示隐藏及Tab切换</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="获取元素"><a href="#获取元素" class="headerlink" title="获取元素"></a>获取元素</h3><h5 id="querySelector-方法"><a href="#querySelector-方法" class="headerlink" title="querySelector()方法"></a>querySelector()方法</h5><p>语法：<code>document.querySelector(CSS selectors)</code></p>
-<p><strong><em>CSS选择器：类型String，指定一个或多个匹配元素的CSS元素，可以使用它们的id，类，类型，属性，属性值等来选取元素。</em></strong>对于多个选择器，使用逗号隔开，返回一个匹配的元素。</p>
-<p>接受一个参数，通过元素的css选择器查找元素。如果找到相应的元素则返回该元素的HTMLDivElement对象；如果不存在，则返回null。<strong>仅仅匹配指定选择器的第一个元素</strong></p>
-<pre>
-    document.querySelector("#div1");//获取id为div1的元素
-
-    document.querySelector(".div1");//获取class为div1的第一个子元素
-</pre>
-
-<h5 id="querySelectorAll-方法"><a href="#querySelectorAll-方法" class="headerlink" title="querySelectorAll()方法"></a>querySelectorAll()方法</h5><p>语法：<code>document.querySelectorAll(CSS selectors)</code></p>
-<p>接受一个参数，将返回一个对象数组，这个数组保存着所有符合选择器的节点列表。</p>
-<pre>
-    document.querySelectorAll("li");//获取所有li元素，返回数组
-
-    docuemnt.querySelectorAll(".list li");//获取所有class为list元素下的所有li元素，返回数组
-</pre>
-
-<h5 id="querySelector和getElement区别"><a href="#querySelector和getElement区别" class="headerlink" title="querySelector和getElement区别"></a>querySelector和getElement区别</h5><p><strong>querySelector获取的元素是静态的，通过其他方法增加或删除其获取的元素，其获取的元素对象不会发生变化</strong></p>
-<p><strong>getElement获取的元素是动态的，通过其他方法增加或删除其获取的元素，其获取的元素对象会动态变化</strong></p>
-<h3 id="className属性"><a href="#className属性" class="headerlink" title="className属性"></a>className属性</h3><p>语法：<code>object.className=className</code></p>
-<p>className属性设置或返回元素的class属性。</p>
-<pre>
-    &lt;style&gt;
-        .divshow{
-            width:200px;
-            height:200px;
-            background:aquamarine;
-        }
-    &lt;/style&gt;
-    &lt;input type="button" id="activebtn" value="显示/隐藏" /&gt;
-    &lt;div id="divactive" class="divshow"&gt;&lt;/div&gt;
-    &lt;script&gt;
-        var btn=document.querySelector("#activebtn");
-        var div=document.querySelector("#divactive");
-
-        btn.onclick=function(){
-            if(div.className=="divshow"){
-                div.className="";
-            }else{
-                div.className="divshow";
-            }
-        }
-    &lt;/script&gt;
-</pre>
-
-<pre>
-    <style>
-        .divshow{
-            width:200px;
-            height:200px;
-            background:aquamarine;
-        }
-    </style>
-    <input type="button" id="activebtn" value="显示/隐藏">
-    <div id="divactive" class="divshow"></div>
-    <script>
-        var btn=document.querySelector("#activebtn");
-        var div=document.querySelector("#divactive");
-
-        btn.onclick=function(){
-            if(div.className=="divshow"){
-                div.className="";
-            }else{
-                div.className="divshow";
-            }
-        }
-    </script>
-</pre>
-
-<h3 id="this变量"><a href="#this变量" class="headerlink" title="this变量"></a>this变量</h3><p><strong>永远指向其所在函数的所有者，如果没有所有者时指向window（窗口）</strong></p>
-<h3 id="Tab切换"><a href="#Tab切换" class="headerlink" title="Tab切换"></a>Tab切换</h3><p>tab切换（选项卡切换），实现效果点击按钮，分别切换按钮对应的div</p>
-<pre>
-    &lt;style&gt;
-        .divtab0{
-            position:relative;
-            width:200px;
-            height:200px;
-        }
-        .divtab{        
-            position:absolute;
-            top:0;
-            width:200px;
-            height:200px;
-            background-color:lime;
-            font-size:50px;
-            text-align:center;
-            line-height:200px;
-            display:none;
-        }
-        .tabbtncolor{
-            background-color:aqua;
-        }
-    &lt;/style&gt;
-    &lt;input type="button" class="tabbtn tabbtncolor" style="background-color:lime;" value="按钮一" 
-    /&gt;&lt;input type="button" class="tabbtn tabbtncolor" value="按钮二" 
-    /&gt;&lt;input type="button" class="tabbtn tabbtncolor" value="按钮三" /&gt;
-    &lt;div class="divtab0"&gt;
-        &lt;div class="divtab" style="display:block;"&gt;1&lt;/div&gt;
-        &lt;div class="divtab"&gt;2&lt;/div&gt;
-        &lt;div class="divtab"&gt;3&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        var inputs=document.querySelectorAll(".tabbtn");
-        var divs=document.querySelectorAll(".divtab");
-        for(var i=0;i&lt;inputs.length;i++){
-            inputs[i].index=i;
-            inputs[i].onclick=function(){
-                for(var j=0;j&lt;inputs.length;j++){
-                    inputs[j].style.backgroundColor="";
-                    divs[j].style.display="none";
-                }
-                this.style.backgroundColor="lime";
-                divs[this.index].style.display="block";
-            }
-        }
-    &lt;/script&gt;
-</pre>
-
-<pre>
-    <style>
-        .divtab0{
-            position:relative;
-            width:200px;
-            height:200px;
-        }
-        .divtab{        
-            position:absolute;
-            top:0;
-            width:200px;
-            height:200px;
-            background-color:lime;
-            font-size:50px;
-            text-align:center;
-            line-height:200px;
-            display:none;
-        }
-        .tabbtncolor{
-            background-color:aqua;
-        }
-    </style>
-    <input type="button" class="tabbtn tabbtncolor" style="background-color:lime;" value="按钮一"><input type="button" class="tabbtn tabbtncolor" value="按钮二"><input type="button" class="tabbtn tabbtncolor" value="按钮三">
-    <div class="divtab0">
-        <div class="divtab" style="display:block;">1</div>
-        <div class="divtab">2</div>
-        <div class="divtab">3</div>
-    </div>
-    <script>
-        var inputs=document.querySelectorAll(".tabbtn");
-        var divs=document.querySelectorAll(".divtab");
-        for(var i=0;i<inputs.length;i++){
-            inputs[i].index=i;
-            inputs[i].onclick=function(){
-                for(var j=0;j<inputs.length;j++){
-                    inputs[j].style.backgroundColor="";
-                    divs[j].style.display="none";
-                }
-                this.style.backgroundColor="lime";
-                divs[this.index].style.display="block";
-            }
-        }
-    </script>
-</pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/14/JavaScript显示隐藏及Tab切换/" data-id="ciscw98sm000y1ce8st3x8b2t" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/14/JavaScript全选反选/" data-id="cisel39z4000q6ee8fvp3ibgs" class="article-share-link">Share</a>
       
       
     </footer>
@@ -2450,6 +2502,10 @@ function functionname(参数列表){
       <ul>
         
           <li>
+            <a href="/2016/08/28/HTML5canvas标签和JavaScript的结合运用/">HTML5canvas标签和JavaScript的结合运用</a>
+          </li>
+        
+          <li>
             <a href="/2016/08/26/jQuery函数的封装/">jQuery函数的封装</a>
           </li>
         
@@ -2463,10 +2519,6 @@ function functionname(参数列表){
         
           <li>
             <a href="/2016/08/06/JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage/">JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage</a>
-          </li>
-        
-          <li>
-            <a href="/2016/08/05/JavaScript滚轮事件的封装和滚轮轮播图/">JavaScript滚轮事件的封装和滚轮轮播图</a>
           </li>
         
       </ul>

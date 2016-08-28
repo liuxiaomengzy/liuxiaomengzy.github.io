@@ -68,6 +68,114 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-HTML5canvas标签和JavaScript的结合运用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/28/HTML5canvas标签和JavaScript的结合运用/" class="article-date">
+  <time datetime="2016-08-28T08:10:24.000Z" itemprop="datePublished">2016-08-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/28/HTML5canvas标签和JavaScript的结合运用/">HTML5canvas标签和JavaScript的结合运用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Canvas简介"><a href="#Canvas简介" class="headerlink" title="Canvas简介"></a>Canvas简介</h3><p>Canvas是HTML5中重要的元素，其和audio、video元素类似，完全不需要任何外部插件就能运行。</p>
+<p>Canvas中文翻译为“画布”。它提供了强大的图形处理功能（绘制，变换，像素处理等）。</p>
+<p>Canvas浏览器支持：除IE8及以下不支持外，其他浏览器都支持Canvas。</p>
+<h5 id="Canvas标签"><a href="#Canvas标签" class="headerlink" title="Canvas标签"></a>Canvas标签</h5><p><code>&lt;canvas&gt;</code>标签定义图形，<code>&lt;canvas&gt;</code>标签只是图形容器，必须使用脚本来绘制图形。</p>
+<p><code>&lt;canvas&gt;您的浏览器不支持canvas&lt;/canvas&gt;</code>canvas标签中的内容在支持的浏览器内，默认为不显示；在不支持的浏览器上才会显示。</p>
+<p><strong>canvas属性：</strong>width宽 height高，假如不设置宽高属性，默认为宽300像素高150像素。</p>
+<p><strong>在进行图形绘制时，我们是通过context绘图环境进行操作的。</strong></p>
+<p>大多数 Canvas 绘图 API 都没有定义在 <code>&lt;canvas&gt;</code> 元素本身上，而是定义在通过画布的 getContext() 方法获得的一个“绘图环境”对象上。</p>
+<p><strong>context是canvas的核心。</strong>context字面意思是上下文，我们可以理解为绘图的助手，用于存储操作步骤。</p>
+<p><strong>canvas坐标系：</strong>X轴：横向向右为正方向；Y轴：竖向向下为正方向。</p>
+<p>canvas标签的使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;canvas id=&quot;canvas1&quot; width=&quot;500&quot; height=&quot;500&quot;&gt;</span><br><span class="line">		您的浏览器不支持canvas，请使用高版本的浏览器</span><br><span class="line">	&lt;/canvas&gt;</span><br><span class="line">	&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">		//获取canvas</span><br><span class="line">		var canvas = document.getElementById(&quot;canvas1&quot;);</span><br><span class="line">		//获取绘制环境</span><br><span class="line">		var context = canvas.getContext(&quot;2d&quot;);</span><br><span class="line">	&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="Canvas基本图形绘制"><a href="#Canvas基本图形绘制" class="headerlink" title="Canvas基本图形绘制"></a>Canvas基本图形绘制</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">基本图形绘制</span><br><span class="line"></span><br><span class="line">beginPath()				开始一条路径</span><br><span class="line"></span><br><span class="line">moveTo(x,y)				设置绘制起点</span><br><span class="line"></span><br><span class="line">lineTo(x,y)				设置下一个点</span><br><span class="line"></span><br><span class="line">closePath()				闭合路径，会从当前点连接到起始点，形成一个封闭的路径</span><br><span class="line"></span><br><span class="line">strokeStyle				设置线条的样式（颜色）</span><br><span class="line"></span><br><span class="line">stroke()				绘制线条</span><br><span class="line"></span><br><span class="line">fillStyle				设置填充样式（颜色）</span><br><span class="line"></span><br><span class="line">fill()					填充当前绘图</span><br><span class="line"></span><br><span class="line">lineWidth				设置线宽</span><br><span class="line"></span><br><span class="line">strokeRect(x,y,w,h)			绘制矩形边框，x，y分别为起始绘制x轴y轴的位置，w为绘制宽度，h为绘制高度</span><br><span class="line"></span><br><span class="line">fillRect(x,y,w,h)			填充矩形边框</span><br><span class="line"></span><br><span class="line">arc(x,y,radius,startAngle,endAngle,anticlockwise)</span><br><span class="line"></span><br><span class="line">x,y：圆心位置	；radius：半径；startAngle,endAngle：开始/结束角度（以弧度计算）；anticlockwise：true逆时针false顺时针；</span><br><span class="line"></span><br><span class="line">strokeText()				绘制文字</span><br><span class="line"></span><br><span class="line">fillText()				填充文字</span><br><span class="line"></span><br><span class="line">createLinearGradient(x0,y0,x1,y1);		x0,y0：渐变开始点；x1,y1：渐变结束点</span><br><span class="line"></span><br><span class="line">font 					字体样式</span><br><span class="line"></span><br><span class="line">阴影设置（当设置阴影后，所有的图形都会有阴影）</span><br><span class="line"></span><br><span class="line">shadowColor				阴影颜色</span><br><span class="line"></span><br><span class="line">shadowOffsetX				X方向偏移量</span><br><span class="line"></span><br><span class="line">shadowOffsetY				Y方向偏移量</span><br><span class="line"></span><br><span class="line">shadowBlur				设置阴影的模糊级别</span><br><span class="line"></span><br><span class="line">图形变换</span><br><span class="line"></span><br><span class="line">translate(x,y)				平移（当设置平移时，整个context都会发生移动，也就是坐标系发生变化）</span><br><span class="line"></span><br><span class="line">rotate(deg)				旋转，单位为弧度（当发生旋转时，坐标系也会发生变化，通常搭配translate使用）</span><br><span class="line"></span><br><span class="line">scale(x,y)				缩放，x、y分别为x轴和y轴方向缩放（当发生缩放时，坐标系也会相应的变化）</span><br><span class="line"></span><br><span class="line">状态保存和获取（遵循“先进后出，后进先出”的原则）</span><br><span class="line"></span><br><span class="line">save()					存储绘制状态</span><br><span class="line"></span><br><span class="line">restore()				获取之前的画布状态</span><br><span class="line"></span><br><span class="line">贝塞尔曲线</span><br><span class="line"></span><br><span class="line">quadraticCurvaTo(cpx,cpy,dx,dy)		创建一条表示二次曲线的路径（二次曲线就是二次函数形成的曲线）</span><br><span class="line">cpx,cpy代表控制点，决定曲线的形状	dx,dy代表终点位置</span><br><span class="line"></span><br><span class="line">bezierCurveTo(cpx,cpy,cpx2,cpy2,dx,dy)		创建一条表示贝塞尔曲线的路径</span><br><span class="line">cpx,cpy,cpx2,cpy2代表两个控制点的位置，决定曲线的形状	dx,dy代表终点位置</span><br></pre></td></tr></table></figure>
+<p>设置文字及颜色渐变：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">	#canvasfont&#123;</span><br><span class="line">		box-shadow:0 0 20px lightgreen;</span><br><span class="line">	&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;canvas id=&quot;canvasfont&quot; width=&quot;300&quot; height=&quot;300&quot;&gt;</span><br><span class="line">	您的浏览器不支持；</span><br><span class="line">&lt;/canvas&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">	var canvasfont = document.getElementById(&quot;canvasfont&quot;);</span><br><span class="line">	var contextfont = canvasfont.getContext(&quot;2d&quot;);</span><br><span class="line">	//设置文字</span><br><span class="line">	var text = &quot;hello World!&quot;;</span><br><span class="line">	contextfont.font = &quot;40px 宋体&quot;;</span><br><span class="line">	//设置渐变</span><br><span class="line">	var fontgradient = contextfont.createLinearGradient(10,50,300,300);</span><br><span class="line">	fontgradient.addColorStop(&quot;0&quot;,&quot;blue&quot;);</span><br><span class="line">	fontgradient.addColorStop(&quot;0.5&quot;,&quot;gold&quot;);</span><br><span class="line">	fontgradient.addColorStop(&quot;1&quot;,&quot;purple&quot;);</span><br><span class="line">	//设置填充颜色</span><br><span class="line">	contextfont.fillStyle = fontgradient;</span><br><span class="line">	//开始填充文字</span><br><span class="line">	contextfont.fillText(text,30,50);</span><br><span class="line">	//填充矩形</span><br><span class="line">	contextfont.fillRect(10,60,280,230);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<pre>
+    <style>
+        #canvasfont{
+            box-shadow:0 0 20px lightgreen;
+            background:white;
+        }
+    </style>
+    <canvas id="canvasfont" width="300" height="300">
+        您的浏览器不支持；
+    </canvas>
+    <script>
+        var canvasfont = document.getElementById("canvasfont");
+        var contextfont = canvasfont.getContext("2d");
+        //设置文字
+        var text = "hello World!";
+        contextfont.font = "40px 宋体";
+        //设置渐变
+        var fontgradient = contextfont.createLinearGradient(10,50,300,300);
+        fontgradient.addColorStop("0","blue");
+        fontgradient.addColorStop("0.5","gold");
+        fontgradient.addColorStop("1","purple");
+        //设置填充颜色
+        contextfont.fillStyle = fontgradient;
+        //开始填充文字
+        contextfont.fillText(text,30,50);
+        //填充矩形
+        contextfont.fillRect(10,60,280,230);
+    </script>
+</pre>
+
+<h3 id="Canvas进阶"><a href="#Canvas进阶" class="headerlink" title="Canvas进阶"></a>Canvas进阶</h3><h5 id="globalCompositeOperation属性"><a href="#globalCompositeOperation属性" class="headerlink" title="globalCompositeOperation属性"></a>globalCompositeOperation属性</h5><p>设置或返回如何将一个源（新的）图像绘制到目标（已有）的图像上。源图像就是打算放置到画布上的绘图。目标图像是已经放置在画布上的绘图。</p>
+<p>其属性值为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">source-over			默认。在目标图像上显示源图像</span><br><span class="line"></span><br><span class="line">source-atop			在目标图像顶部显示源图像。源图像位于目标图像之外的部分是不可见的</span><br><span class="line"></span><br><span class="line">source-in			在目标图像中显示源图像。只有目标图像内的源图像部分会显示，目标图像是透明的</span><br><span class="line"></span><br><span class="line">source-out			在目标图像之外显示源图像。只会显示目标图像之外源图像部分，目标图像是透明的</span><br><span class="line"></span><br><span class="line">destination-over	在源图像上方显示目标图像</span><br><span class="line"></span><br><span class="line">destination-atop	在源图像顶部显示目标图像。源图像之外的目标图像部分不会被显示</span><br><span class="line"></span><br><span class="line">destination-in		在源图像中显示目标图像。只有源图像内的目标图像部分会被显示，源图像是透明的</span><br><span class="line"></span><br><span class="line">destination-out		在源图像外显示目标图像。只有源图像外的目标图像部分会被显示，源图像是透明的</span><br><span class="line"></span><br><span class="line">lighter				显示源图像 + 目标图像（会使重叠部分颜色叠加）</span><br><span class="line"></span><br><span class="line">copy				显示源图像。忽略目标图像</span><br><span class="line"></span><br><span class="line">source-over			使用异或操作对源图像与目标图像进行组合</span><br></pre></td></tr></table></figure>
+<h5 id="图像绘制"><a href="#图像绘制" class="headerlink" title="图像绘制"></a>图像绘制</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">drawImage(image,x,y)				在canvas中x,y处绘制图片</span><br><span class="line"></span><br><span class="line">drawImage(image,x,y,width,height)	在canvas中x,y处绘制图片，并将其缩放到指定的宽度和高度</span><br><span class="line"></span><br><span class="line">drawImage(image,sourceX,sourceY,sourceWidth,sourceHeight,x,y,width,height)</span><br><span class="line">从图片中切割出一个矩形区域(sourceX,sourceY,sourceWidth,sourceHeight),缩放到指定的宽度和高度，并在canvas中x,y绘制出来</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var img = new Image();</span><br><span class="line">img.src = &quot;图片路径&quot;;</span><br><span class="line">img.onload = function ()&#123;</span><br><span class="line">	//载入图片</span><br><span class="line">	context.drawImage(img,0,0);</span><br><span class="line">	//控制图片</span><br><span class="line">	context.drawImage(img,0,0,canvas,width,canvas.height);</span><br><span class="line">	//裁减</span><br><span class="line">	context.drawImage(img,0,0,100,100,50,50,img.width,img.height);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="像素"><a href="#像素" class="headerlink" title="像素"></a>像素</h5><p>getImageData()返回ImageData对象，该对象拷贝了画布指定矩形的像素数据。</p>
+<p>ImageData中三个属性：width，height和data。width和height表示访问像素区域大小，data是一个包含访问区域所有像素信息的CanvasPixeArray，CanvasPixeArray是一个一维数组。</p>
+<p>对ImageData中的每个像素，都存在这四方面的信息，即RGBA值：</p>
+<ol>
+<li>R - 红色（0-255）</li>
+<li>G - 绿色（0-255）</li>
+<li>B - 蓝色（0-255）</li>
+<li>A - alpha通道（0-255；0是透明，255是完全可见的）</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">getImageData(x,y,width,height)		获取像素。x,y像素区域雨点坐标，width,height像素区域的宽度和高度</span><br><span class="line"></span><br><span class="line">putImageData(imgData,x,y,dirtyX,dirtyY,dirtyWidth,dirtyHeight)</span><br><span class="line">插入像素。imgData像素对象、在画布上显示的x,y、从哪个位置开始展示x,y,展示的宽度,高度(后四个为可选参数)</span><br></pre></td></tr></table></figure>
+<p>插入图片示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">var img = new Image();</span><br><span class="line">img.src = &quot;图片路径&quot;;</span><br><span class="line">img.onload = function ()&#123;</span><br><span class="line">	context.drawImage(img,0,0);</span><br><span class="line">	var imgData = context.getImageData(0,0,canvas.width,canvas.height);</span><br><span class="line">	var pixs = imgData.data;</span><br><span class="line">	//因为一个参数是以四个参数组合的，所以i+=4</span><br><span class="line">	for(var i=0;i&lt;pixs.length;i+=4)&#123;</span><br><span class="line">		var r = pixs[i];</span><br><span class="line">		var g = pixs[i+1];</span><br><span class="line">		var b = pixs[i+2];</span><br><span class="line">		var gray = parseInt((r+g+b)/3);</span><br><span class="line">		//图像反色</span><br><span class="line">		pixs[i] = gray;</span><br><span class="line">		pixs[i+1] = gray;</span><br><span class="line">		pixs[i+2] = gray;</span><br><span class="line">	&#125;</span><br><span class="line">	context.putImageData(imgData,img.width,img.height);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="视频的处理"><a href="#视频的处理" class="headerlink" title="视频的处理"></a>视频的处理</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function animate()&#123;</span><br><span class="line">	if(!video.ended)&#123;</span><br><span class="line">		//将视频的每一帧都绘制在canvas上</span><br><span class="line">		context.drawImage(video,0,0,canvas,width,canvas.height);</span><br><span class="line">		widow.requestAnimationFrame(animate);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">//当视频可以播放时，进行播放调用循环</span><br><span class="line">video.oncanplay = function()&#123;</span><br><span class="line">	video.play();</span><br><span class="line">	window.requestAnimationFrame(animate);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>requestAnimationFrame：动画帧</strong></p>
+<p>requestAnimationFrame不需要使用者指定循环间隔时间，浏览器会基于当前页面是否可见、CPU的负荷情况等来自行决定最佳的帧速率，从而更合理地使用CPU。</p>
+<p>通过setTimeout和setInterval方法在脚本中可实现动画，但是这样的效果可能不够流畅，而且会占用额外的资源。</p>
+<ol>
+<li>即使向其传递毫秒为单位的参数，它们也不可能达到毫秒的准确性。这是因为JavaScript是单线程的，可能会发生阻塞。</li>
+<li>没有对调用动画的循环机制进行优化。</li>
+<li>没有考虑到绘制动画的最佳时机，只是一味地以某个大致的事件间隔来调用循环。</li>
+</ol>
+<h5 id="图形的存储"><a href="#图形的存储" class="headerlink" title="图形的存储"></a>图形的存储</h5><p>通过toDataURL()来生成图片链接实现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">	var canvas = document.getElementById(&quot;canvas&quot;);</span><br><span class="line">	var context = canvas.getContext(&quot;2d&quot;);</span><br><span class="line">	context.fillRect(100,100,100,100);</span><br><span class="line">	//输出</span><br><span class="line">	var url = canvas.toDataURL();</span><br><span class="line">	//在网页中显示</span><br><span class="line">	window.location.href = url;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/08/28/HTML5canvas标签和JavaScript的结合运用/" data-id="cisel39x5000a6ee8xsjgiv15" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-jQuery函数的封装" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/08/26/jQuery函数的封装/" class="article-date">
@@ -90,11 +198,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br></pre></td><td class="code"><pre><span class="line">&amp;lt;script&amp;gt;</span><br><span class="line">	//首先封装对象的获取方法</span><br><span class="line">	function getEles(arg)&#123;</span><br><span class="line">		//用正则判断开头和结尾是否一个或有多个空格</span><br><span class="line">		var reg1 = /^\s*|\s*$/g;</span><br><span class="line">		arg = arg.replace(reg1,&quot;&quot;);</span><br><span class="line">		//用正则判断中间是否有空格，假如有替换成一个空格</span><br><span class="line">		var reg2 = /\s+/g;</span><br><span class="line">		arg = arg.replace(reg2,&quot; &quot;);</span><br><span class="line">		//将arg通过空格来分割成需要的数组</span><br><span class="line">		var elArr = arg.split(&quot; &quot;);</span><br><span class="line">		var result = [];</span><br><span class="line">		var parents = [document];</span><br><span class="line">		//对arg进行遍历，找到选中的arg</span><br><span class="line">		for(var i=0;i&amp;lt;elArr.length;i++)&#123;</span><br><span class="line">			result = [];</span><br><span class="line">			for(var j=0;j&amp;lt;parents.length;j++)&#123;</span><br><span class="line">				//通过if分别判断需要使用id、class或者tagName选择器</span><br><span class="line">				if(/^#/.test(elArr[i]))&#123;</span><br><span class="line">					//通过字符串截取，去掉单词开头的#号</span><br><span class="line">					var idName = elArr[i].substring(1);</span><br><span class="line">					//找到对应的对象，并将其推入数组</span><br><span class="line">					var idArr = document.getElementById(idName);</span><br><span class="line">					result.push(idArr);</span><br><span class="line">				&#125;else if(/^\./.test(elArr[i]))&#123;</span><br><span class="line">					var className = elArr[i].slice(1);</span><br><span class="line">					var classArr = findClass(parents[j],className);</span><br><span class="line">					for(var k=0;k&amp;lt;classArr.length;k++)&#123;</span><br><span class="line">						result.push(classArr[k]);</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;else&#123;</span><br><span class="line">					var tagArr = parents[j].getElementsByTagName(elArr[i]);</span><br><span class="line">					for(var k=0;k&amp;lt;tagArr.length;k++)&#123;</span><br><span class="line">						result.push(tagArr[k]);</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			parents = result;</span><br><span class="line">		&#125;</span><br><span class="line">		return parents;</span><br><span class="line">	&#125;</span><br><span class="line">	//封装获取class，主要因为需要兼容IE浏览器</span><br><span class="line">	function findClass(obj,className)&#123;</span><br><span class="line">		if(window.getElementsByClassName)&#123;</span><br><span class="line">			return obj.getElementsByClassName(className);</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			//因为IE支持tagName选择器，所以首先找到obj下的所有标签，然后通过正则来找到需要的className</span><br><span class="line">			var tagArr = obj.getElementsByTagName(&quot;*&quot;);</span><br><span class="line">			var classArr = [];</span><br><span class="line">			var reg = new RegExp(&quot;\\b&quot;+className+&quot;\\b&quot;);</span><br><span class="line">			for(var k=0;k&amp;lt;tagArr.length;k++)&#123;</span><br><span class="line">				if(reg.test(tagArr[k].className))&#123;</span><br><span class="line">					classArr.push(tagArr[k]);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			return classArr;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	//jQuery标志为$，所以封装函数来模拟</span><br><span class="line">	function $(arg)&#123;</span><br><span class="line">		return new Jq(arg);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	//创建构造函数Jq</span><br><span class="line">	function Jq(arg)&#123;</span><br><span class="line">		//通过创建一个数组来记录选择到的对象</span><br><span class="line">		this.elements = [];</span><br><span class="line">		//因$(arg)能传三种形式，所以对其进行判断</span><br><span class="line">		if(typeof(arg) == &quot;function&quot;)&#123;</span><br><span class="line">			ready(arg);</span><br><span class="line">		&#125;else if(typeof(arg) == &quot;string&quot;)&#123;</span><br><span class="line">			this.elements = getEles(arg);</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			this.elements.push(arg);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	//因Jq(function)的函数是在html、css和js都加载完成时才运行的，所以需要对其进行判断</span><br><span class="line">	function ready(fn)&#123;</span><br><span class="line">		if(window.addEventListener)&#123;</span><br><span class="line">			document.addEventListener(&quot;DOMContentLoaded&quot;,fn,false);</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			var oS = document.createElement(&quot;script&quot;);</span><br><span class="line">			oS.defer = true;</span><br><span class="line">			var oH = document.getElementsByTagName(&quot;head&quot;)[0];</span><br><span class="line">			oH.appendChild(oS);</span><br><span class="line">			oS.onreadystatechange = function()&#123;</span><br><span class="line">				if(oS.readyState == &quot;complete&quot;)&#123;</span><br><span class="line">					fn();</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	//对其原型设置click方法，模拟jQuery的click()方法</span><br><span class="line">	Jq.prototype.click = function(fn)&#123;</span><br><span class="line">		for(var i=0;i&amp;lt;this.elements.length;i++)&#123;</span><br><span class="line">			addEvent(&quot;click&quot;,fn,this.elements[i]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	//因添加click时，需要涉及到IE的兼容，所以封装一个函数</span><br><span class="line">	function addEvent(event,fn,obj)&#123;</span><br><span class="line">		if(obj.addEventListener)&#123;</span><br><span class="line">			obj.addEventListener(event,fn,false);</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			obj.attachEvent(&quot;on&quot;+event,fn);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	//对其原型设置on方法，模拟jQuery的on()方法</span><br><span class="line">	Jq.prototype.on = function(event,fn)&#123;</span><br><span class="line">		//因有可能会设置&quot;click mouseleave&quot;等多事件，所以将其分成数组</span><br><span class="line">		var eventArr = event.split(&quot; &quot;);</span><br><span class="line">		for(var i=0;i&amp;lt;this.elements.length;i++)&#123;</span><br><span class="line">			for(var j=0;j&amp;lt;eventArr.length;j++)&#123;</span><br><span class="line">				addEvent(eventArr[j],fn,this.elements[i]);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	//对其原型设置.css方法，模拟jQuery的css()方法</span><br><span class="line">	Jq.prototype.css = function()&#123;</span><br><span class="line">		//因css(arg)有三种情况，所以对其分别设置</span><br><span class="line">		if(arguments.length == 1)&#123;</span><br><span class="line">			if(typeof(arguments[0]) == &quot;string&quot;)&#123;</span><br><span class="line">				//当只有一个属性时，是获取属性值，需要返回出去</span><br><span class="line">				return getStyle(this.elements[0],arguments[0]);</span><br><span class="line">			&#125;else&#123;</span><br><span class="line">				//当其为JSON数据时，就是设置</span><br><span class="line">				for(var i=0;i&amp;lt;this.elements.length;i++)&#123;</span><br><span class="line">					//通过使用for in循环来获得JSON的内容</span><br><span class="line">					for(var keys in arguments[0])&#123;</span><br><span class="line">						setStyle(this.elements[i],keys,arguments[0][keys]);</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;else if(arguments.length == 2)&#123;</span><br><span class="line">			for(var i=0;i&amp;lt;this.elements.length;i++)&#123;</span><br><span class="line">				setStyle(this.elements[i],arguments[0],arguments[1]);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	//因需兼容IE浏览器，所以封装getStyle函数</span><br><span class="line">	function getStyle(obj,style)&#123;</span><br><span class="line">		if(window.getComputedStyle)&#123;</span><br><span class="line">			return getComputedStyle(obj,null)[style];</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			return obj.currentStyle(style);</span><br><span class="line">		&#125;			</span><br><span class="line">	&#125;</span><br><span class="line">	//因需兼容IE浏览器，所以封装setStyle函数</span><br><span class="line">	function setStyle(obj,styleName,styleValue)&#123;</span><br><span class="line">		//因jQuery中width、height、left、top仅写数字时也是生效的，所以需要加个判断</span><br><span class="line">		var selectArr = [&quot;width&quot;,&quot;height&quot;,&quot;left&quot;,&quot;top&quot;];</span><br><span class="line">		for(var i=0;i&amp;lt;selectArr.length;i++)&#123;</span><br><span class="line">			if(selectArr[i] == styleName)&#123;</span><br><span class="line">				if(typeof(styleValue) == &quot;number&quot;)&#123;</span><br><span class="line">					styleValue = styleValue + &quot;px&quot;;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		obj.style[styleName] = styleValue;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	//对原型设置eq()的方法</span><br><span class="line">	Jq.prototype.eq = function(index)&#123;</span><br><span class="line">		return new Jq(this.elements[index]);</span><br><span class="line">	&#125;</span><br><span class="line">&amp;lt;/script&amp;gt;</span><br></pre></td></tr></table></figure>
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">	//首先封装对象的获取方法</span><br><span class="line">	function getEles(arg)&#123;</span><br><span class="line">		//用正则判断开头和结尾是否一个或有多个空格</span><br><span class="line">		var reg1 = /^\s*|\s*$/g;</span><br><span class="line">		arg = arg.replace(reg1,&quot;&quot;);</span><br><span class="line">		//用正则判断中间是否有空格，假如有替换成一个空格</span><br><span class="line">		var reg2 = /\s+/g;</span><br><span class="line">		arg = arg.replace(reg2,&quot; &quot;);</span><br><span class="line">		//将arg通过空格来分割成需要的数组</span><br><span class="line">		var elArr = arg.split(&quot; &quot;);</span><br><span class="line">		var result = [];</span><br><span class="line">		var parents = [document];</span><br><span class="line">		//对arg进行遍历，找到选中的arg</span><br><span class="line">		for(var i=0;i&lt;elArr.length;i++)&#123;</span><br><span class="line">			result = [];</span><br><span class="line">			for(var j=0;j&lt;parents.length;j++)&#123;</span><br><span class="line">				//通过if分别判断需要使用id、class或者tagName选择器</span><br><span class="line">				if(/^#/.test(elArr[i]))&#123;</span><br><span class="line">					//通过字符串截取，去掉单词开头的#号</span><br><span class="line">					var idName = elArr[i].substring(1);</span><br><span class="line">					//找到对应的对象，并将其推入数组</span><br><span class="line">					var idArr = document.getElementById(idName);</span><br><span class="line">					result.push(idArr);</span><br><span class="line">				&#125;else if(/^\./.test(elArr[i]))&#123;</span><br><span class="line">					var className = elArr[i].slice(1);</span><br><span class="line">					var classArr = findClass(parents[j],className);</span><br><span class="line">					for(var k=0;k&lt;classArr.length;k++)&#123;</span><br><span class="line">						result.push(classArr[k]);</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;else&#123;</span><br><span class="line">					var tagArr = parents[j].getElementsByTagName(elArr[i]);</span><br><span class="line">					for(var k=0;k&lt;tagArr.length;k++)&#123;</span><br><span class="line">						result.push(tagArr[k]);</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			parents = result;</span><br><span class="line">		&#125;</span><br><span class="line">		return parents;</span><br><span class="line">	&#125;</span><br><span class="line">	//封装获取class，主要因为需要兼容IE浏览器</span><br><span class="line">	function findClass(obj,className)&#123;</span><br><span class="line">		if(window.getElementsByClassName)&#123;</span><br><span class="line">			return obj.getElementsByClassName(className);</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			//因为IE支持tagName选择器，所以首先找到obj下的所有标签，然后通过正则来找到需要的className</span><br><span class="line">			var tagArr = obj.getElementsByTagName(&quot;*&quot;);</span><br><span class="line">			var classArr = [];</span><br><span class="line">			var reg = new RegExp(&quot;\\b&quot;+className+&quot;\\b&quot;);</span><br><span class="line">			for(var k=0;k&lt;tagArr.length;k++)&#123;</span><br><span class="line">				if(reg.test(tagArr[k].className))&#123;</span><br><span class="line">					classArr.push(tagArr[k]);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			return classArr;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	//jQuery标志为$，所以封装函数来模拟</span><br><span class="line">	function $(arg)&#123;</span><br><span class="line">		return new Jq(arg);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	//创建构造函数Jq</span><br><span class="line">	function Jq(arg)&#123;</span><br><span class="line">		//通过创建一个数组来记录选择到的对象</span><br><span class="line">		this.elements = [];</span><br><span class="line">		//因$(arg)能传三种形式，所以对其进行判断</span><br><span class="line">		if(typeof(arg) == &quot;function&quot;)&#123;</span><br><span class="line">			ready(arg);</span><br><span class="line">		&#125;else if(typeof(arg) == &quot;string&quot;)&#123;</span><br><span class="line">			this.elements = getEles(arg);</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			this.elements.push(arg);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	//因Jq(function)的函数是在html、css和js都加载完成时才运行的，所以需要对其进行判断</span><br><span class="line">	function ready(fn)&#123;</span><br><span class="line">		if(window.addEventListener)&#123;</span><br><span class="line">			document.addEventListener(&quot;DOMContentLoaded&quot;,fn,false);</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			var oS = document.createElement(&quot;script&quot;);</span><br><span class="line">			oS.defer = true;</span><br><span class="line">			var oH = document.getElementsByTagName(&quot;head&quot;)[0];</span><br><span class="line">			oH.appendChild(oS);</span><br><span class="line">			oS.onreadystatechange = function()&#123;</span><br><span class="line">				if(oS.readyState == &quot;complete&quot;)&#123;</span><br><span class="line">					fn();</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	//对其原型设置click方法，模拟jQuery的click()方法</span><br><span class="line">	Jq.prototype.click = function(fn)&#123;</span><br><span class="line">		for(var i=0;i&lt;this.elements.length;i++)&#123;</span><br><span class="line">			addEvent(&quot;click&quot;,fn,this.elements[i]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	//因添加click时，需要涉及到IE的兼容，所以封装一个函数</span><br><span class="line">	function addEvent(event,fn,obj)&#123;</span><br><span class="line">		if(obj.addEventListener)&#123;</span><br><span class="line">			obj.addEventListener(event,fn,false);</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			obj.attachEvent(&quot;on&quot;+event,fn);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	//对其原型设置on方法，模拟jQuery的on()方法</span><br><span class="line">	Jq.prototype.on = function(event,fn)&#123;</span><br><span class="line">		//因有可能会设置&quot;click mouseleave&quot;等多事件，所以将其分成数组</span><br><span class="line">		var eventArr = event.split(&quot; &quot;);</span><br><span class="line">		for(var i=0;i&lt;this.elements.length;i++)&#123;</span><br><span class="line">			for(var j=0;j&lt;eventArr.length;j++)&#123;</span><br><span class="line">				addEvent(eventArr[j],fn,this.elements[i]);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	//对其原型设置.css方法，模拟jQuery的css()方法</span><br><span class="line">	Jq.prototype.css = function()&#123;</span><br><span class="line">		//因css(arg)有三种情况，所以对其分别设置</span><br><span class="line">		if(arguments.length == 1)&#123;</span><br><span class="line">			if(typeof(arguments[0]) == &quot;string&quot;)&#123;</span><br><span class="line">				//当只有一个属性时，是获取属性值，需要返回出去</span><br><span class="line">				return getStyle(this.elements[0],arguments[0]);</span><br><span class="line">			&#125;else&#123;</span><br><span class="line">				//当其为JSON数据时，就是设置</span><br><span class="line">				for(var i=0;i&lt;this.elements.length;i++)&#123;</span><br><span class="line">					//通过使用for in循环来获得JSON的内容</span><br><span class="line">					for(var keys in arguments[0])&#123;</span><br><span class="line">						setStyle(this.elements[i],keys,arguments[0][keys]);</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;else if(arguments.length == 2)&#123;</span><br><span class="line">			for(var i=0;i&lt;this.elements.length;i++)&#123;</span><br><span class="line">				setStyle(this.elements[i],arguments[0],arguments[1]);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	//因需兼容IE浏览器，所以封装getStyle函数</span><br><span class="line">	function getStyle(obj,style)&#123;</span><br><span class="line">		if(window.getComputedStyle)&#123;</span><br><span class="line">			return getComputedStyle(obj,null)[style];</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			return obj.currentStyle(style);</span><br><span class="line">		&#125;			</span><br><span class="line">	&#125;</span><br><span class="line">	//因需兼容IE浏览器，所以封装setStyle函数</span><br><span class="line">	function setStyle(obj,styleName,styleValue)&#123;</span><br><span class="line">		//因jQuery中width、height、left、top仅写数字时也是生效的，所以需要加个判断</span><br><span class="line">		var selectArr = [&quot;width&quot;,&quot;height&quot;,&quot;left&quot;,&quot;top&quot;];</span><br><span class="line">		for(var i=0;i&lt;selectArr.length;i++)&#123;</span><br><span class="line">			if(selectArr[i] == styleName)&#123;</span><br><span class="line">				if(typeof(styleValue) == &quot;number&quot;)&#123;</span><br><span class="line">					styleValue = styleValue + &quot;px&quot;;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		obj.style[styleName] = styleValue;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	//对原型设置eq()的方法</span><br><span class="line">	Jq.prototype.eq = function(index)&#123;</span><br><span class="line">		return new Jq(this.elements[index]);</span><br><span class="line">	&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/26/jQuery函数的封装/" data-id="ciscw98sy00161ce8531xlcpk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/26/jQuery函数的封装/" data-id="cisel39zy00176ee8miwe6z9n" class="article-share-link">Share</a>
       
       
     </footer>
@@ -355,7 +463,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/24/JavaScript面向对象/" data-id="ciscw98su00131ce8d4ue96xa" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/24/JavaScript面向对象/" data-id="cisel39zr00126ee8oduflpob" class="article-share-link">Share</a>
       
       
     </footer>
@@ -513,7 +621,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/10/JavaScriptRegExp正则对象/" data-id="ciscw98s1000n1ce8bukmewle" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/10/JavaScriptRegExp正则对象/" data-id="cisel39yx000m6ee8kf1x9zd1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -746,7 +854,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/06/JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage/" data-id="ciscw98s2000o1ce835084jzx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/06/JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage/" data-id="cisel39zt00146ee8oaf11swg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1000,7 +1108,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/05/JavaScript滚轮事件的封装和滚轮轮播图/" data-id="ciscw98sn000z1ce8srexl2im" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/05/JavaScript滚轮事件的封装和滚轮轮播图/" data-id="cisel39zk000x6ee8r1mh39fu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1098,7 +1206,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/03/JavaScriptCallback回调函数和事件委托的封装/" data-id="ciscw98rw000k1ce813akg6a5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/03/JavaScriptCallback回调函数和事件委托的封装/" data-id="cisel39ym000i6ee80e2z4aa9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1240,7 +1348,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/30/JavaScript事件流、事件类型、事件对象和事件委托/" data-id="ciscw98s4000p1ce8k6o8g26e" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/30/JavaScript事件流、事件类型、事件对象和事件委托/" data-id="cisel39z3000p6ee8kg0snqbe" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1306,7 +1414,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/30/JavaScriptBOM浏览器对象模型/" data-id="ciscw98rv000j1ce8jn1c90wb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/30/JavaScriptBOM浏览器对象模型/" data-id="cisel39yu000l6ee8qkmwsdb4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1378,256 +1486,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/26/JavaScriptDOM元素对象/" data-id="ciscw98ry000l1ce8itmm8wiw" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-JavaScript瀑布流" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/07/23/JavaScript瀑布流/" class="article-date">
-  <time datetime="2016-07-23T09:49:27.000Z" itemprop="datePublished">2016-07-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/23/JavaScript瀑布流/">JavaScript瀑布流</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>瀑布流，又称瀑布流式布局。是比较流行的一种网站页面布局，视觉表现为参差不齐的多栏布局，随着页面滚动条向下滚动，这种布局还会不断加载数据块并附加至当前尾部。最早采用此布局的网站是Pinterest，逐渐在国内流行开来。</p>
-<pre>
-    &lt;style&gt;
-        .flowul{
-            position:relative;
-            min-width:200px;
-        }
-        .flowul li{
-            margin:0;
-            padding:0;
-            list-style-type:none;
-            position:absolute;
-            margin-bottom:10px;
-            font-size:30px;
-            text-align:center;
-            color:black;
-        }
-    &lt;/style&gt;
-    &lt;ul class="flowul"&gt;&lt;/ul&gt;
-    &lt;script&gt;
-        var flowul=document.querySelector(".flowul");
-        var window_W;//定义窗口的宽度
-        var col;//定义列数
-        var old;//定义现在的列数
-        var arr=[];
-
-        getWidth();
-        old=col;//先给其一个当前的列数
-
-        function getWidth(){
-            arr=[];
-            window_W=document.body.currentStyle?document.body.currentStyle.width:getComputedStyle(document.body,[]).width;//根据浏览器类型，选择合适的代码获取宽度
-            window_W=parseInt(window_W);
-            col=parseInt((window_W-30)/400);
-            flowul.width=col*210-10+"px";
-            for(i=0;i&lt;col;i++){
-                arr.push(0);
-            }
-        }
-
-        //开始循环，排列出来所需要的li(及其个数)
-        for(var i=0;i&lt;20;i++){
-            var newLi=document.createElement("li");
-            newLi.style.width=200+"px";
-            newLi.style.backgroundColor="rgb("+getRandom(0,255)+","+getRandom(0,255)+","+getRandom(0,255)+")";
-            newLi.innerHTML=i+1;
-            var newHeight=getRandom(150,300);
-            newLi.style.height=newHeight+"px";
-            newLi.style.lineHeight=newHeight+"px";
-            //判断数组最小值及其对应下标            
-            var minH=arr[0];
-            var minNum=0;
-            for(var j=1;j&lt;arr.length;j++){
-                if(minH&gt;arr[j]){
-                    minH=arr[j];
-                    minNum=j;
-                }
-            }
-            newLi.style.left=minNum*210+"px";
-            newLi.style.top=arr[minNum]+"px";
-            flowul.appendChild(newLi);
-            arr[minNum]+=newHeight+10;
-        }
-        ulHeight();
-        //当浏览器宽度发生改变时，对li重新定位
-        window.onresize=function(){
-            getWidth();
-            if(old==col){
-                return;//当列数没有发生改变时，跳出
-            }else{
-                old=col;
-            }
-            //通过循环改变li的位置
-            for(var i=0;i&lt;20;i++){
-                var lis=document.querySelectorAll(".flowul li");
-                lis[i].style.transitionDuration="3s";
-                var newHeight=parseInt(lis[i].style.height);
-                var minH=arr[0];
-                var minNum=0;
-                for(var j=1;j&lt;arr.length;j++){
-                    if(minH&gt;arr[j]){
-                        minH=arr[j];
-                        minNum=j;
-                    }
-                }
-                lis[i].style.left=210*minNum+"px";
-                lis[i].style.top=arr[minNum]+"px";
-                arr[minNum]+=newHeight+10;
-            }
-            ulHeight();            
-        }
-        function ulHeight(){
-            var maxH=arr[0];
-            var maxNum=0;
-            for(var j=1;j&lt;arr.length;j++){
-                if(minH&lt;arr[j]){
-                    maxH=arr[j];
-                    maxNum=j;
-                }
-            }
-            flowul.style.height=arr[maxNum]+"px";
-        }
-        function getRandom(min,max){
-            return Math.round(Math.random()*(max-min)+min);
-        }
-    &lt;/script&gt;
-</pre>
-
-<pre>
-    <style>
-        .flowul{
-            position:relative;
-            min-width:200px;
-        }
-        .flowul li{
-            margin:0;
-            padding:0;
-            list-style-type:none;
-            position:absolute;
-            margin-bottom:10px;
-            font-size:30px;
-            text-align:center;
-            color:black;
-        }
-    </style>
-    <ul class="flowul"></ul>
-    <script>
-        var flowul=document.querySelector(".flowul");
-        var window_W;//定义窗口的宽度
-        var col;//定义列数
-        var old;//定义现在的列数
-        var arr=[];
-
-        getWidth();
-        old=col;//先给其一个当前的列数
-
-        function getWidth(){
-            arr=[];
-            window_W=document.body.currentStyle?document.body.currentStyle.width:getComputedStyle(document.body,[]).width;//根据浏览器类型，选择合适的代码获取宽度
-            window_W=parseInt(window_W);
-            col=parseInt((window_W-30)/400);
-            flowul.width=col*210-10+"px";
-            for(i=0;i<col;i++){
-                arr.push(0);
-            }
-        }
-
-        //开始循环，排列出来所需要的li(及其个数)
-        for(var i=0;i<20;i++){
-            var newLi=document.createElement("li");
-            newLi.style.width=200+"px";
-            newLi.style.backgroundColor="rgb("+getRandom(0,255)+","+getRandom(0,255)+","+getRandom(0,255)+")";
-            newLi.innerHTML=i+1;
-            var newHeight=getRandom(150,300);
-            newLi.style.height=newHeight+"px";
-            newLi.style.lineHeight=newHeight+"px";
-            //判断数组最小值及其对应下标            
-            var minH=arr[0];
-            var minNum=0;
-            for(var j=1;j<arr.length;j++){
-                if(minH>arr[j]){
-                    minH=arr[j];
-                    minNum=j;
-                }
-            }
-            newLi.style.left=minNum*210+"px";
-            newLi.style.top=arr[minNum]+"px";
-            flowul.appendChild(newLi);
-            arr[minNum]+=newHeight+10;
-        }
-        ulHeight();
-        //当浏览器宽度发生改变时，对li重新定位
-        window.onresize=function(){
-            getWidth();
-            if(old==col){
-                return;//当列数没有发生改变时，跳出
-            }else{
-                old=col;
-            }
-            //通过循环改变li的位置
-            for(var i=0;i<20;i++){
-                var lis=document.querySelectorAll(".flowul li");
-                lis[i].style.transitionDuration="3s";
-                var newHeight=parseInt(lis[i].style.height);
-                var minH=arr[0];
-                var minNum=0;
-                for(var j=1;j<arr.length;j++){
-                    if(minH>arr[j]){
-                        minH=arr[j];
-                        minNum=j;
-                    }
-                }
-                lis[i].style.left=210*minNum+"px";
-                lis[i].style.top=arr[minNum]+"px";
-                arr[minNum]+=newHeight+10;
-            }
-            ulHeight();            
-        }
-        function ulHeight(){
-            var maxH=arr[0];
-            var maxNum=0;
-            for(var j=1;j<arr.length;j++){
-                if(minH<arr[j]){
-                    maxH=arr[j];
-                    maxNum=j;
-                }
-            }
-            flowul.style.height=arr[maxNum]+"px";
-        }
-        function getRandom(min,max){
-            return Math.round(Math.random()*(max-min)+min);
-        }
-    </script>
-</pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/23/JavaScript瀑布流/" data-id="ciscw98so00101ce8kfw6ry6d" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/26/JavaScriptDOM元素对象/" data-id="cisel39yq000j6ee86kpq65gg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1671,6 +1530,10 @@
       <ul>
         
           <li>
+            <a href="/2016/08/28/HTML5canvas标签和JavaScript的结合运用/">HTML5canvas标签和JavaScript的结合运用</a>
+          </li>
+        
+          <li>
             <a href="/2016/08/26/jQuery函数的封装/">jQuery函数的封装</a>
           </li>
         
@@ -1684,10 +1547,6 @@
         
           <li>
             <a href="/2016/08/06/JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage/">JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage</a>
-          </li>
-        
-          <li>
-            <a href="/2016/08/05/JavaScript滚轮事件的封装和滚轮轮播图/">JavaScript滚轮事件的封装和滚轮轮播图</a>
           </li>
         
       </ul>

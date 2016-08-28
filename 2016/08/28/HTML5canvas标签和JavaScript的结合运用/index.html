@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>HTML5canvas标签和JavaScript的结合运用 | 紫--小梦</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Canvas简介Canvas是HTML5中重要的元素，其和audio、video元素类似，完全不需要任何外部插件就能运行。
+Canvas中文翻译为“画布”。它提供了强大的图形处理功能（绘制，变换，像素处理等）。
+Canvas浏览器支持：除IE8及以下不支持外，其他浏览器都支持Canvas。
+Canvas标签&amp;lt;canvas&amp;gt;标签定义图形，&amp;lt;canvas&amp;gt;标签只是图形容器，必须">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML5canvas标签和JavaScript的结合运用">
+<meta property="og:url" content="http://yoursite.com/2016/08/28/HTML5canvas标签和JavaScript的结合运用/index.html">
+<meta property="og:site_name" content="紫--小梦">
+<meta property="og:description" content="Canvas简介Canvas是HTML5中重要的元素，其和audio、video元素类似，完全不需要任何外部插件就能运行。
+Canvas中文翻译为“画布”。它提供了强大的图形处理功能（绘制，变换，像素处理等）。
+Canvas浏览器支持：除IE8及以下不支持外，其他浏览器都支持Canvas。
+Canvas标签&amp;lt;canvas&amp;gt;标签定义图形，&amp;lt;canvas&amp;gt;标签只是图形容器，必须">
+<meta property="og:updated_time" content="2016-08-28T14:56:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTML5canvas标签和JavaScript的结合运用">
+<meta name="twitter:description" content="Canvas简介Canvas是HTML5中重要的元素，其和audio、video元素类似，完全不需要任何外部插件就能运行。
+Canvas中文翻译为“画布”。它提供了强大的图形处理功能（绘制，变换，像素处理等）。
+Canvas浏览器支持：除IE8及以下不支持外，其他浏览器都支持Canvas。
+Canvas标签&amp;lt;canvas&amp;gt;标签定义图形，&amp;lt;canvas&amp;gt;标签只是图形容器，必须">
+  
+    <link rel="alternate" href="/atom.xml" title="紫--小梦" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">紫--小梦</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">心怀梦想，志在远方。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-HTML5canvas标签和JavaScript的结合运用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/28/HTML5canvas标签和JavaScript的结合运用/" class="article-date">
+  <time datetime="2016-08-28T08:10:24.000Z" itemprop="datePublished">2016-08-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      HTML5canvas标签和JavaScript的结合运用
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Canvas简介"><a href="#Canvas简介" class="headerlink" title="Canvas简介"></a>Canvas简介</h3><p>Canvas是HTML5中重要的元素，其和audio、video元素类似，完全不需要任何外部插件就能运行。</p>
+<p>Canvas中文翻译为“画布”。它提供了强大的图形处理功能（绘制，变换，像素处理等）。</p>
+<p>Canvas浏览器支持：除IE8及以下不支持外，其他浏览器都支持Canvas。</p>
+<h5 id="Canvas标签"><a href="#Canvas标签" class="headerlink" title="Canvas标签"></a>Canvas标签</h5><p><code>&lt;canvas&gt;</code>标签定义图形，<code>&lt;canvas&gt;</code>标签只是图形容器，必须使用脚本来绘制图形。</p>
+<p><code>&lt;canvas&gt;您的浏览器不支持canvas&lt;/canvas&gt;</code>canvas标签中的内容在支持的浏览器内，默认为不显示；在不支持的浏览器上才会显示。</p>
+<p><strong>canvas属性：</strong>width宽 height高，假如不设置宽高属性，默认为宽300像素高150像素。</p>
+<p><strong>在进行图形绘制时，我们是通过context绘图环境进行操作的。</strong></p>
+<p>大多数 Canvas 绘图 API 都没有定义在 <code>&lt;canvas&gt;</code> 元素本身上，而是定义在通过画布的 getContext() 方法获得的一个“绘图环境”对象上。</p>
+<p><strong>context是canvas的核心。</strong>context字面意思是上下文，我们可以理解为绘图的助手，用于存储操作步骤。</p>
+<p><strong>canvas坐标系：</strong>X轴：横向向右为正方向；Y轴：竖向向下为正方向。</p>
+<p>canvas标签的使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;canvas id=&quot;canvas1&quot; width=&quot;500&quot; height=&quot;500&quot;&gt;</span><br><span class="line">		您的浏览器不支持canvas，请使用高版本的浏览器</span><br><span class="line">	&lt;/canvas&gt;</span><br><span class="line">	&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">		//获取canvas</span><br><span class="line">		var canvas = document.getElementById(&quot;canvas1&quot;);</span><br><span class="line">		//获取绘制环境</span><br><span class="line">		var context = canvas.getContext(&quot;2d&quot;);</span><br><span class="line">	&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="Canvas基本图形绘制"><a href="#Canvas基本图形绘制" class="headerlink" title="Canvas基本图形绘制"></a>Canvas基本图形绘制</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">基本图形绘制</span><br><span class="line"></span><br><span class="line">beginPath()				开始一条路径</span><br><span class="line"></span><br><span class="line">moveTo(x,y)				设置绘制起点</span><br><span class="line"></span><br><span class="line">lineTo(x,y)				设置下一个点</span><br><span class="line"></span><br><span class="line">closePath()				闭合路径，会从当前点连接到起始点，形成一个封闭的路径</span><br><span class="line"></span><br><span class="line">strokeStyle				设置线条的样式（颜色）</span><br><span class="line"></span><br><span class="line">stroke()				绘制线条</span><br><span class="line"></span><br><span class="line">fillStyle				设置填充样式（颜色）</span><br><span class="line"></span><br><span class="line">fill()					填充当前绘图</span><br><span class="line"></span><br><span class="line">lineWidth				设置线宽</span><br><span class="line"></span><br><span class="line">strokeRect(x,y,w,h)			绘制矩形边框，x，y分别为起始绘制x轴y轴的位置，w为绘制宽度，h为绘制高度</span><br><span class="line"></span><br><span class="line">fillRect(x,y,w,h)			填充矩形边框</span><br><span class="line"></span><br><span class="line">arc(x,y,radius,startAngle,endAngle,anticlockwise)</span><br><span class="line"></span><br><span class="line">x,y：圆心位置	；radius：半径；startAngle,endAngle：开始/结束角度（以弧度计算）；anticlockwise：true逆时针false顺时针；</span><br><span class="line"></span><br><span class="line">strokeText()				绘制文字</span><br><span class="line"></span><br><span class="line">fillText()				填充文字</span><br><span class="line"></span><br><span class="line">createLinearGradient(x0,y0,x1,y1);		x0,y0：渐变开始点；x1,y1：渐变结束点</span><br><span class="line"></span><br><span class="line">font 					字体样式</span><br><span class="line"></span><br><span class="line">阴影设置（当设置阴影后，所有的图形都会有阴影）</span><br><span class="line"></span><br><span class="line">shadowColor				阴影颜色</span><br><span class="line"></span><br><span class="line">shadowOffsetX				X方向偏移量</span><br><span class="line"></span><br><span class="line">shadowOffsetY				Y方向偏移量</span><br><span class="line"></span><br><span class="line">shadowBlur				设置阴影的模糊级别</span><br><span class="line"></span><br><span class="line">图形变换</span><br><span class="line"></span><br><span class="line">translate(x,y)				平移（当设置平移时，整个context都会发生移动，也就是坐标系发生变化）</span><br><span class="line"></span><br><span class="line">rotate(deg)				旋转，单位为弧度（当发生旋转时，坐标系也会发生变化，通常搭配translate使用）</span><br><span class="line"></span><br><span class="line">scale(x,y)				缩放，x、y分别为x轴和y轴方向缩放（当发生缩放时，坐标系也会相应的变化）</span><br><span class="line"></span><br><span class="line">状态保存和获取（遵循“先进后出，后进先出”的原则）</span><br><span class="line"></span><br><span class="line">save()					存储绘制状态</span><br><span class="line"></span><br><span class="line">restore()				获取之前的画布状态</span><br><span class="line"></span><br><span class="line">贝塞尔曲线</span><br><span class="line"></span><br><span class="line">quadraticCurvaTo(cpx,cpy,dx,dy)		创建一条表示二次曲线的路径（二次曲线就是二次函数形成的曲线）</span><br><span class="line">cpx,cpy代表控制点，决定曲线的形状	dx,dy代表终点位置</span><br><span class="line"></span><br><span class="line">bezierCurveTo(cpx,cpy,cpx2,cpy2,dx,dy)		创建一条表示贝塞尔曲线的路径</span><br><span class="line">cpx,cpy,cpx2,cpy2代表两个控制点的位置，决定曲线的形状	dx,dy代表终点位置</span><br></pre></td></tr></table></figure>
+<p>设置文字及颜色渐变：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">	#canvasfont&#123;</span><br><span class="line">		box-shadow:0 0 20px lightgreen;</span><br><span class="line">	&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;canvas id=&quot;canvasfont&quot; width=&quot;300&quot; height=&quot;300&quot;&gt;</span><br><span class="line">	您的浏览器不支持；</span><br><span class="line">&lt;/canvas&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">	var canvasfont = document.getElementById(&quot;canvasfont&quot;);</span><br><span class="line">	var contextfont = canvasfont.getContext(&quot;2d&quot;);</span><br><span class="line">	//设置文字</span><br><span class="line">	var text = &quot;hello World!&quot;;</span><br><span class="line">	contextfont.font = &quot;40px 宋体&quot;;</span><br><span class="line">	//设置渐变</span><br><span class="line">	var fontgradient = contextfont.createLinearGradient(10,50,300,300);</span><br><span class="line">	fontgradient.addColorStop(&quot;0&quot;,&quot;blue&quot;);</span><br><span class="line">	fontgradient.addColorStop(&quot;0.5&quot;,&quot;gold&quot;);</span><br><span class="line">	fontgradient.addColorStop(&quot;1&quot;,&quot;purple&quot;);</span><br><span class="line">	//设置填充颜色</span><br><span class="line">	contextfont.fillStyle = fontgradient;</span><br><span class="line">	//开始填充文字</span><br><span class="line">	contextfont.fillText(text,30,50);</span><br><span class="line">	//填充矩形</span><br><span class="line">	contextfont.fillRect(10,60,280,230);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<pre>
+    <style>
+        #canvasfont{
+            box-shadow:0 0 20px lightgreen;
+            background:white;
+        }
+    </style>
+    <canvas id="canvasfont" width="300" height="300">
+        您的浏览器不支持；
+    </canvas>
+    <script>
+        var canvasfont = document.getElementById("canvasfont");
+        var contextfont = canvasfont.getContext("2d");
+        //设置文字
+        var text = "hello World!";
+        contextfont.font = "40px 宋体";
+        //设置渐变
+        var fontgradient = contextfont.createLinearGradient(10,50,300,300);
+        fontgradient.addColorStop("0","blue");
+        fontgradient.addColorStop("0.5","gold");
+        fontgradient.addColorStop("1","purple");
+        //设置填充颜色
+        contextfont.fillStyle = fontgradient;
+        //开始填充文字
+        contextfont.fillText(text,30,50);
+        //填充矩形
+        contextfont.fillRect(10,60,280,230);
+    </script>
+</pre>
+
+<h3 id="Canvas进阶"><a href="#Canvas进阶" class="headerlink" title="Canvas进阶"></a>Canvas进阶</h3><h5 id="globalCompositeOperation属性"><a href="#globalCompositeOperation属性" class="headerlink" title="globalCompositeOperation属性"></a>globalCompositeOperation属性</h5><p>设置或返回如何将一个源（新的）图像绘制到目标（已有）的图像上。源图像就是打算放置到画布上的绘图。目标图像是已经放置在画布上的绘图。</p>
+<p>其属性值为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">source-over			默认。在目标图像上显示源图像</span><br><span class="line"></span><br><span class="line">source-atop			在目标图像顶部显示源图像。源图像位于目标图像之外的部分是不可见的</span><br><span class="line"></span><br><span class="line">source-in			在目标图像中显示源图像。只有目标图像内的源图像部分会显示，目标图像是透明的</span><br><span class="line"></span><br><span class="line">source-out			在目标图像之外显示源图像。只会显示目标图像之外源图像部分，目标图像是透明的</span><br><span class="line"></span><br><span class="line">destination-over	在源图像上方显示目标图像</span><br><span class="line"></span><br><span class="line">destination-atop	在源图像顶部显示目标图像。源图像之外的目标图像部分不会被显示</span><br><span class="line"></span><br><span class="line">destination-in		在源图像中显示目标图像。只有源图像内的目标图像部分会被显示，源图像是透明的</span><br><span class="line"></span><br><span class="line">destination-out		在源图像外显示目标图像。只有源图像外的目标图像部分会被显示，源图像是透明的</span><br><span class="line"></span><br><span class="line">lighter				显示源图像 + 目标图像（会使重叠部分颜色叠加）</span><br><span class="line"></span><br><span class="line">copy				显示源图像。忽略目标图像</span><br><span class="line"></span><br><span class="line">source-over			使用异或操作对源图像与目标图像进行组合</span><br></pre></td></tr></table></figure>
+<h5 id="图像绘制"><a href="#图像绘制" class="headerlink" title="图像绘制"></a>图像绘制</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">drawImage(image,x,y)				在canvas中x,y处绘制图片</span><br><span class="line"></span><br><span class="line">drawImage(image,x,y,width,height)	在canvas中x,y处绘制图片，并将其缩放到指定的宽度和高度</span><br><span class="line"></span><br><span class="line">drawImage(image,sourceX,sourceY,sourceWidth,sourceHeight,x,y,width,height)</span><br><span class="line">从图片中切割出一个矩形区域(sourceX,sourceY,sourceWidth,sourceHeight),缩放到指定的宽度和高度，并在canvas中x,y绘制出来</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var img = new Image();</span><br><span class="line">img.src = &quot;图片路径&quot;;</span><br><span class="line">img.onload = function ()&#123;</span><br><span class="line">	//载入图片</span><br><span class="line">	context.drawImage(img,0,0);</span><br><span class="line">	//控制图片</span><br><span class="line">	context.drawImage(img,0,0,canvas,width,canvas.height);</span><br><span class="line">	//裁减</span><br><span class="line">	context.drawImage(img,0,0,100,100,50,50,img.width,img.height);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="像素"><a href="#像素" class="headerlink" title="像素"></a>像素</h5><p>getImageData()返回ImageData对象，该对象拷贝了画布指定矩形的像素数据。</p>
+<p>ImageData中三个属性：width，height和data。width和height表示访问像素区域大小，data是一个包含访问区域所有像素信息的CanvasPixeArray，CanvasPixeArray是一个一维数组。</p>
+<p>对ImageData中的每个像素，都存在这四方面的信息，即RGBA值：</p>
+<ol>
+<li>R - 红色（0-255）</li>
+<li>G - 绿色（0-255）</li>
+<li>B - 蓝色（0-255）</li>
+<li>A - alpha通道（0-255；0是透明，255是完全可见的）</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">getImageData(x,y,width,height)		获取像素。x,y像素区域雨点坐标，width,height像素区域的宽度和高度</span><br><span class="line"></span><br><span class="line">putImageData(imgData,x,y,dirtyX,dirtyY,dirtyWidth,dirtyHeight)</span><br><span class="line">插入像素。imgData像素对象、在画布上显示的x,y、从哪个位置开始展示x,y,展示的宽度,高度(后四个为可选参数)</span><br></pre></td></tr></table></figure>
+<p>插入图片示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">var img = new Image();</span><br><span class="line">img.src = &quot;图片路径&quot;;</span><br><span class="line">img.onload = function ()&#123;</span><br><span class="line">	context.drawImage(img,0,0);</span><br><span class="line">	var imgData = context.getImageData(0,0,canvas.width,canvas.height);</span><br><span class="line">	var pixs = imgData.data;</span><br><span class="line">	//因为一个参数是以四个参数组合的，所以i+=4</span><br><span class="line">	for(var i=0;i&lt;pixs.length;i+=4)&#123;</span><br><span class="line">		var r = pixs[i];</span><br><span class="line">		var g = pixs[i+1];</span><br><span class="line">		var b = pixs[i+2];</span><br><span class="line">		var gray = parseInt((r+g+b)/3);</span><br><span class="line">		//图像反色</span><br><span class="line">		pixs[i] = gray;</span><br><span class="line">		pixs[i+1] = gray;</span><br><span class="line">		pixs[i+2] = gray;</span><br><span class="line">	&#125;</span><br><span class="line">	context.putImageData(imgData,img.width,img.height);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="视频的处理"><a href="#视频的处理" class="headerlink" title="视频的处理"></a>视频的处理</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function animate()&#123;</span><br><span class="line">	if(!video.ended)&#123;</span><br><span class="line">		//将视频的每一帧都绘制在canvas上</span><br><span class="line">		context.drawImage(video,0,0,canvas,width,canvas.height);</span><br><span class="line">		widow.requestAnimationFrame(animate);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">//当视频可以播放时，进行播放调用循环</span><br><span class="line">video.oncanplay = function()&#123;</span><br><span class="line">	video.play();</span><br><span class="line">	window.requestAnimationFrame(animate);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>requestAnimationFrame：动画帧</strong></p>
+<p>requestAnimationFrame不需要使用者指定循环间隔时间，浏览器会基于当前页面是否可见、CPU的负荷情况等来自行决定最佳的帧速率，从而更合理地使用CPU。</p>
+<p>通过setTimeout和setInterval方法在脚本中可实现动画，但是这样的效果可能不够流畅，而且会占用额外的资源。</p>
+<ol>
+<li>即使向其传递毫秒为单位的参数，它们也不可能达到毫秒的准确性。这是因为JavaScript是单线程的，可能会发生阻塞。</li>
+<li>没有对调用动画的循环机制进行优化。</li>
+<li>没有考虑到绘制动画的最佳时机，只是一味地以某个大致的事件间隔来调用循环。</li>
+</ol>
+<h5 id="图形的存储"><a href="#图形的存储" class="headerlink" title="图形的存储"></a>图形的存储</h5><p>通过toDataURL()来生成图片链接实现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">	var canvas = document.getElementById(&quot;canvas&quot;);</span><br><span class="line">	var context = canvas.getContext(&quot;2d&quot;);</span><br><span class="line">	context.fillRect(100,100,100,100);</span><br><span class="line">	//输出</span><br><span class="line">	var url = canvas.toDataURL();</span><br><span class="line">	//在网页中显示</span><br><span class="line">	window.location.href = url;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/08/28/HTML5canvas标签和JavaScript的结合运用/" data-id="cisel39x5000a6ee8xsjgiv15" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/08/26/jQuery函数的封装/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">jQuery函数的封装</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/08/28/HTML5canvas标签和JavaScript的结合运用/">HTML5canvas标签和JavaScript的结合运用</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/26/jQuery函数的封装/">jQuery函数的封装</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/24/JavaScript面向对象/">JavaScript面向对象</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/10/JavaScriptRegExp正则对象/">JavaScriptRegExp正则对象</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/06/JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage/">JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 刘晓萌<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
