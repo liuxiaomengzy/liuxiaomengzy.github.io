@@ -68,6 +68,166 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-PHP初了解" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/01/PHP初了解/" class="article-date">
+  <time datetime="2016-09-01T07:38:31.000Z" itemprop="datePublished">2016-09-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/01/PHP初了解/">PHP初了解</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="PHP-简介"><a href="#PHP-简介" class="headerlink" title="PHP 简介"></a>PHP 简介</h3><p><strong>PHP 是一种创建动态交互性站点的强有力的服务器端脚本语言。</strong></p>
+<p><strong>PHP 脚本在服务器上执行。</strong></p>
+<p><strong>PHP 文件必须为英文名，防止出现错误；PHP 代码必须加分号。</strong></p>
+<ol>
+<li>PHP 是 “PHP Hypertext Preprocessor” （超文本预处理器）的缩写。</li>
+<li>PHP 是一种被广泛使用的开源脚本语言。</li>
+<li>PHP 脚本在服务器上执行。</li>
+<li>PHP 可以免费下载和使用。</li>
+</ol>
+<p>PHP 文件：</p>
+<ol>
+<li>PHP 文件能够包含文本、HTML、CSS 以及 PHP 代码。</li>
+<li>PHP 代码在服务器上执行，而结果以纯文本返回浏览器。</li>
+<li>PHP 文件的后缀是 “.php”。</li>
+</ol>
+<p>PHP 优点：</p>
+<ol>
+<li>开源</li>
+<li>能运行于各种平台（Windows，Linux，Unix，Mac OS X 等等）</li>
+<li>兼容几乎所有的服务器</li>
+<li>语法简单，极易学习</li>
+<li>功能强大，能做大型开发</li>
+<li>能够动态生成web页面内容（php代码可以嵌入到html代码中）</li>
+</ol>
+<h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><p>通过XAMPP（Apache+MySQL+PHP+Perl）建站集成软件包来安装。使用XAMPP目的是因为手动安装Apache+MySQL+PHP环境过于复杂，使用XAMPP只需点击安装即可。</p>
+<p><strong>XAMPP常见问题</strong></p>
+<ol>
+<li>Apache启动失败：运行sudo apachectl stop</li>
+<li>MySQL启动失败：（1）sudo /Library/StartupItems/MySQLCOM/MySQLCOM stop （2）使用ps-eflgrep mysql查找进程号，通过kill杀掉进程</li>
+</ol>
+<h3 id="PHP-基础语法"><a href="#PHP-基础语法" class="headerlink" title="PHP 基础语法"></a>PHP 基础语法</h3><p><strong>PHP脚本以&lt;?php开头，以?&gt;结尾：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">	//此处是 PHP 代码</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>PHP注释：</strong></p>
+<ol>
+<li>多行注释</li>
+<li>单行注释</li>
+<li>文档注释</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">1.多行注释</span><br><span class="line">/*</span><br><span class="line">	注释内容</span><br><span class="line">	注释内容</span><br><span class="line">*/</span><br><span class="line">2.单行注释</span><br><span class="line">//注释内容</span><br><span class="line">3.文档注释</span><br><span class="line">/**</span><br><span class="line">*注释文档</span><br><span class="line">*注释文档</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+<p><strong>变量的声明：</strong></p>
+<ol>
+<li>变量以$开头，后面跟变量名</li>
+<li>变量只能由字母，数字，下划线组成，不能以数字开头</li>
+<li>变量名区分大小写</li>
+<li>PHP 与 JavaScript 类似，不需要实现声明变量的数据类型</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$name = &quot;xiaoming&quot;;</span><br><span class="line">$age = 18;</span><br></pre></td></tr></table></figure>
+<p><strong>变量的赋值：</strong></p>
+<ol>
+<li>值赋值：即将赋值表达式的值复制给变量（直接赋值）；</li>
+<li>引用赋值：创建的一个变量与另一个变量引用的内容相同（引用相同地址）。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$var = &quot;hello&quot;;</span><br><span class="line">$var1 = &amp;$var;//把变量var的引用赋值给var1</span><br></pre></td></tr></table></figure>
+<p><strong>变量的变量：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$say = &quot;hello&quot;;</span><br><span class="line">$$say = &quot;world&quot;;//相当于$hello = &quot;world&quot;;</span><br><span class="line">echo $say;//输出hello</span><br><span class="line">echo $hello;//输出world</span><br><span class="line">echo $&#123;$ay&#125;;//输出world</span><br></pre></td></tr></table></figure>
+<p><strong>超全局变量：</strong></p>
+<p>PHP提供很多预定义变量，用于提供大量与环境有关的信息</p>
+<p>打印/输出超全局变量：print_r($_SERVER);</p>
+<p>1.<strong>$_SERVER</strong> 服务器变量，该全局变量包含着服务器和客户端配置及当前请求环境的有关信息</p>
+<p>$_SERVER[‘SERVER_NAME’] ： 当前运行脚本所在的服务器的主机名</p>
+<p>$_SERVER[‘REMOTE_ADDR’] ： 客户端IP地址</p>
+<p>$_SERVER[‘REQUEST_URI’] ： URL的路径部分</p>
+<p>$_SERVER[‘HTTP_USER_AGENT’] ： 操作系统和浏览器的有关信息</p>
+<p>2.<strong>$_GET</strong>    该变量包含使用GET方法传递的参数地有关信息</p>
+<p>3.<strong>$_POST</strong> 该变量包含使用POST方法传递的参数地有关信息</p>
+<p>4.<strong>$_REQUEST</strong> 该变量记录着通过各种输入方法传递给脚本的变量，如GET POST，但是不建议使用，因为它不安全而且速度较慢</p>
+<p>5.<strong>$_COOKIE</strong> cookie变量数组</p>
+<p>6.<strong>$_SESSION</strong> 会话变量数组</p>
+<p>7.<strong>$_FILES</strong> 与上传文件有关的变量数组</p>
+<p>8.<strong>$_ENV</strong> 环境变量数组</p>
+<p>9.<strong>$GLOBALS</strong> 所有全局变量数组</p>
+<p><strong>常量：</strong></p>
+<p>常量是指在程序执行中无法修改的值。</p>
+<ol>
+<li>在脚本执行期间该值不能改变；</li>
+<li>常量对大小写敏感，通常常量名总是大写；</li>
+<li>常量是全局的，可以在脚本的任何地方引用；</li>
+<li>常量分为内置常量和自定义常量；</li>
+<li>常量使用define()函数定义。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">define(&apos;PI&apos;,3.1415926,false);//第三个参数：是否对大小写敏感（默认false对大小写敏感；true对大小写不敏感）</span><br><span class="line">echo PI;//3.1415926</span><br></pre></td></tr></table></figure>
+<p>一、内置常量</p>
+<p><strong>PHP_OS</strong> PHP 所在操作系统的名称</p>
+<p><strong>PHP_VERSION</strong> 当前PHP 的版本号</p>
+<p>二、魔术常量</p>
+<p><code>__LINE__</code> 文件中的当前行号</p>
+<p><code>__FILE__</code> 文件的完整路径和文件名</p>
+<p><code>__FUNCTION__</code> 函数名称</p>
+<p><code>__CLASS__</code> 类的名称</p>
+<p><code>__METHOD__</code> 类的方法名</p>
+<h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h4><h6 id="标量数据类型"><a href="#标量数据类型" class="headerlink" title="标量数据类型"></a>标量数据类型</h6><p><strong>一、字符串</strong></p>
+<p>字符串有三种定义方式：单引号，双引号，定界符(heredoc)；</p>
+<p>单引号字符串中出现的变量不会被变量的值替代；</p>
+<p>双引号字符串中最重要的一点是其中的变量会被变量值替代；</p>
+<p>如果遇到美元符号($)，解析器会尽可能多地取得后面的字符以组成一个合法的变量名，如果想明确的制定名字的结束，用<code>{}</code>把变量名包括起来。</p>
+<p>字符串定界的方法使用定界符语法<code>&lt;&lt;&lt;</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$str = &lt;&lt;&lt; EOD</span><br><span class="line">Example of string</span><br><span class="line">using heredoc syntax.</span><br><span class="line">EOD;</span><br><span class="line">echo $str;</span><br></pre></td></tr></table></figure>
+<p>在PHP 定界符中的任何特殊字符，都不需要转义，PHP 定界符中的PHP变量会被正常的用其值来替换。</p>
+<p><code>使用定界符要注意：结束标识符所在的行不能包含任何其他字符，这意味着该标识符不能被缩进，在分号之前、之后都不能有任何空格或制表符。</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">字符串转义</span><br><span class="line">\n		换行</span><br><span class="line">\r		回车</span><br><span class="line">\t		水平制表符(tab键)</span><br><span class="line">\\		\(反斜杠)</span><br><span class="line">\$		$(美元符)</span><br><span class="line">\&quot;		&quot;(双引号)</span><br></pre></td></tr></table></figure>
+<p><strong>二、整型(integer)</strong></p>
+<p>整型是没有小数的数字。整型必须有至少一个数字（0-9）；整型不能包含逗号或空格；整型不能有小数点；整型正负均可；可以用三种格式规定整型：十进制、十六进制或八进制。</p>
+<p><strong>三、浮点型(float，double)</strong></p>
+<p>浮点数是有小数点或指数形式的数字，分为单精度(float)和双精度(double)</p>
+<p><strong>四、布尔型(bool)</strong></p>
+<p>布尔型指true或false。</p>
+<h6 id="复合数据类型"><a href="#复合数据类型" class="headerlink" title="复合数据类型"></a>复合数据类型</h6><p><strong>一、数组</strong></p>
+<p>数组在一个变量中存储多个值。</p>
+<p><strong>二、对象</strong></p>
+<h6 id="特殊数据类型"><a href="#特殊数据类型" class="headerlink" title="特殊数据类型"></a>特殊数据类型</h6><p><strong>一、资源</strong></p>
+<p><code>$fh = fopen(&quot;text.txt&quot;,&quot;r&quot;);</code></p>
+<p><strong>二、null</strong></p>
+<p>null 无，表示没有值，null不表示空格，也不表示0。</p>
+<p>以下情况认为是null：</p>
+<ol>
+<li>没有设置为任何预定义的变量；</li>
+<li>明确的赋值为null；</li>
+<li>使用函数unset()清除。</li>
+</ol>
+<h6 id="自动类型转换"><a href="#自动类型转换" class="headerlink" title="自动类型转换"></a>自动类型转换</h6><p>因PHP 对于类型定义非常的松散，所以有时候会根据引用变量的环境，将变量自动转换为最适合的类型。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$num = 5;</span><br><span class="line">$str = &quot;15&quot;;</span><br><span class="line">echo $num + $str;</span><br><span class="line"></span><br><span class="line">$str = &quot;100 hehe&quot;;</span><br><span class="line">$num = 200;</span><br><span class="line">echo $num + $str;</span><br><span class="line"></span><br><span class="line">$str = &quot;1.5&quot;;</span><br><span class="line">if($str)&#123; //if判断为true</span><br><span class="line">	echo &quot;hello world&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="类型相关函数"><a href="#类型相关函数" class="headerlink" title="类型相关函数"></a>类型相关函数</h6><p><strong>1.gettype()</strong> 返回变量的类型，可能的值有 string、integer、float、boolean、array、object、null、unknown。</p>
+<p><strong>2.is_type()</strong> 查看变量是否属于某个类型，是返回TRUE，否返回FALSE。</p>
+<p><strong>3.var_dump()</strong> 获取变量的值和类型的详细信息。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/09/01/PHP初了解/" data-id="cisn3bgn9001459e86kpr52et" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-HTML5canvas标签和JavaScript的结合运用" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/08/28/HTML5canvas标签和JavaScript的结合运用/" class="article-date">
@@ -166,7 +326,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/28/HTML5canvas标签和JavaScript的结合运用/" data-id="cisel39x5000a6ee8xsjgiv15" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/28/HTML5canvas标签和JavaScript的结合运用/" data-id="cisn3bglr000f59e8bv9m6r0z" class="article-share-link">Share</a>
       
       
     </footer>
@@ -202,7 +362,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/26/jQuery函数的封装/" data-id="cisel39zy00176ee8miwe6z9n" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/26/jQuery函数的封装/" data-id="cisn3bgnm001859e8863rkmlu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -463,7 +623,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/24/JavaScript面向对象/" data-id="cisel39zr00126ee8oduflpob" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/24/JavaScript面向对象/" data-id="cisn3bgnd001659e8ag0x4sye" class="article-share-link">Share</a>
       
       
     </footer>
@@ -621,7 +781,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/10/JavaScriptRegExp正则对象/" data-id="cisel39yx000m6ee8kf1x9zd1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/10/JavaScriptRegExp正则对象/" data-id="cisn3bgmg000l59e8jvl54fj1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -854,7 +1014,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/06/JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage/" data-id="cisel39zt00146ee8oaf11swg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/06/JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage/" data-id="cisn3bgmm000q59e8pezg2t0n" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1108,7 +1268,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/05/JavaScript滚轮事件的封装和滚轮轮播图/" data-id="cisel39zk000x6ee8r1mh39fu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/05/JavaScript滚轮事件的封装和滚轮轮播图/" data-id="cisn3bgn0000y59e8ne1xojhe" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1206,7 +1366,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/03/JavaScriptCallback回调函数和事件委托的封装/" data-id="cisel39ym000i6ee80e2z4aa9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/03/JavaScriptCallback回调函数和事件委托的封装/" data-id="cisn3bgmf000k59e8izdw6s7s" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1348,7 +1508,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/30/JavaScript事件流、事件类型、事件对象和事件委托/" data-id="cisel39z3000p6ee8kg0snqbe" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/30/JavaScript事件流、事件类型、事件对象和事件委托/" data-id="cisn3bgmn000r59e8himh703g" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1414,79 +1574,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/30/JavaScriptBOM浏览器对象模型/" data-id="cisel39yu000l6ee8qkmwsdb4" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-JavaScriptDOM元素对象" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/07/26/JavaScriptDOM元素对象/" class="article-date">
-  <time datetime="2016-07-26T11:56:41.000Z" itemprop="datePublished">2016-07-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/26/JavaScriptDOM元素对象/">JavaScriptDOM元素对象</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在HTML DOM中，元素对象代表着一个HTML元素。</p>
-<h3 id="DOM元素对象类型主要有："><a href="#DOM元素对象类型主要有：" class="headerlink" title="DOM元素对象类型主要有："></a>DOM元素对象类型主要有：</h3><p><strong>client</strong></p>
-<p><strong>clientLeft</strong>左边框border-left-width</p>
-<p><strong>clientTop</strong>上边框border-top-width</p>
-<p><strong>clientHeight</strong>可视区的高度paddingTop+height+paddingBottom</p>
-<p><strong>clientWidth</strong>可视区的宽度paddingLeft+width+PaddingRight</p>
-<p><strong>offset</strong></p>
-<p><strong>offsetWidth</strong>盒模型的宽borderLeft+paddingLeft+width+paddingRight+borderRight</p>
-<p><strong>offsetHeight</strong>盒模型的高borderTop+paddingTop+height+paddingBottom+borderBottom</p>
-<p><strong>offsetParent</strong>定位父级，离元素最近的设置了position属性的父元素（若无则为body）</p>
-<p><strong>offsetLeft</strong>到定位父级左边框borderLeft的距离</p>
-<p><strong>offsetTop</strong>到定位父级上边框borderTop的距离</p>
-<p><strong>scroll</strong></p>
-<p><strong>scrollTop</strong>滚动条向上滚动的距离（滚动条滚动到可视区上面的距离）</p>
-<p><strong>scrollLeft</strong>滚动条向左滚动的距离（滚动条超出可视区左边的宽度）</p>
-<p><strong>scrollHeight</strong>滚动条的高度paddingTop+height(内容高度)+paddingBottom，最小值为clientHeight。</p>
-<p><strong>scrollWidth</strong>滚动条的宽度paddingLeft+width+paddingRight（当被包含元素的width超出包含元素的width时，包含元素的margin-right和padding-right都不起作用），最小值为clientWidth。</p>
-<h3 id="DOM浏览器兼容问题"><a href="#DOM浏览器兼容问题" class="headerlink" title="DOM浏览器兼容问题"></a>DOM浏览器兼容问题</h3><p>主要兼容问题元素对象为scrollHeight、scrollTop和clientHeight，可通过三元运算来选择不同的设置来兼容不同浏览器。<code>保险起见，可以都设置三元运算来避免浏览器兼容问题</code></p>
-<p>例如：<code>scrollTop=document.body.scrollTop?document.body.scrollTop:document.documentElement.scrollTop;</code></p>
-<p><strong>注意：浏览器可视区的宽高只能使用<code>document.documentElement.clientWidth</code>和<code>document.documentElement.clientHeight</code>来表示</strong></p>
-<h3 id="offsetLeft、offsetTop值的获取"><a href="#offsetLeft、offsetTop值的获取" class="headerlink" title="offsetLeft、offsetTop值的获取"></a>offsetLeft、offsetTop值的获取</h3><pre>
-    function offset(obj){
-        var offset={};
-        offset.left=obj.offsetLeft;
-        offset.top=obj.offsetTop;
-        while(obj.offsetParent){
-            obj=obj.offsetParent;
-            offset.left+=(obj.offsetLeft+obj.clientLeft);
-            offset.top+=(obj.offsetTop+obj.clientTop);
-        }
-        return offset;
-    }
-</pre>
-
-<h3 id="onscroll事件"><a href="#onscroll事件" class="headerlink" title="onscroll事件"></a>onscroll事件</h3><p>onscroll事件在元素滚动条滚动时触发。</p>
-<p><code>object.onscroll=function(){myScript};</code></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/26/JavaScriptDOM元素对象/" data-id="cisel39yq000j6ee86kpq65gg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/30/JavaScriptBOM浏览器对象模型/" data-id="cisn3bgmj000o59e8dqq4tc7h" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1517,7 +1605,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a></li></ul>
     </div>
   </div>
 
@@ -1528,6 +1616,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/09/01/PHP初了解/">PHP初了解</a>
+          </li>
         
           <li>
             <a href="/2016/08/28/HTML5canvas标签和JavaScript的结合运用/">HTML5canvas标签和JavaScript的结合运用</a>
@@ -1543,10 +1635,6 @@
         
           <li>
             <a href="/2016/08/10/JavaScriptRegExp正则对象/">JavaScriptRegExp正则对象</a>
-          </li>
-        
-          <li>
-            <a href="/2016/08/06/JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage/">JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage</a>
           </li>
         
       </ul>

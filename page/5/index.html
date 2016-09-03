@@ -68,6 +68,205 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-CSS总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/25/CSS总结/" class="article-date">
+  <time datetime="2016-06-25T06:09:24.000Z" itemprop="datePublished">2016-06-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/25/CSS总结/">CSS总结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="CSS-层叠样式表"><a href="#CSS-层叠样式表" class="headerlink" title="CSS(层叠样式表)"></a>CSS(层叠样式表)</h2><h3 id="创建css文件方式"><a href="#创建css文件方式" class="headerlink" title="创建css文件方式"></a>创建css文件方式</h3><ol>
+<li>command+N新建文档输入文件名和后缀，然后保存</li>
+<li>通过slideBar插件，右键创建</li>
+<li>通过终端，touch+space+文件名和后缀创建</li>
+</ol>
+<h3 id="css的引入方式"><a href="#css的引入方式" class="headerlink" title="css的引入方式"></a>css的引入方式</h3><p><strong>1.行间样式</strong></p>
+<pre>
+    &ltdiv style="color:blue;width:200px;height:200px"&gt
+        &ltspan&gt&lt/span&gt
+    &lt/div&gt
+</pre>
+
+<p>优点：（1）快速定位标签（2）优先级高（3）不会额外增加请求</p>
+<p>缺点：（1）破坏html结构（2）内容样式不分离（3）不能复用（4）冗余代码多</p>
+<p><strong>2.内部样式</strong></p>
+<pre>
+    &lthead&gt
+        &ltstyle type="text/css"&gt
+            body{
+                margin:0;
+            }
+            div{
+                width:200px;
+                height:200px;
+            }
+        &lt/style&gt
+    &lt/head&gt
+</pre>
+
+<p>优点：（1）不会破坏html结构（2）不会额外增加请求（3）可以实现样式复用</p>
+<p>缺点：（1）没有完全实现内容与样式的分离（2）多个html文件之间不能复用样式文件</p>
+<p><strong>3.外部样式</strong></p>
+<pre>
+    &lthead&gt
+        &ltlink rel="stylesheet" type="text/css" href="index.css" /&gt
+    &lt/head&gt
+</pre>
+
+<p>优点：（1）不会破坏html结构（2）实现内容样式的分离（3）不会有冗余代码（4）多个html文件可以复用样式文件</p>
+<p>缺点：（1）增加了额外请求</p>
+<p><code>通过比较来看，外联式css是我们理想的选择。</code></p>
+<h3 id="css选择器"><a href="#css选择器" class="headerlink" title="css选择器"></a>css选择器</h3><h5 id="1-选择器分类"><a href="#1-选择器分类" class="headerlink" title="1.选择器分类"></a>1.选择器分类</h5><p><strong>（1）标签选择器</strong></p>
+<p><code>标签名{}</code></p>
+<p>作用是选择系列标签，对该系列标签进行样式设置，做不到精确设置</p>
+<p><strong>（2）id选择器</strong></p>
+<p><code>#id名{}</code></p>
+<p>id名要唯一，可以做到精确设置，但是不能复用</p>
+<p><strong>（3）class类选择器</strong></p>
+<p><code>.class名{}</code></p>
+<p>class名可以复用，样式可以复用</p>
+<p><strong>（4）后代选择器</strong></p>
+<p><code>选择器1 选择器2</code></p>
+<p><strong>（5）群组选择器</strong></p>
+<p><code>选择器1,选择器2</code></p>
+<p><strong>（6）通配选择器</strong></p>
+<p><code>*</code></p>
+<p>过于暴力，不建议使用</p>
+<h4 id="2-选择器的优先级"><a href="#2-选择器的优先级" class="headerlink" title="2.选择器的优先级"></a>2.选择器的优先级</h4><pre>
+    *    &lt        标签        &lt        class    &lt        id    &lt        style    &lt        !important
+    0    &lt        1        &lt        10        &lt        100    &lt        1000    &lt        10000+
+
+    后代选择器为优先级相加，群组选择器无优先级之说
+</pre>
+
+<ol>
+<li>相同等级的选择器，样式冲突的情况下，后面覆盖前面（以后面为准）</li>
+<li>样式冲突的时候，谁的优先级高，就以谁为准。优先级相等，以后面为准</li>
+<li>选择器的优先级不能跨级比较（主要针对后代选择器）</li>
+</ol>
+<h3 id="文本设置"><a href="#文本设置" class="headerlink" title="文本设置"></a>文本设置</h3><ol>
+<li><p>color 文本颜色</p>
+</li>
+<li><p>font-weight 文本的粗细</p>
+</li>
+<li><p>font-style 设置斜体：italic斜体；normal正常</p>
+</li>
+<li><p>text-align 文本的水平方向设置：left；center；right</p>
+</li>
+<li><p>text-decoration 文本划线位置：underline；line-through；overline；none</p>
+</li>
+<li><p>text-indent 文本缩进：px/em</p>
+</li>
+<li><p>vertical-align 文本和元素的垂直方向设置：top；middle；bottom<br><code>必须配合display:table;display:table-cell使用</code></p>
+</li>
+<li><p>line-height 行间距：纯数值/px</p>
+</li>
+<li><p>direction 文本输入方向设置：ltr默认文本方向从左到右/rtl文本方向从右到左</p>
+</li>
+</ol>
+<h3 id="尺寸设置"><a href="#尺寸设置" class="headerlink" title="尺寸设置"></a>尺寸设置</h3><ol>
+<li><p>width 设置容器宽度 单位：px/%/vh</p>
+</li>
+<li><p>height 设置容器高度 单位：px/%/vh</p>
+</li>
+<li><p>min-width 设置最低宽度 内容不足容器的宽度时，以容器宽度为准；内容宽度超出容器宽度时，以内容宽度为准</p>
+</li>
+<li><p>min-height 设置最小高度 内容不足容器高度时，以容器高度为准</p>
+</li>
+</ol>
+<p><code>可参考上文的CSS单位。</code></p>
+<h3 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h3><p>盒模型是一个概念，是一些css属性的集合</p>
+<ol>
+<li><p>width</p>
+</li>
+<li><p>height</p>
+</li>
+<li><p>padding</p>
+</li>
+<li><p>margin</p>
+</li>
+<li><p>块级标签display:block</p>
+</li>
+<li><p>标准盒模型</p>
+</li>
+<li><p>IE盒模型</p>
+</li>
+<li><p>boxsizing:border-box;</p>
+</li>
+<li><p>border：border-width 3px默认值；border-color 继承父级的字体颜色；border-style solid实线/dashed虚线/dotted点状线</p>
+</li>
+</ol>
+<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><ol>
+<li><p>background-color</p>
+</li>
+<li><p>background-image:url()</p>
+</li>
+<li><p>background-repeat:repeat-x/repeat-y/no-repeat</p>
+</li>
+<li><p>background-position:0 0;</p>
+</li>
+<li><p>background-size:0 0/cover自适应/contain自适应（改变后会留白）</p>
+</li>
+<li><p>css sprite 雪碧图技术</p>
+</li>
+</ol>
+<h3 id="显示与隐藏"><a href="#显示与隐藏" class="headerlink" title="显示与隐藏"></a>显示与隐藏</h3><ol>
+<li><p>设置display:none隐藏/block显示</p>
+</li>
+<li><p>设置opacity(透明度):0透明/1完全不透明</p>
+</li>
+<li><p>设置visibility：hidden隐藏(但还占着地方)/visible显示</p>
+</li>
+</ol>
+<h3 id="float浮动"><a href="#float浮动" class="headerlink" title="float浮动"></a>float浮动</h3><p><strong>float:left;right;none</strong></p>
+<p><strong>清除浮动的方法：</strong></p>
+<ol>
+<li><p>给浮动元素的父级设置高度（达到清除浮动的影响）</p>
+</li>
+<li><p>给浮动元素的父级设置overflow:hidden（达到清除浮动的影响）</p>
+</li>
+<li><p>给浮动元素的下方（同级）新增标签，并设置clear属性（真正的清除浮动）</p>
+</li>
+</ol>
+<h3 id="position定位"><a href="#position定位" class="headerlink" title="position定位"></a>position定位</h3><p><strong>position:relative/absolute/fixed</strong></p>
+<p><strong>附加样式属性：left;top;bottom;right;z-index层级</strong></p>
+<ol>
+<li><p>relative相对定位 本身没有任何改变，设置了left相关属性才会位移，一般作用于设置绝对定位元素的父级</p>
+</li>
+<li><p>absolute绝对定位 元素本身会发生改变，尺寸由内容撑开，设置了left相关属性才会位移：（1）父级元素有position相关属性的话，该元素会以父级元素定位（2）父级元素没有position相关属性，该元素会以窗口定位</p>
+</li>
+<li><p>fixed固定定位 元素本身会发生改变，尺寸由内容撑开，设置了left相关属性才会位移（1）一般使用场景，窗口固定位置：比如广告、回到顶部（2）固定在窗口的某个位置</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/06/25/CSS总结/" data-id="cisn3bgll000c59e8gq3l7kua" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-meta标签" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/06/24/meta标签/" class="article-date">
@@ -185,7 +384,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/24/meta标签/" data-id="cisel3a0400186ee8sn4jvhxz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/24/meta标签/" data-id="cisn3bgno001959e87tiaflq5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -256,7 +455,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/23/CSS单位/" data-id="cisel39x8000b6ee8wy3i1sa9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/23/CSS单位/" data-id="cisn3bglg000959e881wzg9g2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -425,7 +624,7 @@ action=""
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/22/HTML简述/" data-id="cisel39ys000k6ee8srbi6yed" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/22/HTML简述/" data-id="cisn3bgme000j59e84vle0s59" class="article-share-link">Share</a>
       
       
     </footer>
@@ -499,7 +698,7 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/22/HEXO博客的搭建/" data-id="cisel39xc000c6ee8dms0kebf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/22/HEXO博客的搭建/" data-id="cisn3bgli000a59e8lemq49fn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -544,7 +743,7 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/22/hello-world/" data-id="cisel39zw00166ee8sdxw8bxd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/22/hello-world/" data-id="cisn3bgnb001559e8px14a9jq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -575,7 +774,7 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a></li></ul>
     </div>
   </div>
 
@@ -586,6 +785,10 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/09/01/PHP初了解/">PHP初了解</a>
+          </li>
         
           <li>
             <a href="/2016/08/28/HTML5canvas标签和JavaScript的结合运用/">HTML5canvas标签和JavaScript的结合运用</a>
@@ -601,10 +804,6 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
         
           <li>
             <a href="/2016/08/10/JavaScriptRegExp正则对象/">JavaScriptRegExp正则对象</a>
-          </li>
-        
-          <li>
-            <a href="/2016/08/06/JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage/">JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage</a>
           </li>
         
       </ul>
