@@ -68,6 +68,223 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-PHP运算符、流程控制、函数、数组和字符串" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/07/PHP运算符、流程控制、函数、数组和字符串/" class="article-date">
+  <time datetime="2016-09-07T12:00:44.000Z" itemprop="datePublished">2016-09-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/07/PHP运算符、流程控制、函数、数组和字符串/">PHP运算符、流程控制、函数、数组和字符串</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、运算符"><a href="#一、运算符" class="headerlink" title="一、运算符"></a>一、运算符</h2><h5 id="一、算数运算符"><a href="#一、算数运算符" class="headerlink" title="一、算数运算符"></a>一、算数运算符</h5><p>算数运算符用于完成各种运算。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">+		加法运算符			$a+$b</span><br><span class="line">-		减法运算符			$a-$b</span><br><span class="line">*		乘法运算符			$a*$b</span><br><span class="line">/		除法运算符			$a/$b</span><br><span class="line">%		取模运算符(求余数)			$a%$b</span><br></pre></td></tr></table></figure>
+<h5 id="二、赋值运算符"><a href="#二、赋值运算符" class="headerlink" title="二、赋值运算符"></a>二、赋值运算符</h5><p>赋值运算符，将一个数据值赋给一个变量。</p>
+<p>复合运算符，在赋值之前会完成某个运算。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$a = 5		赋值</span><br><span class="line">$a += 5		加法赋值			$a = $a + 5</span><br><span class="line">$a -= 5		减法赋值			$a = $a - 5</span><br><span class="line">$a *= 5		乘法赋值			$a = $a * 5</span><br><span class="line">$a /= 5		除法赋值			$a = $a / 5</span><br><span class="line">$a .= 5		拼接赋值			$a = $a.5</span><br></pre></td></tr></table></figure>
+<h5 id="三、字符串运算"><a href="#三、字符串运算" class="headerlink" title="三、字符串运算"></a>三、字符串运算</h5><p>字符串运算用于拼接字符串。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$a = &quot;hello&quot;;</span><br><span class="line">$b = $a . &quot;world&quot;;//表示拼接前后两个字符串</span><br><span class="line">echo $b;</span><br><span class="line"></span><br><span class="line">$b = &quot;Hello&quot;;</span><br><span class="line">$b .= &quot;World!&quot;;// .= 表示$b = $b.&quot;World!&quot;</span><br><span class="line">echo $b;</span><br></pre></td></tr></table></figure>
+<h5 id="四、递增-和递减-–-运算符"><a href="#四、递增-和递减-–-运算符" class="headerlink" title="四、递增(++)和递减(–)运算符"></a>四、递增(++)和递减(–)运算符</h5><p>递增和递减运算符将变量的当前值加1或减1，可以使代码更简洁。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">++$i		先加  $i的值加1，然后再返回$i的值；</span><br><span class="line">$i++		后加  先返回$i的值，然后再将$i的值加1；</span><br><span class="line">--$i		先减  $i的值减一，然后再返回$i的值；</span><br><span class="line">$i++		后减  先返回$i的值，然后再将$i的值减1；</span><br></pre></td></tr></table></figure>
+<h5 id="五、逻辑运算符"><a href="#五、逻辑运算符" class="headerlink" title="五、逻辑运算符"></a>五、逻辑运算符</h5><p>利用逻辑运算符可以根据多个变量的值进行判断，这使得控制程序的流程成为可能，逻辑操作符常用于控制结构中，如if条件和while及for循环。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&amp;&amp;	and			逻辑与</span><br><span class="line">||	or			逻辑或</span><br><span class="line">!				逻辑非</span><br><span class="line">xor				异或（有且仅有一个为true，则返回true）</span><br></pre></td></tr></table></figure>
+<h5 id="六、比较运算符"><a href="#六、比较运算符" class="headerlink" title="六、比较运算符"></a>六、比较运算符</h5><p>比较运算符，返回一个布尔值TRUE或FALSE。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;		大于</span><br><span class="line">&lt;		小于</span><br><span class="line">&gt;=		大于或等于</span><br><span class="line">&lt;=		小于或等于</span><br><span class="line">!=		不等于</span><br><span class="line">&lt;&gt;		不等于</span><br><span class="line">==		等于</span><br><span class="line">===		全等于（两个比较的内容里，类型也要相同）</span><br><span class="line">!==		全不等</span><br></pre></td></tr></table></figure>
+<h5 id="七、三元运算符"><a href="#七、三元运算符" class="headerlink" title="七、三元运算符"></a>七、三元运算符</h5><p>语法：expression1 ? expression2 : expression3</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$a = 5;</span><br><span class="line">$b = 2;</span><br><span class="line">$res = $a &gt; $b ? &quot;yes&quot; : &quot;no&quot;;</span><br><span class="line">echo $res;</span><br></pre></td></tr></table></figure>
+<h5 id="八、运算符的优先级"><a href="#八、运算符的优先级" class="headerlink" title="八、运算符的优先级"></a>八、运算符的优先级</h5><p>运算符的优先级指的是哪一个运算符应该先计算。</p>
+<p>具体运算符的优先级，请<a href="http://www.php.net/manual/zh/language.operators.precedence.php" target="_blank" rel="external">点击这里</a>。</p>
+<h2 id="二、流程控制"><a href="#二、流程控制" class="headerlink" title="二、流程控制"></a>二、流程控制</h2><h5 id="一、判断语句"><a href="#一、判断语句" class="headerlink" title="一、判断语句"></a>一、判断语句</h5><p><strong>1. if 语句</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if(expression)&#123;</span><br><span class="line">	//statement;</span><br><span class="line">&#125;else if(expression)&#123;</span><br><span class="line">	//statement;</span><br><span class="line">&#125;else&#123;</span><br><span class="line">	//statement;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>if语句用括号中的表达式返回值（true或false）来控制是否执行指定的代码程序；表达式为数字0、空、未定义的字符串，内置常量都会返回false。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">短路现象</span><br><span class="line">$a = 5;</span><br><span class="line">$num = 1;</span><br><span class="line">if($a == 3 or $num++) &#123;</span><br><span class="line">	echo $num;//输出1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>2. switch 语句</strong></p>
+<p>语法格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">switch (expression)&#123;</span><br><span class="line">	case value:</span><br><span class="line">		//statements;</span><br><span class="line">		break;</span><br><span class="line">	default:</span><br><span class="line">		//statements;</span><br><span class="line">		break;</span><br><span class="line">&#125;</span><br><span class="line">在每个case块的末尾处都有break语句，如果没有break语句，就会执行所有后续的case块，直到遇到break语句为止。</span><br></pre></td></tr></table></figure>
+<p>switch 语句可以看做是if-else组合的一种变体，如果需要比较有限值的变量，通常会使用switch 语句。</p>
+<h5 id="二、循环语句"><a href="#二、循环语句" class="headerlink" title="二、循环语句"></a>二、循环语句</h5><p><strong>1. while</strong></p>
+<p>语法格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">while (条件为真)&#123;</span><br><span class="line">	要执行的代码块;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>2. do…while</strong></p>
+<p>do…while循环是while的一种变体，它在代码块的结束处验证循环条件。</p>
+<p>do…while循环首先会执行一次代码块，然后检查条件，如果指定条件为真，则重复循环。</p>
+<p>语法格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">do&#123;</span><br><span class="line">	要执行的代码块;</span><br><span class="line">&#125; while (条件为真);</span><br></pre></td></tr></table></figure>
+<p><strong>3. for循环</strong></p>
+<p>当确定脚本的运行次数，可以使用for循环。</p>
+<p>语法格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">for (init counter; test counter; increment counter) &#123;</span><br><span class="line">	code to be executed;</span><br><span class="line">&#125;</span><br><span class="line">参数：</span><br><span class="line">	init counter：初始化循环计数器的值</span><br><span class="line">	test counter：评估每个循环迭代。如果为TRUE，继续循环；如果为FALSE，循环结束。</span><br><span class="line">	increment counter：增加循环计数器的值</span><br></pre></td></tr></table></figure>
+<p><strong>4. foreach循环</strong></p>
+<p>foreach循环只适用于数组，并用于遍历数组中的每个键/值对。每次循环都将指针后移一位。</p>
+<p>语法格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">第一种：</span><br><span class="line">foreach ($array as $value) &#123;</span><br><span class="line">	code to be executed;</span><br><span class="line">&#125;</span><br><span class="line">第二种：</span><br><span class="line">foreach ($array as $key =&gt; $value) &#123;</span><br><span class="line">	code to be executed;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="三、跳出循环"><a href="#三、跳出循环" class="headerlink" title="三、跳出循环"></a>三、跳出循环</h5><p><strong>1. break</strong></p>
+<p>如果包含一个break 语句，将立即结束 while、do.while、for、foreach、switch 的执行。</p>
+<p><strong>2. continue</strong></p>
+<p>continue 语句使当前循环执行结束，并从下一次循环开始执行。</p>
+<h2 id="三、函数"><a href="#三、函数" class="headerlink" title="三、函数"></a>三、函数</h2><h5 id="1-函数概念"><a href="#1-函数概念" class="headerlink" title="1. 函数概念"></a>1. 函数概念</h5><p>函数是用来完成某种特定任务的可重用代码块；</p>
+<p>函数可以是程序更具模块化，拥有良好的结构；</p>
+<p>函数定义后在程序中可以重复调用；</p>
+<p>函数分为内置函数和自定义函数。</p>
+<h5 id="2-函数分类"><a href="#2-函数分类" class="headerlink" title="2. 函数分类"></a>2. 函数分类</h5><p>（1）内置函数</p>
+<p>PHP 系统提供了大量功能强大的函数，帮助我们解决各种问题。</p>
+<p>（2）创建自定义函数</p>
+<p>语法格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function functionName() &#123;</span><br><span class="line">	被执行的代码块;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="3-函数简介及区别"><a href="#3-函数简介及区别" class="headerlink" title="3. 函数简介及区别"></a>3. 函数简介及区别</h5><p>函数用function关键字来声明。</p>
+<p>函数名称是由字母或下划线开头而非数字。</p>
+<p><strong>函数名不区分大小写</strong>，不过在调用函数的时候，通常使用其在定义时相同的形式。</p>
+<p><strong>PHP 不支持函数重载，所以自定义函数不能和内置函数重名。</strong></p>
+<p>参数出现在括号中，如果有多个参数，用逗号分隔。</p>
+<p>不同语言函数的区别：</p>
+<ol>
+<li>在Java等强类型语言中方法的名字严格区分大小写；</li>
+<li>C语言中的函数也是严格区分大小写；</li>
+<li>PHP 到现在的版本，函数名称不区分大小写；</li>
+<li>很多语言允许函数的重载，即函数有相同的名称但是函数参数不同；</li>
+<li>PHP 不支持函数的重载。</li>
+</ol>
+<h5 id="4-参数传递"><a href="#4-参数传递" class="headerlink" title="4. 参数传递"></a>4. 参数传递</h5><p><strong>值传递（传值）</strong></p>
+<p>函数内对参数值的改变不会影响函数外部的值。</p>
+<p><strong>引用传递（传址）</strong></p>
+<p>当需要在函数体内对参数地修改在函数体外也能反映时，用引用传递。</p>
+<p>使用引用传递参数要在参数前加上<code>&amp;</code>符号。</p>
+<p>变量本身传入，传入后的变量与原变量建立联系，函数体内变量的变化，会影响到原变量本身。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$a = 25;</span><br><span class="line">function modifyNum (&amp;$num)&#123;</span><br><span class="line">	$num = 100;</span><br><span class="line">&#125;</span><br><span class="line">modifyNum($a);</span><br></pre></td></tr></table></figure>
+<p>默认参数：可以为参数指定默认值，在没有提供其他值的情况下，则将默认值自动赋给该参数。</p>
+<p>可选参数：可以指定某个参数为可选参数，这些参数需要放在参数列表的末尾，需要指定其默认值为空；如果指定了多个可选参数，可以选择性地传递某些参数。</p>
+<h5 id="5-返回值"><a href="#5-返回值" class="headerlink" title="5. 返回值"></a>5. 返回值</h5><p>当需要将函数的执行结果返回给调用者时，这时可以使用return语句返回结果。</p>
+<p>return语句执行后，将使得函数立即结束运行，并将控制权返回被调用的行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function mysquare($num)&#123;</span><br><span class="line">	if($num == &quot;&quot;)&#123;</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line">	$res = $x * $x;</span><br><span class="line">	return $res;</span><br><span class="line">&#125;</span><br><span class="line">echo mysquare(4);</span><br></pre></td></tr></table></figure>
+<h5 id="6-变量作用域和生命周期"><a href="#6-变量作用域和生命周期" class="headerlink" title="6. 变量作用域和生命周期"></a>6. 变量作用域和生命周期</h5><p><strong>由于引入了函数，程序中变量的能见度发生了变化，即变量的作用范围发生了改变。变量分为：全局变量(global)，局部变量(locak)，静态变量(static)。</strong></p>
+<p><em>函数之外声明的变量拥有Global作用域，只能在函数以外进行访问。</em></p>
+<p><em>函数内部声明的变量拥有Local作用域，只能在函数内部进行访问。</em></p>
+<p>全局变量在函数内使用方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$user = &quot;xiaoming&quot;;</span><br><span class="line">function test()&#123;</span><br><span class="line">	//方法一  php在名为$GLOBALS[index]的数组中存储了所有的全局变量。下标存有变量名。</span><br><span class="line">	//这个数组在函数内也可以访问，并能够用于直接更新全局变量。</span><br><span class="line">	$user = $GLOBALS[&quot;user&quot;];</span><br><span class="line">	//方法二  在函数内部变量前面使用global关键字</span><br><span class="line">	global $user;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>局部变量：函数体内定义的变量为局部变量，只在函数体内可见。</p>
+<p>局部变量作用域：从声明它的那条语句开始到函数结束。</p>
+<p>静态变量：当函数完成/执行后，会删除所有变量。不过，有时需要不删除某个局部变量。要完成这一点，在首次声明变量时使用<code>static</code>关键词。然后每当函数被调用时，这个变量所存储的信息都是函数最后一次被调用时所包含的信息。</p>
+<p>静态变量使用方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function statics()&#123;</span><br><span class="line">	static $num = 10;</span><br><span class="line">	$num++;</span><br><span class="line">	echo $num;</span><br><span class="line">&#125;</span><br><span class="line">statics();</span><br><span class="line">statics();</span><br><span class="line">statics();</span><br></pre></td></tr></table></figure>
+<h5 id="7-include和require"><a href="#7-include和require" class="headerlink" title="7. include和require"></a>7. include和require</h5><ol>
+<li><p><strong>include()</strong> include()语句将在其被调用的位置处包含一个文件，如<code>include(&quot;init.php&quot;)</code>；</p>
+</li>
+<li><p><strong>include_once()</strong> include_once()的作用与include()相同，不过它会首先验证是否已经包含了该文件，如果已经包含，则不再执行include_once()；</p>
+</li>
+<li><p><strong>require()</strong> 其与include()一样，只不过require()通常放在php程序的最前面；</p>
+</li>
+<li><p><strong>require_once()</strong> 其与include_once()一样，但是也要放在php程序的最前面；</p>
+</li>
+<li><p>include与require的区别：require一个文件存在错误的话，那么程序就会中断执行，并显示致命错误；include一个文件存在错误的话，那么程序不会中断，而是继续执行，并显示一个警告错误。</p>
+</li>
+</ol>
+<h2 id="四、数组"><a href="#四、数组" class="headerlink" title="四、数组"></a>四、数组</h2><h5 id="一、数组概念"><a href="#一、数组概念" class="headerlink" title="一、数组概念"></a>一、数组概念</h5><p>数组为有序的（键-值）对组成的数据值的集合。根据索引值的不同，数组分为：索引数组和关联数组。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$day = array(&quot;a&quot;,&quot;b&quot;,&quot;c&quot;);//索引数组</span><br><span class="line">$week = array(&quot;a&quot;=&gt;&quot;星期一&quot;,&quot;b&quot;=&gt;&quot;星期二&quot;,&quot;c&quot;=&gt;&quot;星期三&quot;);//关联数组</span><br></pre></td></tr></table></figure>
+<h5 id="二、数组创建"><a href="#二、数组创建" class="headerlink" title="二、数组创建"></a>二、数组创建</h5><p>1.使用array()函数 <code>$array = array([mixed ...])</code></p>
+<p>与其他语言的数组实现方式不同，php不需要再创建数组时指定其大小。因为php是一种松散类型的语言，所以甚至不需要在使用前先声明。</p>
+<p>索引可以是整型数字或则字符串：</p>
+<ol>
+<li>索引数组：索引为整数，如果没有指定索引值则默认为零，依次递增；</li>
+<li>关联数组：索引为字符串的数组。</li>
+</ol>
+<p>2.直接对数组变量赋值 <code>$arr[key] = value</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$fruits[] = &quot;orange&quot;;</span><br><span class="line">$fruits[] = &quot;apple&quot;;</span><br><span class="line">$languages[&quot;en&quot;] = &quot;english&quot;;</span><br><span class="line">$languages[&quot;cn&quot;] = &quot;chinese&quot;;</span><br></pre></td></tr></table></figure>
+<p>如果方括号中没有指定索引，则取当前最大整数索引值，新的键名将是 该值+1。如果当前还没有整数索引，则键名将为0.如果指定的键名已经有值了，该值将被覆盖。</p>
+<p>3.使用函数创建数组 range()创建一个包含指定范围单位单元的数组。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$num = range(1,100);</span><br><span class="line">print_r($num);</span><br><span class="line">$letter = range(&quot;a&quot;,&quot;l&quot;);</span><br><span class="line">print_R($letter);</span><br></pre></td></tr></table></figure>
+<h5 id="三、数组的基本操作"><a href="#三、数组的基本操作" class="headerlink" title="三、数组的基本操作"></a>三、数组的基本操作</h5><ol>
+<li>unset($arr[0]) 删除数组元素</li>
+<li>print_r($arr) 打印数组</li>
+<li>count($arr) 取得数组大小</li>
+<li>in_array(10,$arr) 检查数组中是否包含某个值</li>
+</ol>
+<h5 id="四、遍历数组"><a href="#四、遍历数组" class="headerlink" title="四、遍历数组"></a>四、遍历数组</h5><ol>
+<li>for循环变量数组</li>
+<li>foreach循环遍历数组</li>
+</ol>
+<h5 id="五、数组排序"><a href="#五、数组排序" class="headerlink" title="五、数组排序"></a>五、数组排序</h5><ol>
+<li>sort()、rsort()对数组进行升序和降序。</li>
+<li>ksort()、krsort()对数组按索引进行升序或降序，并保持索引关系。</li>
+</ol>
+<h5 id="六、二维数组"><a href="#六、二维数组" class="headerlink" title="六、二维数组"></a>六、二维数组</h5><p>数组元素的值也可以是数组。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$result = array(</span><br><span class="line">	array(</span><br><span class="line">		&apos;name&apos;=&gt;&apos;xiaoming&apos;,</span><br><span class="line">		&apos;age&apos;=&gt;&apos;18&apos;,</span><br><span class="line">	),</span><br><span class="line">	array(</span><br><span class="line">		&apos;name&apos;=&gt;&apos;xiaohong&apos;,</span><br><span class="line">		&apos;age&apos;=&gt;&apos;16&apos;,</span><br><span class="line">	),</span><br><span class="line">);</span><br><span class="line">//遍历二维数组</span><br><span class="line">foreach($result as $keys =&gt; $values)&#123;</span><br><span class="line">	foreach($values as $key =&gt; $value)&#123;</span><br><span class="line">		echo &quot;我是&#123;$keys&#125;的，我的键是&#123;$keys&#125;，我的值是$values&lt;hr/&gt;&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="五、字符串"><a href="#五、字符串" class="headerlink" title="五、字符串"></a>五、字符串</h2><h5 id="一、输出字符串"><a href="#一、输出字符串" class="headerlink" title="一、输出字符串"></a>一、输出字符串</h5><p><strong>echo</strong> 是一个语法，不是函数。echo没有返回值，echo可以输出多个值，使用逗号分隔。</p>
+<h5 id="二、其他处理函数"><a href="#二、其他处理函数" class="headerlink" title="二、其他处理函数"></a>二、其他处理函数</h5><p><strong>strlen()</strong> 获取字符串长度</p>
+<p><strong>strtolower()</strong> 将字符串转换为小写字母</p>
+<p><strong>strtoupper()</strong> 将字符串转换为大写字母</p>
+<h5 id="三、查找与替换"><a href="#三、查找与替换" class="headerlink" title="三、查找与替换"></a>三、查找与替换</h5><p><strong>strpos()</strong> </p>
+<p><code>strpos(string,find[,start])</code> strpos()函数在string中以区分大小写的方式找到find第一次出现的位置；如果没有找到则返回FALSE；可选参数start指定开始查找的位置。</p>
+<p><strong>stripos()</strong></p>
+<p>stripos()与strpos()功能相同，只是查找时不区别大小写。</p>
+<p><strong>str_replace()</strong></p>
+<p><code>str_replace(search,replace,subject[,count])</code> </p>
+<p>str_replace()函数在subject中以区分大小写的方式搜索search，用replace替换找到的所有内容；如果没有找到search，则subject保持不变。count对替换数进行计数的变量，不可对其设置。</p>
+<p><strong>str_ireplace()</strong></p>
+<p>str_ireplace()与str_replace()功能相同，只是不区分大小写。</p>
+<h5 id="四、截取字符串"><a href="#四、截取字符串" class="headerlink" title="四、截取字符串"></a>四、截取字符串</h5><p><strong>substr()</strong></p>
+<p><code>substr(string,start[,length])</code> 从start位置取出length长度的字符，字符串位置开始值为0；如果没有指定length，那么默认一直到字符串末尾。</p>
+<p><strong>strstr()</strong></p>
+<p><code>strstr(string,search,before_search)</code> strstr()作业从string中搜索search，并根据第三个参数返回search后面的数据还是前面的数据(默认为false，返回search后面的；true，返回search前面的)。</p>
+<p><strong>stristr()</strong></p>
+<p>stristr()与strstr()功能相同，只是不区分大小写。</p>
+<h5 id="五、删除字符串"><a href="#五、删除字符串" class="headerlink" title="五、删除字符串"></a>五、删除字符串</h5><p><strong>ltrim()</strong> </p>
+<p><code>lstrim(string,[charlist])</code> ltrim函数删除字符串左侧空格及其他预定义字符；如果未设置charlist参数，则删除一下字符：</p>
+<ol>
+<li>“\0” NULL</li>
+<li>“\t” 制表符</li>
+<li>“\n” 换行</li>
+<li>“\x0B” 垂直制表符</li>
+<li>“\r” 回车</li>
+<li>“ “ 空格</li>
+</ol>
+<p><strong>rtrim()</strong></p>
+<p><code>rtrim(string[,charlist])</code> rtrim函数删除字符串右侧空格或其他预定义字符。</p>
+<p><strong>trim()</strong></p>
+<p>trim函数删除字符串两侧空格或其他预定义字符。</p>
+<p><strong>strrev()</strong> 反转字符串</p>
+<p><strong>nl2br()</strong> 将字符串中换行(\n)转换成HTML换行标签(br/)。</p>
+<p><strong>strip_tags()</strong></p>
+<p><code>strip_tags(string[,allowable_tags])</code> 删除字符串中 HTML XML PHP 标签，可选参数allowable_tags指定要保留的标签。</p>
+<p><strong>htmlspecialchars()</strong> 函数把一些预定义的字符转换为HTML实体</p>
+<p>预定义的字符有：</p>
+<ol>
+<li><code>&amp; （和号） 成为 &amp;amp;</code></li>
+<li><code>&quot;&quot; （双引号） 成为 &amp;quot;</code></li>
+<li><code>&#39;&#39; （单引号） 成为 &amp;#039;</code></li>
+<li><code>&lt; （小于） 成为 &amp;lt;</code></li>
+<li><code>&gt; （大于） 成为 &amp;gt;</code></li>
+</ol>
+<h5 id="六、数组字符串转换"><a href="#六、数组字符串转换" class="headerlink" title="六、数组字符串转换"></a>六、数组字符串转换</h5><p><strong>explode()</strong> </p>
+<p><code>explode(separator,string[,limit])</code> 返回由字符串组成的数组，separator规定在哪里分隔字符串，string要分割的字符串，可选limit规定所返回的数组元素的数目。</p>
+<p><strong>implode()</strong></p>
+<p><code>implode([separator,]array)</code> 将数组元素连接成字符串，separator可选规定数组元素之间放置的内容，默认是””(空字符串)；array要组合为字符串的数组。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/09/07/PHP运算符、流程控制、函数、数组和字符串/" data-id="cisswu4mf0017c4e876ysun2n" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-PHP初了解" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/09/01/PHP初了解/" class="article-date">
@@ -218,7 +435,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/01/PHP初了解/" data-id="cisn3bgn9001459e86kpr52et" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/01/PHP初了解/" data-id="cisswu4mb0015c4e8ehwfm6v5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -326,7 +543,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/28/HTML5canvas标签和JavaScript的结合运用/" data-id="cisn3bglr000f59e8bv9m6r0z" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/28/HTML5canvas标签和JavaScript的结合运用/" data-id="cisswu4l4000ic4e8vggoykeo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -362,7 +579,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/26/jQuery函数的封装/" data-id="cisn3bgnm001859e8863rkmlu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/26/jQuery函数的封装/" data-id="cisswu4mh0018c4e80ukoka8f" class="article-share-link">Share</a>
       
       
     </footer>
@@ -623,7 +840,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/24/JavaScript面向对象/" data-id="cisn3bgnd001659e8ag0x4sye" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/24/JavaScript面向对象/" data-id="cisswu4mk001ac4e8vtsvchds" class="article-share-link">Share</a>
       
       
     </footer>
@@ -781,7 +998,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/10/JavaScriptRegExp正则对象/" data-id="cisn3bgmg000l59e8jvl54fj1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/10/JavaScriptRegExp正则对象/" data-id="cisswu4lg000nc4e82dkzgx38" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1014,7 +1231,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/06/JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage/" data-id="cisn3bgmm000q59e8pezg2t0n" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/06/JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage/" data-id="cisswu4lh000oc4e8l8k6nuzx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1268,7 +1485,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/05/JavaScript滚轮事件的封装和滚轮轮播图/" data-id="cisn3bgn0000y59e8ne1xojhe" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/05/JavaScript滚轮事件的封装和滚轮轮播图/" data-id="cisswu4m40010c4e8aglb3jij" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1366,7 +1583,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/03/JavaScriptCallback回调函数和事件委托的封装/" data-id="cisn3bgmf000k59e8izdw6s7s" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/03/JavaScriptCallback回调函数和事件委托的封装/" data-id="cisswu4lb000jc4e8gnud2xuj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1508,73 +1725,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/30/JavaScript事件流、事件类型、事件对象和事件委托/" data-id="cisn3bgmn000r59e8himh703g" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-JavaScriptBOM浏览器对象模型" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/07/30/JavaScriptBOM浏览器对象模型/" class="article-date">
-  <time datetime="2016-07-30T01:11:21.000Z" itemprop="datePublished">2016-07-30</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/30/JavaScriptBOM浏览器对象模型/">JavaScriptBOM浏览器对象模型</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="BOM简介"><a href="#BOM简介" class="headerlink" title="BOM简介"></a>BOM简介</h3><p>BOM：Browser Object Model 是浏览器对象模型，浏览器对象模型提供了独立与内容的，可以与浏览器窗口进行互动的对象结构，BOM由多个对象构成，其中代表浏览器窗口的window对象是BOM的顶层对象，其他对象都是该对象的子对象。</p>
-<h3 id="BOM对象"><a href="#BOM对象" class="headerlink" title="BOM对象"></a>BOM对象</h3><h4 id="window对象"><a href="#window对象" class="headerlink" title="window对象"></a>window对象</h4><p>window是根对象，screen、navigator、location、history都属于window，只不过我们使用这些方法的时候可以省略前面的window。</p>
-<p>window.close();关闭浏览器窗口</p>
-<p>window.open();打开一个新的浏览器窗口或查找一个已命名的窗口</p>
-<p>window.innerWidth;浏览器可视区的宽度（在IE8及以下有兼容问题）</p>
-<p>window.innerHeight;浏览器可视区的高度（在IE8及以下有兼容问题）</p>
-<h5 id="screen对象"><a href="#screen对象" class="headerlink" title="screen对象"></a>screen对象</h5><p>screen对象包含有关客户端显示屏幕的信息。</p>
-<p>screen.width;显示器的宽</p>
-<p>screen.height;显示器的高</p>
-<p>screen.availWidth;浏览器的屏幕可用的宽度</p>
-<p>screen.availHeight;浏览器的屏幕可用的高度</p>
-<h5 id="navigator浏览器信息（-important）"><a href="#navigator浏览器信息（-important）" class="headerlink" title="navigator浏览器信息（!important）"></a>navigator浏览器信息（!important）</h5><p>navigator.appCodeName;浏览器的代码名</p>
-<p>navigator.appVersion;浏览器的版本信息</p>
-<p>navigator.platform;浏览器的操作系统和（或）硬件平台</p>
-<p>navigator.userAgent;浏览器用于HTTP请求的用户代理头的值</p>
-<h5 id="location路径信息"><a href="#location路径信息" class="headerlink" title="location路径信息"></a>location路径信息</h5><p>location.host;返回主机名及端口</p>
-<p>location.name;返回主机名</p>
-<p><strong>location.hash;</strong>锚 指#及其后面的值，只有一个值</p>
-<p><strong>location.href;</strong>完整的链接（URL）</p>
-<p>location.pathname;当前URL的路径部分</p>
-<p>location.port;端口号</p>
-<p>location.protocol;当前URL的协议</p>
-<p><strong>location.search</strong>;问号（?）开始的URL（查询部分），到#为止</p>
-<p>location.assign();加载新文档</p>
-<p><strong>location.reload();</strong>重新加载当前页面</p>
-<p>location.replace();用新文档替换当前文档</p>
-<h5 id="history历史记录"><a href="#history历史记录" class="headerlink" title="history历史记录"></a>history历史记录</h5><p>history.length;返回浏览器历史列表中的URL数量</p>
-<p>history.back();加载history列表中的前一个URL</p>
-<p>history.forward();加载history列表中的下一个URL</p>
-<p>history.go();加载history列表中的某个具体页面</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/30/JavaScriptBOM浏览器对象模型/" data-id="cisn3bgmj000o59e8dqq4tc7h" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/30/JavaScript事件流、事件类型、事件对象和事件委托/" data-id="cisswu4ln000rc4e8e02nmmle" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1618,6 +1769,10 @@
       <ul>
         
           <li>
+            <a href="/2016/09/07/PHP运算符、流程控制、函数、数组和字符串/">PHP运算符、流程控制、函数、数组和字符串</a>
+          </li>
+        
+          <li>
             <a href="/2016/09/01/PHP初了解/">PHP初了解</a>
           </li>
         
@@ -1631,10 +1786,6 @@
         
           <li>
             <a href="/2016/08/24/JavaScript面向对象/">JavaScript面向对象</a>
-          </li>
-        
-          <li>
-            <a href="/2016/08/10/JavaScriptRegExp正则对象/">JavaScriptRegExp正则对象</a>
           </li>
         
       </ul>

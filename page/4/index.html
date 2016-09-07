@@ -68,6 +68,227 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-CSS3动画" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/04/CSS3动画/" class="article-date">
+  <time datetime="2016-07-04T01:19:14.000Z" itemprop="datePublished">2016-07-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/04/CSS3动画/">CSS3动画</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Animation动画"><a href="#Animation动画" class="headerlink" title="Animation动画"></a>Animation动画</h2><h4 id="简写方式为animation-liu-5s-infinite-linear-2s-normal"><a href="#简写方式为animation-liu-5s-infinite-linear-2s-normal" class="headerlink" title="简写方式为animation:liu 5s infinite linear 2s normal;"></a>简写方式为animation:liu 5s infinite linear 2s normal;</h4><h6 id="animation-animation-name-animation-duration-animation-timing-function-animation-iteration-count-animation-delay-animation-direction"><a href="#animation-animation-name-animation-duration-animation-timing-function-animation-iteration-count-animation-delay-animation-direction" class="headerlink" title="animation:animation-name animation-duration animation-timing-function animation-iteration-count animation-delay animation-direction;"></a>animation:animation-name animation-duration animation-timing-function animation-iteration-count animation-delay animation-direction;</h6><h3 id="animation-name动画属性名"><a href="#animation-name动画属性名" class="headerlink" title="animation-name动画属性名"></a>animation-name动画属性名</h3><p><code>animation-name</code>属性为<code>@keyframes</code>动画规定名称。</p>
+<h3 id="keframes动画关键帧"><a href="#keframes动画关键帧" class="headerlink" title="@keframes动画关键帧"></a>@keframes动画关键帧</h3><p>通过<code>@keyframes</code>规则，能够创建动画。创建动画的原理是将一套CSS样式逐渐变化为另一套样式。在动画过程中，能够多次改变这套样式。</p>
+<p>以<strong>百分比</strong>来规定改变发生的时间，或者通过关键词<strong>from和to</strong>，等价于<strong>0%和100%</strong>。</p>
+<p>示例如下：</p>
+<pre>
+    @keyframes name{
+            from{
+
+            }
+            to{
+
+            }
+    }
+</pre>
+
+<h3 id="animation-duration动画持续时间"><a href="#animation-duration动画持续时间" class="headerlink" title="animation-duration动画持续时间"></a>animation-duration动画持续时间</h3><p><code>animation-duration</code>属性定义动画完成一个周期所需要的时间，以秒计。默认为0，没有动画效果。</p>
+<h3 id="animation-timing-function动画效果"><a href="#animation-timing-function动画效果" class="headerlink" title="animation-timing-function动画效果"></a>animation-timing-function动画效果</h3><p><code>animation-timing-function</code>规定动画的速度曲线。主要有：</p>
+<ol>
+<li>linear        匀速</li>
+<li>ease            先快后慢（默认属性）</li>
+<li>ease-in        由慢到快</li>
+<li>ease-out        由快到慢</li>
+<li>ease-in-out    先慢后快再慢</li>
+<li>cubic-bezier(n,n,n,n)自定义函数，可能的值为0~1。</li>
+</ol>
+<h3 id="animation-iteration-count动画循环次数"><a href="#animation-iteration-count动画循环次数" class="headerlink" title="animation-iteration-count动画循环次数"></a>animation-iteration-count动画循环次数</h3><p><code>animation-iteration-count</code>指定元素播放动画循环次数。默认值1，播放一次。</p>
+<p><code>animation-iteration-count:n | infinite;</code>n指动画播放次数的数值；infinite指动画无限次播放。</p>
+<h3 id="animation-delay延迟"><a href="#animation-delay延迟" class="headerlink" title="animation-delay延迟"></a>animation-delay延迟</h3><p><code>animation-delay</code>指定元素动画开始时间，单位为s秒。默认值0。</p>
+<h3 id="animation-direction播放方向"><a href="#animation-direction播放方向" class="headerlink" title="animation-direction播放方向"></a>animation-direction播放方向</h3><p><code>animation-direction</code>指定元素动画播放的方向。</p>
+<p><code>animation-direction:normal | alternate;</code>normal默认值，动画的每次循环都是向前播放；alternate动画播放第奇数次正常播放，第偶数次反方向播放。</p>
+<h3 id="animation-fill-mode"><a href="#animation-fill-mode" class="headerlink" title="animation-fill-mode"></a>animation-fill-mode</h3><p><code>animation-fill-mode</code>属性规定动画在播放之前或之后，其动画效果是否可见。</p>
+<p><code>animation-fill-mode:none | forwards</code>none不改变默认行为；forwards当动画完成后，保持最后一个属性值。</p>
+<p>示例如下：</p>
+<pre>
+    &ltstyle&gt
+        div.animationdiv{
+            width:600px;
+            height:600px;
+            position:relative;
+            left:150px;
+        }
+        div.animationdemo{
+            width:100px;
+            height:100px;
+            position:absolute;
+            background-color:fuchsia;
+            animation:animationmove infinite 8s linear 2s normal;
+        }
+        @keyframes animationmove{
+            0%{
+                left:0;
+                top:0;
+                transform:scale(1,1);
+            }
+            12.5%{
+                left:200px;
+                top:0;
+                background-color:red;
+                transform:scale(1,1);
+            }
+            25%{
+                left:400px;
+                top:0;
+                background-color:teal;
+                transform:scale(2,2);
+            }
+            37.5%{
+                left:400px;
+                top:200px;
+                background-color:aqua;
+                transform:scale(2,2);
+                border-radius:25%;
+            }
+            50%{
+                left:400px;
+                top:400px;
+                border-radius:50%;
+            }
+            62.5%{
+                left:200px;
+                top:400px;
+                background-color:olive;
+                transform:scale(2,2);
+            }
+            75%{
+                left:0;
+                top:400px;
+                background-color:lime;
+                transform:scale(1,1);
+            }
+            87.5%{
+                left:0;
+                top:200px;
+                background-color:green;
+                transform:scale(2,2);
+                border-radius:50%;
+            }
+            100%{
+                left:0;
+                top:0;
+                background-color:fuchsia;
+                transform:scale(1,1);
+            }
+        }
+    &lt/style&gt
+    &ltdiv class="animationdiv"&gt
+        &ltdiv class="animationdemo"&gt&lt/div&gt
+    &lt/div&gt
+</pre>
+
+<pre>
+    <style>
+        div.animationdiv{
+            width:600px;
+            height:600px;
+            position:relative;
+            left:150px;
+        }
+        div.animationdemo{
+            width:100px;
+            height:100px;
+            position:absolute;
+            background-color:fuchsia;
+            animation:animationmove infinite 8s linear 2s normal;
+        }
+        @keyframes animationmove{
+            0%{
+                left:0;
+                top:0;
+                transform:scale(1,1);
+            }
+            12.5%{
+                left:200px;
+                top:0;
+                background-color:red;
+                transfddddddddorm:scale(1,1);
+            }
+            25%{
+                left:400px;
+                top:0;
+                background-color:teal;
+                transform:scale(2,2);
+            }
+            37.5%{
+                left:400px;
+                top:200px;
+                background-color:aqua;
+                transform:scale(2,2);
+                border-radius:25%;
+            }
+            50%{
+                left:400px;
+                top:400px;
+                border-radius:50%;
+            }
+            62.5%{
+                left:200px;
+                top:400px;
+                background-color:olive;
+                transform:scale(2,2);
+            }
+            75%{
+                left:0;
+                top:400px;
+                background-color:lime;
+                transform:scale(1,1);
+            }
+            87.5%{
+                left:0;
+                top:200px;
+                background-color:green;
+                transform:scale(2,2);
+                border-radius:50%;
+            }
+            100%{
+                left:0;
+                top:0;
+                background-color:fuchsia;
+                transform:scale(1,1);
+            }
+        }
+    </style>
+    <div class="animationdiv">
+        <div class="animationdemo"></div>
+    </div>
+</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/07/04/CSS3动画/" data-id="cisswu4k20002c4e8ill6659i" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-CSS3变形" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/07/02/CSS3变形/" class="article-date">
@@ -314,7 +535,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/02/CSS3变形/" data-id="cisn3bgkr000259e8833oy0h1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/02/CSS3变形/" data-id="cisswu4k50003c4e850w9j6ex" class="article-share-link">Share</a>
       
       
     </footer>
@@ -403,7 +624,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/01/CSS3过渡/" data-id="cisn3bgl4000859e8fyj3wxgj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/01/CSS3过渡/" data-id="cisswu4k90005c4e8klom9xqx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -579,7 +800,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/30/CSS3背景/" data-id="cisn3bgl2000759e84963w55x" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/30/CSS3背景/" data-id="cisswu4kj0008c4e8oaobf7jg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -700,7 +921,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/29/CSS3圆角/" data-id="cisn3bgkv000459e8riv4r0sh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/29/CSS3圆角/" data-id="cisswu4ju0000c4e8fa7bdzmy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -825,7 +1046,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/29/CSS3盒模型/" data-id="cisn3bgkw000559e8pqli1g5j" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/29/CSS3盒模型/" data-id="cisswu4kr000bc4e8loa0fb55" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1051,7 +1272,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/28/CSS3选择器/" data-id="cisn3bgl0000659e8oe1yfnwq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/28/CSS3选择器/" data-id="cisswu4kc0006c4e806uc9ktu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1141,7 +1362,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/28/HTML5新增音视频/" data-id="cisn3bglu000h59e8ycd4da9m" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/28/HTML5新增音视频/" data-id="cisswu4kz000gc4e86yhnsouy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1336,7 +1557,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/28/HTML5新增表单元素/" data-id="cisn3bglq000e59e8wdgt46gb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/28/HTML5新增表单元素/" data-id="cisswu4kt000dc4e8ip1tj8pw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1445,80 +1666,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/27/HTML5短语句/" data-id="cisn3bglt000g59e8zo3yfjks" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-HTML5新增标签" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/06/27/HTML5新增标签/" class="article-date">
-  <time datetime="2016-06-27T12:24:05.000Z" itemprop="datePublished">2016-06-27</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/27/HTML5新增标签/">HTML5新增标签</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="HTML5新增标签主要是语义化标签"><a href="#HTML5新增标签主要是语义化标签" class="headerlink" title="HTML5新增标签主要是语义化标签"></a>HTML5新增标签主要是语义化标签</h2><h3 id="header标签"><a href="#header标签" class="headerlink" title="header标签"></a>header标签</h3><p><code>&lt;header&gt;&lt;/header&gt;</code>标签定义文档的页眉。</p>
-<h3 id="footer标签"><a href="#footer标签" class="headerlink" title="footer标签"></a>footer标签</h3><p><code>&lt;footer&gt;&lt;/footer&gt;</code>标签定义文档或节的页脚。</p>
-<h3 id="aside标签"><a href="#aside标签" class="headerlink" title="aside标签"></a>aside标签</h3><p><code>&lt;aside&gt;&lt;/aside&gt;</code>标签是指文章的侧边栏，指独立于主体内容的部分（跟内容区分，不互相影响），一般用于广告位等。</p>
-<h3 id="nav标签"><a href="#nav标签" class="headerlink" title="nav标签"></a>nav标签</h3><p><code>&lt;nav&gt;&lt;/nav&gt;</code>标签定义文章导航部分。</p>
-<h3 id="hgroup标签"><a href="#hgroup标签" class="headerlink" title="hgroup标签"></a>hgroup标签</h3><p><code>&lt;hgroup&gt;&lt;/hgroup&gt;</code>标签用来包裹两个及以上h1~h6标题标签。</p>
-<h3 id="section标签"><a href="#section标签" class="headerlink" title="section标签"></a>section标签</h3><p><code>&lt;section&gt;&lt;/section&gt;</code>有语义的<code>div</code>，作用于相关内容的集合(指有联系的集合)。</p>
-<h3 id="article标签"><a href="#article标签" class="headerlink" title="article标签"></a>article标签</h3><p><code>&lt;article&gt;&lt;/article&gt;</code>更有语义的<code>div</code>，作用于多个相关内容的集合。<code>article</code>里可以嵌套<code>article</code>。</p>
-<h3 id="details标签"><a href="#details标签" class="headerlink" title="details标签"></a>details标签</h3><p><code>&lt;details&gt;&lt;/details&gt;</code>标签用来描述文档或文档片段的信息，定义元素的细节。</p>
-<h3 id="summary标签"><a href="#summary标签" class="headerlink" title="summary标签"></a>summary标签</h3><p><code>&lt;summary&gt;&lt;/summary&gt;</code>标签定义细节标题，与<code>details</code>标签一同使用。</p>
-<p><strong><code>summary</code>元素应该是<code>details</code>的<code>第一个子元素</code></strong></p>
-<p><img src="https://raw.githubusercontent.com/liuxiaomengzy/liuxiaomengzy.github.io/master/images/details%E6%A0%87%E7%AD%BE%E8%AF%B4%E6%98%8E.png" alt="details标签说明"></p>
-<pre>
-    <details open="open">
-        <summary>标签1</summary>
-        <details>
-            <summary>标签2</summary>
-        </details>
-    </details>
-</pre>
-
-<h3 id="dialog标签"><a href="#dialog标签" class="headerlink" title="dialog标签"></a>dialog标签</h3><p><code>&lt;dialog&gt;&lt;/dialog&gt;</code>标签定义对话框，其默认属性为display:none，想让其出现应定义<code>open=&quot;open&quot;</code>属性。</p>
-<h3 id="figure和figcaption标签"><a href="#figure和figcaption标签" class="headerlink" title="figure和figcaption标签"></a>figure和figcaption标签</h3><p><code>&lt;figure&gt;&lt;/figure&gt;</code>标签定义图表内容。</p>
-<p><code>&lt;figcaption&gt;&lt;/figcaption&gt;</code>标签定义图表标题。</p>
-<p><strong><code>figcaption</code>元素应该是<code>figure</code>元素的第一个或最后一个子元素的位置</strong></p>
-<p><img src="https://raw.githubusercontent.com/liuxiaomengzy/liuxiaomengzy.github.io/master/images/figure%E6%A0%87%E7%AD%BE%E5%9B%BE%E8%A7%A3.png" alt="figure标签图解"></p>
-<pre>
-    <figure>
-            <img src="http://www.photophoto.cn/m73/018/072/0180720343.jpg" style="width:100%;" alt="">
-            <figcapition>可爱的小狗</figcapition>
-        </figure>
-</pre>
-
-<h3 id="menu标签"><a href="#menu标签" class="headerlink" title="menu标签"></a>menu标签</h3><p><code>&lt;menu&gt;&lt;/menu&gt;</code>标签定义菜单列表。</p>
-<h3 id="main标签"><a href="#main标签" class="headerlink" title="main标签"></a>main标签</h3><p><code>&lt;main&gt;&lt;/main&gt;</code>标签规定文档的主要内容。<code>&lt;main&gt;</code> 元素中的内容对于文档来说应当是唯一的。它不应包含在文档中重复出现的内容，比如侧栏、导航栏、版权信息、站点标志或搜索表单。</p>
-<h3 id="map标签"><a href="#map标签" class="headerlink" title="map标签"></a>map标签</h3><p><code>&lt;map&gt;&lt;/map&gt;</code>标签定义客户端图像映射。图像映射指带有可点击区域的一幅图像。主要结合JavaScript使用。</p>
-<h3 id="address标签"><a href="#address标签" class="headerlink" title="address标签"></a>address标签</h3><p><code>&lt;address&gt;&lt;/address&gt;</code>标签定义文档作者/所有者的联系信息。</p>
-<p><img src="https://raw.githubusercontent.com/liuxiaomengzy/liuxiaomengzy.github.io/master/images/address%E6%A0%87%E7%AD%BE%E8%AF%B4%E6%98%8E.png" alt="address标签说明"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/27/HTML5新增标签/" data-id="cisn3bglm000d59e8wi1jkhou" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/27/HTML5短语句/" data-id="cisswu4kx000fc4e82zftnb2u" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1562,6 +1710,10 @@
       <ul>
         
           <li>
+            <a href="/2016/09/07/PHP运算符、流程控制、函数、数组和字符串/">PHP运算符、流程控制、函数、数组和字符串</a>
+          </li>
+        
+          <li>
             <a href="/2016/09/01/PHP初了解/">PHP初了解</a>
           </li>
         
@@ -1575,10 +1727,6 @@
         
           <li>
             <a href="/2016/08/24/JavaScript面向对象/">JavaScript面向对象</a>
-          </li>
-        
-          <li>
-            <a href="/2016/08/10/JavaScriptRegExp正则对象/">JavaScriptRegExp正则对象</a>
           </li>
         
       </ul>
