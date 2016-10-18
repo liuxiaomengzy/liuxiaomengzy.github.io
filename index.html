@@ -68,6 +68,56 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-PHP文件操作、表单处理和正则表达式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/14/PHP文件操作、表单处理和正则表达式/" class="article-date">
+  <time datetime="2016-09-14T11:32:03.000Z" itemprop="datePublished">2016-09-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/14/PHP文件操作、表单处理和正则表达式/">PHP文件操作、表单处理和正则表达式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、文件操作"><a href="#一、文件操作" class="headerlink" title="一、文件操作"></a>一、文件操作</h2><h5 id="一、打开关闭文件"><a href="#一、打开关闭文件" class="headerlink" title="一、打开关闭文件"></a>一、打开关闭文件</h5><p><strong>1.fopen()</strong> </p>
+<p>fopen()函数打开文件或者URL。如果打开失败，返回FALSE。</p>
+<p><code>fopen(filename,mode,include_path,context)</code> filename必需，规定要打开的文件或URL；mode必需，规定要求该文件/流的访问类型；include_path可选，如果也需要在include_path中检索文件，可以将参数设为1或TRUE；context可选，规定文件句柄的环境。</p>
+<p>文件打开模式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">模式			可读？		可写？		文件指针		截断？		创建</span><br><span class="line"> r			是		否		开始		  否		否</span><br><span class="line"> r+			是		是		开始		  否		否</span><br><span class="line"> w			否		是		开始		  是		是</span><br><span class="line"> w+			是		是		开始		  是		是</span><br><span class="line"> a			否		是		结尾		  否		是</span><br><span class="line"> a+			是		是		结尾		  否		是</span><br><span class="line"> 文件指针：指向文件的开头或者是末尾</span><br><span class="line"> 截断：如果文件已经存在，将文件指针指向文件头并将文件大小截为0</span><br></pre></td></tr></table></figure>
+<p><strong>2.fclose()</strong></p>
+<p>fclose()函数关闭一个打开的文件。</p>
+<p><code>fclose(file)</code> file必需，规定要关闭的文件，file参数是一个文件指针。fclose()函数关闭该指针指向的文件，如果成功返回TRUE，否则返回FALSE。<code>文件指针必须有效，并且是通过fopen()或fsockopen()成功打开的</code>；虽然每个请求最后都会自动关闭文件，但明确的关闭打开所有文件是一个好的习惯。</p>
+<p>运行如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//以只读方式打开一个位于本地服务器的文本文件</span><br><span class="line">$fh = fopen(&quot;text.txt&quot;,&quot;r&quot;);</span><br><span class="line">//以只读方式打开一个远程文件</span><br><span class="line">$fh = fopen(&quot;http://www.xxx.com&quot;,&quot;r&quot;);</span><br><span class="line">fclose($fh);</span><br></pre></td></tr></table></figure>
+<h5 id="二、读取文件"><a href="#二、读取文件" class="headerlink" title="二、读取文件"></a>二、读取文件</h5><p><strong>1.fread()</strong></p>
+<p>fread()函数读取文件。</p>
+<p><code>fread(file,length)</code> file必需，规定要读取打开文件；length必需，规定要读取的最大字节数。fread()从文件指针file读取最多length个字节。该函数在读取最多length个字节数，或达到EOF时，读取将停止。</p>
+<p>如果要读取整个文件，使用filesize()函数确定应该读取的字符数。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/09/14/PHP文件操作、表单处理和正则表达式/" data-id="cit2vako20019rke8dzf7ohh5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-PHP运算符、流程控制、函数、数组和字符串" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/09/07/PHP运算符、流程控制、函数、数组和字符串/" class="article-date">
@@ -275,7 +325,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/07/PHP运算符、流程控制、函数、数组和字符串/" data-id="cisswu4mf0017c4e876ysun2n" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/07/PHP运算符、流程控制、函数、数组和字符串/" data-id="cit2vaknt0016rke82fqcfpxy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -435,7 +485,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/01/PHP初了解/" data-id="cisswu4mb0015c4e8ehwfm6v5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/01/PHP初了解/" data-id="cit2vakny0018rke8jltd6xli" class="article-share-link">Share</a>
       
       
     </footer>
@@ -543,7 +593,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/28/HTML5canvas标签和JavaScript的结合运用/" data-id="cisswu4l4000ic4e8vggoykeo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/28/HTML5canvas标签和JavaScript的结合运用/" data-id="cit2vakls000erke8l5c7u6ej" class="article-share-link">Share</a>
       
       
     </footer>
@@ -579,7 +629,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/26/jQuery函数的封装/" data-id="cisswu4mh0018c4e80ukoka8f" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/26/jQuery函数的封装/" data-id="cit2vako4001arke84j9b9p6k" class="article-share-link">Share</a>
       
       
     </footer>
@@ -840,7 +890,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/24/JavaScript面向对象/" data-id="cisswu4mk001ac4e8vtsvchds" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/24/JavaScript面向对象/" data-id="cit2vaknn0013rke8frc8zkgg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -998,7 +1048,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/10/JavaScriptRegExp正则对象/" data-id="cisswu4lg000nc4e82dkzgx38" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/10/JavaScriptRegExp正则对象/" data-id="cit2vakmo000qrke8yt3r27md" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1200,7 +1250,7 @@
         var newDate=new Date();
         var nowDay=nowDate.getDate();
         nowDate.setDate(nowDay+days);
-        document.cookie=key+"="+value+";expires"+nowDate;
+        document.cookie=key+"="+value+";expires"+nowDate.toUTCString();
     }
     //删除cookie，将date设置为过去的时间来删除
     setCookie("name","",-1);
@@ -1231,7 +1281,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/06/JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage/" data-id="cisswu4lh000oc4e8l8k6nuzx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/06/JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage/" data-id="cit2vakmk000orke80tuf9tne" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1485,7 +1535,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/05/JavaScript滚轮事件的封装和滚轮轮播图/" data-id="cisswu4m40010c4e8aglb3jij" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/05/JavaScript滚轮事件的封装和滚轮轮播图/" data-id="cit2vakne0010rke84tfck63k" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1583,149 +1633,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/03/JavaScriptCallback回调函数和事件委托的封装/" data-id="cisswu4lb000jc4e8gnud2xuj" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-JavaScript事件流、事件类型、事件对象和事件委托" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/07/30/JavaScript事件流、事件类型、事件对象和事件委托/" class="article-date">
-  <time datetime="2016-07-30T08:28:55.000Z" itemprop="datePublished">2016-07-30</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/30/JavaScript事件流、事件类型、事件对象和事件委托/">JavaScript事件流、事件类型、事件对象和事件委托</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="JavaScript事件流"><a href="#JavaScript事件流" class="headerlink" title="JavaScript事件流"></a>JavaScript事件流</h3><p>事件流描述的是在页面中接受事件的顺序，分为<strong>事件冒泡</strong>和<strong>事件捕获</strong>。</p>
-<p><code>事件冒泡</code>指事件一级一级的往上触发，一直到根元素为止</p>
-<p><code>事件捕获</code>指事件从根元素开始触发，一直到触发元素的事件为止</p>
-<h5 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">DOM0级事件	直接在元素上绑定，绑定多个后面会覆盖前面</span><br><span class="line">			例如：</span><br><span class="line">			wrap.onclick=function()&#123;</span><br><span class="line">				alert(&quot;a&quot;);</span><br><span class="line">			&#125;</span><br><span class="line">			wrap.onclick=function()&#123;</span><br><span class="line">				alert(&quot;b&quot;);//仅仅会弹出b，因为覆盖前面</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">DOM2级事件	可以多次绑定</span><br><span class="line"></span><br><span class="line">	addEventListener(type,fn,bol);		绑定事件</span><br><span class="line">	removeEventListener(type,fn,bol);	解除事件</span><br><span class="line">		type：事件类型</span><br><span class="line">		fn：  事件语句，必须是对应的非匿名函数</span><br><span class="line">		bol： 事件触发机制  false事件冒泡 true事件捕获</span><br><span class="line">		解除检测某个事件语句，type、fn、bol都必须对应相同</span><br><span class="line">		</span><br><span class="line">	attachEvent(type,fn);	IE上的DOM2级绑定事件</span><br><span class="line">	detachEvent(type,fn);	IE上的DOM2级解除事件</span><br><span class="line">	</span><br><span class="line">	wrap.addEventListener(&quot;click&quot;,function(e)&#123;</span><br><span class="line">		//匿名函数的匿名参数，表示触发的事件对象</span><br><span class="line">		//为了兼容IE低版本，需要使用window.event</span><br><span class="line">		var e=e||window.event;</span><br><span class="line">		console.log(e.currentTarget);</span><br><span class="line">	&#125;,false)</span><br></pre></td></tr></table></figure>
-<p><strong>函数不添加()，就是执行代码块；添加()，就是执行结果</strong></p>
-<h3 id="event对象"><a href="#event对象" class="headerlink" title="event对象"></a>event对象</h3><p>event对象代表事件的状态，比如事件在其中发生的元素、键盘按键的状态、鼠标的位置、鼠标按钮的状态。</p>
-<p><strong>事件通常与函数结合使用，函数不会在事件发生前被执行！</strong></p>
-<h5 id="event方法"><a href="#event方法" class="headerlink" title="event方法"></a>event方法</h5><p><strong>event.initEvent();</strong>初始化新创建的event对象的属性</p>
-<p><strong>event.preventDefault();</strong>阻止默认事件</p>
-<p><strong>event.stopPropagation();</strong>阻止事件继续派发</p>
-<h3 id="事件类型"><a href="#事件类型" class="headerlink" title="事件类型"></a>事件类型</h3><h6 id="UI事件：当用户与页面上的元素交互时触发"><a href="#UI事件：当用户与页面上的元素交互时触发" class="headerlink" title="UI事件：当用户与页面上的元素交互时触发"></a>UI事件：当用户与页面上的元素交互时触发</h6><p><strong>load事件：</strong>当页面加载完毕之后触发</p>
-<p><strong>resize事件：</strong>当浏览器窗口改变大小时候触发</p>
-<p><strong>scroll事件：</strong>当用户滚动一个带滚动条的元素时触发</p>
-<h6 id="鼠标事件：通过鼠标在页面上执行操作"><a href="#鼠标事件：通过鼠标在页面上执行操作" class="headerlink" title="鼠标事件：通过鼠标在页面上执行操作"></a>鼠标事件：通过鼠标在页面上执行操作</h6><p><strong>contextmenu事件：</strong>弹出右键菜单</p>
-<p><strong>click事件：</strong>对象被点击时发生（在同一元素发生鼠标按下事件后又发生鼠标放开事件时才发生的）</p>
-<p><strong>mousedown事件：</strong>鼠标被按下时触发</p>
-<p><strong>mousemove事件：</strong>在鼠标指针移动时触发</p>
-<p><strong>mouseup事件：</strong>在鼠标按键松开时触发</p>
-<p><strong>mouseover事件：</strong>鼠标指针移动到指定的对象上时触发（鼠标指针穿过任何子元素，同样会触发事件）</p>
-<p><strong>mouseenter事件：</strong>当鼠标指针进入（穿过）指定元素时触发（只有鼠标指针穿过被选元素时才会触发）</p>
-<p><strong>mouseout事件：</strong>无论鼠标指针离开被选元素还是任何子元素都会触发mouseout事件（鼠标指针离开任何子元素，同样会触发事件）</p>
-<p><strong>mouseleave事件：</strong>只有在鼠标指针离开被选元素时，才会触发mouseleave事件（只有在鼠标指针离开被选元素时，才会触发）</p>
-<p><strong>mousewheel事件：</strong>非火狐滚轮事件</p>
-<p><strong>DOMMouseScroll事件：</strong>火狐滚轮事件</p>
-<h6 id="键盘事件：通过键盘在页面上执行操作"><a href="#键盘事件：通过键盘在页面上执行操作" class="headerlink" title="键盘事件：通过键盘在页面上执行操作"></a>键盘事件：通过键盘在页面上执行操作</h6><p><strong>keydown事件：</strong>某个键盘按键被按下触发</p>
-<p><strong>keyup事件：</strong>某个键盘按键被松开触发</p>
-<p><strong>keypress事件：</strong>某个键盘被按下并松开触发</p>
-<h6 id="表单事件"><a href="#表单事件" class="headerlink" title="表单事件"></a>表单事件</h6><p><strong>focus事件：</strong>在对象获得焦点时发生</p>
-<p><strong>blur事件：</strong>在对象失去焦点时发生</p>
-<p><strong>change事件：</strong>当元素的值发生改变时在元素失去焦点时发生（可以作用于<code>&lt;input&gt;&lt;textarea&gt;&lt;keygen&gt;&lt;select&gt;</code>元素）</p>
-<p><strong>input事件：</strong>当元素的值发生改变时立即发生（可以作用于<code>&lt;input&gt;&lt;textara&gt;</code>元素）</p>
-<h6 id="触屏事件"><a href="#触屏事件" class="headerlink" title="触屏事件"></a>触屏事件</h6><p><strong>touch事件：</strong>在用户触摸屏幕（页面）时触发</p>
-<h3 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h3><p><strong>clientX</strong> 当事件被触发时，鼠标指针的水平坐标。相对于可视区域</p>
-<p><strong>clientY</strong> 当事件被触发时，鼠标指针的竖直坐标。相对于可视区域</p>
-<p><strong>layerX</strong> 鼠标相对于定位父级border左上角的起始位置（包括border）</p>
-<p><strong>layerY</strong> 鼠标相对于定位父级border左上角的起始位置（包括border）</p>
-<p><strong>offsetX</strong> 鼠标相对于触发事件元素的位置，从内容区域的左上角开始定位（不包括border）</p>
-<p><strong>offsetY</strong> 鼠标相对于触发事件元素的位置，从内容区域的左上角开始定位（不包括border）</p>
-<p><strong>pageX</strong> 鼠标在页面上的位置，从页面左上角开始定位。相对于整个页面</p>
-<p><strong>pageY</strong> 鼠标在页面上的位置，从页面左上角开始定位。相对于整个页面</p>
-<p><strong>screenX</strong> 鼠标在显示屏幕上的坐标，相对于屏幕</p>
-<p><strong>screenY</strong> 鼠标在显示屏幕上的坐标，相对于屏幕</p>
-<p><strong>movementX</strong> 鼠标的移动距离 <code>mousemove事件特有</code></p>
-<p><strong>movementY</strong> 鼠标的移动距离 <code>mousemove事件特有</code></p>
-<p><strong>X</strong> 在IE里独有，跟layerX一个效果</p>
-<p><strong>Y</strong> 在IE里独有，跟layerY一个效果</p>
-<p><strong>alrKey</strong> 返回当事件被触发时，”ALT”是否被按下</p>
-<p><strong>button</strong> 当事件被触发时，哪个鼠标按钮被点击（0鼠标左键，1鼠标中键，2鼠标右键）IE（1鼠标左键，4鼠标中键，2鼠标右键）</p>
-<p><strong>bubbles</strong> 表明事件是否冒泡，是则返回true；否则返回false</p>
-<p><strong>cancelable</strong> 表明事件是否拥有可取消的默认动作</p>
-<p><strong>ctrlKey</strong> 当事件触发时，”CTRL”键是否被按下</p>
-<p><strong>currentTarget</strong> 返回其监听器触发的节点，即当前处理该事件的元素、文档或窗口。也就是事件绑定的元素，和this是一样的（在捕获和气泡阶段非常有用，在这两个节点不同于target属性）</p>
-<p><strong>defaultPrevented</strong> 是否阻止了默认事件</p>
-<p><strong>detail</strong> 判断滚轮向上或向下 火狐浏览器 正值表示页面向下滑动</p>
-<p><strong>wheelDelta</strong> 判断滚轮向上或向下 非火狐浏览器 负值表示页面向下滑动</p>
-<p><strong>eventPhase</strong> 返回事件传播的当前阶段。分别为捕获阶段、正常事件派发和气泡阶段</p>
-<p><strong>formElement</strong> 对于mouseover和mouseout事件，fromElement引用移出鼠标的元素</p>
-<p><strong>isTrusted</strong> 表明当前事件是否由用户行为触发</p>
-<p><strong>metaKey</strong> 当事件被触发时，”meta”键是否被按下</p>
-<p><strong>path</strong> 层级关系</p>
-<p><strong>relatedTarget</strong> 返回与事件的目标节点相关的节点。对于mouseover事件来说，该属性是鼠标指针移到目标节点上时所离开的那个节点。对于mouseout事件来说，该属性是离开目标时，鼠标指针进入的节点。对于其他类型的事件来说，这个属性没有用。</p>
-<p><strong>returnValue</strong> IE属性，它的值比事件句柄的返回值优先级高。把这个属性设置为false，可以取消发生事件的源元素的默认动作。</p>
-<p><strong>shiftKey</strong> 事件被触发时，”SHIFT”键是否被按下</p>
-<p><strong>srcElement</strong> IE属性，对于生成事件的window对象、document对象或element对象的引用</p>
-<p><strong>target</strong> 返回触发此事件的元素（事件的目标节点）</p>
-<p><strong>timeStamp</strong> 返回一个时间戳，距离页面打开的毫秒数</p>
-<p><strong>toElement</strong> 对于mouseover和mouseout事件，该属性引用移入鼠标的元素</p>
-<p><strong>type</strong> 当前event对象表示的事件的名称（如：”click”、”submit”、”load”等）</p>
-<p><strong>view</strong> 根元素</p>
-<p><strong>which</strong> 返回哪个键被按下了</p>
-<h3 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h3><p>利用冒泡原理，把事件加到父级上，触发执行效果。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">	.btntarget&#123;</span><br><span class="line">		width:150px;</span><br><span class="line">		height:40px;</span><br><span class="line">		background-color:gray;</span><br><span class="line">		border:none;</span><br><span class="line">		font-size:20px;</span><br><span class="line">		border-radius:10px;</span><br><span class="line">	&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;button class=&quot;btntarget&quot;&gt;增加一个li&lt;/button&gt;</span><br><span class="line">&lt;ul class=&quot;ultarget&quot;&gt;</span><br><span class="line">	&lt;li&gt;我是li1&lt;/li&gt;</span><br><span class="line">	&lt;li&gt;我是li2&lt;/li&gt;</span><br><span class="line">	&lt;li&gt;我是li3&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">	var btnli=document.querySelector(&quot;.btntarget&quot;);</span><br><span class="line">	var ul=document.querySelector(&quot;.ultarget&quot;);</span><br><span class="line">	var lis=ul.getElementsByTagName(&quot;li&quot;);</span><br><span class="line">	var num=4;</span><br><span class="line">	btnli.addEventListener(&quot;click&quot;,function()&#123;</span><br><span class="line">		var newLi=document.createElement(&quot;li&quot;);</span><br><span class="line">		newLi.innerHTML=&quot;我是li&quot;+num;</span><br><span class="line">		ul.appendChild(newLi);</span><br><span class="line">		num++;</span><br><span class="line">	&#125;,false)</span><br><span class="line">	ul.onclick=function()&#123;</span><br><span class="line">		var e=e||window.event;</span><br><span class="line">		var targets=e.target||e.srcElement;</span><br><span class="line">		for(var i=0;i&lt;lis.length;i++)&#123;</span><br><span class="line">			if(targets==lis[i])&#123;</span><br><span class="line">				alert(i);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<pre>
-    <style>
-        .btntarget{
-            width:150px;
-            height:40px;
-            background-color:gray;
-            border:none;
-            font-size:20px;
-            border-radius:10px;
-        }
-    </style>
-    <button class="btntarget">增加一个li</button>
-    <ul class="ultarget"><li>我是li1</li><li>我是li2</li><li>我是li3</li></ul>
-    <script>
-        var btntarget=document.querySelector(".btntarget");
-        var ultarget=document.querySelector(".ultarget");
-        var listarget=ultarget.getElementsByTagName("li");
-        var num=4;
-        btntarget.addEventListener("click",function(){
-            var newLi=document.createElement("li");
-            newLi.innerHTML="我是li"+num;
-            ultarget.appendChild(newLi);
-            num++;
-        },false)
-        ultarget.onclick=function(){
-            var e=e||window.event;
-            var targets=e.target||e.srcElement;
-            for(var i=0;i<listarget.length;i++){
-                if(targets==listarget[i]){
-                    alert(i);
-                }
-            }
-        }
-    </script>
-</pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/30/JavaScript事件流、事件类型、事件对象和事件委托/" data-id="cisswu4ln000rc4e8e02nmmle" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/03/JavaScriptCallback回调函数和事件委托的封装/" data-id="cit2vakmb000jrke844mkp1xl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1769,6 +1677,10 @@
       <ul>
         
           <li>
+            <a href="/2016/09/14/PHP文件操作、表单处理和正则表达式/">PHP文件操作、表单处理和正则表达式</a>
+          </li>
+        
+          <li>
             <a href="/2016/09/07/PHP运算符、流程控制、函数、数组和字符串/">PHP运算符、流程控制、函数、数组和字符串</a>
           </li>
         
@@ -1782,10 +1694,6 @@
         
           <li>
             <a href="/2016/08/26/jQuery函数的封装/">jQuery函数的封装</a>
-          </li>
-        
-          <li>
-            <a href="/2016/08/24/JavaScript面向对象/">JavaScript面向对象</a>
           </li>
         
       </ul>

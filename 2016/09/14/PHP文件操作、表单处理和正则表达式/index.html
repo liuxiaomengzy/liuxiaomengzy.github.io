@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>PHP文件操作、表单处理和正则表达式 | 紫--小梦</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一、文件操作一、打开关闭文件1.fopen() 
+fopen()函数打开文件或者URL。如果打开失败，返回FALSE。
+fopen(filename,mode,include_path,context) filename必需，规定要打开的文件或URL；mode必需，规定要求该文件/流的访问类型；include_path可选，如果也需要在include_path中检索文件，可以将参数设为1或TRUE">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP文件操作、表单处理和正则表达式">
+<meta property="og:url" content="http://yoursite.com/2016/09/14/PHP文件操作、表单处理和正则表达式/index.html">
+<meta property="og:site_name" content="紫--小梦">
+<meta property="og:description" content="一、文件操作一、打开关闭文件1.fopen() 
+fopen()函数打开文件或者URL。如果打开失败，返回FALSE。
+fopen(filename,mode,include_path,context) filename必需，规定要打开的文件或URL；mode必需，规定要求该文件/流的访问类型；include_path可选，如果也需要在include_path中检索文件，可以将参数设为1或TRUE">
+<meta property="og:updated_time" content="2016-09-14T13:40:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP文件操作、表单处理和正则表达式">
+<meta name="twitter:description" content="一、文件操作一、打开关闭文件1.fopen() 
+fopen()函数打开文件或者URL。如果打开失败，返回FALSE。
+fopen(filename,mode,include_path,context) filename必需，规定要打开的文件或URL；mode必需，规定要求该文件/流的访问类型；include_path可选，如果也需要在include_path中检索文件，可以将参数设为1或TRUE">
+  
+    <link rel="alternate" href="/atom.xml" title="紫--小梦" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">紫--小梦</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">心怀梦想，志在远方。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-PHP文件操作、表单处理和正则表达式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/14/PHP文件操作、表单处理和正则表达式/" class="article-date">
+  <time datetime="2016-09-14T11:32:03.000Z" itemprop="datePublished">2016-09-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      PHP文件操作、表单处理和正则表达式
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、文件操作"><a href="#一、文件操作" class="headerlink" title="一、文件操作"></a>一、文件操作</h2><h5 id="一、打开关闭文件"><a href="#一、打开关闭文件" class="headerlink" title="一、打开关闭文件"></a>一、打开关闭文件</h5><p><strong>1.fopen()</strong> </p>
+<p>fopen()函数打开文件或者URL。如果打开失败，返回FALSE。</p>
+<p><code>fopen(filename,mode,include_path,context)</code> filename必需，规定要打开的文件或URL；mode必需，规定要求该文件/流的访问类型；include_path可选，如果也需要在include_path中检索文件，可以将参数设为1或TRUE；context可选，规定文件句柄的环境。</p>
+<p>文件打开模式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">模式			可读？		可写？		文件指针		截断？		创建</span><br><span class="line"> r			是		否		开始		  否		否</span><br><span class="line"> r+			是		是		开始		  否		否</span><br><span class="line"> w			否		是		开始		  是		是</span><br><span class="line"> w+			是		是		开始		  是		是</span><br><span class="line"> a			否		是		结尾		  否		是</span><br><span class="line"> a+			是		是		结尾		  否		是</span><br><span class="line"> 文件指针：指向文件的开头或者是末尾</span><br><span class="line"> 截断：如果文件已经存在，将文件指针指向文件头并将文件大小截为0</span><br></pre></td></tr></table></figure>
+<p><strong>2.fclose()</strong></p>
+<p>fclose()函数关闭一个打开的文件。</p>
+<p><code>fclose(file)</code> file必需，规定要关闭的文件，file参数是一个文件指针。fclose()函数关闭该指针指向的文件，如果成功返回TRUE，否则返回FALSE。<code>文件指针必须有效，并且是通过fopen()或fsockopen()成功打开的</code>；虽然每个请求最后都会自动关闭文件，但明确的关闭打开所有文件是一个好的习惯。</p>
+<p>运行如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//以只读方式打开一个位于本地服务器的文本文件</span><br><span class="line">$fh = fopen(&quot;text.txt&quot;,&quot;r&quot;);</span><br><span class="line">//以只读方式打开一个远程文件</span><br><span class="line">$fh = fopen(&quot;http://www.xxx.com&quot;,&quot;r&quot;);</span><br><span class="line">fclose($fh);</span><br></pre></td></tr></table></figure>
+<h5 id="二、读取文件"><a href="#二、读取文件" class="headerlink" title="二、读取文件"></a>二、读取文件</h5><p><strong>1.fread()</strong></p>
+<p>fread()函数读取文件。</p>
+<p><code>fread(file,length)</code> file必需，规定要读取打开文件；length必需，规定要读取的最大字节数。fread()从文件指针file读取最多length个字节。该函数在读取最多length个字节数，或达到EOF时，读取将停止。</p>
+<p>如果要读取整个文件，使用filesize()函数确定应该读取的字符数。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/09/14/PHP文件操作、表单处理和正则表达式/" data-id="cit2vako20019rke8dzf7ohh5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/09/07/PHP运算符、流程控制、函数、数组和字符串/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">PHP运算符、流程控制、函数、数组和字符串</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/09/14/PHP文件操作、表单处理和正则表达式/">PHP文件操作、表单处理和正则表达式</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/07/PHP运算符、流程控制、函数、数组和字符串/">PHP运算符、流程控制、函数、数组和字符串</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/01/PHP初了解/">PHP初了解</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/28/HTML5canvas标签和JavaScript的结合运用/">HTML5canvas标签和JavaScript的结合运用</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/26/jQuery函数的封装/">jQuery函数的封装</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 刘晓萌<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
