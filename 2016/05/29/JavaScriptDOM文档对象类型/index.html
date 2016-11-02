@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JavaScriptDOM文档对象类型 | 紫--小梦</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="DOM文档对象类型childNodes子节点，获取所有的文本和子元素
+children子元素
+parentNode父节点
+nextElementSibling同级的下一个子元素
+previousElementSibling同级的上一个子元素
+nextSibling同级的下一个节点
+previousSibling同级的上一个节点
+
+    console.log(uls.childNodes);">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScriptDOM文档对象类型">
+<meta property="og:url" content="http://yoursite.com/2016/05/29/JavaScriptDOM文档对象类型/index.html">
+<meta property="og:site_name" content="紫--小梦">
+<meta property="og:description" content="DOM文档对象类型childNodes子节点，获取所有的文本和子元素
+children子元素
+parentNode父节点
+nextElementSibling同级的下一个子元素
+previousElementSibling同级的上一个子元素
+nextSibling同级的下一个节点
+previousSibling同级的上一个节点
+
+    console.log(uls.childNodes);">
+<meta property="og:updated_time" content="2016-11-02T13:44:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScriptDOM文档对象类型">
+<meta name="twitter:description" content="DOM文档对象类型childNodes子节点，获取所有的文本和子元素
+children子元素
+parentNode父节点
+nextElementSibling同级的下一个子元素
+previousElementSibling同级的上一个子元素
+nextSibling同级的下一个节点
+previousSibling同级的上一个节点
+
+    console.log(uls.childNodes);">
+  
+    <link rel="alternate" href="/atom.xml" title="紫--小梦" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">紫--小梦</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">心怀梦想，志在远方。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-JavaScriptDOM文档对象类型" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/29/JavaScriptDOM文档对象类型/" class="article-date">
+  <time datetime="2016-05-29T15:04:05.000Z" itemprop="datePublished">2016-05-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScriptDOM文档对象类型
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="DOM文档对象类型"><a href="#DOM文档对象类型" class="headerlink" title="DOM文档对象类型"></a>DOM文档对象类型</h3><p><strong>childNodes</strong>子节点，获取所有的文本和子元素</p>
+<p><strong>children</strong>子元素</p>
+<p><strong>parentNode</strong>父节点</p>
+<p><strong>nextElementSibling</strong>同级的下一个子元素</p>
+<p><strong>previousElementSibling</strong>同级的上一个子元素</p>
+<p><strong>nextSibling</strong>同级的下一个节点</p>
+<p><strong>previousSibling</strong>同级的上一个节点</p>
+<pre>
+    console.log(uls.childNodes);
+
+    console.log(uls.children);
+
+    console.log(uls.parentNode);
+
+    console.log(lis[1].nextElementSibling);
+
+    console.log(lis[1].previousElementSibling);
+
+    console.log(lis[1].nextSibling);
+
+    console.log(lis[1].previousSinling);
+</pre>
+
+<p><strong>createElement</strong>创建元素</p>
+<p><strong>appendChild</strong>插入元素</p>
+<p>如果插入的元素原文档里没有，那就是直接插入；如果有，那就是把要插入的元素从原位置移动到被插入元素的最后面。</p>
+<p><strong>removeChild</strong>删除子元素</p>
+<p><strong>insertBefore(ele1,ele2)</strong>在ele2前插入</p>
+<p>ele1要插入的元素，如果原先在文档里有此元素，那么就是调换位置，如果没有，那就是插入</p>
+<p>ele2插入在谁前面</p>
+<p><strong>hasChildNodes</strong>检查元素是否有子节点</p>
+<p><strong>replaceChild(ele1,ele2)</strong>替换元素</p>
+<p>ele1替换的元素，如果原先在文档里有此元素，那么对ele1来说就是换个位置</p>
+<p>ele2被替换的元素，替换后被删除</p>
+<pre>
+    var newDiv=document.createElement("div");
+
+    uls.appendChild(newDiv);
+
+    uls.removeChild(lis[2]);
+
+    uls.insertBefore(newDiv,lis[0]);
+
+    console.log(uls.hasChildNodes());//返回布尔值
+
+    uls.replaceChild(newDiv,lis[1]);
+</pre>
+
+<p><strong>getAttribute</strong>获取元素的属性值</p>
+<p><strong>setAttribute</strong>更改原有属性的属性值/创建新的属性</p>
+<p>setAttribute假如元素有该属性，则为更改原有属性的属性值</p>
+<p>setAttribute假如元素无该属性，则为创建新的属性</p>
+<p><strong>removeAttribute</strong>删除属性</p>
+<p><strong>hasAttribute</strong>检查是否有此属性</p>
+<p><strong>cloneNode()</strong>复制元素</p>
+<p>cloneNode(true)复制整个元素，包括子节点</p>
+<p>cloneNode(false)复制元素本身，不包括子节点</p>
+<p>cloneNode接收的参数默认为false，<code>只能复制元素或节点，不能复制事件</code>，也就证明了复制的元素和原元素不全等</p>
+<pre>
+    &lt;div class="imdiv" index="5"&gt;&lt;/div&gt;
+
+    var imdiv=document.querySelector(".imdiv");
+
+    console.log(imdiv.getAttribute("index"));
+
+    imdiv.setAttribute("index",90);//改变原有属性值
+
+    imdiv.setAttribute("width",100);//创建新的属性
+
+    imdiv.removeAttribute("index");
+
+    console.log(imdiv.hasAttribute("index"));//返回布尔值
+
+    var newDiv=imdiv.cloneNode(true);
+
+    document.body.appendChild(newDiv);
+</pre>
+
+<p>DOM简易应用：</p>
+<pre>
+    &lt;button class="dombtn"&gt;增加一个li&lt;/button&gt;
+    &lt;ul class="domul"&gt;&lt;/ul&gt;
+    &lt;script&gt;
+        var btn=document.querySelector(".dombtn");
+        var ul=document.querySelector(".domul");
+        var sum=1;
+        btn.onclick=function(){
+            var newLi=document.createElement("li");
+            newLi.innerHTML="我是第"+sum+"个li";
+            sum++;
+            var newSpan=document.createElement("span");
+            newSpan.innerHTML="删除";
+            newSpan.style.color="blue";
+            newLi.appendChild(newSpan);
+            ul.appendChild(newLi);
+            newSpan.onclick=function(){
+                this.parentNode.parentNode.removeChild(this.parentNode);
+            }
+        }
+    &lt;/script&gt;
+</pre>
+
+<pre>
+    <button class="dombtn">增加一个li</button>
+    <ul class="domul"></ul>
+    <script>
+        var btn=document.querySelector(".dombtn");
+        var ul=document.querySelector(".domul");
+        var sum=1;
+        btn.onclick=function(){
+            var newLi=document.createElement("li");
+            newLi.innerHTML="我是第"+sum+"个li";
+            sum++;
+            var newSpan=document.createElement("span");
+            newSpan.innerHTML="删除";
+            newSpan.style.color="blue";
+            newLi.appendChild(newSpan);
+            ul.appendChild(newLi);
+            newSpan.onclick=function(){
+                this.parentNode.parentNode.removeChild(this.parentNode);
+            }
+        }
+    </script>
+</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/05/29/JavaScriptDOM文档对象类型/" data-id="civ0zidle000obfe82t3zi8pj" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/06/04/JavaScript制作简易日历/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JavaScript制作简易日历
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/05/28/JavaScript闭包、Object对象/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JavaScript闭包、Object对象</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/09/14/PHP文件操作、表单处理和正则表达式/">PHP文件操作、表单处理和正则表达式</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/07/PHP运算符、流程控制、函数、数组和字符串/">PHP运算符、流程控制、函数、数组和字符串</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/01/PHP初了解/">PHP初了解</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/28/HTML5canvas标签和JavaScript的结合运用/">HTML5canvas标签和JavaScript的结合运用</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/20/jQuery函数的封装/">jQuery函数的封装</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 刘晓萌<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JavaScript制作简易日历 | 紫--小梦</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="制作日历原理就是通过对Date对象和BOM对象的混合使用来完成。
+innerHTML和innerText的区别：
+innerHTML会把整个语句当成代码来执行
+innerText会把整个语句当成一个文本节点来处理
+
+    &amp;lt;style&amp;gt;
+        .divcalinder ul{
+            margin:0;
+            padding:0;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript制作简易日历">
+<meta property="og:url" content="http://yoursite.com/2016/06/04/JavaScript制作简易日历/index.html">
+<meta property="og:site_name" content="紫--小梦">
+<meta property="og:description" content="制作日历原理就是通过对Date对象和BOM对象的混合使用来完成。
+innerHTML和innerText的区别：
+innerHTML会把整个语句当成代码来执行
+innerText会把整个语句当成一个文本节点来处理
+
+    &amp;lt;style&amp;gt;
+        .divcalinder ul{
+            margin:0;
+            padding:0;">
+<meta property="og:updated_time" content="2016-11-02T13:44:37.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript制作简易日历">
+<meta name="twitter:description" content="制作日历原理就是通过对Date对象和BOM对象的混合使用来完成。
+innerHTML和innerText的区别：
+innerHTML会把整个语句当成代码来执行
+innerText会把整个语句当成一个文本节点来处理
+
+    &amp;lt;style&amp;gt;
+        .divcalinder ul{
+            margin:0;
+            padding:0;">
+  
+    <link rel="alternate" href="/atom.xml" title="紫--小梦" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">紫--小梦</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">心怀梦想，志在远方。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-JavaScript制作简易日历" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/04/JavaScript制作简易日历/" class="article-date">
+  <time datetime="2016-06-04T11:31:37.000Z" itemprop="datePublished">2016-06-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript制作简易日历
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>制作日历原理就是通过对Date对象和BOM对象的混合使用来完成。</p>
+<p>innerHTML和innerText的区别：</p>
+<p>innerHTML会把整个语句当成代码来执行</p>
+<p>innerText会把整个语句当成一个文本节点来处理</p>
+<pre>
+    &lt;style&gt;
+        .divcalinder ul{
+            margin:0;
+            padding:0;
+            list-style-type:none;
+        }
+        .divcalinder{
+            width:434px;
+            margin:0 auto;
+        }
+        .calinderset{
+            text-align:center;
+        }
+        .calinderset button{
+            width:100px;
+            height:40px;
+            margin:2px;
+            font-size:20px;
+            overflow:hidden;
+        }
+        .divmessage{
+            height:30px;
+            line-height:30px;
+            font-size:20px;
+            text-align:center;
+            color:gold;
+        }
+        .ulweek{
+            text-align:center;
+            height:30px;
+            border-bottom:1px solid white;
+            overflow:hidden;
+        }
+        .ulweek li{
+            float:left;
+            color:black;
+            width:62px;
+            padding:5px 0;
+            font-size:16px;
+            color:white;
+        }
+        .ulday{
+            overflow:hidden;
+        }
+        .ulday li{
+            float:left;
+            width:58px;
+            height:58px;
+            border:1px solid aqua;
+            margin:1px;
+            text-align:center;
+            line-height:58px;
+            font-size:18px;
+            color:black;
+        }
+    &lt;/style&gt;
+    &lt;div class="divcalinder"&gt;
+        &lt;div class="calinderset"&gt;
+            &lt;button&gt;上一年&lt;/button&gt;
+            &lt;button&gt;上一月&lt;/button&gt;
+            &lt;button&gt;下一月&lt;/button&gt;
+            &lt;button&gt;下一年&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class="divmessage"&gt;&lt;/div&gt;
+        &lt;ul class="ulweek"&gt;
+            &lt;li&gt;星期日&lt;/li&gt;
+            &lt;li&gt;星期一&lt;/li&gt;
+            &lt;li&gt;星期二&lt;/li&gt;
+            &lt;li&gt;星期三&lt;/li&gt;
+            &lt;li&gt;星期四&lt;/li&gt;
+            &lt;li&gt;星期五&lt;/li&gt;
+            &lt;li&gt;星期六&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;ul class="ulday"&gt;&lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        var btns=document.querySelectorAll(".calinderset button");
+        var message=document.querySelector(".divmessage");
+        var ul=document.querySelector(".ulday");
+        var time=new Object();
+        var date1=new Date();
+        time.y=date1.getFullYear();
+        time.m=date1.getMonth();
+        var newD=date1.getDate();
+        var newM=date1.getMonth();
+        var newY=date1.getFullYear();
+        function calinder(){
+            ul.innerHTML="";
+            message.innerHTML="";
+            message.innerHTML=time.y+"年"+(time.m+1)+"月";
+            var first=new Date(time.y,time.m,1);
+            time.first=first.getDay();
+            var last=new Date(time.y,time.m+1,0);
+            time.last=last.getDate();    
+            for(var i=0;i&lt;time.first;i++){
+                var newLi=document.createElement("li");
+                newLi.style.backgroundColor="aqua";
+                ul.appendChild(newLi);
+            }
+            for(var i=1;i&lt;=time.last;i++){
+                var newLi=document.createElement("li");
+                newLi.innerText=i;
+                newLi.style.backgroundColor="lime";
+                ul.appendChild(newLi);
+                if(newD==i&&newM==time.m&&newY==time.y){
+                    newLi.style.backgroundColor="red";
+                }
+            }
+        }
+        calinder();
+        btns[1].onclick=function(){
+            time.m--;
+            if(time.m&lt;0){
+                time.m=11;
+                time.y--;
+            }
+            calinder();
+        }
+        btns[2].onclick=function(){
+            time.m++;
+            if(time.m&gt;11){
+                time.m=0;
+                time.y++;
+            }
+            calinder();
+        }
+        btns[0].onclick=function(){
+            time.y--;
+            calinder();
+        }
+        btns[3].onclick=function(){
+            time.y++;
+            calinder();
+        }
+    &lt;/script&gt;
+</pre>
+
+<pre>
+    <style>
+        .divcalinder ul{
+            margin:0;
+            padding:0;
+            list-style-type:none;
+        }
+        .divcalinder{
+            width:434px;
+            margin:0 auto;
+        }
+        .calinderset{
+            text-align:center;
+        }
+        .calinderset button{
+            width:100px;
+            height:40px;
+            margin:2px;
+            font-size:20px;
+            overflow:hidden;
+        }
+        .divmessage{
+            height:30px;
+            line-height:30px;
+            font-size:20px;
+            text-align:center;
+            color:gold;
+        }
+        .ulweek{
+            text-align:center;
+            height:30px;
+            border-bottom:1px solid white;
+            overflow:hidden;
+        }
+        .ulweek li{
+            float:left;
+            color:black;
+            width:62px;
+            padding:5px 0;
+            font-size:16px;
+            color:white;
+        }
+        .ulday{
+            overflow:hidden;
+        }
+        .ulday li{
+            float:left;
+            width:58px;
+            height:58px;
+            border:1px solid aqua;
+            margin:1px;
+            text-align:center;
+            line-height:58px;
+            font-size:18px;
+            color:black;
+        }
+    </style>
+    <div class="divcalinder">
+        <div class="calinderset"><button>上一年</button><button>上一月</button><button>下一月</button><button>下一年</button>
+        </div>
+        <div class="divmessage"></div>
+        <ul class="ulweek"><li>星期日</li><li>星期一</li><li>星期二</li><li>星期三</li><li>星期四</li><li>星期五</li><li>星期六</li>
+        </ul>
+        <ul class="ulday"></ul>
+    </div>
+    <script>
+        var btns=document.querySelectorAll(".calinderset button");
+        var message=document.querySelector(".divmessage");
+        var ul=document.querySelector(".ulday");
+        var time=new Object();
+        var date1=new Date();
+        time.y=date1.getFullYear();
+        time.m=date1.getMonth();
+        var newD=date1.getDate();
+        var newM=date1.getMonth();
+        var newY=date1.getFullYear();
+        function calinder(){
+            ul.innerHTML="";
+            message.innerHTML="";
+            message.innerHTML=time.y+"年"+(time.m+1)+"月";
+            var first=new Date(time.y,time.m,1);
+            time.first=first.getDay();
+            var last=new Date(time.y,time.m+1,0);
+            time.last=last.getDate();    
+            for(var i=0;i<time.first;i++){
+                var newLi=document.createElement("li");
+                newLi.style.backgroundColor="aqua";
+                ul.appendChild(newLi);
+            }
+            for(var i=1;i<=time.last;i++){
+                var newLi=document.createElement("li");
+                newLi.innerText=i;
+                newLi.style.backgroundColor="lime";
+                ul.appendChild(newLi);
+                if(newD==i&&newM==time.m&&newY==time.y){
+                    newLi.style.backgroundColor="red";
+                }
+            }
+        }
+        calinder();
+        btns[1].onclick=function(){
+            time.m--;
+            if(time.m<0){
+                time.m=11;
+                time.y--;
+            }
+            calinder();
+        }
+        btns[2].onclick=function(){
+            time.m++;
+            if(time.m>11){
+                time.m=0;
+                time.y++;
+            }
+            calinder();
+        }
+        btns[0].onclick=function(){
+            time.y--;
+            calinder();
+        }
+        btns[3].onclick=function(){
+            time.y++;
+            calinder();
+        }
+    </script>
+</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/06/04/JavaScript制作简易日历/" data-id="civ0zidlp000tbfe8wiq15ay5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/06/05/JavaScript图片轮播/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JavaScript图片轮播
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/05/29/JavaScriptDOM文档对象类型/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JavaScriptDOM文档对象类型</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/09/14/PHP文件操作、表单处理和正则表达式/">PHP文件操作、表单处理和正则表达式</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/07/PHP运算符、流程控制、函数、数组和字符串/">PHP运算符、流程控制、函数、数组和字符串</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/01/PHP初了解/">PHP初了解</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/28/HTML5canvas标签和JavaScript的结合运用/">HTML5canvas标签和JavaScript的结合运用</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/20/jQuery函数的封装/">jQuery函数的封装</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 刘晓萌<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

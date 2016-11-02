@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage | 紫--小梦</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Touch事件touch事件在用户触摸屏幕时触发。其与mouse事件的最大区别在于其支持多点触控。主要有以下几种：
+touchstart：相当于mousedown事件
+touchmove：相当于mousemove事件
+touchend：相当于mouseup事件
+应用如下：
+
+    &amp;lt;style&amp;gt;
+        .divtouch{
+            width:300px;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage">
+<meta property="og:url" content="http://yoursite.com/2016/07/31/JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage/index.html">
+<meta property="og:site_name" content="紫--小梦">
+<meta property="og:description" content="Touch事件touch事件在用户触摸屏幕时触发。其与mouse事件的最大区别在于其支持多点触控。主要有以下几种：
+touchstart：相当于mousedown事件
+touchmove：相当于mousemove事件
+touchend：相当于mouseup事件
+应用如下：
+
+    &amp;lt;style&amp;gt;
+        .divtouch{
+            width:300px;">
+<meta property="og:updated_time" content="2016-11-02T13:51:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage">
+<meta name="twitter:description" content="Touch事件touch事件在用户触摸屏幕时触发。其与mouse事件的最大区别在于其支持多点触控。主要有以下几种：
+touchstart：相当于mousedown事件
+touchmove：相当于mousemove事件
+touchend：相当于mouseup事件
+应用如下：
+
+    &amp;lt;style&amp;gt;
+        .divtouch{
+            width:300px;">
+  
+    <link rel="alternate" href="/atom.xml" title="紫--小梦" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">紫--小梦</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">心怀梦想，志在远方。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/31/JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage/" class="article-date">
+  <time datetime="2016-07-31T13:49:25.000Z" itemprop="datePublished">2016-07-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Touch事件"><a href="#Touch事件" class="headerlink" title="Touch事件"></a>Touch事件</h3><p>touch事件在用户触摸屏幕时触发。其与mouse事件的最大区别在于其支持<em>多点触控</em>。主要有以下几种：</p>
+<p>touchstart：相当于mousedown事件</p>
+<p>touchmove：相当于mousemove事件</p>
+<p>touchend：相当于mouseup事件</p>
+<p>应用如下：</p>
+<pre>
+    &lt;style&gt;
+        .divtouch{
+            width:300px;
+            height:500px;
+            border:1px solid blue;
+            position:relative;
+            margin:0 auto;
+        }
+        .divtouch p{
+            font-size:30px;
+            text-align:center;
+        }
+        .divtouch div{
+            position:absolute;
+            width:50px;
+            height:50px;
+            background-color:pink;
+            top:0;
+            left:0;
+        }
+    &lt;/style&gt;
+    &lt;div class="divtouch"&gt;
+        &lt;p&gt;&lt;/p&gt;
+        &lt;div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        var para=document.querySelector(".divtouch p");
+        var divtouchBlock=document.querySelector(".divtouch div");
+        var s={
+            startX:0,
+            startY:0,
+            endX:0,
+            endY:0,
+            disX:0,
+            disY:0,
+            ofl:0,
+            oft:0,
+        }
+        divtouchBlock.addEventListener("touchstart",function(e){
+            var e=e||window.event;
+            para.innerHTML=e.touches.length+"根手指";
+            s.ofl=divtouchBlock.offsetLeft;
+            s.oft=divtouchBlock.offsetTop;
+            s.startX=e.touches[0].clientX;
+            s.startY=e.touches[0].clientY;
+            e.preventDefault();
+        },false)
+        document.addEventListener("touchmove",function(e){
+            var e=e||window.event;
+            if(e.touches.length!=1){
+                return;
+            }
+            s.endX=e.touches[0].clientX;
+            s.endY=e.touches[0].clientY;
+            s.disX=s.endX-s.startX+s.ofl;
+            s.disY=s.endY-s.startY+s.oft;
+            divtouchBlock.style.left=s.disX+"px";
+            divtouchBlock.style.top=s.disY+"px";
+        },false)
+    &lt;/script&gt;
+</pre>
+
+<pre>
+    <style>
+        .divtouch{
+            width:300px;
+            height:500px;
+            border:1px solid blue;
+            position:relative;
+            margin:0 auto;
+        }
+        .divtouch p{
+            font-size:30px;
+            text-align:center;
+        }
+        .divtouch div{
+            position:absolute;
+            width:50px;
+            height:50px;
+            background-color:pink;
+            top:0;
+            left:0;
+        }
+    </style>
+    <div class="divtouch">
+        <p></p>
+        <div></div>
+    </div>
+    <script>
+        var para=document.querySelector(".divtouch p");
+        var divtouchBlock=document.querySelector(".divtouch div");
+        var s={
+            startX:0,
+            startY:0,
+            endX:0,
+            endY:0,
+            disX:0,
+            disY:0,
+            ofl:0,
+            oft:0,
+        }
+        divtouchBlock.addEventListener("touchstart",function(e){
+            var e=e||window.event;
+            para.innerHTML=e.touches.length+"根手指";
+            s.ofl=divtouchBlock.offsetLeft;
+            s.oft=divtouchBlock.offsetTop;
+            s.startX=e.touches[0].clientX;
+            s.startY=e.touches[0].clientY;
+            e.preventDefault();
+        },false)
+        document.addEventListener("touchmove",function(e){
+            var e=e||window.event;
+            if(e.touches.length!=1){
+                return;
+            }
+            s.endX=e.touches[0].clientX;
+            s.endY=e.touches[0].clientY;
+            s.disX=s.endX-s.startX+s.ofl;
+            s.disY=s.endY-s.startY+s.oft;
+            divtouchBlock.style.left=s.disX+"px";
+            divtouchBlock.style.top=s.disY+"px";
+        },false)
+    </script>
+</pre>
+
+<h3 id="设备事件——方向API（陀螺仪）"><a href="#设备事件——方向API（陀螺仪）" class="headerlink" title="设备事件——方向API（陀螺仪）"></a>设备事件——方向API（陀螺仪）</h3><p>方向事件指DeviceOrientationEvent，其触发事件为<strong>deviceorientation</strong></p>
+<pre>
+    if(window.DeviceOrientationEvent){
+        window.addEventListener("deviceorientation",function(e){
+            var e=e||window.event;
+            e.alpha;//0~360度，0度指向正北方（Z轴）
+            e.beta;//设备前后转-180~180度（X轴）
+            e.gamma;//设备左右转-90~90度（Y轴）
+        },false)
+    }
+</pre>
+
+<h3 id="设备事件——加速度API"><a href="#设备事件——加速度API" class="headerlink" title="设备事件——加速度API"></a>设备事件——加速度API</h3><p>加速度事件指DeviceMotionEvent，其触发事件为<strong>devicemotion</strong></p>
+<pre>
+    if(window.DeviceMotionEvent){
+        window.addEventListener("devicemotion",function(e){
+            var e=e||window.event;
+            e.acceleration.x;//加速度，x代表x方向
+            e.acceleration.y;
+            e.acceleration.z;
+
+            e.accelerationIncludingGravity.x;//重力加速度，x轴代表x方向
+            e.accelerationIncludingGravity.y;
+            e.accelerationIncludingGravity.z;
+        },false)
+    }
+</pre>
+
+<h3 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h3><p>cookie是存储于访问者的计算机中的变量。每当同一台计算机通过浏览器请求某个页面时，就会发送这个cookie。可以使用JavaScript来创建和取回cookie的值。</p>
+<p><strong>服务器环境下才能设置cookie，每一个域名下最多20个cookie，每一个cookie不超过4kb。</strong></p>
+<p>每个cookie都是一个名/值对，如果要一次存储多个名/值对，可以使用分号加空格（; ）隔开。<code>document.cookie=&quot;userId=123; userName=Jack&quot;;</code></p>
+<p><strong>cookie的名或值中不能使用分号（;）、逗号（,）、等号（=）及空格。如需存储用escape()函数进行编码，从而避免乱码出现。</strong></p>
+<pre>
+    //设置cookie的名字，值，过期时间
+    setCookie("usename/password",userVal,10);
+    function setCookie(key,value,days){
+        var newDate=new Date();
+        var nowDay=nowDate.getDate();
+        nowDate.setDate(nowDay+days);
+        document.cookie=key+"="+value+";expires"+nowDate.toUTCString();
+    }
+    //删除cookie，将date设置为过去的时间来删除
+    setCookie("name","",-1);
+</pre>
+
+<h3 id="localStorageb本地存储"><a href="#localStorageb本地存储" class="headerlink" title="localStorageb本地存储"></a>localStorageb本地存储</h3><p>localStorage是HTML5提供的在客户端存储数据的新方法，<strong>localStorage是没有时间限制的数据存储</strong></p>
+<p>比cookie方便之处在于可以直接调用和删除。</p>
+<pre>
+    //设置localStorage
+    localStorage.username=user.value;
+    //获取localStorage
+    alert(localStorage.username);
+    //删除localStorage
+    localStorage.removeItem("username");
+</pre>
+
+<p>可通过如下代码来对访问页面次数进行计数：</p>
+<pre>
+    &lt;script&gt;
+        if(localStorage.pagecount){
+            localStorage.pagecount=Number(localStorage.pagecount)+1;//localStorage.pagecount为自定义参数
+        }else{
+            localStorage.pagecount=1;
+        }
+        console.log(localStorage.pagecount);
+    &lt;/script&gt;
+</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/07/31/JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage/" data-id="civ0zidlc000nbfe8nsk6ewie" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/08/07/JavaScriptRegExp正则对象/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JavaScriptRegExp正则对象
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/07/20/JavaScript滚轮事件的封装和滚轮轮播图/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JavaScript滚轮事件的封装和滚轮轮播图</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/09/14/PHP文件操作、表单处理和正则表达式/">PHP文件操作、表单处理和正则表达式</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/07/PHP运算符、流程控制、函数、数组和字符串/">PHP运算符、流程控制、函数、数组和字符串</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/01/PHP初了解/">PHP初了解</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/28/HTML5canvas标签和JavaScript的结合运用/">HTML5canvas标签和JavaScript的结合运用</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/20/jQuery函数的封装/">jQuery函数的封装</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 刘晓萌<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JavaScript图片轮播 | 紫--小梦</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="&amp;lt;style&amp;gt;
+        ul{
+            margin:0;
+            padding:0;
+            list-style-type:none;
+        }
+        .imgoc{
+            width:75%;
+            margin:0 auto;
+            ov">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript图片轮播">
+<meta property="og:url" content="http://yoursite.com/2016/06/05/JavaScript图片轮播/index.html">
+<meta property="og:site_name" content="紫--小梦">
+<meta property="og:description" content="&amp;lt;style&amp;gt;
+        ul{
+            margin:0;
+            padding:0;
+            list-style-type:none;
+        }
+        .imgoc{
+            width:75%;
+            margin:0 auto;
+            ov">
+<meta property="og:image" content="http://www.jiujiuba.com/xxpict2/picnews/7132249442.jpg">
+<meta property="og:image" content="http://pic.putaojiayuan.com/uploadfile/tuku/KaTongChaHua/12190515346673.jpg">
+<meta property="og:image" content="http://img.ivsky.com/download/Photo/UploadFiles/2009-7/2009714102041365.jpg">
+<meta property="og:image" content="http://www.dianmeng.com/moban/tupian/200808/2008080611515139.jpg">
+<meta property="og:image" content="http://www.jiujiuba.com/xxpict2/picnews/7132249442.jpg">
+<meta property="og:image" content="http://pic.putaojiayuan.com/uploadfile/tuku/KaTongChaHua/12190515346673.jpg">
+<meta property="og:updated_time" content="2016-11-02T13:45:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript图片轮播">
+<meta name="twitter:description" content="&amp;lt;style&amp;gt;
+        ul{
+            margin:0;
+            padding:0;
+            list-style-type:none;
+        }
+        .imgoc{
+            width:75%;
+            margin:0 auto;
+            ov">
+<meta name="twitter:image" content="http://www.jiujiuba.com/xxpict2/picnews/7132249442.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="紫--小梦" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">紫--小梦</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">心怀梦想，志在远方。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-JavaScript图片轮播" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/05/JavaScript图片轮播/" class="article-date">
+  <time datetime="2016-06-05T13:13:09.000Z" itemprop="datePublished">2016-06-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript图片轮播
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre>
+    &lt;style&gt;
+        ul{
+            margin:0;
+            padding:0;
+            list-style-type:none;
+        }
+        .imgoc{
+            width:75%;
+            margin:0 auto;
+            overflow:hidden;
+            position:relative;
+        }
+        .imgocdiv{
+            width:600%;
+            position:relative;
+            left:-100%;
+            transition-duration:.5s;
+        }
+        .imgocdiv img{
+            width:16.66666666%;
+            float:left;
+        }
+        .imgoc ul{
+            text-align:center;
+            position:absolute;
+            width:100%;
+            bottom:0px;
+        }
+        .imgoc ul li{
+            display:inline-block;
+            width:10px;
+            height:10px;
+            border-radius:50%;
+            background-color:red;
+            margin:4px;
+        }
+        .imgoc .imgactive{
+            background-color:blue;
+        }
+        .imgocbtn{
+            width:40px;
+            height:45px;
+            font-size:30px;
+            position:absolute;
+            top:50%;
+            transform:translateY(-20px);
+        }
+        .imgocbtn1{
+            left:0;
+        }
+        .imgocbtn2{
+            right:0;
+        }
+    &lt;/style&gt;
+    &lt;div class="imgoc"&gt;
+        &lt;div class="imgocdiv"&gt;
+            &lt;img src="http://www.jiujiuba.com/xxpict2/picnews/7132249442.jpg" /&gt;
+            &lt;img src="http://pic.putaojiayuan.com/uploadfile/tuku/KaTongChaHua/12190515346673.jpg" /&gt;
+            &lt;img src="http://img.ivsky.com/download/Photo/UploadFiles/2009-7/2009714102041365.jpg" /&gt;
+            &lt;img src="http://www.dianmeng.com/moban/tupian/200808/2008080611515139.jpg" /&gt;
+            &lt;img src="http://www.jiujiuba.com/xxpict2/picnews/7132249442.jpg" /&gt;
+            &lt;img src="http://pic.putaojiayuan.com/uploadfile/tuku/KaTongChaHua/12190515346673.jpg" /&gt;
+        &lt;/div&gt;
+        &lt;ul&gt;
+            &lt;li class="imgactive"&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;button class="imgocbtn imgocbtn1"&gt;&lt;&lt;/button&gt;
+        &lt;button class="imgocbtn imgocbtn2"&gt;&gt;&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        var div=document.querySelector(".imgocdiv");
+        var lis=document.querySelectorAll(".imgoc ul li");
+        var last=document.querySelector(".imgocbtn1");
+        var next=document.querySelector(".imgocbtn2");
+        var thisIndex=0;
+        for(var i=0;i&lt;lis.length;i++){
+            lis[i].index=i;
+            lis[i].onclick=function(){
+                thisIndex=this.index;
+                move();
+            }
+        }
+        //给轮播设置自动切换
+        var timer;
+        function timing(){
+            timer=setInterval(function(){
+                thisIndex++;
+                move();    
+            },3000)
+        }
+        timing();
+        //当鼠标在图片上停止切换，离开再运行
+        div.onmouseover=function(){
+            clearInterval(timer);
+        }
+        div.onmouseout=function(){
+            timing();
+        }
+        last.onmouseover=function(){
+            clearInterval(timer);
+        }
+        next.onmouseover=function(){
+            clearInterval(timer);
+        }
+        last.onmouseout=function(){
+            timing();
+        }
+        next.onmouseout=function(){
+            timing();
+        }
+        //点击切换上一个
+        lastMove();
+        function lastMove(){
+            last.onclick=function(){
+                last.onclick="";
+                thisIndex--;
+                move();
+                setTimeout(function(){
+                    lastMove();
+                },500)
+            }
+        }
+        //点击切换下一个
+        nextMove();
+        function nextMove(){
+            next.onclick=function(){
+                next.onclick="";
+                thisIndex++;
+                move();
+                setTimeout(function(){
+                    nextMove();
+                },500)
+            }
+        }
+        function move(){
+            for(var j=0;j&lt;lis.length;j++){
+                lis[j].className="";
+            }
+            div.style.left=-(thisIndex+1)*100+"%";
+            if(thisIndex==lis.length){
+                thisIndex=0;
+                lis[thisIndex].className="imgactive";
+                setStyle();
+            }else if(thisIndex==-1){
+                thisIndex=lis.length-1;
+                lis[thisIndex].className="imgactive";
+                setStyle();
+            }else{
+                lis[thisIndex].className="imgactive";
+            }
+        }
+        function setStyle(){
+            setTimeout(function(){
+                div.style.transitionDuration="0s";
+                div.style.left=-(thisIndex+1)*100+"%";
+                setTimeout(function(){
+                    div.style.transitionDuration="0.5s";
+                },30)
+            },500)
+        }
+    &lt;/script&gt;
+</pre>
+
+<pre>
+    <style>
+        ul{
+            margin:0;
+            padding:0;
+            list-style-type:none;
+        }
+        .imgoc{
+            width:75%;
+            margin:0 auto;
+            overflow:hidden;
+            position:relative;
+        }
+        .imgocdiv{
+            width:600%;
+            position:relative;
+            left:-100%;
+            transition-duration:.5s;
+        }
+        .imgocdiv img{
+            width:16.66666666%;
+            float:left;
+        }
+        .imgoc ul{
+            text-align:center;
+            position:absolute;
+            width:100%;
+            bottom:0px;
+        }
+        .imgoc ul li{
+            display:inline-block;
+            width:10px;
+            height:10px;
+            border-radius:50%;
+            background-color:red;
+            margin:4px;
+        }
+        .imgoc .imgactive{
+            background-color:blue;
+        }
+        .imgocbtn{
+            width:40px;
+            height:45px;
+            font-size:30px;
+            position:absolute;
+            top:50%;
+            transform:translateY(-50%);
+        }
+        .imgocbtn1{
+            left:0;
+        }
+        .imgocbtn2{
+            right:0;
+        }
+    </style>
+    <div class="imgoc">
+        <div class="imgocdiv"><img src="http://www.jiujiuba.com/xxpict2/picnews/7132249442.jpg"><img src="http://pic.putaojiayuan.com/uploadfile/tuku/KaTongChaHua/12190515346673.jpg"><img src="http://img.ivsky.com/download/Photo/UploadFiles/2009-7/2009714102041365.jpg"><img src="http://www.dianmeng.com/moban/tupian/200808/2008080611515139.jpg"><img src="http://www.jiujiuba.com/xxpict2/picnews/7132249442.jpg"><img src="http://pic.putaojiayuan.com/uploadfile/tuku/KaTongChaHua/12190515346673.jpg">
+        </div>
+        <ul><li class="imgactive"></li><li></li><li></li><li></li>
+        </ul>
+        <button class="imgocbtn imgocbtn1"><</button>
+        <button class="imgocbtn imgocbtn2">></button>
+    </div>
+    <script>
+        var div=document.querySelector(".imgocdiv");
+        var lis=document.querySelectorAll(".imgoc ul li");
+        var last=document.querySelector(".imgocbtn1");
+        var next=document.querySelector(".imgocbtn2");
+        var thisIndex=0;
+        for(var i=0;i<lis.length;i++){
+            lis[i].index=i;
+            lis[i].onclick=function(){
+                thisIndex=this.index;
+                move();
+            }
+        }
+        //给轮播设置自动切换
+        var timer;
+        function timing(){
+            timer=setInterval(function(){
+                thisIndex++;
+                move();    
+            },3000)
+        }
+        timing();
+        //当鼠标在图片上停止切换，离开再运行
+        div.onmouseover=function(){
+            clearInterval(timer);
+        }
+        div.onmouseout=function(){
+            timing();
+        }
+        last.onmouseover=function(){
+            clearInterval(timer);
+        }
+        next.onmouseover=function(){
+            clearInterval(timer);
+        }
+        last.onmouseout=function(){
+            timing();
+        }
+        next.onmouseout=function(){
+            timing();
+        }
+        //点击切换上一个
+        lastMove();
+        function lastMove(){
+            last.onclick=function(){
+                last.onclick="";
+                thisIndex--;
+                move();
+                setTimeout(function(){
+                    lastMove();
+                },500)
+            }
+        }
+        //点击切换下一个
+        nextMove();
+        function nextMove(){
+            next.onclick=function(){
+                next.onclick="";
+                thisIndex++;
+                move();
+                setTimeout(function(){
+                    nextMove();
+                },500)
+            }
+        }
+        function move(){
+            for(var j=0;j<lis.length;j++){
+                lis[j].className="";
+            }
+            div.style.left=-(thisIndex+1)*100+"%";
+            if(thisIndex==lis.length){
+                thisIndex=0;
+                lis[thisIndex].className="imgactive";
+                setStyle();
+            }else if(thisIndex==-1){
+                thisIndex=lis.length-1;
+                lis[thisIndex].className="imgactive";
+                setStyle();
+            }else{
+                lis[thisIndex].className="imgactive";
+            }
+        }
+        function setStyle(){
+            setTimeout(function(){
+                div.style.transitionDuration="0s";
+                div.style.left=-(thisIndex+1)*100+"%";
+                setTimeout(function(){
+                    div.style.transitionDuration="0.5s";
+                },30)
+            },500)
+        }
+    </script>
+</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/06/05/JavaScript图片轮播/" data-id="civ0zidls000ubfe8hr622ajk" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/06/11/JavaScript瀑布流/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JavaScript瀑布流
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/06/04/JavaScript制作简易日历/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JavaScript制作简易日历</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/09/14/PHP文件操作、表单处理和正则表达式/">PHP文件操作、表单处理和正则表达式</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/07/PHP运算符、流程控制、函数、数组和字符串/">PHP运算符、流程控制、函数、数组和字符串</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/01/PHP初了解/">PHP初了解</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/28/HTML5canvas标签和JavaScript的结合运用/">HTML5canvas标签和JavaScript的结合运用</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/20/jQuery函数的封装/">jQuery函数的封装</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 刘晓萌<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JavaScriptRegExp正则对象 | 紫--小梦</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="RegExp对象RegExp对象表示正则表达式，是对字符串执行模式匹配的强大工具。
+构造正则表达式方式：
+
+直接定义：var reg=/pattern/attributes;
+
+创建RegExp对象：var reg=new RegExp(pattern,attributes);
+
+
+参数pattern是一个字符串，指定了正则表达式的模式或其他正则表达式；
+参数attribute是一个可选字符串，包">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScriptRegExp正则对象">
+<meta property="og:url" content="http://yoursite.com/2016/08/07/JavaScriptRegExp正则对象/index.html">
+<meta property="og:site_name" content="紫--小梦">
+<meta property="og:description" content="RegExp对象RegExp对象表示正则表达式，是对字符串执行模式匹配的强大工具。
+构造正则表达式方式：
+
+直接定义：var reg=/pattern/attributes;
+
+创建RegExp对象：var reg=new RegExp(pattern,attributes);
+
+
+参数pattern是一个字符串，指定了正则表达式的模式或其他正则表达式；
+参数attribute是一个可选字符串，包">
+<meta property="og:updated_time" content="2016-11-02T13:52:04.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScriptRegExp正则对象">
+<meta name="twitter:description" content="RegExp对象RegExp对象表示正则表达式，是对字符串执行模式匹配的强大工具。
+构造正则表达式方式：
+
+直接定义：var reg=/pattern/attributes;
+
+创建RegExp对象：var reg=new RegExp(pattern,attributes);
+
+
+参数pattern是一个字符串，指定了正则表达式的模式或其他正则表达式；
+参数attribute是一个可选字符串，包">
+  
+    <link rel="alternate" href="/atom.xml" title="紫--小梦" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">紫--小梦</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">心怀梦想，志在远方。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-JavaScriptRegExp正则对象" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/07/JavaScriptRegExp正则对象/" class="article-date">
+  <time datetime="2016-08-07T13:12:13.000Z" itemprop="datePublished">2016-08-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScriptRegExp正则对象
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="RegExp对象"><a href="#RegExp对象" class="headerlink" title="RegExp对象"></a>RegExp对象</h3><p><strong>RegExp对象</strong>表示正则表达式，是对字符串执行模式匹配的强大工具。</p>
+<p><strong>构造正则表达式方式：</strong></p>
+<ol>
+<li><p>直接定义：<code>var reg=/pattern/attributes;</code></p>
+</li>
+<li><p>创建RegExp对象：<code>var reg=new RegExp(pattern,attributes);</code></p>
+</li>
+</ol>
+<p>参数pattern是一个字符串，指定了正则表达式的模式或其他正则表达式；</p>
+<p>参数attribute是一个可选字符串，包含属性”g”、”i”和”m”，分别用于指定全局匹配、区分大小写的匹配和多行匹配。ECMAScript标准化之前，不支持m属性。如果pattern是正则表达式，而不是字符串，则必须省略该参数。</p>
+<p><strong>RegExpObject.test(string)</strong></p>
+<p>检测字符串是否匹配某个模式，是则返回true，否则返回false。</p>
+<h3 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h3><p>正则检测方式，如果不设置全局检测，那么只要检测到一次就结束。</p>
+<pre>
+    i        不区分大小写
+
+    g        全局匹配
+
+    m        多行匹配
+</pre>
+
+<h3 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h3><pre>
+    .        查找单个字符，所有非换行和行结束符的字符
+
+    \w        查找数字字母下划线
+
+    \W        查找非数字字母下划线
+
+    \d        查找数字
+
+    \D        查找非数字
+
+    \s        查找空格
+
+    \S        查找非空格
+
+    \b        检测单词开头或者结尾是否有
+
+    \B        不处于单词开头或结尾的
+
+    \0        空字符串，也相当于NUL
+
+    \n        查找换行符
+
+    \f        查找换页符
+
+    \t        查找制表符
+
+    \v        查找垂直制表符
+
+    \xxx    查找以八进制数xxx规定的字符
+
+    \xdd    查找以十六进制数dd规定的字符
+
+    \uxxxx    查找以十六进制数xxxx规定的Unicode字符
+</pre>
+
+<h3 id="量词"><a href="#量词" class="headerlink" title="量词"></a>量词</h3><pre>
+    n+        包含一个及以上（至少一个）n的字符串
+
+    n*        包含零个或多个n的字符串
+
+    n?        包含零个或一个n的字符串
+
+    n{X}    包含X个n的序列的字符串
+
+    n{X,Y}    包含X到Y个n的序列的字符串
+
+    n{X,}    包含至少X个n的序列的字符串
+
+    n$        匹配任何结尾为n的字符串
+
+    ^n        匹配任何开头为n的字符串
+
+    ?=n        匹配任何其后紧接指定字符串n的字符串
+
+    ?!n        匹配任何其后没有紧接指定字符串n的字符串
+</pre>
+
+<h3 id="方括号"><a href="#方括号" class="headerlink" title="方括号"></a>方括号</h3><pre>
+    [abc]    查找方括号之间的任何字符
+
+    [^abc]    查找任何不在方括号之间的字符
+
+    [0-9]    查找任何从0至9的数字
+
+    [a-z]    查找任何从小写a到小写z的字符
+
+    [A-Z]    查找任何从大写A到大写Z的字符
+
+    [A-Za-z]查找任何从大写A到小写Z的字符
+
+    ()        查找任何指定的选项
+</pre>
+
+<h3 id="支持正则表达式的方法"><a href="#支持正则表达式的方法" class="headerlink" title="支持正则表达式的方法"></a>支持正则表达式的方法</h3><p><strong>stringObject.search(regexp)</strong></p>
+<p>返回第一个与regexp相匹配的起始位置，如果没有则返回-1。<code>此方法不支持全局匹配</code>，如需忽略大小写，需添加i。</p>
+<p><strong>stringObject.match(regexp)</strong></p>
+<p>返回存放匹配结果的数组。数组内容依赖于regexp是否有全局标志g。</p>
+<p><strong>stringObject.replace(regexp,replacement)</strong></p>
+<p>返回一个新的字符串，用replacement替换regexp第一次匹配或所有匹配之后得到的。</p>
+<p><strong>stringObject.spilt(separator,howmany)</strong></p>
+<p>前面已讲过，在此不再一一赘述。</p>
+<pre>
+    //判断手机号
+    var reg1=/^1[34578]\d{9}/;
+    //判断固定电话号码
+    var reg2=/(^0\d{2,3}-[1-9]\d{6,7}$)|(^[1-9]\d{6,7}$)/;
+    //判断汉字
+    var reg3=/[\u4e00-\u9fa5]+/g;
+
+    //选择替换关键字
+    var reg4=/哈哈|呵呵|这个是/g;
+    var str="这个是的呵呵，这个哈哈是的，呵呵";
+    var newStr=str.replace(reg4,function(sr){
+        var str="";
+        for(var i=0;i&lt;sr.length;i++){
+            str+="*";
+        }
+        return str;
+    })
+    console.log(newStr);
+</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/08/07/JavaScriptRegExp正则对象/" data-id="civ0zidlb000mbfe8k34i5d47" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/08/14/JavaScript面向对象/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JavaScript面向对象
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/07/31/JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JavaScriptTouch事件、陀螺仪、加速度、cookie和localStorage</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/09/14/PHP文件操作、表单处理和正则表达式/">PHP文件操作、表单处理和正则表达式</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/07/PHP运算符、流程控制、函数、数组和字符串/">PHP运算符、流程控制、函数、数组和字符串</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/01/PHP初了解/">PHP初了解</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/28/HTML5canvas标签和JavaScript的结合运用/">HTML5canvas标签和JavaScript的结合运用</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/20/jQuery函数的封装/">jQuery函数的封装</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 刘晓萌<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
